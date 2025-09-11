@@ -18,18 +18,20 @@ class ScheduleTable
         return $table
             ->columns([
                 TextColumn::make('day')
-                ->searchable()
-                ->label('Hari'),
-                TextColumn::make('classRombel.name')
-                ->searchable()
-                ->label('Kelas'),
-                TextColumn::make('subject.name')
-                ->searchable()
-                ->label('Mata Pelajaran'),
-                TextColumn::make('teacher.full_name')
-                ->searchable()
-                ->label('Guru'),
-
+                    ->searchable()
+                    ->label('Hari'),
+                TextColumn::make('scheduleSubjects.time_start')
+                    ->searchable()
+                    ->label('Jam Mulai'),
+                TextColumn::make('scheduleSubjects.time_end')
+                    ->searchable()
+                    ->label('Jam Selesai'),
+                TextColumn::make('scheduleSubjects.subject.name')
+                    ->searchable()
+                    ->label('Mata Pelajaran'),
+                TextColumn::make('scheduleSubjects.teacher.full_name')
+                    ->searchable()
+                    ->label('Guru'),
 
             ])
             ->defaultGroup('classRombel.name')

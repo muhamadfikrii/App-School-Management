@@ -25,19 +25,19 @@ class Grade extends Model
         return $this->belongsTo(AcademicYear::class);
     }
 
-    public function teacher() 
+    public function teacher()
     {
         return $this->belongsTo(Teacher::class);
     }
 
-    public function classRombel() 
+    public function classRombel()
     {
         return $this->belongsTo(ClassRombel::class);
     }
 
     public function gradeComponents()
     {
-        return $this->belongsTo(GradeComponents::class);
+        return $this->belongsTo(GradeComponent::class);
     }
 
     public function getWeightedScore(): float
@@ -46,7 +46,7 @@ class Grade extends Model
     return $this->score * $weight;
     }
 
-    protected static function booted() 
+    protected static function booted()
     {
     static::creating(function (Grade $grade) {
         $waliKelas = $grade->student->classRombel?->teacher;

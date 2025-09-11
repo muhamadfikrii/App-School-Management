@@ -6,7 +6,7 @@ use BackedEnum;
 use App\Enums\UserRole;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
-use App\Models\GradeComponents;
+use App\Models\GradeComponent;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
 use App\Filament\Resources\GradeComponents\Pages\EditGradeComponents;
@@ -19,7 +19,7 @@ use App\Filament\Resources\GradeComponents\Schemas\GradeComponentsInfolist;
 
 class GradeComponentsResource extends Resource
 {
-    protected static ?string $model = GradeComponents::class;
+    protected static ?string $model = GradeComponent::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

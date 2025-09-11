@@ -5,7 +5,7 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\ClassRombel;
 use App\Models\AcademicYear;
-use App\Models\GradeComponents;
+use App\Models\GradeComponent;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->decimal('score')->nullable();
             $table->foreignIdFor(AcademicYear::class);
             $table->foreignIdFor(Teacher::class);
-            $table->foreignIdFor(GradeComponents::class);
+            $table->foreignIdFor(GradeComponent::class);
             $table->timestamps();
         });
     }

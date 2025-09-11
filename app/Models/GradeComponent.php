@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\GradeComponentFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class GradeComponents extends Model
+class GradeComponent extends Model
 {
+    use HasFactory;
+
     protected $table = "grades_components";
 
     protected $guarded = [];

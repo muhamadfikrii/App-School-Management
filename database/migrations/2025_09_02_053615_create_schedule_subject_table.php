@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Subject;
-use App\Models\ClassSubject;
+use App\Models\Schedule;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,11 +14,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('class_subjects', function (Blueprint $table) {
+        Schema::create('schedule_subject', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(ClassSubject::class)->nullable();
+            $table->string('time_start');
+            $table->string('time_end');
+            $table->foreignIdFor(Schedule::class)->nullable();
             $table->foreignIdFor(Subject::class)->nullable();
-            $table->foreignIdFor(Teacher::class)->nullable();
+            $table->foreignIdFor(Teacher::class);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('class_subjects');
+        Schema::dropIfExists('schedule_subject');
     }
 };

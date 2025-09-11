@@ -12,6 +12,7 @@ use Database\Seeders\TeacherSeeder;
 use Database\Seeders\ScheduleSeeder;
 use Database\Seeders\ClassRombelSeeder;
 use Database\Seeders\AcademicYearSeeder;
+use Database\Seeders\GradeComponentSeeder;
 use Database\Seeders\DefaultTestUsersSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             StudentSeeder::class,
             SubjectSeeder::class,
             ScheduleSeeder::class,
+            GradeComponentSeeder::class,
         ]);
     }
 

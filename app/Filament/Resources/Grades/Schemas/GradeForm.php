@@ -8,7 +8,7 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\ClassRombel;
 use App\Models\AcademicYear;
-use App\Models\GradeComponents;
+use App\Models\GradeComponent;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Grid;
@@ -73,7 +73,7 @@ class GradeForm
                             Select::make('grades_components_id')
                                 ->label('Assesments')
                                 ->searchable()
-                                ->options(GradeComponents::pluck('name','id')->toArray()),
+                                ->options(GradeComponent::pluck('name','id')->toArray()),
 
                             TextInput::make('score')
                                 ->label('Nilai')

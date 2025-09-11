@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Database\Factories\ScheduleFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Schedule extends Model
 {
@@ -20,10 +22,11 @@ class Schedule extends Model
         return $this->belongsTo(ClassRombel::class);
     }
 
-    public function subject(): BelongsTo
+    public function scheduleSubjects(): HasMany
     {
-        return $this->belongsTo(Subject::class);
+        return $this->hasMany(ScheduleSubject::class);
     }
+
     public function teacher(): BelongsTo
     {
         return $this->belongsTo(Teacher::class);

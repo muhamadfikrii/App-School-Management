@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\Schedule\Schemas;
 
-use App\Enums\Days;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\RepeatableEntry;
 
 class ScheduleInfolist
 {
@@ -14,38 +14,39 @@ class ScheduleInfolist
     {
         return $schema
             ->schema([
-                Section::make("Detail Jadwal")
+                Section::make('Detail Jadwal')
                     ->columnSpanFull()
                     ->schema([
-                        Grid::make(2)
+                       Grid::make(2)
                             ->schema([
                                 TextEntry::make('day')
-                                    ->label('Hari')
-                                    ->formatStateUsing(fn ($state) => Days::toArray()[$state] ?? $state),
+                                    ->label('Hari'),
 
                                 TextEntry::make('classRombel.name')
                                     ->label('Kelas'),
                             ]),
 
-                        Grid::make(2)
+                        RepeatableEntry::make('scheduleSubjects')
+                            ->label('Mata Pelajaran')
                             ->schema([
-                                TextEntry::make('time_start')
-                                    ->label('Mulai')
-                                    ->dateTime('H:i'),
+                                Grid::make(4)
+                                    ->schema([
+                                        TextEntry::make('subject.name')
+                                            ->label('Mata Pelajaran'),
 
-                                TextEntry::make('time_end')
-                                    ->label('Selesai')
-                                    ->dateTime('H:i'),
-                            ]),
+                                        TextEntry::make('teacher.full_name')
+                                            ->label('Guru'),
 
-                        Grid::make(2)
-                            ->schema([
-                                TextEntry::make('subject.name')
-                                    ->label('Mata Pelajaran'),
+                                        TextEntry::make('time_start')
+                                            ->label('Mulai')
+                                            ->dateTime('H:i'),
 
-                                TextEntry::make('teacher.full_name')
-                                    ->label('Guru Pengajar'),
-                            ]),
+                                        TextEntry::make('time_end')
+                                            ->label('Selesai')
+                                            ->dateTime('H:i'),
+                                    ]),
+                            ])
+                            ->columnSpanFull(),
                     ]),
             ]);
     }
