@@ -49,73 +49,73 @@
                         class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
                     @error('password') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
                 </div>
-                
+
                 <!-- Confirm Password -->
                 <div>
                     <label class="block mb-2 text-gray-700 font-medium">Confirm Password</label>
                     <input type="password" wire:model="password_confirmation" required
                     class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 </div>
-                
+
                 @if ($isTeacher)
-                <!-- NIP -->
-                <div>
-                    <label class="block mb-2 text-gray-700 font-medium">NIP</label>
-                    <input type="text" wire:model="nip" required
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    @error('nip') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
-                </div>
-
-                <!-- Phone -->
-                <div>
-                    <label class="block mb-2 text-gray-700 font-medium">Phone</label>
-                    <input type="text" wire:model="phone" required
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                </div>
-
-                <!-- Gender -->
-                <div>
-                    <label class="block mb-2 text-gray-700 font-medium">Gender</label>
-                    <select wire:model="gender" 
+                    <!-- NIP -->
+                    <div>
+                        <label class="block mb-2 text-gray-700 font-medium">NIP</label>
+                        <input type="text" wire:model="nip" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        <option value="">-- Pilih Gender --</option>
-                        <option value="laki-laki">Laki-laki</option>
-                        <option value="perempuan">Perempuan</option>
-                    </select>
-                    @error('gender') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
-                </div>
+                        @error('nip') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
+                    </div>
 
-                <!-- Date of Birth -->
-                <div>
-                    <label class="block mb-2 text-gray-700 font-medium">Tanggal Lahir</label>
-                    <input type="date" wire:model="date_of_birth" 
-                        class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                </div>
-
-                <!-- Status -->
-                <div>
-                    <label class="block mb-2 text-gray-700 font-medium">Status</label>
-                    <select wire:model="status" 
+                    <!-- Phone -->
+                    <div>
+                        <label class="block mb-2 text-gray-700 font-medium">Phone</label>
+                        <input type="text" wire:model="phone" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        <option value="">-- Pilih Status --</option>
-                        @foreach(\App\Enums\TeacherStatus::cases() as $status)
-                            <option value="{{ $status->value }}">{{ $status->getLabel() }}</option>
-                        @endforeach
-                    </select>
-                    @error('status') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
-                </div>
+                    </div>
 
-                <!-- Address -->
-                <div class="col-span-2">
-                    <label class="block mb-2 text-gray-700 font-medium">Alamat</label>
-                    <textarea wire:model="address" rows="3"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
-                </div>
+                    <!-- Gender -->
+                    <div>
+                        <label class="block mb-2 text-gray-700 font-medium">Gender</label>
+                        <select wire:model="gender"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="">-- Pilih Gender --</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                        @error('gender') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div>
+                        <label class="block mb-2 text-gray-700 font-medium">Tanggal Lahir</label>
+                        <input type="date" wire:model="date_of_birth"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    </div>
+
+                    <!-- Status -->
+                    <div>
+                        <label class="block mb-2 text-gray-700 font-medium">Status</label>
+                        <select wire:model="status"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="">-- Pilih Status --</option>
+                            @foreach(\App\Enums\TeacherStatus::cases() as $status)
+                                <option value="{{ $status->value }}">{{ $status->getLabel() }}</option>
+                            @endforeach
+                        </select>
+                        @error('status') <span class="text-red-600 text-sm">{{ $message }}</span> @enderror
+                    </div>
+
+                    <!-- Address -->
+                    <div class="col-span-2">
+                        <label class="block mb-2 text-gray-700 font-medium">Alamat</label>
+                        <textarea wire:model="address" rows="3"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                    </div>
                 @endif
 
                 <!-- Submit Button -->
                 <div class="col-span-2 flex justify-center">
-                    <button type="submit" 
+                    <button type="submit"
                             class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition">
                         Submit
                     </button>

@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Users;
 
 use BackedEnum;
-use App\Enums\Roles;
+use App\Enums\UserRole;
 use App\Models\User;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -23,11 +23,12 @@ class UserResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
 
     protected static ?string $recordTitleAttribute = 'yes';
+
     protected static  string | UnitEnum | null $navigationGroup = 'User Manajemen';
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
     public static function form(Schema $schema): Schema

@@ -3,16 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\StudentFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Student extends Model
 {
+    use HasFactory;
+
     protected $guarded  = [];
 
-    public function classRombel(): BelongsTo 
+    public function classRombel(): BelongsTo
     {
-        return $this->belongsTo(ClassRombel::class, 'classes_id');
+        return $this->belongsTo(ClassRombel::class, 'class_rombel_id');
     }
 
     public function academicYear(): BelongsTo
@@ -33,7 +37,7 @@ class Student extends Model
         });
     }
 
-    public function subject(): BelongsTo 
+    public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class,'');
     }
@@ -43,10 +47,9 @@ class Student extends Model
         return $this->belongsTo(Teacher::class,'');
     }
 
-    public function finalScore(): HasMany 
+    public function finalScore(): HasMany
     {
         return $this->hasMany(FinalScore::class);
     }
 
 }
-

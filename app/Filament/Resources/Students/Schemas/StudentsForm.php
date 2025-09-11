@@ -36,7 +36,7 @@ class StudentsForm
                                                     ->toArray();
                                                 }),
                         ]),
-                        
+
                         Grid::make(2)
                             ->schema([
                                 TextInput::make('nisn')
@@ -98,8 +98,8 @@ class StudentsForm
                                                 ->label('Kelas')
                                                 ->options(ClassRombel::pluck('name','id'))
                                                 ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                                ->disabled(fn () => auth()->user()->hasRole('guru'))
-                                                ->preload()     
+                                                ->disabled(fn () => auth()->user()->is_teacher)
+                                                ->preload()
                                                 ->searchable()
                                                 ->required(),
 
@@ -111,7 +111,7 @@ class StudentsForm
                                                 'Tidak Aktif' => 'Tidak Aktif'
                                             ])
                                     ]),
-                                    
+
 
                 Section::make('Alamat')
                     ->description('Lengkapi informasi alamat siswa.')

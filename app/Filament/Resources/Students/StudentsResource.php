@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Students;
 
 use App\Filament\Resources\Students\RelationManagers\GradeRelationManager;
 use BackedEnum;
+use UnitEnum;
 use App\Models\Student;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -22,24 +23,23 @@ class StudentsResource extends Resource
 {
     protected static ?string $model = Student::class;
 
+    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
 
     public static function canAccess(): bool
     {
-    $user = auth()->user();
+        $user = auth()->user();
 
-    // Cek role administrator
-    if ($user->hasRole('administrator')) {
-        return true;
-    }
+        if ($user->is_admin) {
+            return true;
+        }
 
-    // Cek role guru yang punya kelas (wali kelas)
-    if ($user->hasRole('guru') && $user->teacher && $user->teacher->classes) {
-        return true;
-    }
+        if ($user->is_teacher && $user->teacher && $user->teacher->classes) {
+            return true;
+        }
 
-    // User lain tidak bisa akses
-    return false;
+        return false;
     }
 
 
@@ -71,7 +71,7 @@ class StudentsResource extends Resource
         $query = parent::getEloquentQuery();
         $user = auth()->user();
 
-        if ($user->hasRole('guru') && $user->teacher) {
+        if ($user->is_teacher && $user->teacher) {
             // Guru hanya bisa lihat student dari kelasnya sendiri
             return $query->where('classes_id', $user->teacher->classes->id);
         }

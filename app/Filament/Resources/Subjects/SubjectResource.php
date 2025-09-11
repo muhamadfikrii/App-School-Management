@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Subjects;
 
 use UnitEnum;
 use BackedEnum;
-use App\Enums\Roles;
+use App\Enums\UserRole;
 use App\Models\Subject;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -21,7 +21,9 @@ use App\Filament\Resources\Subjects\Schemas\SubjectInfolist;
 class SubjectResource extends Resource
 {
     protected static ?string $model = Subject::class;
-    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Pembelajaran';
+
+    protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
+
     protected static ?int $navigationSort = 1;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
@@ -30,7 +32,7 @@ class SubjectResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
     public static function form(Schema $schema): Schema

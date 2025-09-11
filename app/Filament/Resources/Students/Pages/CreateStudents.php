@@ -19,9 +19,9 @@ class CreateStudents extends CreateRecord
     {
         $user = auth()->user();
 
-        if ($user->hasRole('guru')) {
-        $data['classes_id'] = $user->teacher->classes->id ?? $data['classes_id'] ?? null;
-    }   
+        if ($user->is_teacher) {
+            $data['classes_id'] = $user->teacher->classes->id ?? $data['classes_id'] ?? null;
+        }
 
         return $data;
     }

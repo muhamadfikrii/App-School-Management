@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class GradeComponents extends Model
 {
-    protected $table = "grade_components";
+    protected $table = "grades_components";
 
     protected $guarded = [];
 
-    public function setWeightAttributes($value) 
+    public function setWeightAttributes($value)
     {
         $this->attributes["weight"] = $value / 100;
     }
@@ -20,7 +20,7 @@ class GradeComponents extends Model
         return $value * 100;
     }
 
-    public function student() 
+    public function student()
     {
         return $this->belongsTo(Student::class);
     }

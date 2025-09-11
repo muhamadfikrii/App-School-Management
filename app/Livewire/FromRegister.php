@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Enums\Roles;
 use App\Models\User;
 use App\Models\Teacher;
 use Livewire\Component;
@@ -41,8 +40,8 @@ class FromRegister extends Component
 
         $this->email = $invitation->email;
     }
-    
-    #[Layout('components.layouts.app')] 
+
+    #[Layout('components.layouts.app')]
     public function render()
     {
         return view('livewire.from-register');
@@ -74,11 +73,12 @@ class FromRegister extends Component
                 'name' => $this->name,
                 'email' => $this->email,
                 'password' => Hash::make($validated['password']),
+                'role_name' => $this->isTeacher ? $user->is_teacher : $user->is_admin,
             ]);
 
             if ($this->isTeacher) {
                 Teacher::create([
-                    'full_name' => $this->name,
+                    'name' => $this->name,
                     'nip' => $validated['nip'] ?? null,
                     'phone' => $validated['phone'] ?? null,
                     'gender' => $validated['gender'],
@@ -87,16 +87,12 @@ class FromRegister extends Component
                     'address' => $validated['address'] ?? null,
                     'user_id' => $user->id,
                 ]);
-
-                $user->assignRole(Roles::GURU->value);
-            } else {
-                $user->assignRole(Roles::ADMINISTRATOR->value);
             }
         });
 
         session()->flash('success', 'Teacher and User created successfully!');
         $this->invitation->update(['status' => InvitationStatus::SUCCESS ]);
 
-        return redirect()->to('/admin'); 
+        return redirect()->to('/admin');
     }
 }

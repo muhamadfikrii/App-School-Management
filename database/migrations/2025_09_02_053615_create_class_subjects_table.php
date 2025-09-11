@@ -16,13 +16,9 @@ return new class extends Migration
     {
         Schema::create('class_subjects', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(ClassSubject::class)
-            ->nullable();
-            $table->foreignIdFor(Subject::class)
-            ->nullable();
-            $table->foreignIdFor(Teacher::class)
-            ->nullable();
-
+            $table->foreignIdFor(ClassSubject::class)->nullable();
+            $table->foreignIdFor(Subject::class)->nullable();
+            $table->foreignIdFor(Teacher::class)->nullable();
             $table->timestamps();
         });
     }

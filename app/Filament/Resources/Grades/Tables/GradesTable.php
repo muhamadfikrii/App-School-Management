@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Grades\Tables;
 
-use App\Filament\Exports\SchedulesExporter;
+use App\Filament\Exports\ScheduleExporter;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
@@ -27,7 +27,7 @@ class GradesTable
                     ->label("Mata Pelajaran"),
                 TextColumn::make("score")
                     ->label("Nilai"),
-                
+
             ])
             ->filters([
                 //
@@ -39,9 +39,9 @@ class GradesTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
-                    ->visible(fn() => auth()->user()->hasRole('administrator')),
+                    ->visible(fn() => auth()->user()->is_admin),
                 ]),
             ]);
-            
+
     }
 }

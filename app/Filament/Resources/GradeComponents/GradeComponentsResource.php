@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\GradeComponents;
 
 use BackedEnum;
-use App\Enums\Roles;
+use App\Enums\UserRole;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use App\Models\GradeComponents;
@@ -27,7 +27,7 @@ class GradeComponentsResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
     public static function form(Schema $schema): Schema
