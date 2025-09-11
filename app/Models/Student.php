@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Student extends Model
+{
+    protected $guarded  = [];
+
+    public function classRombel(): BelongsTo 
+    {
+        return $this->belongsTo(ClassRombel::class, 'classes_id');
+    }
+
+    public function academicYear(): BelongsTo
+    {
+        return $this->belongsTo(AcademicYear::class,'academic_year_id');
+    }
+
+
+    public function grade(): HasMany
+    {
+        return $this->hasMany(Grade::class);
+    }
+
+    public function scopeForTeacher($query, $teacherId)
+    {
+        return $query->whereHas('studentClass', function ($q) use ($teacherId) {
+            $q->where('teacher_id', $teacherId);
+        });
+    }
+
+    public function subject(): BelongsTo 
+    {
+        return $this->belongsTo(Subject::class,'');
+    }
+
+    public function teacher(): BelongsTo
+    {
+        return $this->belongsTo(Teacher::class,'');
+    }
+
+    public function finalScore(): HasMany 
+    {
+        return $this->hasMany(FinalScore::class);
+    }
+
+}
+
