@@ -17,6 +17,8 @@ class AcademicsTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+                TextColumn::make('created_at'),
+                TextColumn::make('updated_at'),
             ])
             ->filters([
                 //

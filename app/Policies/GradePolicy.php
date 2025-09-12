@@ -13,7 +13,7 @@ class GradePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole("administrator") || $user->hasRole("guru");
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**
@@ -21,7 +21,7 @@ class GradePolicy
      */
     public function view(User $user, Grade $grade): bool
     {
-        return $user->hasRole("administrator") || $user->hasRole("guru");
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**
@@ -29,7 +29,7 @@ class GradePolicy
      */
     public function create(User $user): bool
     {
-        return $user->hasRole("administrator") || $user->hasRole("guru");
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**
@@ -37,8 +37,8 @@ class GradePolicy
      */
     public function update(User $user, Grade $grade): bool
     {
-        
-        return $user->hasRole("administrator") || $user->hasRole('guru');
+
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**
@@ -46,7 +46,7 @@ class GradePolicy
      */
     public function delete(User $user, Grade $grade): bool
     {
-        return $user->hasRole("administrator");
+        return $user->is_admin;
     }
 
     /**
@@ -62,6 +62,6 @@ class GradePolicy
      */
     public function forceDelete(User $user, Grade $grade): bool
     {
-        return $user->hasRole("administrator");
+        return $user->is_admin;
     }
 }

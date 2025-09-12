@@ -8,7 +8,7 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\ClassRombel;
 use App\Models\AcademicYear;
-use App\Models\GradeComponents;
+use App\Models\GradeComponent;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Grid;
@@ -26,14 +26,14 @@ class GradeForm
                     ->schema([
                         Grid::make(2)
                         ->schema([
-                            
+
 
                             Select::make('class_rombel_id')
                                 ->label('Kelas')
                                 ->options(ClassRombel::pluck('name','id'))
                                 ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                ->reactive() 
-                                ->preload()     
+                                ->reactive()
+                                ->preload()
                                 ->searchable()
                                 ->required()
                                 ->afterStateUpdated(fn ($state, callable $set) => $set('student_id', null)),
@@ -46,7 +46,7 @@ class GradeForm
 
                             Select::make('subject_id')
                                 ->label('Mata Pelajaran')
-                                ->options(Subject::pluck('name','id')) 
+                                ->options(Subject::pluck('name','id'))
                                 ->reactive() // biar perubahan memicu update guru
                                 ->afterStateUpdated(fn ($state, callable $set) => $set('teacher_id', null)),
 
@@ -70,17 +70,17 @@ class GradeForm
                                 ->label('Semester')
                                 ->options(Semester::toArray()),
 
-                            Select::make('grade_components_id')
+                            Select::make('grades_components_id')
                                 ->label('Assesments')
                                 ->searchable()
-                                ->options(GradeComponents::pluck('name','id')->toArray()),
+                                ->options(GradeComponent::pluck('name','id')->toArray()),
 
                             TextInput::make('score')
                                 ->label('Nilai')
                                 ->required()
                         ])
-                        
-                            
+
+
                             ]),
                         ]);
     }

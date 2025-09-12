@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Majors;
 
 use UnitEnum;
 use BackedEnum;
-use App\Enums\Roles;
+use App\Enums\UserRole;
 use App\Models\Major;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -21,15 +21,16 @@ use App\Filament\Resources\Majors\Schemas\MajorInfolist;
 class MajorResource extends Resource
 {
     protected static ?string $model = Major::class;
-    
-    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Pembelajaran';
+
+    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+
     protected static ?int $navigationSort = 2;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Briefcase;
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
     public static function form(Schema $schema): Schema

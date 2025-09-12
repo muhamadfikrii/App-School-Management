@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Invitations;
 
 use UnitEnum;
 use BackedEnum;
-use App\Enums\Roles;
+use App\Enums\UserRole;
 use App\Models\Invitation;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -29,7 +29,7 @@ class InvitationResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
 

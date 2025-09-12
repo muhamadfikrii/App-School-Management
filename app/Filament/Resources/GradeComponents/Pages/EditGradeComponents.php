@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\GradeComponents\Pages;
 
-use App\Models\GradeComponents;
+use App\Models\GradeComponent;
 use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;

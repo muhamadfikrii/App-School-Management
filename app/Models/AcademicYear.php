@@ -2,19 +2,23 @@
 
 namespace App\Models;
 
+use Database\Factories\AcademicYearFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AcademicYear extends Model
 {
+    use HasFactory;
+
     protected $table = "academic_year";
 
     protected $guarded = [];
 
-    public function Student() {
+    public function student() {
         return $this->hasOne(Student::class);
     }
 
-    public function Classes() {
+    public function classRombel() {
         return $this->hasOne(ClassRombel::class);
     }
 

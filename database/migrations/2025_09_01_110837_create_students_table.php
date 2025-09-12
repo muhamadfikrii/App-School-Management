@@ -14,13 +14,17 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->integer('nisn')->unique();
+            $table->string('nisn')->index()->unique();
             $table->string('full_name');
             $table->date('date_of_birth');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('gender');
-            $table->string('phone');
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('parent_name')->nullable();
+            $table->string('parent_phone')->nullable();
+            $table->string('status');
+            $table->string('year_enrollment');
             $table->foreignIdFor(ClassRombel::class)->nullable();
             $table->timestamps();
         });

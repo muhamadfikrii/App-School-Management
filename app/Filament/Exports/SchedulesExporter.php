@@ -2,7 +2,7 @@
 
 namespace App\Filament\Exports;
 
-use App\Models\Schedules;
+use App\Models\Schedule;
 use Illuminate\Support\Number;
 use Filament\Actions\Exports\Exporter;
 use OpenSpout\Common\Entity\Style\Style;
@@ -10,9 +10,9 @@ use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Models\Export;
 use OpenSpout\Common\Entity\Style\CellAlignment;
 
-class SchedulesExporter extends Exporter
+class ScheduleExporter extends Exporter
 {
-    protected static ?string $model = Schedules::class;
+    protected static ?string $model = Schedule::class;
 
     public static function getColumns(): array
     {
@@ -36,7 +36,7 @@ class SchedulesExporter extends Exporter
 
     public static function getCompletedNotificationBody(Export $export): string
     {
-        $body = 'Your schedules export has completed and ' . Number::format($export->successful_rows) . ' ' . str('row')->plural($export->successful_rows) . ' exported.';
+        $body = 'Your schedule export has completed and ' . Number::format($export->successful_rows) . ' ' . str('row')->plural($export->successful_rows) . ' exported.';
 
         if ($failedRowsCount = $export->getFailedRowsCount()) {
             $body .= ' ' . Number::format($failedRowsCount) . ' ' . str('row')->plural($failedRowsCount) . ' failed to export.';
@@ -53,5 +53,5 @@ class SchedulesExporter extends Exporter
         ->setCellAlignment(CellAlignment::CENTER)
         ->setFontName('Consolas');
     }
-    
+
 }

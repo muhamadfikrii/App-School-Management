@@ -18,9 +18,9 @@ class UsersTable
                 TextColumn::make('name')
                     ->label('Nama'),
                 TextColumn::make('email'),
-                TextColumn::make('roles.name')
+                TextColumn::make('role_name')
                     ->badge()
-                    ->label('Roles'),
+                    ->label('Role'),
             ])
             ->filters([
                 //
@@ -35,5 +35,5 @@ class UsersTable
                 ]),
             ]);
     }
-    
+
 }

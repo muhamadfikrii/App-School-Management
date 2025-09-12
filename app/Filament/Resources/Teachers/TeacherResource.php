@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Teachers;
 
 use BackedEnum;
-use App\Enums\Roles;
+use App\Enums\UserRole;
 use App\Models\Teacher;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -28,7 +28,7 @@ class TeacherResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
     public static function form(Schema $schema): Schema
@@ -52,7 +52,7 @@ class TeacherResource extends Resource
             //
         ];
     }
-    public static function canCreate(): bool 
+    public static function canCreate(): bool
     {
         return false;
     }

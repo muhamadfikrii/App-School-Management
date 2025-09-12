@@ -3,7 +3,8 @@
 namespace App\Filament\Resources\Levels;
 
 use BackedEnum;
-use App\Enums\Roles;
+use UnitEnum;
+use App\Enums\UserRole;
 use App\Models\Level;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -23,9 +24,11 @@ class LevelResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BookOpen;
 
+    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+
     public static function canAccess(): bool
     {
-        return auth()->user()?->hasRole(Roles::ADMINISTRATOR->value);
+        return auth('web')->user()?->is_admin ?? false;
     }
 
     public static function form(Schema $schema): Schema

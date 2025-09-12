@@ -4,11 +4,15 @@ namespace App\Models;
 
 use App\Enums\TeacherStatus;
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\TeacherFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Teacher extends Model
 {
+    use HasFactory;
+
     protected $table = "teachers";
 
     protected $guarded = [];
@@ -17,12 +21,12 @@ class Teacher extends Model
         'status' => TeacherStatus::class,
     ];
 
-     public function classes() 
+     public function classes()
     {
         return $this->hasOne(ClassRombel::class,'teacher_id');
     }
 
-    public function user() 
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
@@ -34,9 +38,9 @@ class Teacher extends Model
     public function subjects(): BelongsToMany {
         return $this->belongsToMany(Subject::class);
     }
-    
+
     public function schedules(): HasMany
     {
-        return $this->hasMany(Schedules::class);
+        return $this->hasMany(Schedule::class);
     }
 }

@@ -21,7 +21,7 @@ class StudentsTable
                     ->label('Nama Lengkap'),
                 TextColumn::make('nisn')
                     ->searchable()
-                    ->label('Nisn  Siswa'),
+                    ->label('NISN'),
                 TextColumn::make('date_of_birth')
                     ->date(' d M Y')
                     ->searchable()
@@ -33,7 +33,7 @@ class StudentsTable
                     ->searchable(),
             ])
             ->filters([
-                
+
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -46,7 +46,7 @@ class StudentsTable
             ])->modifyQueryUsing(function (Builder $query) {
                 $query->with('classRombel');
                 $user = auth()->user();
-                if ($user->hasRole('guru') && $user->teacher) {
+                if ($user->is_teacher && $user->teacher) {
                     $query->whereHas('classRombel', function ($q) use ($user) {
                         $q->where('teacher_id', $user->teacher->id);
                     });
