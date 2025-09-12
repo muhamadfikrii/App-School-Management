@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Database\Factories\GradeComponentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class GradeComponent extends Model
@@ -16,7 +15,7 @@ class GradeComponent extends Model
 
     public function setWeightAttributes($value)
     {
-        $this->attributes["weight"] = $value / 100;
+        $this->attributes['weight'] = $value / 100;
     }
 
     public function getWeightAttributes($value)
@@ -24,6 +23,8 @@ class GradeComponent extends Model
         return $value * 100;
     }
 
+
+    // Relasi
     public function student()
     {
         return $this->belongsTo(Student::class);
@@ -32,5 +33,10 @@ class GradeComponent extends Model
     public function grade()
     {
         return $this->belongsTo(Grade::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(GradeCategories::class, 'grades_categories_id');
     }
 }

@@ -25,16 +25,16 @@ class StudentsForm
                     ->schema([
 
                         Grid::make(1)
-                        ->schema([
-                            Select::make('academic_year_id')
-                            ->label('Tahun Akademik')
-                            ->options(function () {
-                                                return AcademicYear::all()
-                                                    ->mapWithKeys(fn($academicYear) => [
-                                                        $academicYear->id => $academicYear->name,
-                                                    ])
-                                                    ->toArray();
-                                                }),
+                            ->schema([
+                                Select::make('academic_year_id')
+                                ->label('Tahun Akademik')
+                                ->options(function () {
+                                                    return AcademicYear::all()
+                                                        ->mapWithKeys(fn($academicYear) => [
+                                                            $academicYear->id => $academicYear->name,
+                                                        ])
+                                                        ->toArray();
+                                                    }),
                         ]),
 
                         Grid::make(2)
@@ -104,16 +104,16 @@ class StudentsForm
                                     ]),
 
 
-                Section::make('Alamat')
-                    ->description('Lengkapi informasi alamat siswa.')
-                    ->schema([
-                        Textarea::make('address')
-                            ->label('Alamat Lengkap')
-                            ->placeholder('Masukkan alamat domisili siswa')
-                            ->rows(3)
-                            ->required()
-                            ->columnSpanFull(),
-                    ]),
-                ]);
+                        Section::make('Alamat')
+                            ->description('Lengkapi informasi alamat siswa.')
+                                ->schema([
+                                    Textarea::make('address')
+                                        ->label('Alamat Lengkap')
+                                        ->placeholder('Masukkan alamat domisili siswa')
+                                        ->rows(3)
+                                        ->required()
+                                        ->columnSpanFull(),
+                                ]),
+                            ]);
     }
 }

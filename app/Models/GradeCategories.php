@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GradesCategories extends Model
+class GradeCategories extends Model
 {
     protected $table = "grades_categories";
 
     protected $guarded = [];
+
+    public function component()
+    {
+        return $this->hasMany(GradeComponent::class);
+    }
 }
