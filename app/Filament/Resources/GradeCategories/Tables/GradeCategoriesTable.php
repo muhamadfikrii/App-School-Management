@@ -1,32 +1,24 @@
 <?php
 
-namespace App\Filament\Resources\GradeComponents\Tables;
+namespace App\Filament\Resources\GradeCategories\Tables;
 
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Grouping\Group;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 
-class GradeComponentsTable
+class GradeCategoriesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make("name")
-                    ->label('Nilai')
-                    ->searchable(),
-
-                TextColumn::make('category.name')
-                    ->label('Kategori')
-                    ->searchable(),
-
-                TextColumn::make('weight')
-                    ->label('Bobot')
-                    ->searchable(),
+                TextColumn::make('name')
+                    ->label('Kategori'),
+                TextColumn::make('description')
+                    ->label('Deksripsi')
             ])
             ->filters([
                 //
@@ -39,11 +31,6 @@ class GradeComponentsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ])
-            ->groups([
-                Group::make('category.name')
-                    ->label('Kategori'),
-            ])
-            ->defaultGroup('category.name');
+            ]);
     }
 }

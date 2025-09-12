@@ -25,16 +25,16 @@ class StudentsForm
                     ->schema([
 
                         Grid::make(1)
-                        ->schema([
-                            Select::make('academic_year_id')
-                            ->label('Tahun Akademik')
-                            ->options(function () {
-                                                return AcademicYear::all()
-                                                    ->mapWithKeys(fn($academicYear) => [
-                                                        $academicYear->id => $academicYear->name,
-                                                    ])
-                                                    ->toArray();
-                                                }),
+                            ->schema([
+                                Select::make('academic_year_id')
+                                ->label('Tahun Akademik')
+                                ->options(function () {
+                                                    return AcademicYear::all()
+                                                        ->mapWithKeys(fn($academicYear) => [
+                                                            $academicYear->id => $academicYear->name,
+                                                        ])
+                                                        ->toArray();
+                                                    }),
                         ]),
 
                         Grid::make(2)
@@ -63,26 +63,18 @@ class StudentsForm
                                     ->required()
                                     ->maxLength(15),
 
-                                DatePicker::make('year_of_entry')
-                                    ->label('Tahun Masuk')
-                                    ->required()
-                                    ->displayFormat('d F Y')
-                                    ->locale('id')
-                                    ->prefixIcon(Heroicon::Calendar)
-                                    ->native(false)
+                                    Select::make('status')
+                                            ->label('Status SISWA')
+                                            ->preload()
+                                            ->options([
+                                                'Aktif' => 'Aktif',
+                                                'Tidak Aktif' => 'Tidak Aktif'
+                                            ])
 
                             ]),
 
                         Grid::make(2)
                             ->schema([
-                                DatePicker::make('date_of_birth')
-                                    ->label('Tanggal Masuk')
-                                    ->required()
-                                    ->displayFormat('d F Y')
-                                    ->locale('id')
-                                    ->prefixIcon(Heroicon::Calendar)
-                                    ->native(false),
-
                                 Select::make('gender')
                                     ->label('Jenis Kelamin')
                                     ->required()
@@ -90,40 +82,38 @@ class StudentsForm
                                         'Laki-Laki' => 'Laki-Laki',
                                         'Perempuan' => 'Perempuan',
                                     ]),
+
+                                DatePicker::make('year_of_entry')
+                                            ->label('Tahun Masuk')
+                                            ->required()
+                                            ->displayFormat('d F Y')
+                                            ->locale('id')
+                                            ->prefixIcon(Heroicon::Calendar)
+                                            ->native(false)
                             ]),
 
-                                Grid::make(2)
-                                    ->schema([
-                                        Select::make('classes_id')
-                                                ->label('Kelas')
-                                                ->options(ClassRombel::pluck('name','id'))
-                                                ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                                ->disabled(fn () => auth()->user()->is_teacher)
-                                                ->preload()
-                                                ->searchable()
-                                                ->required(),
+                                Select::make('classes_id')
+                                        ->label('Kelas')
+                                        ->options(ClassRombel::pluck('name','id'))
+                                        ->default(fn () => auth()->user()?->teacher?->classes?->id)
+                                        ->disabled(fn () => auth()->user()->is_teacher)
+                                        ->preload()
+                                        ->searchable()
+                                        ->required()
 
-                                        Select::make('status')
-                                            ->label('Status SISWA')
-                                            ->preload()
-                                            ->options([
-                                                'Aktif' => 'Aktif',
-                                                'Tidak Aktif' => 'Tidak Aktif'
-                                            ])
                                     ]),
 
 
-                Section::make('Alamat')
-                    ->description('Lengkapi informasi alamat siswa.')
-                    ->schema([
-                        Textarea::make('address')
-                            ->label('Alamat Lengkap')
-                            ->placeholder('Masukkan alamat domisili siswa')
-                            ->rows(3)
-                            ->required()
-                            ->columnSpanFull(),
-                    ]),
-                    ])
-                ]);
+                        Section::make('Alamat')
+                            ->description('Lengkapi informasi alamat siswa.')
+                                ->schema([
+                                    Textarea::make('address')
+                                        ->label('Alamat Lengkap')
+                                        ->placeholder('Masukkan alamat domisili siswa')
+                                        ->rows(3)
+                                        ->required()
+                                        ->columnSpanFull(),
+                                ]),
+                            ]);
     }
 }

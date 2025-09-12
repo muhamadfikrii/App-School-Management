@@ -34,13 +34,14 @@ class SubjectForm
 
                         Grid::make(2)
                             ->schema([
-                                Select::make('teachers')
+                                    Select::make('teachers')
                                     ->label('Guru Pengajar')
                                     ->searchable()
-                                    ->required()
                                     ->multiple()
-                                    ->relationship('teachers', 'full_name'),
-                            ]),
+                                    ->required()
+                                    ->relationship('teachers', 'full_name')
+
+                                ]),
 
                     ])
             ]);

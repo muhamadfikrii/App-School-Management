@@ -8,7 +8,7 @@ use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\RepeatableEntry;
 
-class ScheduleInfolist
+class SchedulesInfolist
 {
     public static function configure(Schema $schema): Schema
     {

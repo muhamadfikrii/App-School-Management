@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Grades\Tables;
 
-use App\Filament\Exports\ScheduleExporter;
+use App\Filament\Exports\SchedulesExporter;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
