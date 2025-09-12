@@ -20,7 +20,7 @@ class GradeCategoriesResource extends Resource
 {
     protected static ?string $model = GradeCategories::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentPlus;
 
     protected static ?string $recordTitleAttribute = 'yes';
 
@@ -45,6 +45,23 @@ class GradeCategoriesResource extends Resource
             //
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return 'Kategori Nilai';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Kategori Nilai';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Kategori Nilai';
+    }
+
+
 
     public static function getPages(): array
     {
