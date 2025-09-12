@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use App\Enums\UserRole;
 use App\Models\Teacher;
 use Livewire\Component;
 use App\Models\Invitation;
@@ -73,12 +74,12 @@ class FromRegister extends Component
                 'name' => $this->name,
                 'email' => $this->email,
                 'password' => Hash::make($validated['password']),
-                'role_name' => $this->isTeacher ? $user->is_teacher : $user->is_admin,
+                'role_name' => $this->isTeacher ? UserRole::TEACHER->value : UserRole::ADMINISTRATOR->value,
             ]);
 
             if ($this->isTeacher) {
                 Teacher::create([
-                    'name' => $this->name,
+                    'full_name' => $this->name,
                     'nip' => $validated['nip'] ?? null,
                     'phone' => $validated['phone'] ?? null,
                     'gender' => $validated['gender'],

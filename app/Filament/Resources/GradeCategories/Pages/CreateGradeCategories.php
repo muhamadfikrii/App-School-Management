@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateGradeCategories extends CreateRecord
 {
     protected static string $resource = GradeCategoriesResource::class;
+
+    public function getRedirectUrl(): string
+    {
+        return GradeCategoriesResource::getUrl();
+    }
 }
