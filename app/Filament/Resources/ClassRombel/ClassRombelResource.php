@@ -55,6 +55,21 @@ class ClassRombelResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Rombel';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Data Rombel';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Rombel';
+    }
+
     public static function getPages(): array
     {
         return [

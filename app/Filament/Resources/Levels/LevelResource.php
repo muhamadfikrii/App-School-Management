@@ -53,6 +53,21 @@ class LevelResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Tingkat';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Tingkat';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Tingkat';
+    }
+
     public static function getPages(): array
     {
         return [

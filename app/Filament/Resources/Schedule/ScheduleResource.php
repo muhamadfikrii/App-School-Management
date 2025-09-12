@@ -56,6 +56,21 @@ class ScheduleResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Jadwal Pelajaran';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Jadwal Pelajaran';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Jadwal Pelajaran';
+    }
+
     public static function getPages(): array
     {
         return [

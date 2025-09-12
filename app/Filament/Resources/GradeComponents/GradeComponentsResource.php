@@ -52,6 +52,21 @@ class GradeComponentsResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Komponen Nilai';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Komponen Nilai';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Komponen Nilai';
+    }
+
     public static function getPages(): array
     {
         return [

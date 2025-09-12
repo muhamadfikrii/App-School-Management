@@ -54,6 +54,21 @@ class InvitationResource extends Resource
         ];
     }
 
+        public static function getModelLabel(): string
+    {
+        return 'Undangan';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Undangan';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Undangan';
+    }
+
     public static function getPages(): array
     {
         return [

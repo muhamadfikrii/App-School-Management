@@ -57,6 +57,21 @@ class SubjectResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Mata Pelajaran';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Mata Pelajaran';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Mata Pelajaran';
+    }
+
     public static function getPages(): array
     {
         return [

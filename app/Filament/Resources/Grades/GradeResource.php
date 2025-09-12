@@ -46,6 +46,21 @@ class GradeResource extends Resource
         ];
     }
 
+        public static function getModelLabel(): string
+    {
+        return 'Nilai';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Data Nilai';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Nilai';
+    }
+
     public static function getPages(): array
     {
         return [
