@@ -27,7 +27,7 @@ class GradeRelationManager extends RelationManager
                 TextColumn::make("subject.name")
                     ->label("Mata Pelajaran"),
                 TextColumn::make("gradeComponents.name")
-                    ->label("Mata Pelajaran"),
+                    ->label("Kategori"),
                 TextColumn::make("score")
                     ->label("Nilai"),
                     ])

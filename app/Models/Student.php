@@ -19,12 +19,6 @@ class Student extends Model
         return $this->belongsTo(ClassRombel::class, 'class_rombel_id');
     }
 
-    public function academicYear(): BelongsTo
-    {
-        return $this->belongsTo(AcademicYear::class,'academic_year_id');
-    }
-
-
     public function grade(): HasMany
     {
         return $this->hasMany(Grade::class);

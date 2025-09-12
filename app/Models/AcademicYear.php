@@ -14,9 +14,6 @@ class AcademicYear extends Model
 
     protected $guarded = [];
 
-    public function student() {
-        return $this->hasOne(Student::class);
-    }
 
     public function classRombel() {
         return $this->hasOne(ClassRombel::class);
