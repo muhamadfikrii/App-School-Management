@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\GradesCategories;
+use App\Models\GradeCategories;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('grades_components', function (Blueprint $table) {
-            $table->foreignIdFor(GradesCategories::class);
+            $table->foreignIdFor(GradeCategories::class);
         });
     }
 
