@@ -23,7 +23,7 @@ class SubjectCategoriesResource extends Resource
 
     protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentPlus;
 
     protected static ?string $recordTitleAttribute = 'SubjectCategories';
 
@@ -48,6 +48,23 @@ class SubjectCategoriesResource extends Resource
             //
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return 'Kategori Mapel';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Kategori Mapel';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Kategori Mapel';
+    }
+
+
 
     public static function getPages(): array
     {
