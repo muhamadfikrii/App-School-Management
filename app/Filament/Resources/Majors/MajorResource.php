@@ -55,6 +55,21 @@ class MajorResource extends Resource
         ];
     }
 
+        public static function getModelLabel(): string
+    {
+        return 'Jurusan';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Jurusan';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Jurusan';
+    }
+
     public static function getPages(): array
     {
         return [

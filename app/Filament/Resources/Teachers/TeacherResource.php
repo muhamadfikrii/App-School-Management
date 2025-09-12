@@ -57,6 +57,22 @@ class TeacherResource extends Resource
         return false;
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Guru';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Data Guru';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Guru';
+    }
+
+
     public static function getPages(): array
     {
         return [

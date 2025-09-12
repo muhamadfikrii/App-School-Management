@@ -65,6 +65,22 @@ class StudentsResource extends Resource
         ];
     }
 
+    public static function getModelLabel(): string
+    {
+        return 'Siswa';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Data Siswa';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Siswa';
+    }
+
+
 
     public static function getEloquentQuery(): Builder
     {
