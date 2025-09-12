@@ -16,7 +16,10 @@ use App\Filament\Resources\Schedule\Pages\ViewSchedule;
 use App\Filament\Resources\Schedule\Pages\CreateSchedule;
 use App\Filament\Resources\Schedule\Schemas\ScheduleForm;
 use App\Filament\Resources\Schedule\Tables\ScheduleTable;
+use App\Filament\Resources\Schedule\Schemas\SchedulesForm;
+use App\Filament\Resources\Schedule\Tables\SchedulesTable;
 use App\Filament\Resources\Schedule\Schemas\ScheduleInfolist;
+use App\Filament\Resources\Schedule\Schemas\SchedulesInfolist;
 
 class ScheduleResource extends Resource
 {
@@ -33,17 +36,17 @@ class ScheduleResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return ScheduleForm::configure($schema);
+        return SchedulesForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema
     {
-        return ScheduleInfolist::configure($schema);
+        return SchedulesInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return ScheduleTable::configure($table);
+        return SchedulesTable::configure($table);
     }
 
     public static function getRelations(): array

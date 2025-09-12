@@ -47,9 +47,9 @@ class Student extends Model
         return $this->belongsTo(Teacher::class,'');
     }
 
-    public function finalScore(): HasMany
-    {
-        return $this->hasMany(FinalScore::class);
-    }
+    // public function finalScore(): HasMany
+    // {
+    //     // return $this->hasMany(FinalScore::class);
+    // }
 
 }

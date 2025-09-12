@@ -6,12 +6,10 @@ use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\ExportAction;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
-use App\Filament\Exports\ScheduleExporter;
+use App\Filament\Exports\SchedulesExporter;
 
-class ScheduleTable
+class SchedulesTable
 {
     public static function configure(Table $table): Table
     {
@@ -45,7 +43,7 @@ class ScheduleTable
             ])
             ->headerActions([
                 ExportAction::make()
-                ->exporter(ScheduleExporter::class)
+                ->exporter(SchedulesExporter::class)
                 ->fileName('jadwal-mengajar')
 
             ]);

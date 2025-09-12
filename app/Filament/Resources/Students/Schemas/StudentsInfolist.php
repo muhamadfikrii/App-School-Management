@@ -31,25 +31,30 @@ public static function configure(Schema $schema): Schema
                         TextEntry::make("date_of_birth")
                             ->label("Tanggal Lahir")
                             ->date('d M Y'),
-                        TextEntry::make("gender")->label("Jenis Kelamin"),
+                        TextEntry::make("gender")
+                            ->label("Jenis Kelamin"),
                     ]),
                     Grid::make(2)->schema([
                         TextEntry::make("phone")->label("Nomor HP"),
-                        TextEntry::make("year_of_entry")->label("Tahun Masuk"),
+                        
+                        TextEntry::make("status")
+                            ->label("Status Siswa")
+                            ->columnSpanFull(),
                     ]),
                 ]),
 
             Section::make("Kelas")
                 ->schema([
-                    TextEntry::make("classRombel.name")
-                        ->label("Kelas")
-                        ->formatStateUsing(fn($state, $record) => $record->classRombel ?        $record->classRombel->name
-                            : 'Belum ada kelas' )
-                        ->columnSpanFull(),
+                        TextEntry::make("classRombel.name")
+                            ->label("Kelas")
+                            ->formatStateUsing(fn($state, $record) => $record->classRombel ?        $record->classRombel->name
+                                : 'Belum ada kelas' )
+                            ->columnSpanFull(),
+                        TextEntry::make("year_enrollment")
+                            ->label("Tahun Masuk"),
 
-                    TextEntry::make("status")
-                        ->label("Status Siswa")
-                        ->columnSpanFull(),
+
+                    
                 ]),
 
             Section::make("Alamat")

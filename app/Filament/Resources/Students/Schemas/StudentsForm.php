@@ -63,26 +63,18 @@ class StudentsForm
                                     ->required()
                                     ->maxLength(15),
 
-                                DatePicker::make('year_of_entry')
-                                    ->label('Tahun Masuk')
-                                    ->required()
-                                    ->displayFormat('d F Y')
-                                    ->locale('id')
-                                    ->prefixIcon(Heroicon::Calendar)
-                                    ->native(false)
+                                    Select::make('status')
+                                            ->label('Status SISWA')
+                                            ->preload()
+                                            ->options([
+                                                'Aktif' => 'Aktif',
+                                                'Tidak Aktif' => 'Tidak Aktif'
+                                            ])
 
                             ]),
 
                         Grid::make(2)
                             ->schema([
-                                DatePicker::make('date_of_birth')
-                                    ->label('Tanggal Masuk')
-                                    ->required()
-                                    ->displayFormat('d F Y')
-                                    ->locale('id')
-                                    ->prefixIcon(Heroicon::Calendar)
-                                    ->native(false),
-
                                 Select::make('gender')
                                     ->label('Jenis Kelamin')
                                     ->required()
@@ -90,26 +82,25 @@ class StudentsForm
                                         'Laki-Laki' => 'Laki-Laki',
                                         'Perempuan' => 'Perempuan',
                                     ]),
+
+                                DatePicker::make('year_of_entry')
+                                            ->label('Tahun Masuk')
+                                            ->required()
+                                            ->displayFormat('d F Y')
+                                            ->locale('id')
+                                            ->prefixIcon(Heroicon::Calendar)
+                                            ->native(false)
                             ]),
 
-                                Grid::make(2)
-                                    ->schema([
-                                        Select::make('classes_id')
-                                                ->label('Kelas')
-                                                ->options(ClassRombel::pluck('name','id'))
-                                                ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                                ->disabled(fn () => auth()->user()->is_teacher)
-                                                ->preload()
-                                                ->searchable()
-                                                ->required(),
+                                Select::make('classes_id')
+                                        ->label('Kelas')
+                                        ->options(ClassRombel::pluck('name','id'))
+                                        ->default(fn () => auth()->user()?->teacher?->classes?->id)
+                                        ->disabled(fn () => auth()->user()->is_teacher)
+                                        ->preload()
+                                        ->searchable()
+                                        ->required()
 
-                                        Select::make('status')
-                                            ->label('Status SISWA')
-                                            ->preload()
-                                            ->options([
-                                                'Aktif' => 'Aktif',
-                                                'Tidak Aktif' => 'Tidak Aktif'
-                                            ])
                                     ]),
 
 
@@ -123,7 +114,6 @@ class StudentsForm
                             ->required()
                             ->columnSpanFull(),
                     ]),
-                    ])
                 ]);
     }
 }

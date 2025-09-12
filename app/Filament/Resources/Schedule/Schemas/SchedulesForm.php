@@ -13,7 +13,7 @@ use Filament\Forms\Components\Repeater;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TimePicker;
 
-class ScheduleForm
+class SchedulesForm
 {
     public static function configure(Schema $schema): Schema
     {

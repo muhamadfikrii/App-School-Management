@@ -67,11 +67,12 @@ class ClassRombelForm
                                     ->options(function () {
                                         return Teacher::all()
                                             ->mapWithKeys(fn($teacher) => [
-                                                $teacher->id => $teacher->user->name,
+                                                $teacher->id => $teacher->full_name,
                                             ])
                                             ->toArray();
                                         }),
-                                        TextInput::make('rombel')
+
+                                TextInput::make('rombel')
                                     ->label('Rombel')
                                     ->required()
                                     ->live()
@@ -85,14 +86,14 @@ class ClassRombelForm
                                     }),
                                         ]),
 
-                        Grid::make(2)
-                            ->schema([
-                                Select::make('academic_year_id')
-                                    ->label('Tahun Akademik')
-                                    ->required()
-                                    ->options(fn () => AcademicYear::all()->pluck('name','id')),
-                                
-                            ]),
+                                Grid::make(2)
+                                    ->schema([
+                                        Select::make('academic_year_id')
+                                            ->label('Tahun Akademik')
+                                            ->required()
+                                            ->options(fn () => AcademicYear::all()->pluck('name','id')),
+                                        
+                                    ]),
 
                         
                                     

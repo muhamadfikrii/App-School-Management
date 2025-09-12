@@ -10,7 +10,7 @@ use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Models\Export;
 use OpenSpout\Common\Entity\Style\CellAlignment;
 
-class ScheduleExporter extends Exporter
+class SchedulesExporter extends Exporter
 {
     protected static ?string $model = Schedule::class;
 
@@ -21,9 +21,9 @@ class ScheduleExporter extends Exporter
                 ->label('ID'),
             ExportColumn::make('day')
                 ->label('Hari'),
-            ExportColumn::make('time_start')
+            ExportColumn::make('scheduleSubjects.time_start')
                 ->label('Mulai'),
-            ExportColumn::make('time_end')
+            ExportColumn::make('scheduleSubjects.time_end')
                 ->label('Selesai'),
             ExportColumn::make('classRombel.name')
                 ->label('Kelas'),
