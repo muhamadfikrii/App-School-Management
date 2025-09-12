@@ -9,7 +9,8 @@ class CreateSubject extends CreateRecord
 {
     protected static string $resource = SubjectResource::class;
 
-    public function getRedirectUrl(): string {
+    public function getRedirectUrl(): string 
+    {
         return SubjectResource::getUrl();
     }
 }

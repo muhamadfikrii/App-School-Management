@@ -5,6 +5,7 @@ namespace App\Models;
 use Database\Factories\SubjectFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -26,7 +27,7 @@ class Subject extends Model
         return $this->hasMany(Schedule::class,'');
     }
 
-    public function grades()
+    public function grades(): HasMany
     {
     return $this->hasMany(Grade::class);
     }
@@ -34,5 +35,10 @@ class Subject extends Model
     public function students(): HasMany
     {
         return $this->hasMany(Student::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(SubjectCategories::class, 'subject_categories_id');
     }
 }
