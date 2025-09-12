@@ -16,21 +16,17 @@ class SubjectsTable
     {
         return $table
             ->columns(components: [
-                TextColumn::make('category.name')
-                    ->label('Kategori')
-                    ->searchable(),
-                
+                TextColumn::make('code')
+                    ->searchable()
+                    ->label('Code'),
                 TextColumn::make('name')
                     ->searchable()
                     ->label('Mata Pelajaran'),
-
                 TextColumn::make('teachers.full_name')
                     ->label('Guru Pengajar')
                     ->searchable(),
 
-                TextColumn::make('code')
-                    ->searchable()
-                    ->label('Code'),
+               
             ])
             ->filters([
                 //
