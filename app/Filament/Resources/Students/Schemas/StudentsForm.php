@@ -11,15 +11,17 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 
 class StudentsForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->columns(1)
+            ->columns(3)
             ->components([
                 Section::make('')
+                    ->columnSpan(2)
                     ->schema([
                         Grid::make(2)
                             ->schema([
@@ -35,6 +37,15 @@ class StudentsForm
                                     ->label('Nama Lengkap')
                                     ->placeholder('Masukkan nama lengkap siswa')
                                     ->required(),
+                                Select::make('class_rombel_id')
+                                    ->label('Kelas')
+                                    ->options(ClassRombel::pluck('name','id'))
+                                    ->default(fn () => auth()->user()?->teacher?->classes?->id)
+                                    ->disabled(fn () => auth()->user()->is_teacher)
+                                    ->preload()
+                                    ->searchable()
+                                    ->required()
+                                    ->columnSpanFull(),
                                 TextInput::make('phone')
                                     ->label('Nomor HP')
                                     ->placeholder('0812xxxxxxx')
@@ -42,7 +53,7 @@ class StudentsForm
                                     ->required()
                                     ->maxLength(15),
                                 Select::make('status')
-                                    ->label('Status SISWA')
+                                    ->label('Status')
                                     ->preload()
                                     ->options([
                                         'Aktif' => 'Aktif',
@@ -58,26 +69,19 @@ class StudentsForm
                                 Select::make('year_enrollment')
                                     ->label('Tahun Masuk')
                                     ->options(
-                                        collect(range(2000, 2030))
+                                        collect(range(2000, 3000))
                                             ->mapWithKeys(fn ($year) => [$year => $year])
                                     )
                                     ->searchable(),
-                                DatePicker::make('year_of_entry')
-                                    ->label('Tahun Masuk')
+                                TextInput::make('parent_name')
+                                    ->label('Nama wali siswa')
+                                    ->required(),
+                                TextInput::make('parent_phone')
+                                    ->label('Nomor HP')
+                                    ->placeholder('0812xxxxxxx')
+                                    ->tel()
                                     ->required()
-                                    ->displayFormat('d F Y')
-                                    ->locale('id')
-                                    ->prefixIcon(Heroicon::Calendar)
-                                    ->native(false),
-                                Select::make('class_rombel_id')
-                                    ->label('Kelas')
-                                    ->options(ClassRombel::pluck('name','id'))
-                                    ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                    ->disabled(fn () => auth()->user()->is_teacher)
-                                    ->preload()
-                                    ->searchable()
-                                    ->required()
-                                    ->columnSpanFull(),
+                                    ->maxLength(15),
                                 Textarea::make('address')
                                     ->label('Alamat Lengkap')
                                     ->placeholder('Masukkan alamat domisili siswa')
@@ -86,15 +90,13 @@ class StudentsForm
                                     ->columnSpanFull(),
                             ]),
                         ]),
-
-                                Select::make('class_rombel_id')
-                                        ->label('Kelas')
-                                        ->options(ClassRombel::pluck('name','id'))
-                                        ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                        ->disabled(fn () => auth()->user()->is_teacher)
-                                        ->preload()
-                                        ->searchable()
-                                        ->required(),
+                        Section::make('')
+                            ->schema([
+                                FileUpload::make('avatar_url')
+                                    ->label('Foto')
+                                    ->image()
+                                    ->imageEditor()
+                            ]),
                 ]);
     }
 }

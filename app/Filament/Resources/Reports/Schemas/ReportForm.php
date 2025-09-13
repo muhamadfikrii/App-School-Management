@@ -50,6 +50,9 @@ class ReportForm
                                     ->reactive()
                                     ->preload()
                                     ->required()
+                                    ->default(function ($get, $livewire) {
+                                        return $livewire->student?->classRombel->id;
+                                    })
                                     ->afterStateUpdated(function ($state, Set $set, Get $get) {
                                         // Reset student_id dan repeater nilai
                                         $set('student_id', null);
@@ -74,6 +77,9 @@ class ReportForm
                                     ->preload()
                                     ->searchable()
                                     ->required()
+                                    ->default(function ($get, $livewire) {
+                                        return $livewire->student?->id; // id siswa otomatis dipilih
+                                    })
                                     ->afterStateHydrated(function ($state, Set $set, Get $get) {
                                         $classId = $get('class_rombel_id');
                                         if ($classId && empty($get('student_options'))) {
