@@ -19,11 +19,6 @@ class GradeComponentsTable
                 TextColumn::make("name")
                     ->label('Nilai')
                     ->searchable(),
-
-                TextColumn::make('category.name')
-                    ->label('Kategori')
-                    ->searchable(),
-
                 TextColumn::make('weight')
                     ->label('Bobot')
                     ->searchable(),
@@ -39,11 +34,6 @@ class GradeComponentsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ])
-            ->groups([
-                Group::make('category.name')
-                    ->label('Kategori'),
-            ])
-            ->defaultGroup('category.name');
+            ]);
     }
 }

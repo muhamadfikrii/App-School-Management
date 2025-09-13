@@ -35,8 +35,14 @@ class Teacher extends Model
         return $this->belongsTo(AcademicYear::class);
     }
 
-    public function subjects(): BelongsToMany {
-        return $this->belongsToMany(Subject::class);
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Subject::class,
+            'subject_teacher',
+            'teacher_id',
+            'subject_id'
+        );
     }
 
     public function schedules(): HasMany

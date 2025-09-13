@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\GradeFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Grade extends Model
 {
+    use HasFactory;
+
     protected $table = "grades";
 
     protected $guarded = [];
@@ -35,26 +39,26 @@ class Grade extends Model
         return $this->belongsTo(ClassRombel::class);
     }
 
-    public function gradeComponents()
+    public function gradeComponent()
     {
-        return $this->belongsTo(GradeComponent::class);
+        return $this->belongsTo(GradeComponent::class,  'grade_component_id');
     }
 
     public function getWeightedScore(): float
     {
-    $weight = $this->gradeComponent?->weight ?? 1;
-    return $this->score * $weight;
+        $weight = $this->gradeComponent?->weight ?? 1;
+        return $this->score * $weight;
     }
 
     protected static function booted()
     {
-    static::creating(function (Grade $grade) {
-        $waliKelas = $grade->student->classRombel?->teacher;
+        static::creating(function (Grade $grade) {
+            $waliKelas = $grade->student->classRombel?->teacher;
 
-        if ($waliKelas) {
-            $grade->teacher_id = $waliKelas->id; // bukan guru input
-        }
-    });
+            if ($waliKelas) {
+                $grade->teacher_id = $waliKelas->id; // bukan guru input
+            }
+        });
     }
 
     protected static function final()

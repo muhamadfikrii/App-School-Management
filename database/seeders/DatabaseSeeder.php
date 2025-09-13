@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\GradeSeeder;
 use Database\Seeders\LevelSeeder;
 use Database\Seeders\MajorSeeder;
 use Database\Seeders\SubjectSeeder;
@@ -23,16 +24,18 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            AcademicYearSeeder::class,
             DefaultTestUsersSeeder::class,
-            TeacherSeeder::class,
-            MajorSeeder::class,
+            AcademicYearSeeder::class,
             LevelSeeder::class,
+            MajorSeeder::class,
+            TeacherSeeder::class,
             ClassRombelSeeder::class,
             StudentSeeder::class,
+            GroupSubjectSeeder::class,
             SubjectSeeder::class,
             ScheduleSeeder::class,
             GradeComponentSeeder::class,
+            // GradeSeeder::class,
         ]);
     }
 

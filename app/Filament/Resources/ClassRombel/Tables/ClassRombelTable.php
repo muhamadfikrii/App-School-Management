@@ -18,7 +18,7 @@ class ClassRombelTable
                 TextColumn::make('name')
                     ->label('Kelas')
                     ->searchable(),
-                TextColumn::make('teacher.user.name')
+                TextColumn::make('teacher.full_name')
                     ->label('Wali Kelas')
                     ->numeric()
                     ->sortable(),

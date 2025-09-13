@@ -11,6 +11,7 @@ use App\Filament\Resources\Grades\Schemas\GradeInfolist;
 use App\Filament\Resources\Grades\Tables\GradesTable;
 use App\Models\Grade;
 use BackedEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -70,4 +71,19 @@ class GradeResource extends Resource
             'edit' => EditGrade::route('/{record}/edit'),
         ];
     }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+        $user = auth()->user();
+
+        if ($user->is_teacher && $user->teacher) {
+            // Guru hanya bisa lihat student dari kelasnya sendiri
+            return $query->where('class_rombel_id', $user->teacher->classes->id);
+        }
+
+        // Admin bisa lihat semua
+        return $query;
+    }
+
 }

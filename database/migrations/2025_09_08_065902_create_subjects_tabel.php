@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Teacher;
+use App\Models\GroupSubject;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -16,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('code')->unique();
-            $table->foreignIdFor(Teacher::class)->nullable();
+            $table->decimal('kkm');
+            $table->foreignIdFor(GroupSubject::class);
             $table->timestamps();
         });
     }

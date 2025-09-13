@@ -17,7 +17,6 @@ class ClassRombelFactory extends Factory
     {
         $level = Level::inRandomOrder()->first() ?? Level::factory()->create();
         $major = Major::inRandomOrder()->first() ?? Major::factory()->create();
-        $academicYear = AcademicYear::inRandomOrder()->first() ?? AcademicYear::factory()->create();
         $teacher = Teacher::inRandomOrder()->first();
 
         $rombelNumber = $this->faker->numberBetween(1, 3);
@@ -25,7 +24,6 @@ class ClassRombelFactory extends Factory
         return [
             'level_id'        => $level->id,
             'major_id'        => $major->id,
-            'academic_year_id'=> $academicYear->id,
             'teacher_id'      => $teacher?->id,
             'rombel'          => $rombelNumber,
             'name'            => $level->name . ' ' . $major->name . ' ' . $rombelNumber,

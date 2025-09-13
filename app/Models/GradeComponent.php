@@ -34,9 +34,4 @@ class GradeComponent extends Model
     {
         return $this->belongsTo(Grade::class);
     }
-
-    public function category()
-    {
-        return $this->belongsTo(GradeCategories::class, 'grades_categories_id');
-    }
 }

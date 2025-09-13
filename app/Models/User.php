@@ -54,7 +54,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         ];
     }
 
-    public function Teacher()
+    public function teacher()
     {
         return $this->HasOne(Teacher::class);
     }
