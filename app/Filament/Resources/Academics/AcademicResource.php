@@ -57,17 +57,17 @@ class AcademicResource extends Resource
 
         public static function getModelLabel(): string
     {
-        return 'Data Akademik';
+        return 'Tahun Akademik';
     }
 
     public static function getPluralModelLabel(): string
     {
-        return 'Data Data Akademik';
+        return 'Tahun Akademik';
     }
 
     public static function getNavigationLabel(): string
     {
-        return 'Data Akademik';
+        return 'Tahun Akademik';
     }
 
     public static function getPages(): array
