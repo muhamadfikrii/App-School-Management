@@ -86,24 +86,14 @@ class ClassRombelForm
                                     }),
                                         ]),
 
-                                Grid::make(2)
-                                    ->schema([
-                                        Select::make('academic_year_id')
-                                            ->label('Tahun Akademik')
-                                            ->required()
-                                            ->options(fn () => AcademicYear::all()->pluck('name','id')),
-                                        
-                                    ]),
-
-                        
                                     
-                        TextInput::make('name')
-                            ->label('Nama Kelas')
-                            ->required()
-                            ->unique('class_rombel')
-                            ->disabled()
-                            ->dehydrated()
-                            ->columnSpanFull(),
+                                TextInput::make('name')
+                                    ->label('Nama Kelas')
+                                    ->required()
+                                    ->unique('class_rombel')
+                                    ->disabled()
+                                    ->dehydrated()
+                                    ->columnSpanFull(),
                     ])
             ]);
     }

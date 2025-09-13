@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ClassRombel;
 use BackedEnum;
 use UnitEnum;
 use App\Enums\UserRole;
+use App\Filament\Resources\ClassRombel\ClassRombelResource\RelationManagers\StudentsRelationManager;
 use Filament\Tables\Table;
 use App\Models\ClassRombel;
 use Filament\Schemas\Schema;
@@ -51,7 +52,7 @@ class ClassRombelResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            StudentsRelationManager::class
         ];
     }
 
