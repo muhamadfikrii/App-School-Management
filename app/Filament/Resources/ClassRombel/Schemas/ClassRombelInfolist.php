@@ -17,15 +17,10 @@ class ClassRombelInfolist
             Section::make("Data Kelas Siswa")
                 ->schema([
                     Grid::make(2)->schema([
-                        TextEntry::make("academic_year_id")
-                        ->label('Tahun Akademik')
-                        ->formatStateUsing(fn($state, $record): string => $record->academicYear ? $record->academicYear->name : '-' )
-                    ]),
-                    Grid::make(2)->schema([
                         TextEntry::make("name")->label("Nama Kelas"),
-                        TextEntry::make('level.name')->label('Tingkat Kelas'),
                         TextEntry::make('teacher_id')->label('Wali Kelas')
-                        ->formatStateUsing(fn($state, $record): string => $record->academicYear ? $record->academicYear->name : '-' ),
+                        ->formatStateUsing(fn($state, $record): string => $record->teacher ? $record->teacher->full_name : '-' ),
+                        TextEntry::make('level.name')->label('Tingkat Kelas'),
                     ]),
                     
                 ]),

@@ -18,7 +18,7 @@ class ClassRombel extends Model
 
     public function student(): HasMany
     {
-        return $this->hasMany(Student::class, 'classes_id');
+        return $this->hasMany(Student::class);
     }
 
     public function teacher(): BelongsTo

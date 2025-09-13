@@ -89,7 +89,7 @@ class StudentsResource extends Resource
 
         if ($user->is_teacher && $user->teacher) {
             // Guru hanya bisa lihat student dari kelasnya sendiri
-            return $query->where('classes_id', $user->teacher->classes->id);
+            return $query->where('class_rombel_id', $user->teacher->classes->id);
         }
 
         // Admin bisa lihat semua

@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Students\Schemas;
 
 use App\Models\ClassRombel;
-use App\Models\AcademicYear;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Forms\Components\Select;
@@ -23,19 +22,6 @@ class StudentsForm
                 Section::make('Data Pribadi')
                     ->description('Lengkapi identitas utama siswa.')
                     ->schema([
-
-                        Grid::make(1)
-                            ->schema([
-                                Select::make('academic_year_id')
-                                ->label('Tahun Akademik')
-                                ->options(function () {
-                                                    return AcademicYear::all()
-                                                        ->mapWithKeys(fn($academicYear) => [
-                                                            $academicYear->id => $academicYear->name,
-                                                        ])
-                                                        ->toArray();
-                                                    }),
-                        ]),
 
                         Grid::make(2)
                             ->schema([
@@ -83,16 +69,16 @@ class StudentsForm
                                         'Perempuan' => 'Perempuan',
                                     ]),
 
-                                DatePicker::make('year_of_entry')
-                                            ->label('Tahun Masuk')
-                                            ->required()
-                                            ->displayFormat('d F Y')
-                                            ->locale('id')
-                                            ->prefixIcon(Heroicon::Calendar)
-                                            ->native(false)
+                                Select::make('year_enrollment')
+                                    ->label('Tahun Masuk')
+                                    ->options(
+                                        collect(range(2000, 2030))
+                                            ->mapWithKeys(fn ($year) => [$year => $year])
+                                    )
+                                    ->searchable()
                             ]),
 
-                                Select::make('classes_id')
+                                Select::make('class_rombel_id')
                                         ->label('Kelas')
                                         ->options(ClassRombel::pluck('name','id'))
                                         ->default(fn () => auth()->user()?->teacher?->classes?->id)
