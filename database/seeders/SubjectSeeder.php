@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Subject;
 use App\Models\Teacher;
+use App\Models\GroupSubject;
 use Illuminate\Database\Seeder;
 
 class SubjectSeeder extends Seeder
@@ -11,6 +12,8 @@ class SubjectSeeder extends Seeder
     public function run(): void
     {
         $teachers = Teacher::all();
+
+        $group = GroupSubject::all();
 
         $subjects = [
             ['name' => 'Matematika', 'code' => 'MAT01'],
@@ -32,11 +35,14 @@ class SubjectSeeder extends Seeder
         ];
 
         foreach ($subjects as $subject) {
-            Subject::factory()->create([
+             $subjectModel = Subject::factory()->create([
                 'name'       => $subject['name'],
                 'code'       => $subject['code'],
-                'teacher_id' => $teachers->random()?->id,
+                'group_subject_id' => $group->random()?->id,
+                'kkm'              => fake()->randomElement([65, 70, 75, 80]),
             ]);
+
+            $subjectModel->teachers()->attach($teachers->random()->id);
         }
     }
 }

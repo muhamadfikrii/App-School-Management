@@ -27,7 +27,7 @@ class TeacherForm
                             TextInput::make('full_name')
                             ->label('Nama Lengkap')
                         ]),
-                        
+
                         Grid::make(2)
                             ->schema([
                                 TextInput::make('nip')
@@ -57,9 +57,9 @@ class TeacherForm
                             Grid::make(2)
                                 ->schema([
                                     Select::make('status')
-                                        ->label('Jenis Kelamin')
+                                        ->label('Status')
                                         ->options(TeacherStatus::toArray()),
-                                    
+
                                 ]),
                             ]),
                         Section::make('Alamat')

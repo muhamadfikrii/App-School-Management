@@ -22,11 +22,12 @@ class SubjectsTable
                 TextColumn::make('name')
                     ->searchable()
                     ->label('Mata Pelajaran'),
+                TextColumn::make('kkm')
+                    ->searchable()
+                    ->label('KKM'),
                 TextColumn::make('teachers.full_name')
                     ->label('Guru Pengajar')
                     ->searchable(),
-
-               
             ])
             ->filters([
                 //
@@ -41,9 +42,9 @@ class SubjectsTable
                 ]),
             ])
             ->groups([
-                Group::make('category.name')
-                    ->label('Kategori'),
+                Group::make('group.name')
+                    ->label('Kelompok'),
             ])
-            ->defaultGroup('category.name');
+            ->defaultGroup('group.name');
     }
 }

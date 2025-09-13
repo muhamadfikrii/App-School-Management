@@ -26,24 +26,32 @@ class GradeForm
                     ->schema([
                         Grid::make(2)
                         ->schema([
-
-
+                            Select::make('academic_year_id')
+                                ->label('Tahun Akademik')
+                                ->options(AcademicYear::pluck('name','id')->toArray()),
+                            Select::make('semester')
+                                ->label('Semester')
+                                ->options(Semester::toArray()),
                             Select::make('class_rombel_id')
                                 ->label('Kelas')
                                 ->options(ClassRombel::pluck('name','id'))
-                                ->default(fn () => auth()->user()?->teacher?->classes?->id)
-                                ->reactive()
-                                ->preload()
+                                ->reactive() // agar perubahan kelas memicu update
                                 ->searchable()
                                 ->required()
-                                ->afterStateUpdated(fn ($state, callable $set) => $set('student_id', null)),
-
+                                ->afterStateUpdated(function ($state, callable $set) {
+                                    // reset student_id saat ganti kelas
+                                    $set('student_id', null);
+                                }),
                             Select::make('student_id')
                                 ->label('Nama Siswa')
-                                ->options(Student::pluck('full_name','id'))
+                                ->options(function (callable $get) {
+                                    $classId = $get('class_rombel_id'); // ambil kelas yang dipilih
+                                    if (!$classId) return [];
+                                    return Student::where('class_rombel_id', $classId)
+                                                ->pluck('full_name','id');
+                                })
                                 ->searchable()
                                 ->required(),
-
                             Select::make('subject_id')
                                 ->label('Mata Pelajaran')
                                 ->options(Subject::pluck('name','id'))
@@ -52,36 +60,25 @@ class GradeForm
 
                             Select::make('teacher_id')
                                 ->label('Guru Pengajar')
+                                ->relationship('teacher', 'full_name')
                                 ->options(function (callable $get) {
-                                    $subjectId = $get('subject_id'); // mapel yg dipilih
+                                    $subjectId = $get('subject_id');
                                     return $subjectId
                                         ? Teacher::whereHas('subjects', fn($q) => $q->where('subjects.id', $subjectId))
                                                 ->pluck('full_name','id') : [];
                                 })
-                                ->searchable()
+                                // ->searchable()
                                 ->required(),
-
-                            Select::make('academic_year_id')
-                                ->label('Tahun Akademik')
-                                ->options(AcademicYear::pluck('name','id')->toArray()),
-
-
-                            Select::make('semester')
-                                ->label('Semester')
-                                ->options(Semester::toArray()),
-
-                            Select::make('grades_components_id')
-                                ->label('Assesments')
+                            Select::make('grade_component_id')
+                                ->label('Komponen Nilai')
                                 ->searchable()
                                 ->options(GradeComponent::pluck('name','id')->toArray()),
-
                             TextInput::make('score')
                                 ->label('Nilai')
+                                ->numeric()
                                 ->required()
                         ])
-
-
-                            ]),
-                        ]);
+                    ]),
+            ]);
     }
 }

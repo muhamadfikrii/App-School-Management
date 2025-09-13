@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\ClassRombelFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,9 +17,9 @@ class ClassRombel extends Model
 
     protected $guarded = [];
 
-    public function student(): HasMany
+    public function student(): HasOne
     {
-        return $this->hasMany(Student::class);
+        return $this->hasOne(Student::class, 'class_rombel_id');
     }
 
     public function teacher(): BelongsTo
@@ -43,7 +44,7 @@ class ClassRombel extends Model
 
     public function schedule(): HasMany
     {
-        return $this->hasMany(Schedule::class,'');
+        return $this->hasMany(Schedule::class);
     }
 
 }

@@ -19,10 +19,8 @@ class StudentsForm
         return $schema
             ->columns(1)
             ->components([
-                Section::make('Data Pribadi')
-                    ->description('Lengkapi identitas utama siswa.')
+                Section::make('')
                     ->schema([
-
                         Grid::make(2)
                             ->schema([
                                 TextInput::make('nisn')
@@ -33,34 +31,23 @@ class StudentsForm
                                     ->minLength(9)
                                     ->maxLength(10)
                                     ->unique(ignoreRecord: true),
-
                                 TextInput::make('full_name')
                                     ->label('Nama Lengkap')
                                     ->placeholder('Masukkan nama lengkap siswa')
                                     ->required(),
-                            ]),
-
-                        Grid::make(2)
-                            ->schema([
                                 TextInput::make('phone')
                                     ->label('Nomor HP')
                                     ->placeholder('0812xxxxxxx')
                                     ->tel()
                                     ->required()
                                     ->maxLength(15),
-
-                                    Select::make('status')
-                                            ->label('Status SISWA')
-                                            ->preload()
-                                            ->options([
-                                                'Aktif' => 'Aktif',
-                                                'Tidak Aktif' => 'Tidak Aktif'
-                                            ])
-
-                            ]),
-
-                        Grid::make(2)
-                            ->schema([
+                                Select::make('status')
+                                    ->label('Status SISWA')
+                                    ->preload()
+                                    ->options([
+                                        'Aktif' => 'Aktif',
+                                        'Tidak Aktif' => 'Tidak Aktif'
+                                    ]),
                                 Select::make('gender')
                                     ->label('Jenis Kelamin')
                                     ->required()
@@ -68,15 +55,37 @@ class StudentsForm
                                         'Laki-Laki' => 'Laki-Laki',
                                         'Perempuan' => 'Perempuan',
                                     ]),
-
                                 Select::make('year_enrollment')
                                     ->label('Tahun Masuk')
                                     ->options(
                                         collect(range(2000, 2030))
                                             ->mapWithKeys(fn ($year) => [$year => $year])
                                     )
+                                    ->searchable(),
+                                DatePicker::make('year_of_entry')
+                                    ->label('Tahun Masuk')
+                                    ->required()
+                                    ->displayFormat('d F Y')
+                                    ->locale('id')
+                                    ->prefixIcon(Heroicon::Calendar)
+                                    ->native(false),
+                                Select::make('class_rombel_id')
+                                    ->label('Kelas')
+                                    ->options(ClassRombel::pluck('name','id'))
+                                    ->default(fn () => auth()->user()?->teacher?->classes?->id)
+                                    ->disabled(fn () => auth()->user()->is_teacher)
+                                    ->preload()
                                     ->searchable()
+                                    ->required()
+                                    ->columnSpanFull(),
+                                Textarea::make('address')
+                                    ->label('Alamat Lengkap')
+                                    ->placeholder('Masukkan alamat domisili siswa')
+                                    ->rows(3)
+                                    ->required()
+                                    ->columnSpanFull(),
                             ]),
+                        ]),
 
                                 Select::make('class_rombel_id')
                                         ->label('Kelas')
@@ -85,21 +94,7 @@ class StudentsForm
                                         ->disabled(fn () => auth()->user()->is_teacher)
                                         ->preload()
                                         ->searchable()
-                                        ->required()
-
-                                    ]),
-
-
-                        Section::make('Alamat')
-                            ->description('Lengkapi informasi alamat siswa.')
-                                ->schema([
-                                    Textarea::make('address')
-                                        ->label('Alamat Lengkap')
-                                        ->placeholder('Masukkan alamat domisili siswa')
-                                        ->rows(3)
-                                        ->required()
-                                        ->columnSpanFull(),
-                                ]),
-                            ]);
+                                        ->required(),
+                ]);
     }
 }

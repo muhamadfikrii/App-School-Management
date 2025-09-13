@@ -17,7 +17,12 @@ class MajorsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Nama Jurusan'),
+                TextColumn::make('created_at')
+                    ->label('dibuat'),
+                TextColumn::make('updated_at')
+                    ->label('diperbaharui')
             ])
             ->filters([
                 //

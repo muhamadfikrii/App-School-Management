@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Academics\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 
 class AcademicForm
 {
@@ -11,9 +12,12 @@ class AcademicForm
     {
         return $schema
             ->components([
-                 TextInput::make('name')
-                    ->required()
-                    ->label('Tahun Akademik'),
+                Section::make("")
+                    ->schema([
+                        TextInput::make('name')
+                            ->required()
+                            ->label('Tahun Akademik'),
+                    ])
             ]);
     }
 }

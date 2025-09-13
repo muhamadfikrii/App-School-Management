@@ -13,11 +13,10 @@ class LevelForm
         return $schema
             ->components([
                  Section::make("")
-                    ->columnSpanFull()
                     ->schema([
-                 TextInput::make('name')
-                    ->required()
-                    ->label('Tingkat'),
+                        TextInput::make('name')
+                            ->required()
+                            ->label('Tingkat'),
                     ])
             ]);
     }

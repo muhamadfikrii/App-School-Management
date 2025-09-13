@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Subject;
 use App\Models\Teacher;
+use App\Models\GroupSubject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SubjectFactory extends Factory
@@ -17,7 +18,8 @@ class SubjectFactory extends Factory
         return [
             'name'       => $this->faker->unique()->word() . ' ' . $this->faker->randomElement(['Matematika', 'Bahasa Inggris', 'Fisika', 'Kimia']),
             'code'       => strtoupper($this->faker->unique()->lexify('SUB???')),
-            'teacher_id' => $teacher?->id,
+            'kkm'              => $this->faker->randomElement([65, 70, 75, 80]),
+            'group_subject_id' => GroupSubject::inRandomOrder()->first()?->id ?? GroupSubject::factory(),
         ];
     }
 }

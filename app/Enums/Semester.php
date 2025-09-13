@@ -4,24 +4,24 @@ namespace App\Enums;
 
 enum Semester: string
 {
-    case SEMESTER_GANJIL = 'Semester Ganjil';
-    case SEMESTER_GENAP = 'Semester Genap';
+    case SEMESTER_GANJIL = 'Ganjil';
+    case SEMESTER_GENAP = 'Genap';
 
-    
+
 
     public function label(): string
     {
         return match ($this) {
-            static::SEMESTER_GANJIL => 'Semester Ganjil',
-            static::SEMESTER_GENAP => 'Semester Genap',
+            static::SEMESTER_GANJIL => 'Ganjil',
+            static::SEMESTER_GENAP => 'Genap',
         };
     }
 
-    public static function toArray(): array 
+    public static function toArray(): array
     {
         return [
-            self::SEMESTER_GANJIL->value => 'Semester Ganjil',
-            self::SEMESTER_GENAP->value => 'Semester Genap '
+            self::SEMESTER_GANJIL->value => 'Ganjil',
+            self::SEMESTER_GENAP->value => 'Genap '
         ];
     }
 

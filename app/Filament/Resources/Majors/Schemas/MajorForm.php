@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Majors\Schemas;
 
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 
 class MajorForm
 {
@@ -11,9 +12,12 @@ class MajorForm
     {
         return $schema
             ->components([
-                 TextInput::make('name')
-                    ->required()
-                    ->label('Nama Jurusan'),
+                Section::make("")
+                    ->schema([
+                        TextInput::make('name')
+                           ->required()
+                           ->label('Nama Jurusan'),
+                    ])
             ]);
     }
 }

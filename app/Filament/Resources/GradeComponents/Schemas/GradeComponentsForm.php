@@ -21,14 +21,9 @@ class GradeComponentsForm
                     ->schema([
                         Grid::make(2)
                         ->schema([
-                            Select::make('grades_categories_id')
-                                ->options(GradeCategories::pluck('name', 'id')->toArray())
-                                ->label('Kategori'),
-
                             TextInput::make('name')
                                 ->label('Nilai')
                                 ->required(),
-
                             TextInput::make('weight')
                                 ->label('Bobot')
                                 ->dehydrateStateUsing(fn ($state)=> $state / 100)

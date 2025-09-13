@@ -57,20 +57,14 @@ class ClassRombelForm
                                             $set('name', "{$level} {$major} {$rombel}");
                                         }
                                     }),
-                                
+
 
                                 Select::make('teacher_id')
                                     ->label('Wali Kelas')
                                     ->nullable()
                                     ->unique()
                                     ->searchable()
-                                    ->options(function () {
-                                        return Teacher::all()
-                                            ->mapWithKeys(fn($teacher) => [
-                                                $teacher->id => $teacher->full_name,
-                                            ])
-                                            ->toArray();
-                                        }),
+                                    ->options(Teacher::pluck('full_name', 'id')->toArray()),
 
                                 TextInput::make('rombel')
                                     ->label('Rombel')
@@ -85,8 +79,6 @@ class ClassRombelForm
                                         }
                                     }),
                                         ]),
-
-                                    
                                 TextInput::make('name')
                                     ->label('Nama Kelas')
                                     ->required()
