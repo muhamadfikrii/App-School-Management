@@ -58,13 +58,6 @@ class StudentsResource extends Resource
         return StudentsTable::configure($table);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            GradeRelationManager::class,
-        ];
-    }
-
     public static function getModelLabel(): string
     {
         return 'Siswa';
@@ -80,7 +73,17 @@ class StudentsResource extends Resource
         return 'Siswa';
     }
 
+    public static function getRelations(): array
+    {
+        return [
+            GradeRelationManager::class,
+        ];
+    }
 
+    public function isReadOnly(): bool
+    {
+        return false;
+    }
 
     public static function getEloquentQuery(): Builder
     {
@@ -101,7 +104,7 @@ class StudentsResource extends Resource
         return [
             'index' => ListStudents::route('/'),
             'create' => CreateStudents::route('/create'),
-            'view' => ViewStudents::route('/{record}'),
+            // 'view' => ViewStudents::route('/{record}'),
             'edit' => EditStudents::route('/{record}/edit'),
         ];
     }

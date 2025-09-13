@@ -8,6 +8,7 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use App\Filament\Resources\Grades\GradeResource;
+use App\Filament\Resources\Reports\ReportResource;
 use Filament\Resources\RelationManagers\RelationManager;
 
 class GradeRelationManager extends RelationManager
@@ -26,15 +27,23 @@ class GradeRelationManager extends RelationManager
                     ->label("Guru Pengajar"),
                 TextColumn::make("subject.name")
                     ->label("Mata Pelajaran"),
-                TextColumn::make("gradeComponents.name")
+                TextColumn::make("gradeComponent.name")
                     ->label("Kategori"),
                 TextColumn::make("score")
                     ->label("Nilai"),
                     ])
             ->headerActions([
-                CreateAction::make(),
+                CreateAction::make()
+                    ->url(fn () => GradeResource::getUrl('create', [
+                        'student' => $this->getOwnerRecord()->id,
+                    ]))
+                    ->label('Input Nilai'),
+
+                CreateAction::make()
+                    ->url(fn () => ReportResource::getUrl('create', [
+                        'student' => $this->getOwnerRecord()->id,
+                    ]))
+                    ->label('Buat Nilai Akhir'),
             ]);
     }
-
-    
 }

@@ -38,6 +38,9 @@ class GradeForm
                                 ->reactive() // agar perubahan kelas memicu update
                                 ->searchable()
                                 ->required()
+                                ->default(function ($get, $livewire) {
+                                    return $livewire->student?->classRombel->id;
+                                })
                                 ->afterStateUpdated(function ($state, callable $set) {
                                     // reset student_id saat ganti kelas
                                     $set('student_id', null);
@@ -51,6 +54,9 @@ class GradeForm
                                                 ->pluck('full_name','id');
                                 })
                                 ->searchable()
+                                ->default(function ($get, $livewire) {
+                                    return $livewire->student?->id; // id siswa otomatis dipilih
+                                })
                                 ->required(),
                             Select::make('subject_id')
                                 ->label('Mata Pelajaran')

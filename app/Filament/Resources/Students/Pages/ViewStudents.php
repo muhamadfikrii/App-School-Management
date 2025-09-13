@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Students\Pages;
 
-use App\Filament\Resources\Students\StudentsResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
+use App\Filament\Resources\Students\StudentsResource;
 
 class ViewStudents extends ViewRecord
 {
