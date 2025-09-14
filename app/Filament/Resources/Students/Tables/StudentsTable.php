@@ -2,15 +2,13 @@
 
 namespace App\Filament\Resources\Students\Tables;
 
+use App\Enums\Status;
 use App\Models\Student;
 use Filament\Tables\Table;
 use App\Models\ClassRombel;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Model;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\Students\StudentsResource;
@@ -57,8 +55,7 @@ class StudentsTable
                     ->searchable()
                     ->options(
                     Student::pluck('full_name', 'full_name')
-                        ->toArray()
-        ),
+                        ->toArray()),
                 SelectFilter::make('nisn')
                     ->label('NISN')
                     ->searchable()
@@ -77,12 +74,10 @@ class StudentsTable
                 SelectFilter::make('status')
                     ->label('Status')
                     ->searchable()
-                    ->options([
-                    'aktif' => 'Aktif',
-                    'tidak aktif' => 'Tidak Aktif']),
+                    ->options(Status::toArray()),
             ])
             ->defaultPaginationPageOption(25)
-           ->recordUrl(
+            ->recordUrl(
                 fn (Student $record): string => StudentsResource::getUrl('edit', ['record' => $record])
             )
             ->toolbarActions([

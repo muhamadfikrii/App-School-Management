@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Students\Schemas;
 
+use App\Enums\Status;
 use App\Models\ClassRombel;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -55,10 +56,7 @@ class StudentsForm
                                 Select::make('status')
                                     ->label('Status')
                                     ->preload()
-                                    ->options([
-                                        'Aktif' => 'Aktif',
-                                        'Tidak Aktif' => 'Tidak Aktif'
-                                    ]),
+                                    ->options(Status::toArray()),
                                 Select::make('gender')
                                     ->label('Jenis Kelamin')
                                     ->required()
