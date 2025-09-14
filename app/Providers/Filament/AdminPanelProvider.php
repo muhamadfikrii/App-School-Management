@@ -6,7 +6,7 @@ use Filament\Notifications\DatabaseNotification;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Actions\Action;
-use Filament\Pages\Dashboard; 
+use Filament\Pages\Dashboard;
 use Filament\Support\Colors\Color;
 use App\Filament\Pages\EditProfile;
 use Filament\Widgets\AccountWidget;
@@ -37,7 +37,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->userMenuItems([
-                'profile' => fn (Action $action) => 
+                'profile' => fn (Action $action) =>
                     $action
                         // ->label('Profile')
                         ->icon('heroicon-o-user')
@@ -67,7 +67,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->brandLogo(asset('img/logo.png'))
             ->brandLogoHeight('2rem')
-
-            ->databaseNotifications();
+            ->databaseNotifications()
+            ->spa();
     }
 }

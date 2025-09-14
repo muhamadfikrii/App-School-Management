@@ -44,7 +44,7 @@ class Subject extends Model
 
     public function group(): BelongsTo
     {
-        return $this->belongsTo(GroupSubject::class, 'subject_categories_id');
+        return $this->belongsTo(GroupSubject::class, 'group_subject_id');
     }
 
     public function calculate($studentId, $academicYearId, $semester)

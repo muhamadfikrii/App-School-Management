@@ -24,10 +24,10 @@ class SubjectForm
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                Select::make('subject_categories_id')
+                                Select::make('group_subject_id')
                                     ->label('Kategori')
                                     ->options(GroupSubject::pluck('name', 'id')->toArray()),
-                                
+
                                 TextInput::make('name')
                                     ->label('Mata Pelajaran')
                                     ->placeholder('Contoh: Bahasa Indonesia')
