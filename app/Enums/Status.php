@@ -6,7 +6,7 @@ enum Status: string
 {
     case ACTIVE = 'Aktif';
     case GRADUATED = 'Lulus';
-    case RELOCATED = 'Relocated';
+    case RELOCATED = 'Pindah';
 
 
 
