@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Status;
 use App\Models\Student;
 use App\Models\ClassRombel;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,7 +25,7 @@ class StudentFactory extends Factory
             'email'           => $this->faker->unique()->safeEmail(),
             'parent_name'     => $this->faker->name('male'|'female'),
             'parent_phone'    => $this->faker->phoneNumber(),
-            'status'          => $this->faker->randomElement(['active', 'inactive']),
+            'status'          => $this->faker->randomElement(Status::toArray()),
             'year_enrollment' => $this->faker->year(),
             'class_rombel_id' => $classRombel->id,
         ];

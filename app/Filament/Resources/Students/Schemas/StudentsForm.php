@@ -75,7 +75,7 @@ class StudentsForm
                                     ->label('Nama wali siswa')
                                     ->required(),
                                 TextInput::make('parent_phone')
-                                    ->label('Nomor HP')
+                                    ->label('Nomor HP Orang Tua')
                                     ->placeholder('0812xxxxxxx')
                                     ->tel()
                                     ->required()

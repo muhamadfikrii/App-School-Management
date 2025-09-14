@@ -11,6 +11,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Tables\Grouping\Group as GroupingGroup;
 use App\Filament\Resources\Students\StudentsResource;
 
 class StudentsTable
@@ -35,10 +36,16 @@ class StudentsTable
                 TextColumn::make('classRombel.name')
                     ->label('Kelas')
                     ->searchable(),
+                TextColumn::make('classRombel.teacher.full_name')
+                    ->label('Wali kelas')
+                    ->searchable(),
                 TextColumn::make('year_enrollment')
                     ->label('Tahun Masuk')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->searchable()
@@ -49,28 +56,36 @@ class StudentsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('full_name')
+                SelectFilter::make('id')
                     ->label('Nama')
                     ->multiple()
                     ->searchable()
-                    ->options(
-                    Student::pluck('full_name', 'full_name')
-                        ->toArray()),
+                    ->options(Student::pluck('full_name', 'id'))
+                    ->query(function (Builder $query, array $data) {
+                        if (! empty($data['values'])) {
+                            $query->whereIn('id', $data['values']);
+                        }
+                    }),
                 SelectFilter::make('nisn')
                     ->label('NISN')
-                    ->searchable()
                     ->multiple()
-                    ->options(
-                    Student::pluck('nisn', 'nisn')
-                        ->toArray()
-        ),
+                    ->searchable()
+                    ->options(Student::pluck('nisn', 'id'))
+                    ->query(function (Builder $query, array $data) {
+                        if (! empty($data['values'])) {
+                            $query->whereIn('id', $data['values']);
+                        }
+                    }),
                 SelectFilter::make('class_rombel_id')
                     ->label('Kelas')
+                    ->multiple()
                     ->searchable()
-                    ->options(
-                    ClassRombel::pluck('name', 'id')
-                        ->toArray()
-        ),
+                    ->options(ClassRombel::pluck('name', 'id')->toArray())
+                    ->query(function (Builder $query, array $data) {
+                        if (! empty($data['values'])) {
+                            $query->whereIn('class_rombel_id', $data['values']);
+                        }
+                    }),
                 SelectFilter::make('status')
                     ->label('Status')
                     ->searchable()
@@ -85,7 +100,7 @@ class StudentsTable
                     DeleteBulkAction::make(),
                 ]),
             ])->modifyQueryUsing(function (Builder $query) {
-                $query->with('classRombel');
+                $query->with(['classRombel.teacher']);
                 $user = auth()->user();
                 if ($user->is_teacher && $user->teacher) {
                     $query->whereHas('classRombel', function ($q) use ($user) {
@@ -94,6 +109,30 @@ class StudentsTable
                     return $query;
                 }
             })
+            ->defaultSort(function (Builder $query): Builder {
+                return $query->orderBy('full_name');
+            })
+            ->groups([
+                GroupingGroup::make('classRombel.name')
+                    ->label('Kelas')
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false),
+
+                GroupingGroup::make('status')
+                    ->label('Status')
+                    ->getTitleFromRecordUsing(fn (Student $record) => $record->status
+                        ? Status::from($record->status)->label()
+                        : '-'
+                    )
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false),
+
+                GroupingGroup::make('year_enrollment')
+                    ->label('Tahun Masuk')
+                    ->collapsible()
+                    ->titlePrefixedWithLabel(false),
+            ])
+            ->defaultGroup('classRombel.name')
             ->striped();
     }
 }
