@@ -16,18 +16,21 @@ class SubjectsTable
     {
         return $table
             ->columns(components: [
-                TextColumn::make('code')
-                    ->searchable()
-                    ->label('Code'),
+                TextColumn::make('group.name')
+                    ->label('Kategori')
+                    ->searchable(),
+                
                 TextColumn::make('name')
                     ->searchable()
                     ->label('Mata Pelajaran'),
-                TextColumn::make('kkm')
-                    ->searchable()
-                    ->label('KKM'),
+
                 TextColumn::make('teachers.full_name')
                     ->label('Guru Pengajar')
                     ->searchable(),
+
+                TextColumn::make('code')
+                    ->searchable()
+                    ->label('Code'),
             ])
             ->filters([
                 //
@@ -43,7 +46,10 @@ class SubjectsTable
             ])
             ->groups([
                 Group::make('group.name')
-                    ->label('Kelompok'),
+                    ->label('Kategori')
+                     ->getTitleFromRecordUsing(
+            fn ($record) => $record->group?->name ? : 'Belum Dikategorikan'
+        ),
             ])
             ->defaultGroup('group.name');
     }

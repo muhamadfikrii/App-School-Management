@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Subjects\Schemas;
 
+use App\Models\GroupSubject;
+use App\Models\Subject;
 use App\Models\Teacher;
 use Filament\Schemas\Schema;
-use App\Models\GroupSubject;
+use App\Models\SubjectCategories;
 use Filament\Forms\Components\Select;
 use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
@@ -22,16 +24,13 @@ class SubjectForm
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                Select::make('group_subject_id')
+                                Select::make('subject_categories_id')
                                     ->label('Kategori')
                                     ->options(GroupSubject::pluck('name', 'id')->toArray()),
+                                
                                 TextInput::make('name')
                                     ->label('Mata Pelajaran')
                                     ->placeholder('Contoh: Bahasa Indonesia')
-                                    ->required(),
-                                TextInput::make('kkm')
-                                    ->label('KKM')
-                                    ->placeholder('Contoh: 80')
                                     ->required(),
                             ]),
 
