@@ -4,12 +4,14 @@ namespace App\Filament\Resources\Students\Tables;
 
 use App\Models\Student;
 use Filament\Tables\Table;
+use App\Models\ClassRombel;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\Students\StudentsResource;
 
@@ -49,7 +51,35 @@ class StudentsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-
+                SelectFilter::make('full_name')
+                    ->label('Nama')
+                    ->multiple()
+                    ->searchable()
+                    ->options(
+                    Student::pluck('full_name', 'full_name')
+                        ->toArray()
+        ),
+                SelectFilter::make('nisn')
+                    ->label('NISN')
+                    ->searchable()
+                    ->multiple()
+                    ->options(
+                    Student::pluck('nisn', 'nisn')
+                        ->toArray()
+        ),
+                SelectFilter::make('class_rombel_id')
+                    ->label('Kelas')
+                    ->searchable()
+                    ->options(
+                    ClassRombel::pluck('name', 'id')
+                        ->toArray()
+        ),
+                SelectFilter::make('status')
+                    ->label('Status')
+                    ->searchable()
+                    ->options([
+                    'aktif' => 'Aktif',
+                    'tidak aktif' => 'Tidak Aktif']),
             ])
             ->defaultPaginationPageOption(25)
            ->recordUrl(
