@@ -2,11 +2,17 @@
 
 namespace App\Filament\Resources\Schedule\Tables;
 
+use App\Enums\Days;
 use Filament\Tables\Table;
+use App\Models\ClassRombel;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\ExportAction;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Exports\SchedulesExporter;
 
 class SchedulesTable
@@ -15,37 +21,55 @@ class SchedulesTable
     {
         return $table
             ->columns([
-                TextColumn::make('day')
-                    ->searchable()
-                    ->label('Hari'),
-                TextColumn::make('scheduleSubjects.time_start')
-                    ->searchable()
-                    ->label('Jam Mulai'),
-                TextColumn::make('scheduleSubjects.time_end')
-                    ->searchable()
-                    ->label('Jam Selesai'),
-                TextColumn::make('scheduleSubjects.subject.name')
-                    ->searchable()
-                    ->label('Mata Pelajaran'),
-                TextColumn::make('scheduleSubjects.teacher.full_name')
-                    ->searchable()
-                    ->label('Guru'),
-
+                Stack::make([
+                    TextColumn::make('day')
+                        ->searchable()
+                        ->label('Hari')
+                        ->weight(FontWeight::Bold),
+                    TextColumn::make('jadwal')
+                        ->label('Jadwal')
+                        ->getStateUsing(fn ($record) =>
+                            $record->scheduleSubjects->map->display->implode('<br>')
+                        )
+                        ->html(),
+                ])
             ])
+            ->contentGrid([
+                'md' => 1,
+                'xl' => 2,
+            ])
+            ->modifyQueryUsing(function (Builder $query) {
+                $query->with([
+                    'classRombel',
+                    'scheduleSubjects.subject',
+                    'scheduleSubjects.teacher',
+                ]);
+            })
             ->defaultGroup('classRombel.name')
             ->filters([
-                //
+                SelectFilter::make('class_rombel_id')
+                    ->label('Kelas')
+                    ->multiple()
+                    ->searchable()
+                    ->options(ClassRombel::pluck('name', 'id')->toArray())
+                    ->query(function (Builder $query, array $data) {
+                        if (! empty($data['values'])) {
+                            $query->whereIn('class_rombel_id', $data['values']);
+                        }
+                    }),
+                SelectFilter::make('day')
+                    ->label('Hari')
+                    ->options(Days::toArray())
+                    ->searchable(),
             ])
-
             ->recordActions([
-                ViewAction::make(),
+                DeleteAction::make(),
                 EditAction::make(),
             ])
             ->headerActions([
                 ExportAction::make()
-                ->exporter(SchedulesExporter::class)
-                ->fileName('jadwal-mengajar')
-
+                    ->exporter(SchedulesExporter::class)
+                    ->fileName('jadwal-mengajar')
             ]);
-        }
+    }
 }
