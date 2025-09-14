@@ -36,7 +36,6 @@ class TeachersTable
                     ->label('Jenis Kelamin')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
             ])
             ->filters([
                 SelectFilter::make('full_name')
