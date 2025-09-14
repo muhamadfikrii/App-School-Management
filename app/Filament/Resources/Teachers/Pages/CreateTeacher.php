@@ -9,5 +9,8 @@ class CreateTeacher extends CreateRecord
 {
     protected static string $resource = TeacherResource::class;
 
-    
+    protected function getRedirectUrl(): string
+    {
+        return TeacherResource::getUrl();
+    }
 }
