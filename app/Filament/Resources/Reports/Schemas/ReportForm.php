@@ -22,9 +22,6 @@ class ReportForm
 {
     public static function configure(Schema $schema): Schema
     {
-        $livewire = $schema->getLivewire();
-        $gradesFinals = $livewire->record->gradesDetail;
-// dd($gradesFinals);
         return $schema
             ->components([
                 Section::make('')
