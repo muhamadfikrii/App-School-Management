@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ClassRombel\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -12,11 +13,12 @@ class ClassRombelInfolist
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->columns(1)
+            ->columns(3)
             ->components([
                 Section::make("Kelas")
+                ->columnSpan(2)
                     ->schema([
-                        Grid::make(4)
+                        Grid::make(2)
                             ->schema([
                                 TextEntry::make("name")
                                     ->label("Nama Kelas"),
@@ -27,8 +29,13 @@ class ClassRombelInfolist
                                     ->label('Tingkat Kelas'),
                                 TextEntry::make('major.name')
                                     ->label('Jurusan'),
-                        ]),
-                    ]),
+                                
+                                ]),
+                            ]),
+                            Section::make()
+                            ->schema([
+                                ImageEntry::make('teacher.avatar_url')
+                                ])
                 ]);
     }
 }
