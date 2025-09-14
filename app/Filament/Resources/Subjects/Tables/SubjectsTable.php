@@ -22,6 +22,9 @@ class SubjectsTable
                 TextColumn::make('name')
                     ->searchable()
                     ->label('Mata Pelajaran'),
+                TextColumn::make('teachers.nip')
+                    ->label('NIP')
+                    ->searchable(),
                 TextColumn::make('teachers.full_name')
                     ->label('Guru Pengajar')
                     ->searchable(),
