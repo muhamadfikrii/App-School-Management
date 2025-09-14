@@ -18,13 +18,13 @@ class TeachersTable
     {
         return $table
             ->columns([
+                TextColumn::make('nip')
+                    ->searchable()
+                    ->label('NIP'),
                 TextColumn::make('full_name')
                     ->searchable()
                     ->sortable()
                     ->label('Nama'),
-                TextColumn::make('nip')
-                    ->searchable()
-                    ->label('NIP'),
                 TextColumn::make('date_of_birth')
                     ->searchable()
                     ->date('d M Y')
