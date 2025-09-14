@@ -19,6 +19,8 @@ class GradesTable
     {
         return $table
             ->columns([
+                TextColumn::make("student.nisn")
+                    ->label("NISN"),
                 TextColumn::make("student.full_name")
                     ->label("Nama Siswa"),
                 TextColumn::make("classRombel.name")
@@ -34,8 +36,8 @@ class GradesTable
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
+                // ViewAction::make(),
+                // EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

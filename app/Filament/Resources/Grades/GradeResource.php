@@ -67,7 +67,7 @@ class GradeResource extends Resource
         return [
             'index' => ListGrades::route('/'),
             'create' => CreateGrade::route('/create/{student?}'),
-            'view' => ViewGrade::route('/{record}'),
+            // 'view' => ViewGrade::route('/{record}'),
             'edit' => EditGrade::route('/{record}/edit'),
         ];
     }
