@@ -15,26 +15,32 @@ class ReportsTable
     {
         return $table
             ->columns([
-                TextColumn::make('student.full_name')
-                    ->searchable()
-                    ->label('Nama Lengkap'),
                 TextColumn::make('student.nisn')
                     ->searchable()
                     ->label('NISN'),
+                TextColumn::make('student.full_name')
+                    ->searchable()
+                    ->label('Nama Lengkap'),
                 TextColumn::make('academicYear.name')
                     ->searchable()
                     ->label('Tahun Akademik'),
+                TextColumn::make('semester')
+                    ->searchable()
+                    ->label('Semester'),
                 TextColumn::make('created_at')
-                    ->label('dibuat'),
+                    ->label('dibuat')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label('diubah')
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultGroup('classRombel.name')
             ->filters([
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
+                // ViewAction::make(),
+                // EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(FinalGrade::class);
             $table->foreignIdFor(Subject::class);
-            $table->decimal('final_score');
+            $table->string('kkm');
+            $table->unsignedTinyInteger('final_score');
             $table->string('predicate');
-            $table->text('notes')->nullable();
+            $table->string('is_passed');
             $table->timestamps();
         });
     }

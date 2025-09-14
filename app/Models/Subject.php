@@ -47,6 +47,15 @@ class Subject extends Model
         return $this->belongsTo(GroupSubject::class, 'group_subject_id');
     }
 
+   /**
+     * Hitung nilai akhir siswa (standar Indonesia).
+     *
+     * @param int $studentId
+     * @param int $academicYearId
+     * @param int $semester
+     *
+     * @return array ['final_score' => float, 'predicate' => string, 'is_passed' => bool]
+     */
     public function calculate($studentId, $academicYearId, $semester)
     {
         $grades = $this->grades()
@@ -57,14 +66,29 @@ class Subject extends Model
             ->get()
             ->groupBy('grade_component_id');
 
-        $finalScore = 0;
+        $sumWeighted = 0.0;
 
         foreach ($grades as $componentGrades) {
-            $weight = ($componentGrades->first()->gradeComponent->weight ?? 0) / 100;
-            $averageScore = $componentGrades->avg('score');
-            $finalScore += $averageScore * $weight;
+            $component = $componentGrades->first()->gradeComponent ?? null;
+            if (!$component) {
+                continue;
+            }
+
+            // Deteksi otomatis format bobot (persen atau desimal)
+            $weight = (float) $component->weight;
+            if ($weight > 1) {
+                $weight = $weight / 100.0; // kalau simpan dalam persen (mis: 30)
+            }
+
+            $avgScore = $componentGrades->avg('score'); // skor 0–100
+            $score = $avgScore ?? 0; // kalau belum ada nilai dianggap 0
+
+            $sumWeighted += $score * $weight;
         }
-        $finalScore = round($finalScore);
+
+        $finalScore = round($sumWeighted, 2);
+
+        // Predikat standar Indonesia
         $predicate = match (true) {
             $finalScore >= 90 => 'A',
             $finalScore >= 80 => 'B',
@@ -72,9 +96,14 @@ class Subject extends Model
             default => 'D',
         };
 
+        // Ambil KKM dari subject, default 75
+        $kkm = $this->kkm;
+        $isPassed = $finalScore >= $kkm;
+
         return [
-            'final_score' => round($finalScore, 2),
+            'final_score' => $finalScore,
             'predicate'   => $predicate,
+            'is_passed'   => $isPassed,
         ];
     }
 }

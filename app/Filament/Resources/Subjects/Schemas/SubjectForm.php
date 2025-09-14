@@ -28,23 +28,27 @@ class SubjectForm
                                     ->label('Kategori')
                                     ->options(GroupSubject::pluck('name', 'id')->toArray()),
 
-                                TextInput::make('name')
-                                    ->label('Mata Pelajaran')
-                                    ->placeholder('Contoh: Bahasa Indonesia')
-                                    ->required(),
+                                Select::make('teachers')
+                                    ->label('Guru Pengajar')
+                                    ->searchable()
+                                    ->multiple()
+                                    ->relationship('teachers', 'full_name'),
                             ]),
 
-                        Grid::make(2)
+                        Grid::make(4)
                             ->schema([
-                                    Select::make('teachers')
-                                        ->label('Guru Pengajar')
-                                        ->searchable()
-                                        ->multiple()
-                                        ->relationship('teachers', 'full_name'),
-
                                     TextInput::make('code')
                                         ->label('Code')
                                         ->placeholder('Contoh: B.Indo')
+                                        ->required(),
+                                    TextInput::make('name')
+                                        ->label('Mata Pelajaran')
+                                        ->columnSpan(2)
+                                        ->placeholder('Contoh: Bahasa Indonesia')
+                                        ->required(),
+                                     TextInput::make('kkm')
+                                        ->label('KKM')
+                                        ->placeholder('Contoh: 75')
                                         ->required(),
                                 ]),
                     ])

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignIdFor(Subject::class);
             $table->foreignIdFor(ClassRombel::class);
             $table->string('semester');
-            $table->decimal('score');
+            $table->unsignedTinyInteger('score');
             $table->foreignIdFor(AcademicYear::class);
             $table->foreignIdFor(Teacher::class);
             $table->foreignIdFor(GradeComponent::class);

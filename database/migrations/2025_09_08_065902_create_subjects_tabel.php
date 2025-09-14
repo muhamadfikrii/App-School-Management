@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('code')->unique();
-            $table->decimal('kkm');
+            $table->unsignedTinyInteger('kkm');
             $table->foreignIdFor(GroupSubject::class);
             $table->timestamps();
         });
