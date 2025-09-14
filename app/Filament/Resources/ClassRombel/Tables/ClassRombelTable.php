@@ -23,6 +23,10 @@ class ClassRombelTable
                     ->label('Wali Kelas')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('created_at')
+                    ->label('Dibuat'),
+                TextColumn::make('updated_at')
+                    ->label('Diubah'),
             ])
             ->filters([
                 //
