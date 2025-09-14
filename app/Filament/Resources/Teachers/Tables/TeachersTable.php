@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources\Teachers\Tables;
 
+use App\Models\Teacher;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use App\Filament\Resources\Teachers\TeacherResource;
 
 class TeachersTable
 {
@@ -15,8 +18,9 @@ class TeachersTable
     {
         return $table
             ->columns([
-                 TextColumn::make('full_name')
+                TextColumn::make('full_name')
                     ->searchable()
+                    ->sortable()
                     ->label('Nama'),
                 TextColumn::make('nip')
                     ->searchable()
@@ -26,23 +30,40 @@ class TeachersTable
                     ->date('d M Y')
                     ->label('Tanggal Lahir'),
                 TextColumn::make('phone')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('gender')
                     ->label('Jenis Kelamin')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
             ])
             ->filters([
-                //
+                SelectFilter::make('full_name')
+                    ->label('Nama')
+                    ->multiple()
+                    ->searchable()
+                    ->options(
+                    Teacher::pluck('full_name', 'full_name')
+                        ->toArray()),
+                SelectFilter::make('nip')
+                    ->label('NIP')
+                    ->multiple()
+                    ->searchable()
+                    ->options(
+                    Teacher::pluck('nip', 'nip')
+                        ->toArray()),
             ])
-            ->recordActions([
-                ViewAction::make(),
-                EditAction::make(),
-            ])
+            ->paginated([10, 25, 50, 'all'])
+            ->recordUrl(
+                fn (Teacher $record): string => TeacherResource::getUrl('edit', ['record' => $record])
+            )
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('full_name', 'asc')
+            ->striped();
     }
 }
