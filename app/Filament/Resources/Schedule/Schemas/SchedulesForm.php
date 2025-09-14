@@ -73,6 +73,7 @@ class SchedulesForm
                             ])
                             ->columnSpanFull()
                             ->minItems(1)
+                            ->reorderable()
                             ->createItemButtonLabel('Tambah Mata Pelajaran'),
                     ]),
             ]);
