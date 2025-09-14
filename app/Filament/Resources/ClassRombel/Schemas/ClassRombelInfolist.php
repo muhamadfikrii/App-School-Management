@@ -12,18 +12,23 @@ class ClassRombelInfolist
     public static function configure(Schema $schema): Schema
     {
         return $schema
-        ->columns(1)
-        ->components([
-            Section::make("Data Kelas Siswa")
-                ->schema([
-                    Grid::make(2)->schema([
-                        TextEntry::make("name")->label("Nama Kelas"),
-                        TextEntry::make('teacher_id')->label('Wali Kelas')
-                        ->formatStateUsing(fn($state, $record): string => $record->teacher ? $record->teacher->full_name : '-' ),
-                        TextEntry::make('level.name')->label('Tingkat Kelas'),
+            ->columns(1)
+            ->components([
+                Section::make("Kelas")
+                    ->schema([
+                        Grid::make(4)
+                            ->schema([
+                                TextEntry::make("name")
+                                    ->label("Nama Kelas"),
+                                TextEntry::make('teacher_id')
+                                    ->label('Wali Kelas')
+                                    ->formatStateUsing(fn($state, $record): string => $record->teacher ? $record->teacher->full_name : '-' ),
+                                TextEntry::make('level.name')
+                                    ->label('Tingkat Kelas'),
+                                TextEntry::make('major.name')
+                                    ->label('Jurusan'),
+                        ]),
                     ]),
-                    
-                ]),
-            ]);
+                ]);
     }
 }
