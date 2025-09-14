@@ -22,6 +22,9 @@ class ReportForm
 {
     public static function configure(Schema $schema): Schema
     {
+        $livewire = $schema->getLivewire();
+        $gradesFinals = $livewire->record->gradesDetail;
+// dd($gradesFinals);
         return $schema
             ->components([
                 Section::make('')
@@ -54,16 +57,15 @@ class ReportForm
                                         return $livewire->student?->classRombel->id;
                                     })
                                     ->afterStateUpdated(function ($state, Set $set, Get $get) {
-                                        // Reset student_id dan repeater nilai
                                         $set('student_id', null);
 
                                         $nilaiSiswa = $get('nilai-siswa') ?? [];
                                         foreach ($nilaiSiswa as $index => $item) {
                                             $set("nilai-siswa.$index.final_score", null);
                                             $set("nilai-siswa.$index.predicate", null);
+                                            $set("nilai-siswa.$index.is_passed", null);
                                         }
 
-                                        // Update daftar siswa sesuai kelas
                                         $students = Student::where('class_rombel_id', $state)
                                             ->pluck('full_name','id')
                                             ->toArray();
@@ -78,7 +80,7 @@ class ReportForm
                                     ->searchable()
                                     ->required()
                                     ->default(function ($get, $livewire) {
-                                        return $livewire->student?->id; // id siswa otomatis dipilih
+                                        return $livewire->student?->id;
                                     })
                                     ->afterStateHydrated(function ($state, Set $set, Get $get) {
                                         $classId = $get('class_rombel_id');
@@ -89,17 +91,26 @@ class ReportForm
                                             $set('student_options', $students);
                                         }
                                     })
-                                    ->afterStateUpdated(fn ($state, Set $set, Get $get) => ReportForm::updateRepeaterScores($get, $set)),
+                                    ->afterStateUpdated(fn ($state, Set $set, Get $get) => self::updateRepeaterScores($get, $set)),
                             ]),
                     ]),
 
                 Repeater::make('nilai-siswa')
+                    ->label('Mata Pelajaran')
                     ->relationship('gradesDetail')
                     ->columnSpanFull()
                     ->schema([
                         Select::make('subject_id')
                             ->label('Mata Pelajaran')
-                            ->options(Subject::pluck('name','id'))
+                            ->required()
+                            ->options(function (Get $get) {
+                                $selected = collect($get('nilai-siswa') ?? [])
+                                    ->pluck('subject_id')
+                                    ->filter()
+                                    ->toArray();
+
+                                return Subject::whereNotIn('id', $selected)->pluck('name', 'id');
+                            })
                             ->reactive()
                             ->afterStateUpdated(function ($state, Set $set, Get $get) {
                                 $studentId = $get('../../student_id');
@@ -112,30 +123,20 @@ class ReportForm
                                     $result = $subject->calculate($studentId, $academicYearId, $semester);
                                     $set('final_score', round($result['final_score']));
                                     $set('predicate', $result['predicate']);
+                                    $set('is_passed', $result['is_passed'] ? 'Lulus' : 'Remedial');
                                 } else {
                                     $set('kkm', null);
                                     $set('final_score', null);
                                     $set('predicate', null);
+                                    $set('is_passed', null);
                                 }
-                            }),
+                            })->disableOptionsWhenSelectedInSiblingRepeaterItems(),
 
-                        Grid::make(3)
+                        Grid::make(4)
                             ->schema([
                                 TextInput::make('kkm')
                                     ->disabled()
-                                    ->dehydrated(false)
-                                    ->afterStateHydrated(function ($state, Set $set, Get $get) {
-                                        $subjectId = $get('subject_id');
-                                        if ($subjectId) {
-                                            $set('kkm', Subject::find($subjectId)->kkm);
-                                        }
-                                    })
-                                    ->afterStateUpdated(function ($state, Set $set, Get $get) {
-                                        $subjectId = $get('subject_id');
-                                        if ($subjectId) {
-                                            $set('kkm', Subject::find($subjectId)->kkm);
-                                        }
-                                    })
+                                    ->dehydrated()
                                     ->label('KKM'),
 
                                 TextInput::make('final_score')
@@ -147,6 +148,11 @@ class ReportForm
                                     ->disabled()
                                     ->dehydrated()
                                     ->label('Predikat'),
+
+                                TextInput::make('is_passed')
+                                    ->disabled()
+                                    ->dehydrated()
+                                    ->label('Keterangan'),
                             ])
                     ])
                     ->columns(2),
@@ -167,9 +173,11 @@ class ReportForm
                 $result = $subject->calculate($studentId, $academicYearId, $semester);
                 $set("nilai-siswa.$index.final_score", round($result['final_score']));
                 $set("nilai-siswa.$index.predicate", $result['predicate']);
+                $set("nilai-siswa.$index.is_passed", $result['is_passed'] ? 'Lulus' : 'Remedial');
             } else {
                 $set("nilai-siswa.$index.final_score", null);
                 $set("nilai-siswa.$index.predicate", null);
+                $set("nilai-siswa.$index.is_passed", null);
             }
         }
     }

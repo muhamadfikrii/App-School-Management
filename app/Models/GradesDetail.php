@@ -10,7 +10,7 @@ class GradesDetail extends Model
 
     protected $guarded = [];
 
-    public function finalGrade()
+    public function finalGrade(): BelongsTo
     {
         return $this->belongsTo(FinalGrade::class);
     }
