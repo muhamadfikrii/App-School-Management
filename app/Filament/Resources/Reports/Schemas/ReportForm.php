@@ -153,6 +153,25 @@ class ReportForm
                             ])
                     ])
                     ->columns(2),
+
+                        TextInput::make('avrg')
+                            ->label('Rata-Rata')
+                            ->disabled()
+                            ->reactive()
+                            ->dehydrated(false)
+                            ->afterStateHydrated(function ($state, Set $set, Get $get) {
+                                $nilaiSiswa = $get('nilai-siswa') ?? [];
+                                $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
+                                $avg = $scores ? array_sum($scores) / count($scores) : null;
+                                $set('avrg', $avg ? round($avg, 2) : 0);
+                            })
+                            ->afterStateUpdated(function ($state, Set $set, Get $get) {
+                                // kalau mau update otomatis setiap kali repeater berubah
+                                $nilaiSiswa = $get('nilai-siswa') ?? [];
+                                $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
+                                $avg = $scores ? array_sum($scores) / count($scores) : null;
+                                $set('avrg', $avg ? round($avg, 2) : 0);
+                            })
             ]);
     }
 
