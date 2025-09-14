@@ -22,6 +22,10 @@ class GradeComponentsTable
                 TextColumn::make('weight')
                     ->label('Bobot')
                     ->searchable(),
+                TextColumn::make('created_at')
+                    ->label('Dibuat'),
+                TextColumn::make('updated_at')
+                    ->label('Diubah'),
             ])
             ->filters([
                 //
