@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ClassRombel\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -12,23 +13,28 @@ class ClassRombelInfolist
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->columns(1)
+            ->columns(3)
             ->components([
                 Section::make("Kelas")
-                    ->schema([
-                        Grid::make(4)
-                            ->schema([
-                                TextEntry::make("name")
-                                    ->label("Nama Kelas"),
-                                TextEntry::make('teacher_id')
-                                    ->label('Wali Kelas')
-                                    ->formatStateUsing(fn($state, $record): string => $record->teacher ? $record->teacher->full_name : '-' ),
-                                TextEntry::make('level.name')
-                                    ->label('Tingkat Kelas'),
-                                TextEntry::make('major.name')
-                                    ->label('Jurusan'),
+                    ->columnSpan(2)
+                        ->schema([
+                            Grid::make(2)
+                                ->schema([
+                                    TextEntry::make("name")
+                                        ->label("Nama Kelas"),
+                                    TextEntry::make('teacher_id')
+                                        ->label('Wali Kelas')
+                                        ->formatStateUsing(fn($state, $record): string => $record->teacher ? $record->teacher->full_name : '-' ),
+                                    TextEntry::make('level.name')
+                                        ->label('Tingkat Kelas'),
+                                    TextEntry::make('major.name')
+                                        ->label('Jurusan'),
+                                ]),
                         ]),
-                    ]),
-                ]);
+                        Section::make()
+                            ->schema([
+                                ImageEntry::make('teacher.avatar_url')
+                            ])
+                    ]);
     }
 }

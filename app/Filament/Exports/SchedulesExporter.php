@@ -27,10 +27,23 @@ class SchedulesExporter extends Exporter
                 ->label('Selesai'),
             ExportColumn::make('classRombel.name')
                 ->label('Kelas'),
-            ExportColumn::make('subject.name')
-                ->label('Mata Pelajaran'),
-            ExportColumn::make('teacher.full_name')
-                ->label('Guru'),
+
+            ExportColumn::make('subject')
+                ->label('Mata Pelajaran')
+                ->formatStateUsing(fn($record) =>
+                    $record->scheduleSubjects
+                ->map(fn($s) => $s->subject?->name)
+                ->filter()
+                ->join(', ') ?: '-'
+                ),
+            ExportColumn::make('teacher')
+                ->label('Guru')
+                ->formatStateUsing(fn($record) =>
+                    $record->scheduleSubjects
+                ->map(fn($s) => $s->teacher?->full_name)
+                ->filter()
+                ->join(', ') ?: '-'
+                ),
         ];
     }
 

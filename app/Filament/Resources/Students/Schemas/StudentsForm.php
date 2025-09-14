@@ -80,11 +80,6 @@ class StudentsForm
                                     ->tel()
                                     ->required()
                                     ->maxLength(15),
-                            ]),
-
-                        Section::make('Alamat')
-                            ->description('Lengkapi informasi alamat guru.')
-                            ->schema([
                                 Textarea::make('address')
                                     ->label('Alamat Lengkap')
                                     ->placeholder('Masukkan alamat guru')

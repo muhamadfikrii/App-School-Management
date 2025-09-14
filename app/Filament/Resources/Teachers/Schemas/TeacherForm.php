@@ -48,27 +48,22 @@ class TeacherForm
                                 Select::make('status')
                                         ->label('Status')
                                         ->options(TeacherStatus::toArray()),
-                                    ]),
-
-                        Section::make('Alamat')
-                            ->description('Lengkapi informasi alamat guru.')
-                            ->schema([
                                 Textarea::make('address')
                                     ->label('Alamat Lengkap')
                                     ->placeholder('Masukkan alamat guru')
                                     ->rows(3)
                                     ->required()
                                     ->columnSpanFull(),
-                            ]),
+                             ]),
                         ]),
-                            Section::make('')
-                                ->schema([
-                                    FileUpload::make('avatar_url')
-                                        ->label('Foto')
-                                        ->image()
-                                        ->imageEditor()
-                                ]),
-                        ]);
-                        
+                        Section::make('')
+                            ->schema([
+                                FileUpload::make('avatar_url')
+                                    ->label('Foto')
+                                    ->image()
+                                    ->imageEditor()
+                            ]),
+                ]);
+
     }
 }
