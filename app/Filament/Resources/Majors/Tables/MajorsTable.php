@@ -20,9 +20,9 @@ class MajorsTable
                     ->searchable()
                     ->label('Nama Jurusan'),
                 TextColumn::make('created_at')
-                    ->label('dibuat'),
+                    ->label('Dibuat'),
                 TextColumn::make('updated_at')
-                    ->label('diperbaharui')
+                    ->label('Diubah')
             ])
             ->filters([
                 //
