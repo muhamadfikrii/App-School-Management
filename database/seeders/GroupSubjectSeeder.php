@@ -13,9 +13,9 @@ class GroupSubjectSeeder extends Seeder
     public function run(): void
     {
         $groups = [
-            ['name' => 'Normatif', 'description' => 'Kelompok mata pelajaran normatif (umum)'],
-            ['name' => 'Adaptif', 'description' => 'Kelompok mata pelajaran adaptif (penunjang jurusan)'],
-            ['name' => 'Produktif (Kompetensi kejuruan)', 'description' => 'Kelompok mata pelajaran produktif sesuai jurusan'],
+            ['name' => 'Kelompok A', 'description' => 'Kelompok A mata pelajaran (Wajib Nasional)'],
+            ['name' => 'Kelompok B', 'description' => 'Kelompok B mata pelajaran (Wajib Kewilayahan)'],
+            ['name' => 'Kejuruan', 'description' => 'Kelompok mata pelajaran produktif sesuai jurusan'],
         ];
 
         foreach ($groups as $group) {

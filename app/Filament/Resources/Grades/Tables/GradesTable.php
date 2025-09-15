@@ -39,6 +39,7 @@ class GradesTable
                 // ViewAction::make(),
                 // EditAction::make(),
             ])
+            ->paginated([10, 25, 50, 100, 'all'])
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
