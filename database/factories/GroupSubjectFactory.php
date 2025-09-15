@@ -13,9 +13,9 @@ class GroupSubjectFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->randomElement([
-                'Normatif',
-                'Adaptif',
-                'Produktif (Kompetensi kejuruan)',
+                'Kelompok A',
+                'Kelompok B',
+                'Kejuruan',
             ]),
             'description' => $this->faker->sentence(),
         ];

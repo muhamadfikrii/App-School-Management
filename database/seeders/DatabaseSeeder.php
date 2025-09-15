@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             SubjectSeeder::class,
             ScheduleSeeder::class,
             GradeComponentSeeder::class,
-            // GradeSeeder::class,
+            GradeSeeder::class,
         ]);
     }
 
