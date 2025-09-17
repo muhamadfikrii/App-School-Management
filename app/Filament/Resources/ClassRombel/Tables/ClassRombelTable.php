@@ -28,6 +28,16 @@ class ClassRombelTable
                 TextColumn::make('updated_at')
                     ->label('Diubah'),
             ])
+            ->modifyQueryUsing(function (Builder $query) {
+                $user = auth()->user();
+
+                if ($user->is_teacher && $user->teacher) {
+                    $query->whereHas('teacher', function ($q) use ($user) {
+                        $q->where('id', $user->teacher->id);
+                    });
+                    return $query;
+                }
+            })
             ->filters([
                 //
             ])
