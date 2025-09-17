@@ -8,8 +8,6 @@ enum Status: string
     case GRADUATED = 'Lulus';
     case RELOCATED = 'Pindah';
 
-
-
     public function label(): string
     {
         return match ($this) {

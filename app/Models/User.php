@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Collection;
 use App\Enums\UserRole;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Notifications\Notifiable;

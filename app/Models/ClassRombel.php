@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\ClassRombelFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -47,4 +48,8 @@ class ClassRombel extends Model
         return $this->hasMany(Schedule::class);
     }
 
+    public function scopeForTeacher(Builder $query, int $teacherId): Builder
+    {
+        return $query->where('teacher_id', $teacherId);
+    }
 }

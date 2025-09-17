@@ -45,6 +45,12 @@ class StudentsTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('status')
                     ->label('Status')
+                    ->badge(fn ($record) => Status::from($record->status)->label())
+                    ->colors([
+                        'success' => Status::ACTIVE->value,
+                        'primary' => Status::GRADUATED->value,
+                        'warning' => Status::RELOCATED->value,
+                    ])
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->label('Dibuat')

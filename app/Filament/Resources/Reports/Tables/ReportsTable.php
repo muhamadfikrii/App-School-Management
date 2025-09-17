@@ -8,6 +8,7 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Contracts\Database\Query\Builder;
 
 class ReportsTable
 {
@@ -34,6 +35,16 @@ class ReportsTable
                     ->label('diubah')
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->modifyQueryUsing(function (Builder $query) {
+                $query->with(['classRombel.teacher']);
+                $user = auth()->user();
+                if ($user->is_teacher && $user->teacher) {
+                    $query->whereHas('classRombel', function ($q) use ($user) {
+                        $q->where('teacher_id', $user->teacher->id);
+                    });
+                    return $query;
+                }
+            })
             ->defaultGroup('classRombel.name')
             ->filters([
                 //
