@@ -71,18 +71,4 @@ class GradeResource extends Resource
             'edit' => EditGrade::route('/{record}/edit'),
         ];
     }
-
-    // public static function getEloquentQuery(): Builder
-    // {
-    //     $query = parent::getEloquentQuery();
-    //     $user = auth()->user();
-
-    //     if ($user->is_teacher && $user->teacher) {
-    //         // Guru hanya bisa lihat student dari kelasnya sendiri
-    //         return $query->where('class_rombel_id', $user->teacher->classes->id);
-    //     }
-
-    //     // Admin bisa lihat semua
-    //     return $query;
-    // }
 }
