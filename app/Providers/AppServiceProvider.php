@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Grade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +22,4 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    protected $policies = [
-    Grade::class => \App\Policies\GradePolicy::class,
-];
 }

@@ -3,15 +3,16 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\ClassRombel;
 
-class GradePolicy
+class ClassRombelPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user, ClassRombel $classRombel): bool
     {
-        return $user->is_admin || $user->is_teacher;
+        return $user->is_admin || $user->is_teacher && $classRombel->where('teacher_id', $user->teacher->id)->exists();
     }
 
     /**
@@ -19,7 +20,7 @@ class GradePolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin || $user->is_teacher;;
+        return $user->is_admin;
     }
 
     /**
@@ -28,7 +29,7 @@ class GradePolicy
     public function update(User $user): bool
     {
 
-        return $user->is_admin || $user->is_teacher;;
+        return $user->is_admin;
     }
 
     /**
@@ -36,6 +37,6 @@ class GradePolicy
      */
     public function delete(User $user): bool
     {
-        return $user->is_admin || $user->is_teacher;;
+        return $user->is_admin;
     }
 }

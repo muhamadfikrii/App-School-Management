@@ -99,7 +99,8 @@ class StudentsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ])->modifyQueryUsing(function (Builder $query) {
+            ])
+            ->modifyQueryUsing(function (Builder $query) {
                 $query->with(['classRombel.teacher']);
                 $user = auth()->user();
                 if ($user->is_teacher && $user->teacher) {

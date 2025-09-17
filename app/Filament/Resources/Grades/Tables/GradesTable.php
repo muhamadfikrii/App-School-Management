@@ -45,16 +45,7 @@ class GradesTable
                     DeleteBulkAction::make()
                     ->visible(fn() => auth()->user()->is_admin),
                 ]),
-            ])->modifyQueryUsing(function (Builder $query) {
-            $user = auth()->user();
 
-            // kalau guru, filter hanya nilai yang dia input
-            if ($user->is_teacher && $user->teacher) {
-                $query->where('teacher_id', $user->teacher->id);
-            }
-
-            return $query;
-            });
 
 
     }
