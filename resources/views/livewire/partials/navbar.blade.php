@@ -15,7 +15,7 @@
         </a>
 
         <!-- Menu desktop -->
-        <ul class="hidden md:flex gap-10 items-center text-gray-700 text-lg font-bold font-sans">
+        <ul class="hidden md:flex gap-10 items-center text-gray-700 text-sm font-bold font-sans">
             <li>
                 <a href="{{ route('home') }}" 
                 class="relative group hover:text-blue-600 {{ request()->routeIs('home') ? 'text-blue-600' : '' }}">
@@ -60,10 +60,10 @@
         x-transition.duration.500ms
     >
         <ul class="flex flex-col px-6 py-4 gap-2">
-            <li><a href="" class="block hover:bg-gray-100 px-4 py-2 rounded">Home</a></li>
-            <li><a href="" class="block hover:bg-gray-100 px-4 py-2 rounded">Tentang</a></li>
-            <li><a href="" class="block hover:bg-gray-100 px-4 py-2 rounded">Kontak Kami</a></li>
-            <li><a href="" class="block hover:bg-blue-700 bg-blue-500 transition-all duration-900 ease-in-out text-white px-4 py-2 rounded text-center shadow">Login</a></li>
+            <li><a href="{{ route('home') }}" class="block hover:bg-gray-100 px-4 py-2 rounded">Home</a></li>
+            <li><a href="{{ route('About') }}" class="block hover:bg-gray-100 px-4 py-2 rounded">Tentang</a></li>
+            <li><a href="{{ route('Contact') }}" class="block hover:bg-gray-100 px-4 py-2 rounded">Kontak Kami</a></li>
+            <li><a href="/admin" class="block hover:bg-blue-700 bg-blue-500 transition-all duration-900 ease-in-out text-white px-4 py-2 rounded text-center shadow">Login</a></li>
         </ul>
     </div>
 </div>
