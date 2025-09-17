@@ -24,6 +24,11 @@ class Student extends Model
         return $this->hasMany(Grade::class);
     }
 
+    public function finalGrade(): HasMany
+    {
+        return $this->hasMany(FinalGrade::class);
+    }
+
     public function scopeForTeacher($query, $teacherId)
     {
         return $query->whereHas('studentClass', function ($q) use ($teacherId) {
@@ -33,11 +38,11 @@ class Student extends Model
 
     public function subject(): BelongsTo
     {
-        return $this->belongsTo(Subject::class,'');
+        return $this->belongsTo(Subject::class);
     }
 
     public function teacher(): BelongsTo
     {
-        return $this->belongsTo(Teacher::class,'');
+        return $this->belongsTo(Teacher::class);
     }
 }

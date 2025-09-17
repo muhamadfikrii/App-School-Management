@@ -15,35 +15,27 @@ class GradeRelationManager extends RelationManager
 {
     protected static string $relationship = 'grade';
 
-    protected static ?string $title = 'Nilai Siswa';
-
-    protected static ?string $relatedResource = GradeResource::class;
+    protected static ?string $title = 'Nilai Sementara';
 
     public function table(Table $table): Table
     {
         return $table
                 ->columns([
-                TextColumn::make("teacher.full_name")
-                    ->label("Guru Pengajar"),
-                TextColumn::make("subject.name")
-                    ->label("Mata Pelajaran"),
-                TextColumn::make("gradeComponent.name")
-                    ->label("Kategori"),
-                TextColumn::make("score")
-                    ->label("Nilai"),
-                    ])
+                    TextColumn::make("teacher.full_name")
+                        ->label("Guru Pengajar"),
+                    TextColumn::make("subject.name")
+                        ->label("Mata Pelajaran"),
+                    TextColumn::make("gradeComponent.name")
+                        ->label("Kategori"),
+                    TextColumn::make("score")
+                        ->label("Nilai"),
+                ])
             ->headerActions([
                 CreateAction::make()
                     ->url(fn () => GradeResource::getUrl('create', [
                         'student' => $this->getOwnerRecord()->id,
                     ]))
                     ->label('Input Nilai'),
-
-                CreateAction::make()
-                    ->url(fn () => ReportResource::getUrl('create', [
-                        'student' => $this->getOwnerRecord()->id,
-                    ]))
-                    ->label('Buat Nilai Akhir'),
             ]);
     }
 }

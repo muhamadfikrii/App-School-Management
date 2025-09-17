@@ -13,18 +13,6 @@ class GradeComponent extends Model
 
     protected $guarded = [];
 
-    public function setWeightAttributes($value)
-    {
-        $this->attributes['weight'] = $value / 100;
-    }
-
-    public function getWeightAttributes($value)
-    {
-        return $value * 100;
-    }
-
-
-    // Relasi
     public function student()
     {
         return $this->belongsTo(Student::class);
