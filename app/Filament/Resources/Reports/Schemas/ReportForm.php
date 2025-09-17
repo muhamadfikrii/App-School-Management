@@ -45,14 +45,32 @@ class ReportForm
 
                                 Select::make('class_rombel_id')
                                     ->label('Kelas')
-                                    ->options(ClassRombel::pluck('name','id'))
-                                    ->default(fn () => auth()->user()?->teacher?->classes?->id)
+                                    ->options(function () {
+                                        $user = auth()->user();
+
+                                        if ($user->is_admin) {
+                                            return ClassRombel::pluck('name', 'id')->toArray();
+                                        }
+
+                                        if ($user->is_teacher && $user->teacher) {
+                                            return ClassRombel::forTeacher($user->teacher->id)
+                                                ->pluck('name', 'id')
+                                                ->toArray();
+                                        }
+
+                                        return [];
+                                    })
+                                    ->default(function () {
+                                        $user = auth()->user();
+                                        if ($user->is_teacher && $user->teacher && $user->teacher->classRombel) {
+                                            return $user->teacher->classRombel->id;
+                                        }
+
+                                        return null;
+                                    })
                                     ->reactive()
                                     ->preload()
                                     ->required()
-                                    ->default(function ($get, $livewire) {
-                                        return $livewire->student?->classRombel->id;
-                                    })
                                     ->afterStateUpdated(function ($state, Set $set, Get $get) {
                                         $set('student_id', null);
 
@@ -66,8 +84,10 @@ class ReportForm
                                         $students = Student::where('class_rombel_id', $state)
                                             ->pluck('full_name','id')
                                             ->toArray();
+
                                         $set('student_options', $students);
                                     }),
+
 
                                 Select::make('student_id')
                                     ->label('Nama Siswa')
@@ -127,7 +147,11 @@ class ReportForm
                                     $set('predicate', null);
                                     $set('is_passed', null);
                                 }
-                            })->disableOptionsWhenSelectedInSiblingRepeaterItems(),
+                            })
+                            ->disabled(function (Get $get) {
+                                return !$get('../../student_id') || !$get('../../academic_year_id') || !$get('../../semester');
+                            })
+                            ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
 
                         Grid::make(4)
                             ->schema([

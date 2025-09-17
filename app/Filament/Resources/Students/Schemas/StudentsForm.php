@@ -41,7 +41,7 @@ class StudentsForm
                                 Select::make('class_rombel_id')
                                     ->label('Kelas')
                                     ->options(ClassRombel::pluck('name','id'))
-                                    ->default(fn () => auth()->user()?->teacher?->classes?->id)
+                                    ->default(fn () => auth()->user()?->teacher?->classRombel?->id)
                                     ->disabled(fn () => auth()->user()->is_teacher)
                                     ->preload()
                                     ->searchable()

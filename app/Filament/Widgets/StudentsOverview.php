@@ -13,7 +13,7 @@ use Filament\Widgets\Concerns\InteractsWithPageFilters;
 class StudentsOverview extends StatsOverviewWidget
 {
     use InteractsWithPageFilters;     
-    protected static ?int $sort = 2;
+    protected static ?int $sort = 1;
 
     protected function getFilters(): ?array
     {

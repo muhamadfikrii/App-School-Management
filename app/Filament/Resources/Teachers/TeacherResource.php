@@ -26,10 +26,10 @@ class TeacherResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'yes';
 
-    public static function canAccess(): bool
-    {
-        return auth('web')->user()?->is_admin ?? false;
-    }
+    // public static function canAccess(): bool
+    // {
+    //     return auth('web')->user()?->is_admin ?? false;
+    // }
 
     public static function form(Schema $schema): Schema
     {
