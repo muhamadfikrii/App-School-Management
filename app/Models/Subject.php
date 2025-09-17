@@ -74,21 +74,19 @@ class Subject extends Model
                 continue;
             }
 
-            // Deteksi otomatis format bobot (persen atau desimal)
             $weight = (float) $component->weight;
             if ($weight > 1) {
-                $weight = $weight / 100.0; // kalau simpan dalam persen (mis: 30)
+                $weight = $weight / 100.0;
             }
 
-            $avgScore = $componentGrades->avg('score'); // skor 0–100
-            $score = $avgScore ?? 0; // kalau belum ada nilai dianggap 0
+            $avgScore = $componentGrades->avg('score');
+            $score = $avgScore ?? 0;
 
             $sumWeighted += $score * $weight;
         }
 
         $finalScore = round($sumWeighted, 2);
 
-        // Predikat standar Indonesia
         $predicate = match (true) {
             $finalScore >= 90 => 'A',
             $finalScore >= 80 => 'B',
@@ -96,7 +94,6 @@ class Subject extends Model
             default => 'D',
         };
 
-        // Ambil KKM dari subject, default 75
         $kkm = $this->kkm;
         $isPassed = $finalScore >= $kkm;
 
