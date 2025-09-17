@@ -45,14 +45,7 @@ class GradesTable
                     DeleteBulkAction::make()
                     ->visible(fn() => auth()->user()->is_admin),
                 ]),
-            ])->modifyQueryUsing(function ($query) {
-                $user = Auth::user();
-                // dd($user->teacher);
-
-                if (!$user->is_admin) {
-                    $query->where("teacher_id", $user->teacher?->id);
-                }
-            });
+            ]);
 
     }
 }

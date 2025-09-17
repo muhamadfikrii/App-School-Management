@@ -42,7 +42,6 @@ class StudentsResource extends Resource
         return false;
     }
 
-
     public static function form(Schema $schema): Schema
     {
         return StudentsForm::configure($schema);
