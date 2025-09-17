@@ -35,7 +35,7 @@ class StudentsResource extends Resource
             return true;
         }
 
-        if ($user->is_teacher && $user->teacher && $user->teacher->classes) {
+        if ($user->is_teacher && $user->teacher && $user->teacher->classRombel) {
             return true;
         }
 

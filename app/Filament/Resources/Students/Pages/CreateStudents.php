@@ -20,7 +20,7 @@ class CreateStudents extends CreateRecord
         $user = auth()->user();
 
         if ($user->is_teacher) {
-            $data['class_rombel_id'] = $user->teacher->classes->id ?? $data['class_rombel_id'] ?? null;
+            $data['class_rombel_id'] = $user->teacher->classRombel->id ?? $data['class_rombel_id'] ?? null;
         }
 
         return $data;
