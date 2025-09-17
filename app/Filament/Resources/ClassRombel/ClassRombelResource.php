@@ -29,7 +29,18 @@ class ClassRombelResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth('web')->user()?->is_admin ?? false;
+        $user = auth('web')->user();
+        $model = static::getModel();
+
+        if ($user->is_admin) {
+            return true;
+        }
+
+        if ($user->is_teacher && $user->teacher) {
+            return $model::where('teacher_id', $user->teacher->id)->exists();
+        }
+
+        return false;
     }
 
     public static function form(Schema $schema): Schema
