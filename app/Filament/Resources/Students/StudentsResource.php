@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources\Students;
 
-use App\Filament\Resources\Students\RelationManagers\GradeRelationManager;
-use BackedEnum;
 use UnitEnum;
+use BackedEnum;
 use App\Models\Student;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
@@ -18,6 +17,8 @@ use App\Filament\Resources\Students\Pages\CreateStudents;
 use App\Filament\Resources\Students\Schemas\StudentsForm;
 use App\Filament\Resources\Students\Tables\StudentsTable;
 use App\Filament\Resources\Students\Schemas\StudentsInfolist;
+use App\Filament\Resources\Students\RelationManagers\GradeRelationManager;
+use App\Filament\Resources\Students\RelationManagers\FinalGradeRelationManager;
 
 class StudentsResource extends Resource
 {
@@ -76,6 +77,7 @@ class StudentsResource extends Resource
     {
         return [
             GradeRelationManager::class,
+            FinalGradeRelationManager::class,
         ];
     }
 
