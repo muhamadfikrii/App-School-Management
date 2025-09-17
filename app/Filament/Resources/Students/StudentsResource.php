@@ -85,26 +85,11 @@ class StudentsResource extends Resource
         return false;
     }
 
-    public static function getEloquentQuery(): Builder
-    {
-        $query = parent::getEloquentQuery();
-        $user = auth()->user();
-
-        if ($user->is_teacher && $user->teacher) {
-            // Guru hanya bisa lihat student dari kelasnya sendiri
-            return $query->where('class_rombel_id', $user->teacher->classes->id);
-        }
-
-        // Admin bisa lihat semua
-        return $query;
-    }
-
     public static function getPages(): array
     {
         return [
             'index' => ListStudents::route('/'),
             'create' => CreateStudents::route('/create'),
-            // 'view' => ViewStudents::route('/{record}'),
             'edit' => EditStudents::route('/{record}/edit'),
         ];
     }
