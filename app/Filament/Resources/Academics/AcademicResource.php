@@ -24,7 +24,7 @@ class AcademicResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::CalendarDays;
 
-    protected static ?string $recordTitleAttribute = 'yes';
+    // protected static ?string $recordTitleAttribute = 'yes';
 
     protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
 

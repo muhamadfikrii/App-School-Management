@@ -23,7 +23,7 @@ class GradeResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::TableCells;
 
-    protected static ?string $recordTitleAttribute = 'Grade';
+    // protected static ?string $recordTitleAttribute = 'Grade';
 
     public static function form(Schema $schema): Schema
     {

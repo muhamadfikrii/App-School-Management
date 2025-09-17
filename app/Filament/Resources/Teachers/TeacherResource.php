@@ -9,7 +9,9 @@ use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Support\Htmlable;
 use App\Filament\Resources\Teachers\Pages\EditTeacher;
 use App\Filament\Resources\Teachers\Pages\ViewTeacher;
 use App\Filament\Resources\Teachers\Pages\ListTeachers;
@@ -24,12 +26,12 @@ class TeacherResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-presentation-chart-line';
 
-    protected static ?string $recordTitleAttribute = 'yes';
+    protected static ?string $recordTitleAttribute = 'full_name';
 
-    // public static function canAccess(): bool
-    // {
-    //     return auth('web')->user()?->is_admin ?? false;
-    // }
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    {
+        return $record->full_name;
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -23,7 +23,7 @@ class GradeComponentsResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPresentationChartBar;
 
-    protected static ?string $recordTitleAttribute = 'yes';
+    // protected static ?string $recordTitleAttribute = 'yes';
 
     public static function canAccess(): bool
     {

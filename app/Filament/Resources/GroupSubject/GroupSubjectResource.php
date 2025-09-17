@@ -25,7 +25,7 @@ class GroupSubjectResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentPlus;
 
-    protected static ?string $recordTitleAttribute = 'GroupSubject';
+    // protected static ?string $recordTitleAttribute = 'GroupSubject';
 
     public static function form(Schema $schema): Schema
     {

@@ -31,7 +31,7 @@ class ScheduleResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentDuplicate;
 
-    protected static ?string $recordTitleAttribute = 'yes';
+    // protected static ?string $recordTitleAttribute = 'yes';
 
 
     public static function form(Schema $schema): Schema
