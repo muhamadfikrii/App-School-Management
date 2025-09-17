@@ -22,6 +22,7 @@ class ClassRombelTable
                 TextColumn::make('teacher.full_name')
                     ->label('Wali Kelas')
                     ->numeric()
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->label('Dibuat'),
