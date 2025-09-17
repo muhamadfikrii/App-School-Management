@@ -27,4 +27,15 @@ class CreateGrade extends CreateRecord
             $this->student = $student;
         }
     }
+
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+    if (auth()->user()->is_teacher && auth()->user()->teacher) {
+        $data['teacher_id'] = auth()->user()->teacher->id;
+    }
+
+    return $data;
+    }
+
 }

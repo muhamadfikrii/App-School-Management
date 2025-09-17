@@ -45,7 +45,8 @@ class GradesTable
                     DeleteBulkAction::make()
                     ->visible(fn() => auth()->user()->is_admin),
                 ]),
-            ]);
+
+
 
     }
 }

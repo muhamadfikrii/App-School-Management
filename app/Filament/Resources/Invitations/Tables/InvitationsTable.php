@@ -48,7 +48,7 @@ class InvitationsTable
                         Notification::make()
                         ->success()
                         ->title('Invitation Sent')
-                        ->body('Invitation has been susccesfully')
+                        ->body('Undangan telah berhasil di kirim!')
                         ->send();
                     }),
 
