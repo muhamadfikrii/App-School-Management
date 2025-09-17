@@ -35,33 +35,38 @@ class GradeForm
                             Select::make('class_rombel_id')
                                 ->label('Kelas')
                                 ->options(ClassRombel::pluck('name','id'))
-                                ->reactive() // agar perubahan kelas memicu update
+                                ->reactive()
                                 ->searchable()
                                 ->required()
                                 ->default(function ($get, $livewire) {
                                     return $livewire->student?->classRombel->id;
                                 })
                                 ->afterStateUpdated(function ($state, callable $set) {
-                                    // reset student_id saat ganti kelas
                                     $set('student_id', null);
                                 }),
                             Select::make('student_id')
                                 ->label('Nama Siswa')
                                 ->options(function (callable $get) {
-                                    $classId = $get('class_rombel_id'); // ambil kelas yang dipilih
+                                    $classId = $get('class_rombel_id');
                                     if (!$classId) return [];
                                     return Student::where('class_rombel_id', $classId)
                                                 ->pluck('full_name','id');
                                 })
                                 ->searchable()
                                 ->default(function ($get, $livewire) {
-                                    return $livewire->student?->id; // id siswa otomatis dipilih
+                                    return $livewire->student?->id;
                                 })
                                 ->required(),
                             Select::make('subject_id')
                                 ->label('Mata Pelajaran')
-                                ->options(Subject::pluck('name','id'))
-                                ->reactive() // biar perubahan memicu update guru
+                                ->options(function () {
+                                    $user = auth()->user();
+                                    if ($user->is_teacher && $user->teacher) {
+                                        return $user->teacher->subjects->pluck('name','id')->toArray();
+                                    }
+                                    return Subject::pluck('name','id')->toArray();
+                                })
+                                ->reactive()
                                 ->afterStateUpdated(fn ($state, callable $set) => $set('teacher_id', null)),
 
                             Select::make('teacher_id')
@@ -73,7 +78,6 @@ class GradeForm
                                         ? Teacher::whereHas('subjects', fn($q) => $q->where('subjects.id', $subjectId))
                                                 ->pluck('full_name','id') : [];
                                 })
-                                // ->searchable()
                                 ->required(),
                             Select::make('grade_component_id')
                                 ->label('Komponen Nilai')
