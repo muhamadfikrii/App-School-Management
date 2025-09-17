@@ -91,6 +91,8 @@ class GradeForm
                                 ->label('Nilai')
                                 ->numeric()
                                 ->required()
+                                ->minValue(0)
+                                ->maxValue(100),
                         ])
                     ]),
             ]);
