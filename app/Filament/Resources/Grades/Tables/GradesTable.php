@@ -47,7 +47,6 @@ class GradesTable
                 ])
             ])->modifyQueryUsing(function (Builder $query) {
                 $user = auth()->user();
-
                 if ($user->is_teacher && $user->teacher) {
                     // guru lihat hanya nilai yg dia input
                     $query->where('teacher_id', $user->teacher->id);
@@ -59,7 +58,5 @@ class GradesTable
 
                 return $query;
             });
-
-       
-    }
+        }
 }
