@@ -28,9 +28,11 @@ class GradeForm
                         ->schema([
                             Select::make('academic_year_id')
                                 ->label('Tahun Akademik')
+                                ->required()
                                 ->options(AcademicYear::pluck('name','id')->toArray()),
                             Select::make('semester')
                                 ->label('Semester')
+                                ->required()
                                 ->options(Semester::toArray()),
                             Select::make('class_rombel_id')
                                 ->label('Kelas')
@@ -67,6 +69,7 @@ class GradeForm
                                     return Subject::pluck('name','id')->toArray();
                                 })
                                 ->reactive()
+                                ->required()
                                 ->afterStateUpdated(fn ($state, callable $set) => $set('teacher_id', null)),
 
                             Select::make('teacher_id')
@@ -82,6 +85,7 @@ class GradeForm
                             Select::make('grade_component_id')
                                 ->label('Komponen Nilai')
                                 ->searchable()
+                                ->required()
                                 ->options(GradeComponent::pluck('name','id')->toArray()),
                             TextInput::make('score')
                                 ->label('Nilai')
