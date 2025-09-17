@@ -46,7 +46,6 @@ class GradesTable
                     ->visible(fn() => auth()->user()->is_admin),
                 ]),
 
-
-
+       
     }
 }

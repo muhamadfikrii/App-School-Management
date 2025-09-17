@@ -52,14 +52,13 @@ class Grade extends Model
 
     protected static function booted()
     {
-        static::creating(function (Grade $grade) {
-            $waliKelas = $grade->student->classRombel?->teacher;
-
-            if ($waliKelas) {
-                $grade->teacher_id = $waliKelas->id; // bukan guru input
-            }
-        });
+    static::creating(function (Grade $grade) {
+        if (auth()->check() && auth()->user()->is_teacher && auth()->user()->teacher) {
+            $grade->teacher_id = auth()->user()->teacher->id;
+        }
+    });
     }
+
 
     protected static function final()
     {
