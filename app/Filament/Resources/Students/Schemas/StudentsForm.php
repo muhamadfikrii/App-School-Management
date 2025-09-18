@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 
 class StudentsForm
 {
@@ -33,11 +34,16 @@ class StudentsForm
                                     ->numeric()
                                     ->minLength(9)
                                     ->maxLength(10)
+                                    ->columnSpanFull()
                                     ->unique(ignoreRecord: true),
                                 TextInput::make('full_name')
                                     ->label('Nama Lengkap')
                                     ->placeholder('Masukkan nama lengkap siswa')
                                     ->required(),
+                                TextInput::make('email')
+                                    ->label('Email')
+                                    ->placeholder('Masukkan Email siswa')
+                                    ->nullable(),
                                 Select::make('class_rombel_id')
                                     ->label('Kelas')
                                     ->options(ClassRombel::pluck('name','id'))
@@ -45,8 +51,14 @@ class StudentsForm
                                     ->disabled(fn () => auth()->user()->is_teacher)
                                     ->preload()
                                     ->searchable()
+                                    ->required(),
+                                DatePicker::make('date_of_birth')
+                                    ->label('Tanggal Lahir')
                                     ->required()
-                                    ->columnSpanFull(),
+                                    ->native(false)
+                                    ->displayFormat('d M Y')
+                                    ->prefixIcon(Heroicon::CalendarDateRange)
+                                    ->locale('id'),
                                 TextInput::make('phone')
                                     ->label('Nomor HP')
                                     ->placeholder('0812xxxxxxx')
@@ -80,11 +92,9 @@ class StudentsForm
                                     ->tel()
                                     ->required()
                                     ->maxLength(15),
-                                Textarea::make('address')
+                                RichEditor::make('address')
                                     ->label('Alamat Lengkap')
                                     ->placeholder('Masukkan alamat guru')
-                                    ->rows(3)
-                                    ->required()
                                     ->columnSpanFull(),
                             ]),
                         ]),
@@ -93,6 +103,7 @@ class StudentsForm
                                 FileUpload::make('avatar_url')
                                     ->label('Foto')
                                     ->image()
+                                    ->nullable()
                                     ->imageEditor()
                             ]),
                 ]);
