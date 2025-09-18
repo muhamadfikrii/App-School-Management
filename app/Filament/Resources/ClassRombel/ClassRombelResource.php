@@ -2,15 +2,17 @@
 
 namespace App\Filament\Resources\ClassRombel;
 
-use BackedEnum;
 use UnitEnum;
+use BackedEnum;
 use App\Enums\UserRole;
-use App\Filament\Resources\ClassRombel\ClassRombelResource\RelationManagers\StudentsRelationManager;
 use Filament\Tables\Table;
 use App\Models\ClassRombel;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Support\Htmlable;
 use App\Filament\Resources\ClassRombel\Pages\EditClassRombel;
 use App\Filament\Resources\ClassRombel\Pages\ListClassRombel;
 use App\Filament\Resources\ClassRombel\Pages\ViewClassRombel;
@@ -18,6 +20,7 @@ use App\Filament\Resources\ClassRombel\Pages\CreateClassRombel;
 use App\Filament\Resources\ClassRombel\Schemas\ClassRombelForm;
 use App\Filament\Resources\ClassRombel\Tables\ClassRombelTable;
 use App\Filament\Resources\ClassRombel\Schemas\ClassRombelInfolist;
+use App\Filament\Resources\ClassRombel\ClassRombelResource\RelationManagers\StudentsRelationManager;
 
 class ClassRombelResource extends Resource
 {
@@ -26,6 +29,7 @@ class ClassRombelResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingLibrary;
 
     protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+    protected static ?string $recordTitleAttribute = 'id';
 
     public static function canAccess(): bool
     {
@@ -74,13 +78,37 @@ class ClassRombelResource extends Resource
 
     public static function getPluralModelLabel(): string
     {
-        return 'Data Rombel';
+        return 'Rombongan Belajar';
     }
 
     public static function getNavigationLabel(): string
     {
         return 'Rombel';
     }
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    {
+        return $record->teacher->full_name;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'rombel', 'teacher.full_name'];
+    }
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Wali Kelas' => $record->name ?? 'Tidak Jadi Wali Kelas',
+            'Rombel' => $record->rombel,
+        ];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['teacher']);
+    }
+
+
 
     public static function getPages(): array
     {

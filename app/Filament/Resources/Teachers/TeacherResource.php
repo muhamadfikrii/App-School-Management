@@ -28,11 +28,6 @@ class TeacherResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'full_name';
 
-    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
-    {
-        return $record->full_name;
-    }
-
     public static function form(Schema $schema): Schema
     {
         return TeacherForm::configure($schema);
@@ -73,6 +68,30 @@ class TeacherResource extends Resource
     {
         return 'Guru';
     }
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    {
+        return $record->full_name;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['full_name', 'nip', 'phone', 'classRombel.name'];
+    }
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'NIP' => $record->nip,
+            'No Telp' => $record->phone,
+            'Kelas' => $record->classRombel?->name
+        ];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['classRombel']);
+    }
+
 
 
     public static function getPages(): array
