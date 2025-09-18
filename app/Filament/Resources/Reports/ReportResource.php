@@ -8,6 +8,9 @@ use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\Reports\Pages\EditReport;
 use App\Filament\Resources\Reports\Pages\ViewReport;
 use App\Filament\Resources\Reports\Pages\ListReports;
@@ -21,6 +24,8 @@ class ReportResource extends Resource
     protected static ?string $model = FinalGrade::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static ?string $recordTitleAttribute = 'id';
 
     public static function form(Schema $schema): Schema
     {
@@ -57,6 +62,40 @@ class ReportResource extends Resource
     public static function getNavigationLabel(): string
     {
         return 'Nilai Akhir';
+    }
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    {
+    return $record->student->full_name;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['student.full_name', 'classRombel.name', 'gradesDetail.final_score'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        $finalScores = $record->gradesDetail
+            ->map(fn($detail) => $detail->final_score)
+            ->join(', ');
+
+        $mapels = $record->gradesDetail
+            ->map(fn($detail) => $detail->subject->name)
+            ->join(', ');
+
+
+        return [
+            'Kelas' => $record->classRombel->name,
+            'Semester' => $record->semester,
+            'Mapel' => $mapels,
+            'Nilai' => $finalScores
+        ];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['student', 'classRombel', 'gradesDetail', 'gradesDetail.subject']);
     }
 
 

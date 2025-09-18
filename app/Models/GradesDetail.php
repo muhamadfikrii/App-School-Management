@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class GradesDetail extends Model
 {
@@ -13,5 +14,10 @@ class GradesDetail extends Model
     public function finalGrade(): BelongsTo
     {
         return $this->belongsTo(FinalGrade::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
     }
 }

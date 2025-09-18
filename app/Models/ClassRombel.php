@@ -48,6 +48,11 @@ class ClassRombel extends Model
         return $this->hasMany(Schedule::class);
     }
 
+    public function scheduleSubject()
+    {
+        return $this->hasMany(ScheduleSubject::class);
+    }
+
     public function scopeForTeacher(Builder $query, int $teacherId): Builder
     {
         return $query->where('teacher_id', $teacherId);

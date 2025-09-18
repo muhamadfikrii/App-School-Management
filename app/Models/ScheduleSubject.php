@@ -41,6 +41,11 @@ class ScheduleSubject extends Model
         return $this->belongsTo(Teacher::class);
     }
 
+    public function classRombel()
+    {
+        return $this->belongsTo(ClassRombel::class);
+    }
+
     public function getTimeRangeAttribute(): string
     {
         if (! $this->time_start || ! $this->time_end) {

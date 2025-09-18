@@ -9,7 +9,9 @@ use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Support\Htmlable;
 use App\Filament\Resources\Students\Pages\EditStudents;
 use App\Filament\Resources\Students\Pages\ListStudents;
 use App\Filament\Resources\Students\Pages\ViewStudents;
@@ -27,6 +29,8 @@ class StudentsResource extends Resource
     protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
+
+    protected static ?string $recordTitleAttribute = 'full_name';
 
     public static function canAccess(): bool
     {
@@ -84,6 +88,30 @@ class StudentsResource extends Resource
     public function isReadOnly(): bool
     {
         return false;
+    }
+
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    {
+        return $record->full_name;
+    }
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['full_name', 'nisn', 'classRombel.name', 'status'];
+    }
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'NISN' => $record->nisn,
+            'Kelas' => $record->classRombel?->name ?? 'Belum Punya Kelas',
+            'Status' => $record->status
+        ];
+    }
+
+    public static function getGlobalSearchEloquentQuery(): Builder
+    {
+        return parent::getGlobalSearchEloquentQuery()->with(['classRombel']);
     }
 
     public static function getPages(): array
