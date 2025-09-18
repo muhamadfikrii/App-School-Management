@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Schedule\Tables;
 
 use App\Enums\Days;
+use App\Models\Teacher;
 use Filament\Tables\Table;
 use App\Models\ClassRombel;
 use Filament\Actions\EditAction;
@@ -57,6 +58,18 @@ class SchedulesTable
                             $query->whereIn('class_rombel_id', $data['values']);
                         }
                     }),
+                SelectFilter::make('teacher_id')
+                    ->label('Guru')
+                    ->searchable()
+                    ->options(Teacher::pluck('full_name', 'id')->toArray())
+                    ->query(function (Builder $query, array $data) {
+                    
+                        if (! empty($data['values'])) {
+                            $query->whereHas('scheduleSubjects', function ($q) use ($data){
+                                $q->whereIn('teacher_id', $data['values']);
+                        });
+                    }
+                }),
                 SelectFilter::make('day')
                     ->label('Hari')
                     ->options(Days::toArray())
@@ -70,6 +83,17 @@ class SchedulesTable
                 ExportAction::make()
                     ->exporter(SchedulesExporter::class)
                     ->fileName('jadwal-mengajar')
-            ]);
+            ])->modifyQueryUsing(function (Builder $query) {
+                    $query->with([
+                        'classRombel',
+                        'scheduleSubjects' => function ($q) {
+                            if ($selectedTeacherIds = request()->input('tableFilters.teacher_id.values', [])) {
+                                $q->whereIn('teacher_id', $selectedTeacherIds);
+                            }
+                        },
+                        'scheduleSubjects.subject',
+                        'scheduleSubjects.teacher',
+                    ]);
+                });
     }
 }
