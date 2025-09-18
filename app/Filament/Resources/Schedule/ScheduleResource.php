@@ -114,10 +114,13 @@ class ScheduleResource extends Resource
                 $query->where(function ($sub) use ($search) {
                     $sub->whereHas('classRombel', fn($q) =>
                             $q->where('name', 'like', "%{$search}%"))
+
                         ->orWhereHas('scheduleSubjects.subject', fn($q) =>
                             $q->where('name', 'like', "%{$search}%"))
+
                         ->orWhereHas('scheduleSubjects.teacher', fn($q) =>
                             $q->where('full_name', 'like', "%{$search}%"))
+                            
                         ->orWhere('day', 'like', "%{$search}%");
                 });
             });

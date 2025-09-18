@@ -39,13 +39,6 @@ class SchedulesTable
                 'md' => 1,
                 'xl' => 2,
             ])
-            ->modifyQueryUsing(function (Builder $query) {
-                $query->with([
-                    'classRombel',
-                    'scheduleSubjects.subject',
-                    'scheduleSubjects.teacher',
-                ]);
-            })
             ->defaultGroup('classRombel.name')
             ->filters([
                 SelectFilter::make('class_rombel_id')
@@ -61,15 +54,14 @@ class SchedulesTable
                 SelectFilter::make('teacher_id')
                     ->label('Guru')
                     ->searchable()
-                    ->options(Teacher::pluck('full_name', 'id')->toArray())
+                    ->options(fn () => Teacher::pluck('full_name', 'id')->toArray())
                     ->query(function (Builder $query, array $data) {
-                    
-                        if (! empty($data['values'])) {
-                            $query->whereHas('scheduleSubjects', function ($q) use ($data){
-                                $q->whereIn('teacher_id', $data['values']);
-                        });
-                    }
-                }),
+                        if (!empty($data['value'])) {
+                            $query->whereHas('scheduleSubjects', function ($q) use ($data) {
+                                $q->where('teacher_id', $data['value']);
+                            });
+                        }
+                    }),
                 SelectFilter::make('day')
                     ->label('Hari')
                     ->options(Days::toArray())
@@ -84,16 +76,11 @@ class SchedulesTable
                     ->exporter(SchedulesExporter::class)
                     ->fileName('jadwal-mengajar')
             ])->modifyQueryUsing(function (Builder $query) {
-                    $query->with([
-                        'classRombel',
-                        'scheduleSubjects' => function ($q) {
-                            if ($selectedTeacherIds = request()->input('tableFilters.teacher_id.values', [])) {
-                                $q->whereIn('teacher_id', $selectedTeacherIds);
-                            }
-                        },
-                        'scheduleSubjects.subject',
-                        'scheduleSubjects.teacher',
-                    ]);
-                });
+                $query->with([
+                    'classRombel',
+                    'scheduleSubjects.subject',
+                    'scheduleSubjects.teacher',
+                ]);
+            });
     }
 }
