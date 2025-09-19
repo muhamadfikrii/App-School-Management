@@ -43,4 +43,8 @@ class Grade extends Model
     {
         return $this->belongsTo(GradeComponent::class,  'grade_component_id');
     }
+    public function groupSubject()
+    {
+        return $this->hasMany(GroupSubject::class);
+    }
 }

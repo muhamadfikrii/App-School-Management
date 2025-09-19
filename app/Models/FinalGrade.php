@@ -39,4 +39,9 @@ class FinalGrade extends Model
     {
         return $this->hasMany(GradesDetail::class, 'final_grade_id');
     }
+
+    public function groupSubject(): HasMany
+    {
+        return $this->hasMany(GroupSubject::class);
+    }
 }

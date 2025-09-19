@@ -19,4 +19,20 @@ class GroupSubject extends Model
     {
         return $this->hasMany(Subject::class);
     }
+
+    public function finalGrade()
+    {
+        return $this->belongsTo(FinalGrade::class);
+    }
+
+    public function grade()
+    {
+        return $this->belongsTo(Grade::class);
+    }
+
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
 }
