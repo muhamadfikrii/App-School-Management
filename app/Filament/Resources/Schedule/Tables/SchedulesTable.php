@@ -56,7 +56,7 @@ class SchedulesTable
                     ->searchable()
                     ->options(fn () => Teacher::pluck('full_name', 'id')->toArray())
                     ->query(function (Builder $query, array $data) {
-                        if (!empty($data['value'])) {
+                        if (! empty($data['value'])) {
                             $query->whereHas('scheduleSubjects', function ($q) use ($data) {
                                 $q->where('teacher_id', $data['value']);
                             });
