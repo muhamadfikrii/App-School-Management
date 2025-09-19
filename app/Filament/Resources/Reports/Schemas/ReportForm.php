@@ -2,21 +2,22 @@
 
 namespace App\Filament\Resources\Reports\Schemas;
 
-use App\Models\Grade;
 use App\Enums\Semester;
+use App\Enums\Status;
+use App\Models\AcademicYear;
+use App\Models\ClassRombel;
+use App\Models\Grade;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
-use App\Models\ClassRombel;
-use App\Models\AcademicYear;
-use Filament\Schemas\Schema;
-use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
+use Filament\Schemas\Schema;
 
 class ReportForm
 {
@@ -82,6 +83,7 @@ class ReportForm
                                         }
 
                                         $students = Student::where('class_rombel_id', $state)
+                                            ->where('status', Status::ACTIVE->value)
                                             ->pluck('full_name','id')
                                             ->toArray();
 
