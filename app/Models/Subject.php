@@ -51,6 +51,12 @@ class Subject extends Model
     {
         return $this->hasMany(ScheduleSubject::class);
     }
+    
+    public function groupSubject()
+    {
+        return $this->belongsTo(GroupSubject::class);
+    }
+
 
     /**
      * Hitung nilai akhir siswa (standar Indonesia).

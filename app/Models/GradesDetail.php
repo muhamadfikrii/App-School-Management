@@ -20,4 +20,9 @@ class GradesDetail extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+    public function groupSubject()
+    {
+        return $this->belongsTo(GroupSubject::class);   
+    }
+
 }
