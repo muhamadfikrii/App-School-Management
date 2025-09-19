@@ -49,12 +49,15 @@ class SchedulesExporter extends Exporter
 
     public static function getCompletedNotificationBody(Export $export): string
     {
-        $body = 'Your schedule export has completed and ' . Number::format($export->successful_rows) . ' ' . str('row')->plural($export->successful_rows) . ' exported.';
-
+        $body = 'Export jadwal anda telah selesai ' 
+            . Number::format($export->successful_rows) . ' ' 
+            . str('row')->plural($export->successful_rows) 
+            . ' Mulai Export.';
         if ($failedRowsCount = $export->getFailedRowsCount()) {
-            $body .= ' ' . Number::format($failedRowsCount) . ' ' . str('row')->plural($failedRowsCount) . ' failed to export.';
+            $body .= ' ' . Number::format($failedRowsCount) . ' ' 
+            . str('row')->plural($failedRowsCount) 
+            . 'Gagal untuk export.';
         }
-
         return $body;
     }
 
@@ -64,7 +67,7 @@ class SchedulesExporter extends Exporter
         ->setFontSize(12)
         ->setFontBold()
         ->setCellAlignment(CellAlignment::CENTER)
-        ->setFontName('Consolas');
+        ->setFontName('Times New Roman');
     }
 
 }
