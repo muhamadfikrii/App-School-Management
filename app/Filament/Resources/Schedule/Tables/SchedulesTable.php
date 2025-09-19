@@ -72,9 +72,7 @@ class SchedulesTable
                 EditAction::make(),
             ])
             ->headerActions([
-                ExportAction::make()
-                    ->exporter(SchedulesExporter::class)
-                    ->fileName('jadwal-mengajar')
+                //
             ])->modifyQueryUsing(function (Builder $query) {
                 $query->with([
                     'classRombel',
