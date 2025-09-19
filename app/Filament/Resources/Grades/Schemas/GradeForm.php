@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Grades\Schemas;
 
 use App\Enums\Semester;
+use App\Enums\Status;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
@@ -52,6 +53,7 @@ class GradeForm
                                     $classId = $get('class_rombel_id');
                                     if (!$classId) return [];
                                     return Student::where('class_rombel_id', $classId)
+                                                ->where('status', Status::ACTIVE->value)
                                                 ->pluck('full_name','id');
                                 })
                                 ->searchable()
