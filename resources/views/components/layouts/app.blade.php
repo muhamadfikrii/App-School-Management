@@ -25,7 +25,7 @@
     @include('livewire.partials.navbar')
 
     {{-- Konten utama --}}
-    <main class="w-full mt-20">
+    <main>
         {{ $slot }}
     </main>
 
