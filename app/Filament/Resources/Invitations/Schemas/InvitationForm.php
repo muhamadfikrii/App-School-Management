@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Invitations\Schemas;
 
+use App\Models\Invitation;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Toggle;
@@ -20,7 +21,18 @@ class InvitationForm
                         TextInput::make('name')
                             ->required(),
                         TextInput::make('email')
-                            ->required(),
+                            ->required()
+                            ->rule(function ($record){
+                                return function ($attribute, $value, \Closure $fail)  use ($record) {
+                                    $exists = Invitation::where('email', $value)
+                                                        ->when($record, fn($query) => $query->where('id', '!=', $record->id))
+                                                        ->exists();
+
+                                    if($exists){
+                                        $fail("Email $value sudah pernah di undang.");
+                                    }
+                                };
+                            }),
                         Hidden::make('invited_by_id')
                             ->label('Di Undang oleh')
                             ->default(auth()->user()?->id),
