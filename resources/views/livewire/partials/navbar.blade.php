@@ -1,5 +1,5 @@
 <div id="navbar" 
-    class="fixed top-0 left-0 w-full bg-white z-50 transition-all duration-300"
+    class="fixed top-0 left-0 min-w-screen bg-white z-50 transition-all duration-300"
     x-data="{ open: false, scrolled: false }"
     x-init="
         window.addEventListener('scroll', () => {
@@ -9,7 +9,8 @@
     :class="scrolled ? 'shadow-lg bg-white backdrop-blur-md' : ''">
 
     <!-- Wrapper -->
-    <div class="w-full px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
+    
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="{{ route('home') }}" class="flex items-center gap-3">
             <img class="w-12 h-12" src="{{ asset('img/logo.png') }}" alt="Logo SMKN 4 Kuningan">
@@ -55,40 +56,41 @@
     </button>
 </div>
 
-    <div class="md:hidden absolute top-full left-0 w-full bg-white shadow-md origin-top z-40"
-        x-show="open"
-        x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 transform -translate-y-5"
-        x-transition:enter-end="opacity-100 transform translate-y-0"
-        x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100 transform translate-y-0"
-        x-transition:leave-end="opacity-0 transform -translate-y-5">
+    <div class="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-40 origin-top"
+     x-show="open"
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0 transform -translate-y-5"
+     x-transition:enter-end="opacity-100 transform translate-y-0"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100 transform translate-y-0"
+     x-transition:leave-end="opacity-0 transform -translate-y-5">
+     
+     <ul class="flex flex-col px-6 py-4 gap-3">
+        <li>
+            <a href="{{ route('home') }}" 
+               class="block hover:bg-gray-100 px-4 py-2 rounded w-full {{ request()->routeIs('home') ? 'bg-blue-50 text-blue-600 font-semibold' : '' }}">
+               Home
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('About') }}" 
+               class="block hover:bg-gray-100 px-4 py-2 rounded w-full {{ request()->routeIs('About') ? 'bg-blue-50 text-blue-600 font-semibold' : '' }}">
+               Tentang SMKN4
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('Contact') }}" 
+               class="block hover:bg-gray-100 px-4 py-2 rounded w-full {{ request()->routeIs('Contact') ? 'bg-blue-50 text-blue-600 font-semibold' : '' }}">
+               Kontak Kami
+            </a>
+        </li>
+        <li>
+            <a href="/admin" 
+               class="block bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded text-center shadow w-full">
+               Login
+            </a>
+        </li>
+     </ul>
+</div>
 
-        <ul class="flex flex-col px-6 py-4 gap-3">
-            <li>
-                <a href="{{ route('home') }}" 
-                class="block hover:bg-gray-100 px-4 py-2 rounded w-full {{ request()->routeIs('home') ? 'bg-blue-50 text-blue-600 font-semibold' : '' }}">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('About') }}" 
-                class="block hover:bg-gray-100 px-4 py-2 rounded w-full {{ request()->routeIs('About') ? 'bg-blue-50 text-blue-600 font-semibold' : '' }}">
-                    Tentang SMKN4
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('Contact') }}" 
-                class="block hover:bg-gray-100 px-4 py-2 rounded w-full {{ request()->routeIs('Contact') ? 'bg-blue-50 text-blue-600 font-semibold' : '' }}">
-                    Kontak Kami
-                </a>
-            </li>
-            <li>
-                <a href="/admin" 
-                class="block bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded text-center shadow w-full">
-                    Login
-                </a>
-            </li>
-        </ul>
-    </div>
 </div>
