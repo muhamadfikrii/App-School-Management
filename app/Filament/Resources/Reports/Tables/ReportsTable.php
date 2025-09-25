@@ -39,7 +39,7 @@ class ReportsTable
                 $query->with(['classRombel.teacher']);
                 $user = auth()->user();
                 if ($user->is_teacher && $user->teacher) {
-                    $query->whereHas('classRombel', function ($q) use ($user) {
+                    $query->whereHas('classRombel', function ($q) use ($user): void {
                         $q->where('teacher_id', $user->teacher->id);
                     });
                     return $query;

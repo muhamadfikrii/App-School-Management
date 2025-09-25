@@ -46,7 +46,7 @@ class SchedulesTable
                     ->multiple()
                     ->searchable()
                     ->options(ClassRombel::pluck('name', 'id')->toArray())
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['values'])) {
                             $query->whereIn('class_rombel_id', $data['values']);
                         }
@@ -55,9 +55,9 @@ class SchedulesTable
                     ->label('Guru')
                     ->searchable()
                     ->options(fn () => Teacher::pluck('full_name', 'id')->toArray())
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['value'])) {
-                            $query->whereHas('scheduleSubjects', function ($q) use ($data) {
+                            $query->whereHas('scheduleSubjects', function ($q) use ($data): void {
                                 $q->where('teacher_id', $data['value']);
                             });
                         }
@@ -73,7 +73,7 @@ class SchedulesTable
             ])
             ->headerActions([
                 //
-            ])->modifyQueryUsing(function (Builder $query) {
+            ])->modifyQueryUsing(function (Builder $query): void {
                 $query->with([
                     'classRombel',
                     'scheduleSubjects.subject',

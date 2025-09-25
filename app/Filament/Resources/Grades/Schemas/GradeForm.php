@@ -44,7 +44,7 @@ class GradeForm
                                 ->default(function ($get, $livewire) {
                                     return $livewire->student?->classRombel->id;
                                 })
-                                ->afterStateUpdated(function ($state, callable $set) {
+                                ->afterStateUpdated(function ($state, callable $set): void {
                                     $set('student_id', null);
                                 }),
                             Select::make('student_id')

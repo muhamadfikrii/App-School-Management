@@ -33,7 +33,7 @@ class ClassRombelTable
                 $user = auth()->user();
 
                 if ($user->is_teacher && $user->teacher) {
-                    $query->whereHas('teacher', function ($q) use ($user) {
+                    $query->whereHas('teacher', function ($q) use ($user): void {
                         $q->where('id', $user->teacher->id);
                     });
                     return $query;

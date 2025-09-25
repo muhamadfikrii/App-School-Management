@@ -31,7 +31,7 @@ class Student extends Model
 
     public function scopeForTeacher($query, $teacherId)
     {
-        return $query->whereHas('studentClass', function ($q) use ($teacherId) {
+        return $query->whereHas('studentClass', function ($q) use ($teacherId): void {
             $q->where('teacher_id', $teacherId);
         });
     }

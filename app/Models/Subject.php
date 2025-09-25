@@ -87,7 +87,7 @@ class Subject extends Model
 
             $weight = (float) $component->weight;
             if ($weight > 1) {
-                $weight = $weight / 100.0;
+                $weight /= 100.0;
             }
 
             $avgScore = $componentGrades->avg('score');

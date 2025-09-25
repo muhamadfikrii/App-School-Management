@@ -68,7 +68,7 @@ class FromRegister extends Component
     }
         $validated = $this->validate($rules);
 
-        DB::transaction(function () use ($validated) {
+        DB::transaction(function () use ($validated): void {
             // Create user
             $user = User::create([
                 'name' => $this->name,

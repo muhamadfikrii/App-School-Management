@@ -72,7 +72,7 @@ class ReportForm
                                     ->reactive()
                                     ->preload()
                                     ->required()
-                                    ->afterStateUpdated(function ($state, Set $set, Get $get) {
+                                    ->afterStateUpdated(function ($state, Set $set, Get $get): void {
                                         $set('student_id', null);
 
                                         $nilaiSiswa = $get('nilai-siswa') ?? [];
@@ -101,7 +101,7 @@ class ReportForm
                                     ->default(function ($get, $livewire) {
                                         return $livewire->student?->id;
                                     })
-                                    ->afterStateHydrated(function ($state, Set $set, Get $get) {
+                                    ->afterStateHydrated(function ($state, Set $set, Get $get): void {
                                         $classId = $get('class_rombel_id');
                                         if ($classId && empty($get('student_options'))) {
                                             $students = Student::where('class_rombel_id', $classId)
@@ -131,7 +131,7 @@ class ReportForm
                                 return Subject::whereNotIn('id', $selected)->pluck('name', 'id');
                             })
                             ->reactive()
-                            ->afterStateUpdated(function ($state, Set $set, Get $get) {
+                            ->afterStateUpdated(function ($state, Set $set, Get $get): void {
                                 $studentId = $get('../../student_id');
                                 $academicYearId = $get('../../academic_year_id');
                                 $semester = $get('../../semester');
@@ -185,13 +185,13 @@ class ReportForm
                             ->disabled()
                             ->reactive()
                             ->dehydrated(false)
-                            ->afterStateHydrated(function ($state, Set $set, Get $get) {
+                            ->afterStateHydrated(function ($state, Set $set, Get $get): void {
                                 $nilaiSiswa = $get('nilai-siswa') ?? [];
                                 $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
                                 $avg = $scores ? array_sum($scores) / count($scores) : null;
                                 $set('avrg', $avg ? round($avg, 2) : 0);
                             })
-                            ->afterStateUpdated(function ($state, Set $set, Get $get) {
+                            ->afterStateUpdated(function ($state, Set $set, Get $get): void {
                                 // kalau mau update otomatis setiap kali repeater berubah
                                 $nilaiSiswa = $get('nilai-siswa') ?? [];
                                 $scores = array_filter(array_column($nilaiSiswa, 'final_score'));

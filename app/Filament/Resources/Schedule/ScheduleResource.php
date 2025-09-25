@@ -110,8 +110,8 @@ class ScheduleResource extends Resource
 
         return parent::getGlobalSearchEloquentQuery()
             ->with(['classRombel', 'scheduleSubjects.subject', 'scheduleSubjects.teacher'])
-            ->when($search, function ($query) use ($search) {
-                $query->where(function ($sub) use ($search) {
+            ->when($search, function ($query) use ($search): void {
+                $query->where(function ($sub) use ($search): void {
                     $sub->whereHas('classRombel', fn($q) =>
                             $q->where('name', 'like', "%{$search}%"))
 

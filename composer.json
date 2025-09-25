@@ -14,12 +14,14 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "friendsofphp/php-cs-fixer": "^3.88",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.3"
+        "phpunit/phpunit": "^11.5.3",
+        "rector/rector": "^2.1"
     },
     "autoload": {
         "psr-4": {
@@ -39,6 +41,9 @@
             "@php artisan package:discover --ansi",
             "@php artisan filament:upgrade"
         ],
+            "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+            "lint-fix": "vendor/bin/php-cs-fixer fix",
+            "refactor": "vendor/bin/rector process",
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],

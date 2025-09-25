@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExportFinalGradeController;
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function (): void {
     Route::get('/export/final-grade/{finalGrade}', ExportFinalGradeController::class)->name('export.final-grade');
 });
 

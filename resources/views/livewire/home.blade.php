@@ -3,7 +3,7 @@
          style="background-image: url('{{ asset('img/Background.jpg') }}');">
     
             <!-- Overlay -->
-            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <div class="absolute inset-0 bg-black opacity-10"></div>
 
             <!-- Kontainer utama -->
             <div class="relative px-4 max-w-[1280px] mx-auto sm:px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
@@ -32,8 +32,8 @@
 
                         <!-- Hubungi Kami -->
                         <a href="{{ route('Contact') }}"
-                        class="relative overflow-hidden px-6 py-3 rounded-xl font-semibold text-blue-600 border-2 border-blue-600 bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600">
-                            <span class="absolute inset-0 bg-white opacity-10 blur-xl animate-pulse"></span>
+                        class="relative overflow-hidden px-6 py-3 rounded-xl font-semibold text-blue-600 border-2 border-white bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:text-white hover:bg-blue-700">
+                            <span class="absolute inset-0 opacity-10 blur-xl animate-pulse"></span>
                             <span class="relative z-10">Hubungi Kami</span>
                         </a>
                     </div>
@@ -68,8 +68,8 @@
                 <span class="relative inline-flex h-4 w-4 rounded-full bg-sky-500"></span>
             </span>
             <span class="absolute -top-3 right-0">
-                <span class="absolute inline-flex h-4 w-4 animate-ping rounded-full bg-pink-400 opacity-75"></span>
-                <span class="relative inline-flex h-4 w-4 rounded-full bg-pink-500"></span>
+                <span class="absolute inline-flex h-4 w-4 animate-ping rounded-full bg-sky-500 opacity-75"></span>
+                <span class="relative inline-flex h-4 w-4 rounded-full bg-sky-500"></span>
             </span>
 
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800">SMKN 4 KUNINGAN</h1>

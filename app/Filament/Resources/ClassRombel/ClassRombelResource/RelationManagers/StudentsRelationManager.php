@@ -66,7 +66,7 @@ class StudentsRelationManager extends RelationManager
                     ->multiple()
                     ->searchable()
                     ->options(Student::pluck('full_name', 'id'))
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['values'])) {
                             $query->whereIn('id', $data['values']);
                         }
@@ -76,7 +76,7 @@ class StudentsRelationManager extends RelationManager
                     ->multiple()
                     ->searchable()
                     ->options(Student::pluck('nisn', 'id'))
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['values'])) {
                             $query->whereIn('id', $data['values']);
                         }
@@ -98,7 +98,7 @@ class StudentsRelationManager extends RelationManager
                 $query->with(['classRombel.teacher']);
                 $user = auth()->user();
                 if ($user->is_teacher && $user->teacher) {
-                    $query->whereHas('classRombel', function ($q) use ($user) {
+                    $query->whereHas('classRombel', function ($q) use ($user): void {
                         $q->where('teacher_id', $user->teacher->id);
                     });
                     return $query;

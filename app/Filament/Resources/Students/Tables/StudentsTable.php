@@ -67,7 +67,7 @@ class StudentsTable
                     ->multiple()
                     ->searchable()
                     ->options(Student::pluck('full_name', 'id'))
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['values'])) {
                             $query->whereIn('id', $data['values']);
                         }
@@ -77,7 +77,7 @@ class StudentsTable
                     ->multiple()
                     ->searchable()
                     ->options(Student::pluck('nisn', 'id'))
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['values'])) {
                             $query->whereIn('id', $data['values']);
                         }
@@ -87,7 +87,7 @@ class StudentsTable
                     ->multiple()
                     ->searchable()
                     ->options(ClassRombel::pluck('name', 'id')->toArray())
-                    ->query(function (Builder $query, array $data) {
+                    ->query(function (Builder $query, array $data): void {
                         if (! empty($data['values'])) {
                             $query->whereIn('class_rombel_id', $data['values']);
                         }
@@ -110,7 +110,7 @@ class StudentsTable
                 $query->with(['classRombel.teacher']);
                 $user = auth()->user();
                 if ($user->is_teacher && $user->teacher) {
-                    $query->whereHas('classRombel', function ($q) use ($user) {
+                    $query->whereHas('classRombel', function ($q) use ($user): void {
                         $q->where('teacher_id', $user->teacher->id);
                     });
                     return $query;

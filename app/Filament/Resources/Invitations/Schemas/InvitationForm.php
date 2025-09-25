@@ -23,7 +23,7 @@ class InvitationForm
                         TextInput::make('email')
                             ->required()
                             ->rule(function ($record){
-                                return function ($attribute, $value, \Closure $fail)  use ($record) {
+                                return function ($attribute, $value, \Closure $fail)  use ($record): void {
                                     $exists = Invitation::where('email', $value)
                                                         ->when($record, fn($query) => $query->where('id', '!=', $record->id))
                                                         ->exists();

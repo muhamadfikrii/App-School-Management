@@ -31,7 +31,7 @@ class ClassRombelForm
                                     ->required()
                                     ->live(onBlur: true)
                                     ->options(fn () => Level::all()->pluck('name', 'id'))
-                                    ->afterStateUpdated(function ($state, $set, $get) {
+                                    ->afterStateUpdated(function ($state, $set, $get): void {
                                         $level = Level::where('id', $state)->first()?->name;
                                         $major = Major::where('id', $get('major_id'))->first()?->name;
                                         $rombel = $get('rombel');
@@ -48,7 +48,7 @@ class ClassRombelForm
                                     ->searchable()
                                     ->live(onBlur: true)
                                     ->options(fn () => Major::all()->pluck('name', 'id'))
-                                    ->afterStateUpdated(function ($state, $set, $get) {
+                                    ->afterStateUpdated(function ($state, $set, $get): void {
                                         $level = Level::where('id', $get('level_id'))->first()?->name;
                                         $major = Major::where('id', $state)->first()?->name;
                                         $rombel = $get('rombel');
@@ -70,7 +70,7 @@ class ClassRombelForm
                                     ->label('Rombel')
                                     ->required()
                                     ->live()
-                                    ->afterStateUpdated(function ($state, $set, $get) {
+                                    ->afterStateUpdated(function ($state, $set, $get): void {
                                         $level = Level::where('id', $get('level_id'))->first()?->name;
                                         $major = Major::where('id', $get('major_id'))->first()?->name;
 
