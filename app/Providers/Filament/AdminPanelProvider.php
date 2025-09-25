@@ -30,8 +30,10 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->login()
             ->brandName('SMKN4 KUNINGAN')
             ->login()
+            ->darkMode()
             ->colors([
                 'primary' => Color::Blue,
             ])
@@ -44,7 +46,9 @@ class AdminPanelProvider extends PanelProvider
                         ->icon('heroicon-o-user')
                         ->url(fn(): string => EditProfile::getUrl()),
             ])
-            ->pages([])
+            ->pages([
+                Dashboard::class,
+            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 // AccountWidget::class,
