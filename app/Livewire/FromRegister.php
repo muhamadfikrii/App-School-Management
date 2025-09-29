@@ -2,17 +2,18 @@
 
 namespace App\Livewire;
 
-use App\Models\User;
-use App\Enums\UserRole;
-use App\Models\Teacher;
-use Livewire\Component;
-use App\Models\Invitation;
-use Illuminate\Support\Carbon;
 use App\Enums\InvitationStatus;
-use Livewire\Attributes\Layout;
+use App\Enums\UserRole;
+use App\Models\Invitation;
+use App\Models\Teacher;
+use App\Models\User;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
 
 class FromRegister extends Component
 {
@@ -20,7 +21,7 @@ class FromRegister extends Component
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
-
+    public string $username = '';
     // Teacher fields
     public ?string $nip = null;
     public ?string $phone = null;
@@ -69,10 +70,10 @@ class FromRegister extends Component
         $validated = $this->validate($rules);
 
         DB::transaction(function () use ($validated): void {
-            // Create user
             $user = User::create([
                 'name' => $this->name,
                 'email' => $this->email,
+                'username' => $this->username,
                 'password' => Hash::make($validated['password']),
                 'role_name' => $this->isTeacher ? UserRole::TEACHER->value : UserRole::ADMINISTRATOR->value,
             ]);
@@ -95,5 +96,24 @@ class FromRegister extends Component
         $this->invitation->update(['status' => InvitationStatus::SUCCESS ]);
 
         return redirect()->to('/admin');
+    }
+
+     private function generateUsername(string $name): string
+    {
+        $baseUsername = Str::slug($name, '.');
+        $username = $baseUsername;
+        $counter = 1;
+
+        while (User::where('username', $username)->exists()) {
+            $username = $baseUsername.$counter;
+            $counter++;
+        }
+
+        return $username;
+    }
+
+    public function updatedName(string $value): void
+    {
+        $this->username = $this->generateUsername($value);
     }
 }

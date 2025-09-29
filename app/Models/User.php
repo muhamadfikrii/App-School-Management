@@ -3,18 +3,21 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Filament\Panel;
-use Illuminate\Database\Eloquent\Collection;
 use App\Enums\UserRole;
-use Filament\Models\Contracts\HasAvatar;
-use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
 use Database\Factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Filament\Panel;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use App\Models\Teacher;
 
-class User extends Authenticatable implements FilamentUser, HasAvatar
+class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -27,8 +30,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     protected $fillable = [
         'name',
         'email',
+        'username',
+        'profile_photo_path',
         'password',
-        'role_name',
     ];
 
     /**
@@ -55,18 +59,25 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         ];
     }
 
-    public function teacher()
+    /**
+     * @return HasOne<Teacher, covariant $this>
+     */
+    public function teacher(): HasOne
     {
         return $this->HasOne(Teacher::class);
     }
 
-    public function getFilamentAvatarUrl(): ?string
+    public function getAvatarUrlAttribute(): string
     {
-        return $this->profile_photo_path
-            ? asset('storage/' . $this->profile_photo_path)
-            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
+        return $this->getFilamentAvatarUrl();
     }
 
+    public function getFilamentAvatarUrl(): string
+    {
+        return $this->profile_photo_path
+            ? asset('storage/'.$this->profile_photo_path)
+            : 'https://ui-avatars.com/api/?name='.urlencode($this->name);
+    }
     public function canAccessPanel(Panel $panel): bool
     {
         return match ($panel->getId()) {

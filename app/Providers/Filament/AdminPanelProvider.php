@@ -33,6 +33,9 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->brandName('SMKN4 KUNINGAN')
             ->login()
+            ->passwordReset()
+            ->emailVerification()
+            ->emailChangeVerification()
             ->darkMode()
             ->colors([
                 'primary' => Color::Blue,
@@ -69,10 +72,10 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->brandLogo(asset('img/logo.png'))
+            // ->brandLogoHeight('6rem')
             ->favicon(asset('img/logo.png'))
             ->brandName('SMKN4 KUNINGAN')
             ->brandLogoHeight('2rem')
-            ->databaseNotifications()
             ->spa();
     }
 }

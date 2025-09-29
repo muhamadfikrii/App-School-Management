@@ -14,5 +14,5 @@ Route::group(['middleware' => 'auth'], function (): void {
 
 Route::get('/register/{invitation}', FromRegister::class)->name('register')->middleware('signed');
 Route::get('/', Home::class)->name('home');
-Route::get('/blog', About::class)->name('About');
-Route::get('/contact', Contact::class)->name('Contact');
+Route::get('/about', About::class)->name('about');
+Route::get('/contact', Contact::class)->name('contact');

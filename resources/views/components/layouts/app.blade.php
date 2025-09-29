@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
-    <title>{{ $title ?? 'SMKN 4 Kuningan' }}</title>
+    <title>{{ ucfirst(Route::currentRouteName()) }} | SMKN4 KNG</title>
 
     {{-- Tailwind Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -49,8 +49,8 @@
             <h3 class="text-xl font-semibold mb-2">Quick Links</h3>
             <ul class="space-y-1">
                 <li><a href="{{ route('home') }}" class="hover:text-gray-200 transition-colors">Home</a></li>
-                <li><a href="{{ route('About') }}" class="hover:text-gray-200 transition-colors">Tentang SMKN4</a></li>
-                <li><a href="{{ route('Contact') }}" class="hover:text-gray-200 transition-colors">Kontak Kami</a></li>
+                <li><a href="{{ route('about') }}" class="hover:text-gray-200 transition-colors">Tentang SMKN4</a></li>
+                <li><a href="{{ route('contact') }}" class="hover:text-gray-200 transition-colors">Kontak Kami</a></li>
             </ul>
         </div>
 
