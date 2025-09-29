@@ -36,4 +36,20 @@
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
 }
-.scrolling-text { display: inline-block; white-space: nowrap; animation: scroll-text 25s linear infinite; }
+.scrolling-text { display: inline-block; white-space: nowrap; animation: scroll-text 25s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-marquee {
+  display: inline-block;
+  min-width: 100%;
+  animation: marquee 30s linear infinite;
+  animation-play-state: running;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
