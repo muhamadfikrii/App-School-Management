@@ -34,8 +34,6 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('SMKN4 KUNINGAN')
             ->login()
             ->passwordReset()
-            ->emailVerification()
-            ->emailChangeVerification()
             ->darkMode()
             ->colors([
                 'primary' => Color::Blue,
@@ -77,6 +75,9 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('SMKN4 KUNINGAN')
             ->brandLogoHeight('2rem')
             ->spa();
+            if (!app()->environment('production')) {
+                $form->emailVerification()->emailChangeVerification();
+            }
     }
 }
             

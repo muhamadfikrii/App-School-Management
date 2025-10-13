@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\GroupSubject;
+use Filament\Schemas\Components\Group;
+use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Seeder;
 
 class SubjectSeeder extends Seeder
