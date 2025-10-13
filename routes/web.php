@@ -1,11 +1,13 @@
 <?php
 
-use App\Livewire\Home;
+use App\Http\Controllers\ExportFinalGradeController;
 use App\Livewire\About;
 use App\Livewire\Contact;
 use App\Livewire\FromRegister;
+use App\Livewire\Home;
+use App\Livewire\Partials\Achievement;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ExportFinalGradeController;
+
 
 
 Route::group(['middleware' => 'auth'], function (): void {
@@ -16,3 +18,4 @@ Route::get('/register/{invitation}', FromRegister::class)->name('register')->mid
 Route::get('/', Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
+Route::get('/prestasi', Achievement::class)->name('achievement');
