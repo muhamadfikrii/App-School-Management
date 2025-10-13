@@ -13,8 +13,12 @@ class MajorSeeder extends Seeder
      */
     public function run(): void
     {
-        Major::factory()->create(['name' => 'Teknik Komputer dan Jaringan']);
+        Major::factory()->create(['name' => 'Pemrograman Perangkat Lunak & Gim']);
         Major::factory()->create(['name' => 'Akuntansi']);
-        Major::factory()->create(['name' => 'Administrasi Perkantoran']);
+        Major::factory()->create(['name' => 'Manajemen Perkantoran & Layanan Bisnis']);
+        Major::factory()->create(['name' => 'Teknik Kendaraan Ringan Otomotif']);
+        Major::factory()->create(['name' => 'Teknik Bisnis Sepeda Motor']);
+        Major::factory()->create(['name' => 'Teknik Ketengaan Listrik']);
+
     }
 }

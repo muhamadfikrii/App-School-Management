@@ -72,7 +72,6 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(asset('img/logo.png'))
             // ->brandLogoHeight('6rem')
             ->favicon(asset('img/logo.png'))
-            ->brandName('SMKN4 KUNINGAN')
             ->brandLogoHeight('2rem')
             ->spa();
             if (!app()->environment('production')) {
