@@ -6,7 +6,7 @@
             scrolled = window.scrollY > 50
         })
     "
-    :class="scrolled ? 'shadow-lg bg-zinc-900 backdrop-blur-md' : 'bg-zinc-900'">
+    :class="scrolled ? 'shadow-lg bg-transparent backdrop-blur-md' : ''">
 
     <!-- Navbar Wrapper -->
     <nav>
@@ -14,8 +14,9 @@
             <div class="flex justify-between items-center h-16 space-x-4">
 
                 <!-- Logo -->
+                <img src="{{ asset('img/logo.png') }}" alt="logo SMK" class="object-cover h-10 w-10">
                 <a href="{{ route('home') }}"
-                   class="text-xl font-bold text-white whitespace-nowrap transition-colors duration-300">
+                   class="text-xl font-bold text-zinc-600 whitespace-nowrap transition-colors duration-300">
                     SMKN4KNG
                 </a>
 
@@ -63,31 +64,52 @@
                     Login
                 </a>
 
-                <!-- Mobile Hamburger -->
-                <button @click="open = !open"
-                        class="md:hidden text-white focus:outline-none transition-colors duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-
+                <div class="bg-black rounded-bl-2xl">
+                    <button class="md:hidden flex flex-col justify-between w-6 h-6 focus:outline-none bg-blue-400 p-1"
+                        @click="
+                            if(!open){
+                                anim = true;
+                                setTimeout(() => { open = true }, 150);
+                            } else {
+                                open = false;
+                                setTimeout(() => { anim = false }, 150);
+                            }">
+                        <span 
+                            :class="{
+                                'rotate-[90deg] translate-y-1.5 origin-center': open
+                            }" 
+                            class="block h-0.5 w-full bg-white transition-all duration-300">
+                        </span>
+                        <span 
+                            :class="{'opacity-0': open, 'opacity-100': !open}" 
+                            class="block h-0.5 w-full bg-white transition-all duration-300">
+                        </span>
+                        <span 
+                            :class="{
+                                '-translate-y-1.5': anim && !open,
+                                '-rotate-[30deg] -translate-y-1.5 origin-center': open
+                            }" 
+                            class="block h-0.5 w-full bg-white transition-all duration-300">
+                        </span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <!-- Mobile Menu -->
-    <div class="md:hidden absolute top-full left-0 w-full bg-zinc-900 shadow-md z-40 origin-top"
+    <div class="md:hidden absolute top-full left-0 w-full bg-gradient-to-br from-white via-blue-50 to-zinc-50 shadow-md z-40 h-screen"
         x-cloak
         x-show="open"
-        x-transition.opacity.scale.origin.top.duration.200ms>
-        
-        <ul class="flex flex-col px-6 py-4 gap-3">
+        x-transition.opacity.duration.300ms>
+        <div class="absolute -top-32 -left-32 w-80 md:w-96 h-80 md:h-96 bg-blue-300 rounded-full opacity-20 blur-3xl animate-pulse-slow"></div>
+        <div class="absolute -bottom-32 -right-32 w-80 md:w-96 h-80 md:h-96 bg-blue-400 rounded-full opacity-20 blur-2xl animate-pulse-slow"></div>
+
+        <!-- Menu Links -->
+        <ul class="flex flex-col px-6 py-8 gap-10 relative z-10">
             <li>
                 <a href="{{ route('home') }}"
-                class="block px-4 py-2 rounded w-full 
-                        {{ request()->routeIs('home') ? 'bg-zinc-800 text-white font-semibold' : 'text-gray-300 hover:bg-zinc-800 hover:text-white' }}">
+                class="block px-4 py-2 rounded w-full font-semibold text-gray-700 hover:bg-zinc-800 hover:text-white transition {{ request()->routeIs('home') ? 'bg-zinc-800 text-white font-semibold' : '' }}">
                     Home
                 </a>
             </li>
@@ -120,25 +142,28 @@
 
             <li>
                 <a href="{{ route('about') }}"
-                class="block px-4 py-2 rounded w-full 
-                        {{ request()->routeIs('about') ? 'bg-zinc-800 text-white font-semibold' : 'text-gray-300 hover:bg-zinc-800 hover:text-white' }}">
+                class="block px-4 py-2 rounded w-full font-semibold text-gray-700 hover:bg-zinc-800 hover:text-white transition {{ request()->routeIs('about') ? 'bg-zinc-800 text-white font-semibold' : '' }}">
                     Tentang SMKN4
                 </a>
             </li>
             <li>
                 <a href="{{ route('contact') }}"
-                class="block px-4 py-2 rounded w-full 
-                        {{ request()->routeIs('contact') ? 'bg-zinc-800 text-white font-semibold' : 'text-gray-300 hover:bg-zinc-800 hover:text-white' }}">
+                class="block px-4 py-2 rounded w-full font-semibold text-gray-700 hover:bg-zinc-800 hover:text-white transition {{ request()->routeIs('contact') ? 'bg-zinc-800 text-white font-semibold' : '' }}">
                     Kontak Kami
                 </a>
             </li>
             <li>
                 <a href="/admin"
-                class="block bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded text-center shadow w-full">
+                class="block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-center shadow w-full transition">
                     Login
                 </a>
             </li>
         </ul>
+         <svg xmlns="http://www.w3.org/2000/svg"
+             class=" bottom-4 left-4 w-30 h-30 opacity-10"
+             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+        </svg>
     </div>
-
 </div>
