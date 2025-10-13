@@ -1,104 +1,336 @@
-<div>
-<section class="relative min-h-[60vh] flex items-center">
-    <div class="absolute inset-0 bg-center bg-no-repeat bg-cover" 
-         style="background-image: url('{{ asset('img/profil-sekolah-smk.png') }}');">
-        <div class="absolute inset-0 bg-black/20"></div> <!-- overlay -->
+<div class="bg-white text-zinc-800 font-sans overflow-x-hidden">
+
+  <!-- 🏫 HERO SECTION -->
+  <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+    <!-- Background -->
+    <img 
+      src="{{ asset('img/profil-sekolah-smk.png') }}"
+      alt="Gedung Sekolah"
+      class="absolute inset-0 w-full h-full object-cover object-center brightness-90"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-800/40 to-white/90"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 px-6 md:px-12 max-w-4xl animate-fadeIn">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
+        SMK Negeri 4 Kuningan
+      </h1>
+      <p class="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md mb-8">
+        Membangun generasi unggul, kreatif, dan siap menghadapi tantangan dunia kerja dengan semangat inovasi dan profesionalisme.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#tentang"
+          class="bg-white text-blue-700 font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition">
+          Jelajahi Sekolah Kami
+        </a>
+        <a href="#visi"
+          class="border border-white text-white px-8 py-3 rounded-full hover:bg-white/10 hover:scale-105 transition">
+          Lihat Visi & Misi
+        </a>
+      </div>
     </div>
 
-    <div class="container mx-auto relative z-10 px-4 sm:px-6 md:px-4 py-10 md:py-14 max-w-3xl text-center border border-white/20 rounded-xl backdrop-blur-md bg-white/10">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-[Poppins] text-white mb-2"
-            data-aos="fade-right" data-aos-duration="2000">
-            Tentang
-        </h1>
-        <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold font-[Poppins] text-white mt-1"
-            data-aos="fade-left" data-aos-duration="2000">
-            SMKN 4 KUNINGAN
-        </h2>
+    <!-- Decorative gradient blur -->
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 blur-3xl rounded-full"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-400/20 blur-3xl rounded-full"></div>
+  </section>
+
+  <!-- 🧩 TENTANG SEKOLAH -->
+  <section id="tentang" class="container mx-auto px-6 py-24 max-w-6xl">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <img 
+        src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80"
+        alt="Kegiatan Siswa"
+        class="rounded-3xl shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-transform duration-500"
+      >
+      <div>
+        <h2 class="text-4xl font-bold text-blue-700 mb-4">Tentang Kami</h2>
+        <p class="text-zinc-700 text-lg leading-relaxed mb-6">
+          <span class="font-semibold text-blue-600">SMK Negeri 4 Kuningan</span> adalah lembaga pendidikan kejuruan unggulan 
+          yang berfokus pada pengembangan keterampilan teknologi dan karakter. Kami menghadirkan pembelajaran inovatif
+          berbasis proyek dan praktik industri nyata.
+        </p>
+        <ul class="space-y-3 text-zinc-700 text-lg">
+          <li>📘 Fasilitas modern dan lingkungan belajar kreatif</li>
+          <li>💡 Pembelajaran kolaboratif berbasis industri</li>
+          <li>🌱 Program pengembangan karakter dan soft skill</li>
+        </ul>
+      </div>
     </div>
-</section>
+  </section>
 
+  <!-- 👨‍🏫 KEPALA SEKOLAH -->
+  <section class="bg-gradient-to-br from-blue-50 to-white py-24">
+    <div class="container mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <h2 class="text-4xl font-bold text-blue-700 mb-2">Kepala Sekolah</h2>
+        <h3 class="text-2xl font-semibold text-zinc-900 mb-4">Yayan Supyan, M.Pd.I</h3>
+        <p class="text-zinc-700 text-lg leading-relaxed">
+          Di bawah kepemimpinan beliau, SMK Negeri 4 Kuningan terus berkembang menjadi sekolah berstandar industri, 
+          menanamkan nilai <span class="font-semibold text-blue-600">integritas, profesionalisme, dan kolaborasi</span> dalam setiap kegiatan belajar.
+        </p>
+      </div>
+      <div class="relative order-1 md:order-2 flex justify-center">
+        <img 
+          src="{{ asset('img/kepsek.png') }}"
+          alt="Kepala Sekolah"
+          class="rounded-full shadow-2xl object-cover w-72 h-72 md:w-96 md:h-96 border-4 border-white"
+        >
+        <div class="absolute -bottom-10 -right-10 w-44 h-44 bg-blue-400/30 rounded-full blur-3xl"></div>
+      </div>
+    </div>
+  </section>
 
-
-    <!-- Tentang Sekolah -->
-    <div class="container mx-auto px-4 sm:px-6 md:px-12 py-12 md:py-20 max-w-3xl">
-        <div class="relative bg-gray-50 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl p-6 md:p-14"
-            data-aos="fade-up" data-aos-duration="1200">
-
-            <div class="absolute -top-6 left-6 text-5xl sm:text-6xl md:text-7xl z-10 text-blue-600 opacity-20 select-none">“</div>
-
-            <h3 class="font-poppins font-medium text-gray-800 text-base sm:text-lg md:text-xl leading-relaxed text-center">
-                <span class="block text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 mb-4 sm:mb-6">SMKN 4 Kuningan</span>
-                adalah sekolah menengah kejuruan yang berfokus pada 
-                <span class="font-semibold text-blue-600">pengembangan keterampilan teknologi dan vokasi</span>. 
-                Terletak di perbatasan Kuningan dan Cirebon, sekolah ini menyediakan fasilitas modern 
-                dan laboratorium lengkap untuk mendukung pembelajaran praktis. 
-                Para siswa didorong untuk mengembangkan kreativitas, kemampuan teknis, dan kerja sama tim 
-                melalui berbagai proyek serta kegiatan pembelajaran inovatif. 
-                <br>
-                <span class="block mt-4 text-base sm:text-lg md:text-xl font-semibold text-gray-900">
-                    SMKN 4 Kuningan berkomitmen mencetak lulusan yang kompeten, siap menghadapi tantangan dunia kerja, dan memiliki dasar keilmuan yang kuat.
-                </span>
-            </h3>
+  <!-- 💎 NILAI & KEUNGGULAN -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto max-w-6xl px-6 text-center">
+      <h2 class="text-4xl font-bold text-blue-700 mb-16">Nilai Utama Kami</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="p-8 border border-blue-100 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+          <h3 class="text-2xl font-semibold mb-3 text-blue-700">Profesional</h3>
+          <p class="text-zinc-700">Kami membentuk siswa yang disiplin, bertanggung jawab, dan mampu bekerja dengan etika tinggi.</p>
         </div>
+        <div class="p-8 border border-blue-100 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+          <h3 class="text-2xl font-semibold mb-3 text-blue-700">Inovatif</h3>
+          <p class="text-zinc-700">Kreativitas menjadi kunci, dengan dukungan teknologi untuk menciptakan solusi nyata bagi masyarakat.</p>
+        </div>
+        <div class="p-8 border border-blue-100 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+          <h3 class="text-2xl font-semibold mb-3 text-blue-700">Kolaboratif</h3>
+          <p class="text-zinc-700">Kami menjalin kemitraan erat dengan dunia industri untuk mendukung pengalaman belajar praktis.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Kepala Sekolah -->
-    <section class="container mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 py-12 md:py-20 max-w-5xl px-4 sm:px-6 md:px-12">
-        <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="2000" data-aos-offset="200" data-aos-easing="ease-in-sine">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-3">Kepala Sekolah</h1>
-            <div class="w-24 sm:w-32 h-1 bg-blue-700 mb-3"></div>
-            <h2 class="text-lg sm:text-xl md:text-2xl font-[Poppins] font-semibold mb-4">Yayan Supyan, M.Pd.I</h2>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                Bapak Yayan Sopyan menjabat sebagai Kepala SMK Negeri 4 Kuningan sejak Februari 2023...
+  <!-- 🎯 VISI, MISI & TUJUAN -->
+  <section id="visi" class="container mx-auto px-6 py-24 max-w-6xl">
+    <h2 class="text-4xl font-extrabold text-center mb-16 text-blue-700">Visi, Misi & Tujuan</h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">Visi</h3>
+        <p class="text-zinc-700 leading-relaxed">
+          Menjadi SMK unggulan dan berdaya saing global yang menghasilkan lulusan profesional, berkarakter, dan adaptif terhadap teknologi.
+        </p>
+      </div>
+      <div class="bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">Misi</h3>
+        <ul class="list-disc pl-5 space-y-2 text-zinc-700 leading-relaxed">
+          <li>Mengembangkan pembelajaran berbasis teknologi digital.</li>
+          <li>Menanamkan nilai spiritual dan etika kerja.</li>
+          <li>Menjalin kemitraan strategis dengan dunia industri.</li>
+          <li>Meningkatkan kualitas guru dan tenaga pendidik.</li>
+        </ul>
+      </div>
+      <div class="bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+        <h3 class="text-2xl font-bold text-blue-700 mb-3">Tujuan</h3>
+        <ul class="list-decimal pl-5 space-y-2 text-zinc-700 leading-relaxed">
+          <li>Menghasilkan lulusan berkompetensi tinggi di bidang keahlian.</li>
+          <li>Menumbuhkan karakter wirausaha dan semangat inovasi.</li>
+          <li>Mewujudkan lingkungan belajar yang hijau dan inklusif.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 👨‍🏫 STAF PENGAJAR -->
+    <section class="py-24 bg-gradient-to-b from-white via-blue-50/60 to-blue-100/40">
+        <div class="container mx-auto max-w-6xl px-6 text-center">
+            <h2 class="text-4xl font-extrabold text-blue-700 mb-4 tracking-tight">
+            Staf Pengajar
+            </h2>
+            <p class="text-zinc-600 max-w-2xl mx-auto mb-16 text-lg leading-relaxed">
+            Tim pengajar SMK Negeri 4 Kuningan terdiri dari pendidik profesional yang berdedikasi 
+            membimbing siswa menuju kesuksesan akademik dan keterampilan dunia kerja.
             </p>
-        </div>
 
-        <div class="md:w-1/2 relative flex justify-center items-center" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="2000" data-aos-offset="200">
-            <div class="absolute bg-gray-300 w-64 sm:w-72 md:w-80 h-64 sm:h-72 md:h-80 mt-6 ml-6 rounded-full -z-10"></div>
-            <img class="max-w-full rounded-lg shadow-lg object-cover" src="{{ asset('img/kepsek.png') }}" alt="Kepala Sekolah">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            <!-- Kartu Guru -->
+            <!-- Gunakan gaya seragam agar bersih -->
+            <!-- Setiap kartu memiliki bayangan lembut dan efek hover halus -->
+            
+            <!-- 1 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Budi Santoso"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Budi Santoso, S.T.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Teknik Komputer & Jaringan</p>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Siti Rahmawati"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Siti Rahmawati, M.Pd.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Bahasa Inggris</p>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Andi Firmansyah"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Andi Firmansyah, S.Kom.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Rekayasa Perangkat Lunak</p>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Dewi Lestari"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Dewi Lestari, S.Pd.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Akuntansi</p>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Heri Prasetyo"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Heri Prasetyo, M.T.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Elektronika Industri</p>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/16.jpg" alt="Nur Aisyah"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Nur Aisyah, S.Pd.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Bahasa Indonesia</p>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/men/17.jpg" alt="Rudi Hartono"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Rudi Hartono, S.Pd.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Matematika</p>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/18.jpg" alt="Mega Aprilianti"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Mega Aprilianti, M.Pd.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru PPKn</p>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/men/19.jpg" alt="Ahmad Fauzi"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Ahmad Fauzi, S.Kom.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Desain Grafis</p>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="Intan Putri"
+                    class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="p-5">
+                <h3 class="font-semibold text-blue-700 text-lg">Intan Putri, S.Pd.</h3>
+                <p class="text-sm text-zinc-600 mt-1">Guru Kewirausahaan</p>
+                </div>
+            </div>
+            </div>
         </div>
     </section>
 
-    <!-- Visi, Misi, Tujuan -->
-    <div class="container mx-auto max-w-4xl my-16 md:my-28 px-4 sm:px-6 md:px-12">
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center leading-tight mb-12 md:mb-16 font-serif" data-aos="fade-down" data-aos-duration="1200">
-            Visi, Misi & Tujuan
-            <span class="block text-blue-700 mt-2">SMK Negeri 4 Kuningan</span>
-        </h1>
+  <section id="ekstrakurikuler" class="py-24 bg-gradient-to-b from-blue-50 to-white">
+    <div class="container mx-auto max-w-6xl px-6 text-center">
+        <h2 class="text-4xl font-bold text-blue-700 mb-4">Ekstrakurikuler</h2>
+        <p class="text-zinc-600 max-w-2xl mx-auto mb-12 text-lg">
+        SMK Negeri 4 Kuningan menyediakan berbagai kegiatan ekstrakurikuler 
+        untuk mengembangkan bakat, minat, serta karakter siswa di luar pembelajaran formal.
+        </p>
 
-        <!-- Visi -->
-        <div class="bg-white/70 backdrop-blur-md shadow-xl rounded-2xl p-6 md:p-10 mb-8 md:mb-12 border border-gray-200" data-aos="fade-up" data-aos-duration="1200">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-4 sm:mb-6">Visi</h2>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
-                Terwujudnya SDM yang beriman dan bertaqwa kepada Tuhan Yang Maha Esa...
-            </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- OSIS -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">🏫</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">OSIS</h3>
+            <p class="text-zinc-700">Organisasi Siswa Intra Sekolah yang menjadi wadah utama bagi siswa dalam berorganisasi, memimpin, dan berkreasi.</p>
         </div>
 
-        <!-- Misi -->
-        <div class="bg-white/70 backdrop-blur-md shadow-xl rounded-2xl p-6 md:p-10 mb-8 md:mb-12 border border-gray-200" data-aos="fade-up" data-aos-duration="1400">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-4 sm:mb-6">Misi</h2>
-            <ul class="list-disc pl-5 sm:pl-6 md:pl-8 space-y-2 sm:space-y-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
-                <li>Mengupayakan peningkatan keimanan, ketaqwaan, akhlak...</li>
-                <li>Mengembangkan kurikulum nasional sesuai kebutuhan masyarakat...</li>
-                <li>Melaksanakan sistem pendidikan pembelajaran dan pelatihan menengah kejuruan...</li>
-                <li>Mengembangkan sumber daya pendidikan secara optimal...</li>
-                <li>Menjalin kemitraan dengan dunia industri, institusi, dan masyarakat...</li>
-            </ul>
+        <!-- Pramuka -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">🏕️</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Pramuka</h3>
+            <p class="text-zinc-700">Menumbuhkan kedisiplinan, kepemimpinan, dan rasa cinta tanah air melalui kegiatan kepanduan.</p>
         </div>
 
-        <!-- Tujuan -->
-        <div class="bg-white/70 backdrop-blur-md shadow-xl rounded-2xl p-6 md:p-10 border border-gray-200" data-aos="fade-up" data-aos-duration="1600">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-4 sm:mb-6">Tujuan</h2>
-            <ul class="list-decimal pl-5 sm:pl-6 md:pl-8 space-y-2 sm:space-y-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed font-sans">
-                <li>Mengembangkan budaya sekolah yang religius, pendidikan karakter, dan budaya bangsa.</li>
-                <li>Melaksanakan pembelajaran saintifik yang aktif, inovatif, efektif, dan menyenangkan.</li>
-                <li>Meningkatkan ilmu pengetahuan, teknologi serta keterampilan untuk memasuki dunia kerja...</li>
-                <li>Meningkatkan kesadaran warga sekolah terhadap pemeliharaan lingkungan hidup...</li>
-                <li>Menguatkan manajemen sekolah yang profesional, akuntabel, dan proporsional.</li>
-                <li>Mengembangkan kemitraan dengan institusi pasangan dan masyarakat.</li>
-            </ul>
+        <!-- Paskibra -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">🚩</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Paskibra</h3>
+            <p class="text-zinc-700">Membentuk karakter tangguh dan disiplin melalui kegiatan baris-berbaris dan pengibaran bendera.</p>
         </div>
 
+        <!-- Rohis -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">☪️</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Irma</h3>
+            <p class="text-zinc-700">Meningkatkan keimanan dan akhlak siswa melalui kegiatan keagamaan dan sosial yang inspiratif.</p>
+        </div>
+
+        <!-- Marching Band -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">🥁</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Marching Band</h3>
+            <p class="text-zinc-700">Meningkatkan kekompakan, ritme, dan semangat melalui pertunjukan musik yang energik.</p>
+        </div>
+
+        <!-- Bengkel Seni -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">🎨</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Bengkel Seni</h3>
+            <p class="text-zinc-700">Menyalurkan kreativitas siswa dalam bidang seni rupa, tari, dan musik untuk membentuk jiwa ekspresif dan percaya diri.</p>
+        </div>
+
+        <!-- Futsal -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">⚽</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Futsal</h3>
+            <p class="text-zinc-700">Mengasah keterampilan dan kerjasama tim melalui olahraga futsal yang kompetitif dan menyenangkan.</p>
+        </div>
+
+        <!-- Liputan 4 -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">📸</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Liputan 4</h3>
+            <p class="text-zinc-700">Meningkatkan kemampuan jurnalistik dan dokumentasi siswa melalui kegiatan liputan dan publikasi sekolah.</p>
+        </div>
+
+        <!-- Pencak Silat -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">🥋</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">Pencak Silat</h3>
+            <p class="text-zinc-700">Melatih ketangkasan, disiplin, serta menjunjung tinggi sportivitas melalui seni bela diri tradisional.</p>
+        </div>
+
+        <!-- PMR -->
+        <div class="bg-white border border-blue-100 rounded-2xl shadow-md hover:shadow-lg p-8 transition">
+            <div class="text-5xl mb-4">⛑️</div>
+            <h3 class="text-2xl font-semibold text-blue-700 mb-2">PMR</h3>
+            <p class="text-zinc-700">Palang Merah Remaja berperan aktif dalam kegiatan sosial, kesehatan, dan kemanusiaan di lingkungan sekolah.</p>
+        </div>
+        </div>
     </div>
+    </section>
 </div>

@@ -1,88 +1,108 @@
 <div id="navbar"
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
-    x-data="{ open: false, scrolled: false }"
-    x-init="
+     class="fixed top-0 left-0 w-full z-50 transition-all duration-500"
+     x-data="{ open: false, scrolled: false }"
+     @click.outside="open = false"
+     x-init="
         window.addEventListener('scroll', () => {
             scrolled = window.scrollY > 50
         })
     "
-    :class="scrolled ? 'shadow-lg bg-zinc-900 backdrop-blur-md' : 'bg-zinc-900'">
+     :class="scrolled 
+        ? 'bg-white/80 backdrop-blur-lg shadow-md border-b border-gray-200'
+        : 'bg-white/50 backdrop-blur-md border-b border-transparent'">
 
-    <!-- Navbar Wrapper -->
-    <nav>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 space-x-4">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-8 z-50">
+        <div class="flex justify-between items-center h-16">
 
-                <!-- Logo -->
-                <a href="{{ route('home') }}"
-                   class="text-xl font-bold text-white whitespace-nowrap transition-colors duration-300">
-                    SMKN4KNG
+            <!-- 🏫 Logo -->
+            <a href="{{ route('home') }}" 
+               class="flex items-center space-x-2 text-gray-900 font-bold text-lg tracking-wide group">
+                <span class="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent group-hover:opacity-90 transition">SMKN4</span>
+                <span class="hidden sm:inline text-gray-600 group-hover:text-gray-900">KUNINGAN</span>
+            </a>
+
+            <!-- 🌐 Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="{{ route('home') }}" 
+                   class="relative text-gray-600 hover:text-gray-900 transition font-medium 
+                       after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-blue-500 
+                       after:transition-all after:duration-300 hover:after:w-full
+                       {{ request()->routeIs('home') ? 'text-gray-900 after:w-full' : 'after:w-0' }}">
+                    Home
                 </a>
 
-                <div class="flex-1 h-px bg-zinc-700 hidden md:block"></div>
-
-                <div class="hidden md:flex items-center space-x-6 bg-zinc-800 px-4 py-2 rounded-lg">
-                    <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
-                    <x-nav-link href="{{ route('about') }}">Tentang SMK4</x-nav-link>
-                    <x-nav-link href="{{ route('contact') }}">Contact</x-nav-link>
-                </div>
-
-                <div class="flex-1 h-px bg-zinc-700 hidden md:block"></div>
-
-                <a href="/admin"
-                   class="hidden md:flex px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition whitespace-nowrap">
-                    Login
+                <a href="{{ route('about') }}" 
+                   class="relative text-gray-600 hover:text-gray-900 transition font-medium 
+                       after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-blue-500 
+                       after:transition-all after:duration-300 hover:after:w-full
+                       {{ request()->routeIs('about') ? 'text-gray-900 after:w-full' : 'after:w-0' }}">
+                    Tentang SMKN4
                 </a>
 
-                <!-- Mobile Hamburger -->
-                <button @click="open = !open"
-                        class="md:hidden text-white focus:outline-none transition-colors duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
+                <a href="{{ route('contact') }}" 
+                   class="relative text-gray-600 hover:text-gray-900 transition font-medium 
+                       after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-blue-500 
+                       after:transition-all after:duration-300 hover:after:w-full
+                       {{ request()->routeIs('contact') ? 'text-gray-900 after:w-full' : 'after:w-0' }}">
+                    Kontak
+                </a>
+            </div>
 
+            <!-- 🔑 Login Button -->
+            <a href="/admin"
+               class="hidden md:inline-flex items-center px-5 py-2 rounded-lg text-sm font-semibold text-white 
+                   bg-gradient-to-r from-blue-600 to-cyan-500 hover:shadow-lg hover:scale-105 transition-all duration-300">
+                Login
+            </a>
+
+            <!-- 🍔 Mobile Hamburger (tidak diubah) -->
+            <div @click="open = !open"
+                 class="z-50 relative w-10 h-10 bg-black rounded-full cursor-pointer flex items-center justify-center md:hidden">
+                <div class="icon-left relative w-[10px] h-[2px] transition-all duration-500 ease-in-out"
+                     :class="open ? 'translate-x-[8px] rotate-45 bg-blue-400' : ''"></div>
+                <div class="icon-right relative w-[10px] h-[2px] transition-all duration-500 ease-in-out"
+                     :class="open ? '-translate-x-[8px] -rotate-45 bg-blue-400' : ''"></div>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <!-- Mobile Menu -->
-    <div class="md:hidden absolute top-full left-0 w-full bg-zinc-900 shadow-md z-40 origin-top"
-        x-cloak
-        x-show="open"
-        x-transition.opacity.scale.origin.top.duration.200ms>
-        
-        <ul class="flex flex-col px-6 py-4 gap-3">
+    <!-- 📱 Mobile Menu -->
+    <div class="md:hidden absolute left-0 w-full bg-white/90 backdrop-blur-md shadow-lg border-t border-gray-200 z-40 origin-top"
+         style="top: 100%;"
+         x-cloak
+         x-show="open"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 -translate-y-12"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-12">
+
+        <ul class="flex flex-col px-6 py-6 gap-4 text-center text-lg font-medium">
             <li>
                 <a href="{{ route('home') }}"
-                class="block px-4 py-2 rounded w-full 
-                        {{ request()->routeIs('home') ? 'bg-zinc-800 text-white font-semibold' : 'text-gray-300 hover:bg-zinc-800 hover:text-white' }}">
+                   class="block px-4 py-2 rounded w-full {{ request()->routeIs('home') ? 'bg-blue-100 text-blue-700 font-semibold' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }}">
                     Home
                 </a>
             </li>
             <li>
                 <a href="{{ route('about') }}"
-                class="block px-4 py-2 rounded w-full 
-                        {{ request()->routeIs('about') ? 'bg-zinc-800 text-white font-semibold' : 'text-gray-300 hover:bg-zinc-800 hover:text-white' }}">
+                   class="block px-4 py-2 rounded w-full {{ request()->routeIs('about') ? 'bg-blue-100 text-blue-700 font-semibold' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }}">
                     Tentang SMKN4
                 </a>
             </li>
             <li>
                 <a href="{{ route('contact') }}"
-                class="block px-4 py-2 rounded w-full 
-                        {{ request()->routeIs('contact') ? 'bg-zinc-800 text-white font-semibold' : 'text-gray-300 hover:bg-zinc-800 hover:text-white' }}">
+                   class="block px-4 py-2 rounded w-full {{ request()->routeIs('contact') ? 'bg-blue-100 text-blue-700 font-semibold' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }}">
                     Kontak Kami
                 </a>
             </li>
             <li>
                 <a href="/admin"
-                class="block bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded text-center shadow w-full">
+                   class="block bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-cyan-500 hover:to-blue-600 transition text-white px-4 py-2 rounded-lg text-center shadow-md w-full">
                     Login
                 </a>
             </li>
         </ul>
     </div>
-
 </div>
