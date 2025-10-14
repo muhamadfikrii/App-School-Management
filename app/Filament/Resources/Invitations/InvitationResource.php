@@ -2,36 +2,34 @@
 
 namespace App\Filament\Resources\Invitations;
 
-use UnitEnum;
-use BackedEnum;
-use App\Enums\UserRole;
-use App\Models\Invitation;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use App\Filament\Resources\Invitations\Pages\EditInvitation;
-use App\Filament\Resources\Invitations\Pages\ViewInvitation;
-use App\Filament\Resources\Invitations\Pages\ListInvitations;
 use App\Filament\Resources\Invitations\Pages\CreateInvitation;
+use App\Filament\Resources\Invitations\Pages\EditInvitation;
+use App\Filament\Resources\Invitations\Pages\ListInvitations;
+use App\Filament\Resources\Invitations\Pages\ViewInvitation;
 use App\Filament\Resources\Invitations\Schemas\InvitationForm;
-use App\Filament\Resources\Invitations\Tables\InvitationsTable;
 use App\Filament\Resources\Invitations\Schemas\InvitationInfolist;
-
-
+use App\Filament\Resources\Invitations\Tables\InvitationsTable;
+use App\Models\Invitation;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Tables\Table;
+use UnitEnum;
 
 class InvitationResource extends Resource
 {
     protected static ?string $model = Invitation::class;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-plus';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-plus';
+
     protected static ?string $navigationLabel = 'Invitation';
-    protected static  string | UnitEnum | null $navigationGroup = 'User Manajemen';
+
+    protected static string|UnitEnum|null $navigationGroup = 'User Manajemen';
 
     public static function canAccess(): bool
     {
         return auth('web')->user()?->is_admin ?? false;
     }
-
 
     public static function form(Schema $schema): Schema
     {
@@ -42,6 +40,7 @@ class InvitationResource extends Resource
     {
         return InvitationInfolist::configure($schema);
     }
+
     public static function table(Table $table): Table
     {
         return InvitationsTable::configure($table);
@@ -54,7 +53,7 @@ class InvitationResource extends Resource
         ];
     }
 
-        public static function getModelLabel(): string
+    public static function getModelLabel(): string
     {
         return 'Undangan';
     }

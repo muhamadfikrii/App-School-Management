@@ -17,8 +17,8 @@ class Achievement extends Component
     public function render()
     {
         $achievements = ModelsAchievement::with('student')
-                            ->latest()
-                            ->paginate($this->perPage);
+            ->latest()
+            ->paginate($this->perPage);
 
         return view('livewire.partials.achievement', [
             'achievements' => $achievements,

@@ -2,21 +2,20 @@
 
 namespace App\Filament\Resources\Academics;
 
-use BackedEnum;
-use UnitEnum;
-use App\Enums\UserRole;
-use Filament\Tables\Table;
-use App\Models\AcademicYear;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use App\Filament\Resources\Academics\Pages\EditAcademic;
-use App\Filament\Resources\Academics\Pages\ViewAcademic;
-use App\Filament\Resources\Academics\Pages\ListAcademics;
 use App\Filament\Resources\Academics\Pages\CreateAcademic;
+use App\Filament\Resources\Academics\Pages\EditAcademic;
+use App\Filament\Resources\Academics\Pages\ListAcademics;
+use App\Filament\Resources\Academics\Pages\ViewAcademic;
 use App\Filament\Resources\Academics\Schemas\AcademicForm;
-use App\Filament\Resources\Academics\Tables\AcademicsTable;
 use App\Filament\Resources\Academics\Schemas\AcademicInfolist;
+use App\Filament\Resources\Academics\Tables\AcademicsTable;
+use App\Models\AcademicYear;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use UnitEnum;
 
 class AcademicResource extends Resource
 {
@@ -26,7 +25,7 @@ class AcademicResource extends Resource
 
     // protected static ?string $recordTitleAttribute = 'yes';
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
+    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
 
     public static function canAccess(): bool
     {

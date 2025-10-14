@@ -19,7 +19,7 @@ class EditTeacher extends EditRecord
         ];
     }
 
-    protected function getRedirectUrl(): string 
+    protected function getRedirectUrl(): string
     {
         return TeacherResource::getUrl();
     }

@@ -2,20 +2,19 @@
 
 namespace App\Filament\Resources\GradeComponents;
 
-use BackedEnum;
-use App\Enums\UserRole;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use App\Models\GradeComponent;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
+use App\Filament\Resources\GradeComponents\Pages\CreateGradeComponents;
 use App\Filament\Resources\GradeComponents\Pages\EditGradeComponents;
 use App\Filament\Resources\GradeComponents\Pages\ListGradeComponents;
 use App\Filament\Resources\GradeComponents\Pages\ViewGradeComponents;
-use App\Filament\Resources\GradeComponents\Pages\CreateGradeComponents;
 use App\Filament\Resources\GradeComponents\Schemas\GradeComponentsForm;
-use App\Filament\Resources\GradeComponents\Tables\GradeComponentsTable;
 use App\Filament\Resources\GradeComponents\Schemas\GradeComponentsInfolist;
+use App\Filament\Resources\GradeComponents\Tables\GradeComponentsTable;
+use App\Models\GradeComponent;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
 
 class GradeComponentsResource extends Resource
 {

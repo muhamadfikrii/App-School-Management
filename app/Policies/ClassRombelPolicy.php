@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\ClassRombel;
+use App\Models\User;
 
 class ClassRombelPolicy
 {

@@ -6,7 +6,6 @@ use App\Models\ClassRombel;
 use App\Models\Level;
 use App\Models\Major;
 use App\Models\Teacher;
-use App\Models\AcademicYear;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ClassRombelFactory extends Factory
@@ -22,11 +21,11 @@ class ClassRombelFactory extends Factory
         $rombelNumber = $this->faker->numberBetween(1, 3);
 
         return [
-            'level_id'        => $level->id,
-            'major_id'        => $major->id,
-            'teacher_id'      => $teacher?->id,
-            'rombel'          => $rombelNumber,
-            'name'            => $level->name . ' ' . $major->name . ' ' . $rombelNumber,
+            'level_id' => $level->id,
+            'major_id' => $major->id,
+            'teacher_id' => $teacher?->id,
+            'rombel' => $rombelNumber,
+            'name' => $level->name.' '.$major->name.' '.$rombelNumber,
         ];
     }
 }

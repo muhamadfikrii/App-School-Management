@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Reports\Pages;
 
+use App\Filament\Resources\Reports\ReportResource;
 use App\Models\Student;
 use Filament\Resources\Pages\CreateRecord;
-use App\Filament\Resources\Reports\ReportResource;
 
 class CreateReport extends CreateRecord
 {

@@ -2,16 +2,16 @@
 
 namespace App\Enums;
 
-enum Days: string 
+enum Days: string
 {
     case SENIN = 'Senin';
     case SELASA = 'Selasa';
     case RABU = 'Rabu';
-    case KAMIS = 'Kamis'; 
+    case KAMIS = 'Kamis';
     case JUMAT = 'Jum\'at';
 
     public function getLabel(): ?string
-    {    
+    {
         return match ($this) {
             self::SENIN => 'Senin',
             self::SELASA => 'Selasa',
@@ -21,7 +21,7 @@ enum Days: string
         };
     }
 
-    public static function toArray(): array 
+    public static function toArray(): array
     {
         return [
             self::SENIN->value => 'Senin',

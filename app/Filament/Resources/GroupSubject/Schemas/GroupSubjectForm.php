@@ -3,10 +3,9 @@
 namespace App\Filament\Resources\GroupSubject\Schemas;
 
 use Filament\Forms\Components\Textarea;
-use Filament\Schemas\Schema;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class GroupSubjectForm
 {
@@ -14,17 +13,17 @@ class GroupSubjectForm
     {
         return $schema
             ->components([
-                Section::make("")
+                Section::make('')
                     ->columnSpanFull()
-                            ->schema([
-                                TextInput::make('name')
-                                    ->label('Kategori')
-                                    ->required(),
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Kategori')
+                            ->required(),
 
-                                Textarea::make('description')
-                                    ->label('Deksripsi')
-                                    ->nullable()
-                            ]),
+                        Textarea::make('description')
+                            ->label('Deksripsi')
+                            ->nullable(),
+                    ]),
             ]);
     }
 }

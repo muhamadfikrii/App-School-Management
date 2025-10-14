@@ -20,7 +20,7 @@ class ListStudents extends ListRecords
                 ->color('danger')
                 ->icon('heroicon-s-arrow-down-tray')
                 ->fileName('data-siswa')
-                ->exporter(StudentExporter::class)
+                ->exporter(StudentExporter::class),
 
         ];
     }

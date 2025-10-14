@@ -14,10 +14,11 @@ class InvitationMail extends Mailable
     use Queueable, SerializesModels;
 
     public Invitation $invitation;
+
     /**
      * Create a new message instance.
      */
-    public function __construct( Invitation $invitation)
+    public function __construct(Invitation $invitation)
     {
         $this->invitation = $invitation;
     }
@@ -40,9 +41,9 @@ class InvitationMail extends Mailable
         return new Content(
             markdown: 'emails.invitation',
             with: [
-                'inviter_name'=> $this->invitation->inviter->name,
-                'invite_name'=> $this->invitation->name,
-                'accept_url'=> $this->invitation->signedUrl(),
+                'inviter_name' => $this->invitation->inviter->name,
+                'invite_name' => $this->invitation->name,
+                'accept_url' => $this->invitation->signedUrl(),
             ]
         );
     }

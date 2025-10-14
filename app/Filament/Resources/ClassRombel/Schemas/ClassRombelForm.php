@@ -5,13 +5,11 @@ namespace App\Filament\Resources\ClassRombel\Schemas;
 use App\Models\Level;
 use App\Models\Major;
 use App\Models\Teacher;
-use App\Models\AcademicYear;
-use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-
+use Filament\Schemas\Schema;
 
 class ClassRombelForm
 {
@@ -58,7 +56,6 @@ class ClassRombelForm
                                         }
                                     }),
 
-
                                 Select::make('teacher_id')
                                     ->label('Wali Kelas')
                                     ->nullable()
@@ -78,15 +75,15 @@ class ClassRombelForm
                                             $set('name', "{$level} {$major} {$state}");
                                         }
                                     }),
-                                        ]),
-                                TextInput::make('name')
-                                    ->label('Nama Kelas')
-                                    ->required()
-                                    ->unique('class_rombel')
-                                    ->disabled()
-                                    ->dehydrated()
-                                    ->columnSpanFull(),
-                    ])
+                            ]),
+                        TextInput::make('name')
+                            ->label('Nama Kelas')
+                            ->required()
+                            ->unique('class_rombel')
+                            ->disabled()
+                            ->dehydrated()
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 }

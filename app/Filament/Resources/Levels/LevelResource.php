@@ -2,21 +2,20 @@
 
 namespace App\Filament\Resources\Levels;
 
-use BackedEnum;
-use UnitEnum;
-use App\Enums\UserRole;
-use App\Models\Level;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use App\Filament\Resources\Levels\Pages\EditLevel;
-use App\Filament\Resources\Levels\Pages\ViewLevel;
-use App\Filament\Resources\Levels\Pages\ListLevels;
 use App\Filament\Resources\Levels\Pages\CreateLevel;
+use App\Filament\Resources\Levels\Pages\EditLevel;
+use App\Filament\Resources\Levels\Pages\ListLevels;
+use App\Filament\Resources\Levels\Pages\ViewLevel;
 use App\Filament\Resources\Levels\Schemas\LevelForm;
-use App\Filament\Resources\Levels\Tables\LevelsTable;
 use App\Filament\Resources\Levels\Schemas\LevelInfolist;
+use App\Filament\Resources\Levels\Tables\LevelsTable;
+use App\Models\Level;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use UnitEnum;
 
 class LevelResource extends Resource
 {
@@ -24,7 +23,7 @@ class LevelResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BookOpen;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
 
     public static function canAccess(): bool
     {

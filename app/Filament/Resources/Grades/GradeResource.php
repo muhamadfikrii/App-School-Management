@@ -2,25 +2,22 @@
 
 namespace App\Filament\Resources\Grades;
 
-use BackedEnum;
-use Filament\Panel;
-use App\Models\Grade;
-use Filament\Tables\Table;
-use Filament\Actions\Action;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Enums\Platform;
-use Filament\Support\Icons\Heroicon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Support\Htmlable;
-use App\Filament\Resources\Grades\Pages\EditGrade;
-use App\Filament\Resources\Grades\Pages\ViewGrade;
-use App\Filament\Resources\Grades\Pages\ListGrades;
 use App\Filament\Resources\Grades\Pages\CreateGrade;
+use App\Filament\Resources\Grades\Pages\EditGrade;
+use App\Filament\Resources\Grades\Pages\ListGrades;
+use App\Filament\Resources\Grades\Pages\ViewGrade;
 use App\Filament\Resources\Grades\Schemas\GradeForm;
-use App\Filament\Resources\Grades\Tables\GradesTable;
 use App\Filament\Resources\Grades\Schemas\GradeInfolist;
+use App\Filament\Resources\Grades\Tables\GradesTable;
+use App\Models\Grade;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class GradeResource extends Resource
 {
@@ -52,7 +49,7 @@ class GradeResource extends Resource
         ];
     }
 
-        public static function getModelLabel(): string
+    public static function getModelLabel(): string
     {
         return 'Nilai';
     }
@@ -67,9 +64,9 @@ class GradeResource extends Resource
         return 'Nilai';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
-    return $record->student->full_name;
+        return $record->student->full_name;
     }
 
     public static function getGloballySearchableAttributes(): array
@@ -82,7 +79,7 @@ class GradeResource extends Resource
         return [
             'Kelas' => $record->classRombel->name,
             'Nilai' => $record->gradeComponent->weight,
-            'Mapel' => $record->subject->name
+            'Mapel' => $record->subject->name,
         ];
     }
 

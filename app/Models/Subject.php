@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use Database\Factories\SubjectFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subject extends Model
 {
     use HasFactory;
 
-    protected $table = "subjects";
+    protected $table = 'subjects';
 
     protected $guarded = [];
 
@@ -34,7 +33,7 @@ class Subject extends Model
 
     public function grades(): HasMany
     {
-    return $this->hasMany(Grade::class, 'subject_id', 'id');
+        return $this->hasMany(Grade::class, 'subject_id', 'id');
     }
 
     public function students(): HasMany
@@ -51,20 +50,18 @@ class Subject extends Model
     {
         return $this->hasMany(ScheduleSubject::class);
     }
-    
+
     public function groupSubject()
     {
         return $this->belongsTo(GroupSubject::class);
     }
 
-
     /**
      * Hitung nilai akhir siswa (standar Indonesia).
      *
-     * @param int $studentId
-     * @param int $academicYearId
-     * @param int $semester
-     *
+     * @param  int  $studentId
+     * @param  int  $academicYearId
+     * @param  int  $semester
      * @return array ['final_score' => float, 'predicate' => string, 'is_passed' => bool]
      */
     public function calculate($studentId, $academicYearId, $semester)
@@ -81,7 +78,7 @@ class Subject extends Model
 
         foreach ($grades as $componentGrades) {
             $component = $componentGrades->first()->gradeComponent ?? null;
-            if (!$component) {
+            if (! $component) {
                 continue;
             }
 
@@ -110,8 +107,8 @@ class Subject extends Model
 
         return [
             'final_score' => $finalScore,
-            'predicate'   => $predicate,
-            'is_passed'   => $isPassed,
+            'predicate' => $predicate,
+            'is_passed' => $isPassed,
         ];
     }
 }

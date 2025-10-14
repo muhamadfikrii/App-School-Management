@@ -9,7 +9,7 @@ class CreateClassRombel extends CreateRecord
 {
     protected static string $resource = ClassRombelResource::class;
 
-    public function getRedirectUrl(): string 
+    public function getRedirectUrl(): string
     {
         return ClassRombelResource::getUrl();
     }

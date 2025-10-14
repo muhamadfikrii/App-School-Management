@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class Program extends Component
 {
+
     public $jurusans = [];
 
     public function mount()
@@ -14,13 +15,13 @@ class Program extends Component
             [
                 'nama' => 'PPLG',
                 'slug' => 'pplg',
-                'img'  => 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg',
+                'img' => 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg',
                 'desc' => 'Fokus pada pengembangan perangkat lunak dan gim interaktif dengan kompetensi dalam pemrograman, desain UI/UX, serta teknologi digital modern.',
             ],
             [
                 'nama' => 'MPLB',
                 'slug' => 'mplb',
-                'img'  => 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg',
+                'img' => 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg',
                 'desc' => 'Membekali peserta didik dengan keterampilan administrasi perkantoran digital, layanan bisnis, dan komunikasi profesional di dunia kerja modern.',
             ],
             [
@@ -49,7 +50,6 @@ class Program extends Component
             ],
         ];
     }
-
     public function render()
     {
         return view('livewire.partials.program');

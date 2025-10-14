@@ -2,14 +2,12 @@
 
 namespace App\Filament\Pages;
 
-use App\Enums\UserRole;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\DatePicker;
 use Filament\Pages\Dashboard as BaseDashboard;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 
 class Dashboard extends BaseDashboard
 {

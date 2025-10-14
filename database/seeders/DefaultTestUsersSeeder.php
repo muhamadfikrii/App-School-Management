@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\Teacher;
-use App\Enums\UserRole;
 use App\Enums\TeacherStatus;
+use App\Enums\UserRole;
+use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DefaultTestUsersSeeder extends Seeder
@@ -42,13 +42,13 @@ class DefaultTestUsersSeeder extends Seeder
         Teacher::firstOrCreate(
             ['user_id' => $user->id],
             [
-                'full_name'     => $user->name,
-                'nip'           => fake()->unique()->numerify('1980#######'),
-                'phone'         => fake()->phoneNumber(),
-                'gender'        => fake()->randomElement(['laki-laki', 'perempuan']),
+                'full_name' => $user->name,
+                'nip' => fake()->unique()->numerify('1980#######'),
+                'phone' => fake()->phoneNumber(),
+                'gender' => fake()->randomElement(['laki-laki', 'perempuan']),
                 'date_of_birth' => fake()->date(),
-                'status'        => fake()->randomElement(TeacherStatus::cases())->value,
-                'address'       => fake()->address(),
+                'status' => fake()->randomElement(TeacherStatus::cases())->value,
+                'address' => fake()->address(),
             ]
         );
     }

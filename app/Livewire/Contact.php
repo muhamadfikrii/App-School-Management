@@ -12,6 +12,7 @@ class Contact extends Component
     {
         $this->tab = $tab;
     }
+
     public function render()
     {
         return view('livewire.contact');

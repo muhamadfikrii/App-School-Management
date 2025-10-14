@@ -7,6 +7,7 @@ use Livewire\Component;
 class ProgramDetail extends Component
 {
     public $slug;
+
     public $program;
 
     public function mount($slug)

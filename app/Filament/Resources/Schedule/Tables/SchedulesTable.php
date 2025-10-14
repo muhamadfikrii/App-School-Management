@@ -3,18 +3,16 @@
 namespace App\Filament\Resources\Schedule\Tables;
 
 use App\Enums\Days;
-use App\Models\Teacher;
-use Filament\Tables\Table;
 use App\Models\ClassRombel;
-use Filament\Actions\EditAction;
+use App\Models\Teacher;
 use Filament\Actions\DeleteAction;
-use Filament\Actions\ExportAction;
+use Filament\Actions\EditAction;
 use Filament\Support\Enums\FontWeight;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\Layout\Stack;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Exports\SchedulesExporter;
 
 class SchedulesTable
 {
@@ -29,11 +27,10 @@ class SchedulesTable
                         ->weight(FontWeight::Bold),
                     TextColumn::make('jadwal')
                         ->label('Jadwal')
-                        ->getStateUsing(fn ($record) =>
-                            $record->scheduleSubjects->map->display->implode('<br>')
+                        ->getStateUsing(fn ($record) => $record->scheduleSubjects->map->display->implode('<br>')
                         )
                         ->html(),
-                ])
+                ]),
             ])
             ->contentGrid([
                 'md' => 1,

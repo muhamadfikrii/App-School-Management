@@ -2,16 +2,14 @@
 
 namespace App\Filament\Resources\Students\RelationManagers;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
-use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Tables\Columns\TextColumn;
 use App\Filament\Resources\Reports\ReportResource;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class FinalGradeRelationManager extends RelationManager
 {
@@ -21,7 +19,7 @@ class FinalGradeRelationManager extends RelationManager
 
     public function table(Table $table): Table
     {
-       return $table
+        return $table
             ->columns([
                 TextColumn::make('student.nisn')
                     ->searchable()

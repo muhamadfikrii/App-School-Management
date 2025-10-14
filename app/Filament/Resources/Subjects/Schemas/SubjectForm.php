@@ -3,14 +3,11 @@
 namespace App\Filament\Resources\Subjects\Schemas;
 
 use App\Models\GroupSubject;
-use App\Models\Subject;
-use App\Models\Teacher;
-use Filament\Schemas\Schema;
-use App\Models\SubjectCategories;
 use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class SubjectForm
 {
@@ -18,7 +15,7 @@ class SubjectForm
     {
         return $schema
             ->components([
-                Section::make("Data Mata Pelajaran")
+                Section::make('Data Mata Pelajaran')
                     ->columnSpanFull()
                     ->label('Mata Pelajaran')
                     ->schema([
@@ -37,21 +34,21 @@ class SubjectForm
 
                         Grid::make(4)
                             ->schema([
-                                    TextInput::make('code')
-                                        ->label('Code')
-                                        ->placeholder('Contoh: B.Indo')
-                                        ->required(),
-                                    TextInput::make('name')
-                                        ->label('Mata Pelajaran')
-                                        ->columnSpan(2)
-                                        ->placeholder('Contoh: Bahasa Indonesia')
-                                        ->required(),
-                                     TextInput::make('kkm')
-                                        ->label('KKM')
-                                        ->placeholder('Contoh: 75')
-                                        ->required(),
-                                ]),
-                    ])
+                                TextInput::make('code')
+                                    ->label('Code')
+                                    ->placeholder('Contoh: B.Indo')
+                                    ->required(),
+                                TextInput::make('name')
+                                    ->label('Mata Pelajaran')
+                                    ->columnSpan(2)
+                                    ->placeholder('Contoh: Bahasa Indonesia')
+                                    ->required(),
+                                TextInput::make('kkm')
+                                    ->label('KKM')
+                                    ->placeholder('Contoh: 75')
+                                    ->required(),
+                            ]),
+                    ]),
             ]);
     }
 }

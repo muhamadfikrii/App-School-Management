@@ -3,15 +3,15 @@
 namespace App\Filament\Resources\Schedule\Schemas;
 
 use App\Enums\Days;
+use App\Models\ClassRombel;
 use App\Models\Subject;
 use App\Models\Teacher;
-use App\Models\ClassRombel;
-use Filament\Schemas\Schema;
-use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\Repeater;
-use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TimePicker;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class SchedulesForm
 {
@@ -19,7 +19,7 @@ class SchedulesForm
     {
         return $schema
             ->components([
-                Section::make("Jadwal Mengajar")
+                Section::make('Jadwal Mengajar')
                     ->columnSpanFull()
                     ->schema([
                         Grid::make(2)
@@ -63,9 +63,11 @@ class SchedulesForm
                                     ->searchable()
                                     ->options(function (callable $get) {
                                         $subjectId = $get('subject_id');
-                                        if (!$subjectId) return [];
+                                        if (! $subjectId) {
+                                            return [];
+                                        }
 
-                                        return Teacher::whereHas('subjects', fn($q) => $q->where('subjects.id', $subjectId))
+                                        return Teacher::whereHas('subjects', fn ($q) => $q->where('subjects.id', $subjectId))
                                             ->pluck('full_name', 'id')
                                             ->toArray();
                                     })

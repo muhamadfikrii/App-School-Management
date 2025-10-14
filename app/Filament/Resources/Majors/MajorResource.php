@@ -2,27 +2,26 @@
 
 namespace App\Filament\Resources\Majors;
 
-use UnitEnum;
-use BackedEnum;
-use App\Enums\UserRole;
-use App\Models\Major;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use App\Filament\Resources\Majors\Pages\EditMajor;
-use App\Filament\Resources\Majors\Pages\ViewMajor;
-use App\Filament\Resources\Majors\Pages\ListMajors;
 use App\Filament\Resources\Majors\Pages\CreateMajor;
+use App\Filament\Resources\Majors\Pages\EditMajor;
+use App\Filament\Resources\Majors\Pages\ListMajors;
+use App\Filament\Resources\Majors\Pages\ViewMajor;
 use App\Filament\Resources\Majors\Schemas\MajorForm;
-use App\Filament\Resources\Majors\Tables\MajorsTable;
 use App\Filament\Resources\Majors\Schemas\MajorInfolist;
+use App\Filament\Resources\Majors\Tables\MajorsTable;
+use App\Models\Major;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use UnitEnum;
 
 class MajorResource extends Resource
 {
     protected static ?string $model = Major::class;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
 
     protected static ?int $navigationSort = 2;
 

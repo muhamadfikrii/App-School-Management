@@ -16,12 +16,12 @@ class ListSchedule extends ListRecords
     {
         return [
             CreateAction::make(),
-             ExportAction::make()
-                    ->label('Export Jadwal Pelajaran')
-                    ->exporter(SchedulesExporter::class)
-                    ->color('danger')
-                    ->icon('heroicon-s-arrow-down-tray')
-                    ->fileName('jadwal-mengajar')
+            ExportAction::make()
+                ->label('Export Jadwal Pelajaran')
+                ->exporter(SchedulesExporter::class)
+                ->color('danger')
+                ->icon('heroicon-s-arrow-down-tray')
+                ->fileName('jadwal-mengajar'),
         ];
     }
 }

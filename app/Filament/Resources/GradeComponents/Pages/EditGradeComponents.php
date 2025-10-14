@@ -2,11 +2,10 @@
 
 namespace App\Filament\Resources\GradeComponents\Pages;
 
-use App\Models\GradeComponent;
-use Filament\Actions\ViewAction;
-use Filament\Actions\DeleteAction;
-use Filament\Resources\Pages\EditRecord;
 use App\Filament\Resources\GradeComponents\GradeComponentsResource;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
+use Filament\Resources\Pages\EditRecord;
 
 class EditGradeComponents extends EditRecord
 {

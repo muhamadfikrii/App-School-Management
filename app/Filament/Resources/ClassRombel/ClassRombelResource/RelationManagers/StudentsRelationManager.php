@@ -3,18 +3,16 @@
 namespace App\Filament\Resources\ClassRombel\ClassRombelResource\RelationManagers;
 
 use App\Enums\Status;
+use App\Filament\Resources\Students\StudentsResource;
 use App\Models\Student;
-use Filament\Tables\Table;
-use App\Models\ClassRombel;
-use Filament\Actions\CreateAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Tables\Grouping\Group as GroupingGroup;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Grouping\Group as GroupingGroup;
+use Filament\Tables\Table;
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use App\Filament\Resources\Students\StudentsResource;
-use Filament\Resources\RelationManagers\RelationManager;
 
 class StudentsRelationManager extends RelationManager
 {
@@ -101,6 +99,7 @@ class StudentsRelationManager extends RelationManager
                     $query->whereHas('classRombel', function ($q) use ($user): void {
                         $q->where('teacher_id', $user->teacher->id);
                     });
+
                     return $query;
                 }
             })

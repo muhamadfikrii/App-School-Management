@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('level')->default('Sekolah');
             $table->date('date')->nullable();
             $table->foreignIdFor(Student::class)->nullable();
-            $table->string('photo')->nullable(); 
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

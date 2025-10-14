@@ -19,7 +19,7 @@ class GradePolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin || $user->is_teacher;;
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**
@@ -28,7 +28,7 @@ class GradePolicy
     public function update(User $user): bool
     {
 
-        return $user->is_admin || $user->is_teacher;;
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**
@@ -36,6 +36,6 @@ class GradePolicy
      */
     public function delete(User $user): bool
     {
-        return $user->is_admin || $user->is_teacher;;
+        return $user->is_admin || $user->is_teacher;
     }
 }

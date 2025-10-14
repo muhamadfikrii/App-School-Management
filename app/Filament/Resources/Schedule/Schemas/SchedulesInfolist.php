@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\Schedule\Schemas;
 
-use Filament\Schemas\Schema;
+use Filament\Infolists\Components\RepeatableEntry;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\RepeatableEntry;
+use Filament\Schemas\Schema;
 
 class SchedulesInfolist
 {
@@ -17,7 +17,7 @@ class SchedulesInfolist
                 Section::make('Detail Jadwal')
                     ->columnSpanFull()
                     ->schema([
-                       Grid::make(2)
+                        Grid::make(2)
                             ->schema([
                                 TextEntry::make('day')
                                     ->label('Hari'),

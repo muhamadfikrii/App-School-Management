@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Schedule;
+use Illuminate\Database\Seeder;
 
 class ScheduleSeeder extends Seeder
 {

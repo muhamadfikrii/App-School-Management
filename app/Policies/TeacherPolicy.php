@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Teacher;
+use App\Models\User;
 
 class TeacherPolicy
 {
@@ -20,7 +20,7 @@ class TeacherPolicy
      */
     public function view(User $user): bool
     {
-       return $user->is_admin || $user->is_teacher;
+        return $user->is_admin || $user->is_teacher;
     }
 
     /**

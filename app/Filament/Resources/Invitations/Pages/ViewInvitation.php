@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Invitations\Pages;
 
+use App\Filament\Resources\Invitations\InvitationResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
-use App\Filament\Resources\Invitations\InvitationResource;
 
 class ViewInvitation extends ViewRecord
 {

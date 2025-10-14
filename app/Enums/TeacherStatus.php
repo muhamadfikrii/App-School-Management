@@ -2,17 +2,17 @@
 
 namespace App\Enums;
 
-enum TeacherStatus: string 
+enum TeacherStatus: string
 {
     case PNS = 'PNS';
     case PPPK = 'PPPK';
     case GTY = 'GTY';
-    case GTT = 'GTT'; 
+    case GTT = 'GTT';
     case Honorer = 'Honorer';
     case Kontrak = 'Kontrak';
 
     public function getLabel(): ?string
-    {    
+    {
         return match ($this) {
             self::PNS => 'PNS',
             self::PPPK => 'PPPK',
@@ -23,7 +23,7 @@ enum TeacherStatus: string
         };
     }
 
-    public static function toArray(): array 
+    public static function toArray(): array
     {
         return [
             self::PNS->value => 'PNS',

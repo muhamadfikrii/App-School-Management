@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Grades\Pages;
 
+use App\Filament\Resources\Grades\GradeResource;
 use App\Models\Student;
 use Filament\Resources\Pages\CreateRecord;
-use App\Filament\Resources\Grades\GradeResource;
 
 class CreateGrade extends CreateRecord
 {
@@ -28,14 +28,12 @@ class CreateGrade extends CreateRecord
         }
     }
 
-
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-    if (auth()->user()->is_teacher && auth()->user()->teacher) {
-        $data['teacher_id'] = auth()->user()->teacher->id;
-    }
+        if (auth()->user()->is_teacher && auth()->user()->teacher) {
+            $data['teacher_id'] = auth()->user()->teacher->id;
+        }
 
-    return $data;
+        return $data;
     }
-
 }
