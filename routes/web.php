@@ -7,6 +7,8 @@ use App\Livewire\FromRegister;
 use App\Livewire\Home;
 use App\Livewire\Partials\Achievement;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Partials\AchievementDetail;
+
 
 
 
@@ -19,3 +21,6 @@ Route::get('/', Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 Route::get('/prestasi', Achievement::class)->name('achievement');
+Route::get('/prestasi/{achievement}', AchievementDetail::class)
+     ->name('achievement.detail');
+

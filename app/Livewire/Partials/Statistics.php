@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Partials;
 
+use App\Models\Achievement;
 use App\Models\Major;
 use App\Models\Student;
 use App\Models\Teacher;

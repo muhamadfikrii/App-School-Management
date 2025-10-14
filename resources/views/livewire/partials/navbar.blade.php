@@ -24,7 +24,7 @@
 
                 <div class="hidden md:flex items-center space-x-6 bg-zinc-800 px-4 py-2 rounded-lg">
                     <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
-                   <div x-data="{ open: false }" class="relative">
+                    <div x-data="{ open: false }" class="relative">
                         <button @mouseenter="open = true" @mouseleave="open = false"
                                 class="flex items-center px-4 py-2 text-gray-200 hover:text-blue-500 font-semibold transition">
                             Info Sekolah
@@ -114,32 +114,43 @@
                 </a>
             </li>
             <li x-data="{ infoOpen: false }" class="w-full">
-            <button @click="infoOpen = !infoOpen"
-                    class="w-full flex justify-between items-center px-4 py-2 rounded text-gray-300 hover:bg-zinc-800 hover:text-white focus:outline-none">
-                Info Sekolah
-                <svg :class="infoOpen ? 'rotate-180' : ''" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
-            </button>
-            <ul x-show="infoOpen" x-transition class="pl-4 mt-2 flex flex-col gap-2">
-                <li>
-                    <a href="#" class="block px-4 py-2 rounded text-gray-300 hover:bg-zinc-800 hover:text-white">
-                        Program Keahlian
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="block px-4 py-2 rounded text-gray-300 hover:bg-zinc-800 hover:text-white">
-                        Organisasi
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('achievement') }}" class="block px-4 py-2 rounded text-gray-300 hover:bg-zinc-800 hover:text-white">
-                        Prestasi
-                    </a>
-                </li>
-            </ul>
-        </li>
+                <button @click="infoOpen = !infoOpen"
+                        class="w-full flex justify-between items-center px-4 py-2 rounded hover:bg-blue-700 transition text-gray-700 font-semibold">
+                    Info Sekolah
+                    <svg :class="infoOpen ? 'rotate-180' : ''" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
 
+                <ul x-show="infoOpen"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 -translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2"
+                    class="flex flex-col pl-4 mt-2 gap-2 bg-white rounded-lg shadow-md overflow-hidden">
+                    
+                    <li>
+                        <a href="#" 
+                        class="block px-4 py-2 cursor-pointer rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200">
+                            Program Keahlian
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" 
+                        class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200">
+                            Organisasi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('achievement') }}" 
+                        class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200">
+                            Prestasi
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <a href="{{ route('about') }}"
                 class="block px-4 py-2 rounded w-full font-semibold text-gray-700 hover:bg-zinc-800 hover:text-white transition {{ request()->routeIs('about') ? 'bg-zinc-800 text-white font-semibold' : '' }}">
