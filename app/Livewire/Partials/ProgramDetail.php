@@ -91,7 +91,7 @@ class ProgramDetail extends Component
                     'Quality Control Listrik',
                     'Operator PLTA/PLN'
                 ],
-                'image' => 'https://unsplash.com/photos/a-group-of-men-working-on-a-piece-of-metal-x2y2rzLMKiA' 
+                'image' => 'https://images.pexels.com/photos/33992840/pexels-photo-33992840.jpeg' 
             ],
 
             'tkro' => [

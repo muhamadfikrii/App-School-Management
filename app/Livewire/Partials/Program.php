@@ -32,7 +32,7 @@ class Program extends Component
             [
                 'nama' => 'TKL',
                 'slug' => 'tkl',
-                'img'  => 'https://images.pexels.com/photos/5240546/pexels-photo-5240546.jpeg',
+                'img'  => 'https://images.pexels.com/photos/33962540/pexels-photo-33962540.jpeg?_gl=1*jm2kq4*_ga*MTQ1NzI2MjA0Ny4xNzYwNDI0MTQx*_ga_8JE65Q40S6*czE3NjA0MzcyNDIkbzMkZzEkdDE3NjA0Mzc1OTEkajYwJGwwJGgw',
                 'desc' => 'Mengembangkan kompetensi dalam sistem tenaga listrik, instalasi, dan perawatan kelistrikan industri serta teknologi energi terbarukan.',
             ],
             [
