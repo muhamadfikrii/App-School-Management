@@ -10,7 +10,6 @@ use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -18,18 +17,30 @@ use Livewire\Component;
 class FromRegister extends Component
 {
     public string $name = '';
+
     public string $email = '';
+
     public string $password = '';
+
     public string $password_confirmation = '';
+
     public string $username = '';
+
     // Teacher fields
     public ?string $nip = null;
+
     public ?string $phone = null;
+
     public string $gender = '';
+
     public ?string $date_of_birth = null; // YYYY-MM-DD
+
     public string $status = '';
+
     public bool $isTeacher = false;
+
     public ?string $address = null;
+
     public Invitation $invitation;
 
     public function mount(Invitation $invitation): void
@@ -50,23 +61,23 @@ class FromRegister extends Component
     }
 
     public function submit()
-   {
-    $rules = [
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email',
-        'password' => ['required', 'confirmed', 'min:5'],
-    ];
+    {
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => ['required', 'confirmed', 'min:5'],
+        ];
 
-    if ($this->isTeacher) {
-        $rules = array_merge($rules, [
-            'nip' => 'required|string|max:50',
-            'phone' => 'nullable|string|max:20',
-            'gender' => 'required|in:laki-laki,perempuan',
-            'date_of_birth' => 'required|date',
-            'status' => 'required|string|max:50',
-            'address' => 'nullable|string|max:500',
-        ]);
-    }
+        if ($this->isTeacher) {
+            $rules = array_merge($rules, [
+                'nip' => 'required|string|max:50',
+                'phone' => 'nullable|string|max:20',
+                'gender' => 'required|in:laki-laki,perempuan',
+                'date_of_birth' => 'required|date',
+                'status' => 'required|string|max:50',
+                'address' => 'nullable|string|max:500',
+            ]);
+        }
         $validated = $this->validate($rules);
 
         DB::transaction(function () use ($validated): void {
@@ -93,12 +104,12 @@ class FromRegister extends Component
         });
 
         session()->flash('success', 'Teacher and User created successfully!');
-        $this->invitation->update(['status' => InvitationStatus::SUCCESS ]);
+        $this->invitation->update(['status' => InvitationStatus::SUCCESS]);
 
         return redirect()->to('/admin');
     }
 
-     private function generateUsername(string $name): string
+    private function generateUsername(string $name): string
     {
         $baseUsername = Str::slug($name, '.');
         $username = $baseUsername;

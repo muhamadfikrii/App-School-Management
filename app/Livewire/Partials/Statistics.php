@@ -6,13 +6,14 @@ use App\Models\Achievement;
 use App\Models\Major;
 use App\Models\Student;
 use App\Models\Teacher;
-use App\Models\Achievemet;
 use Livewire\Component;
 
 class Statistics extends Component
 {
     public $students;
+
     public $teachers;
+
     public $majors;
 
     public $achievements;
@@ -21,7 +22,7 @@ class Statistics extends Component
     {
         $this->students = Student::count();
         $this->teachers = Teacher::count();
-        $this->majors   = Major::count();
+        $this->majors = Major::count();
         $this->achievements = Achievement::count();
     }
 

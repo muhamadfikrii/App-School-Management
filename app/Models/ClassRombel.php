@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Database\Factories\ClassRombelFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class ClassRombel extends Model
 {
     use HasFactory;
 
-    protected $table = "class_rombel";
+    protected $table = 'class_rombel';
 
     protected $guarded = [];
 
@@ -25,12 +24,12 @@ class ClassRombel extends Model
 
     public function teacher(): BelongsTo
     {
-        return $this->belongsTo(Teacher::class,'teacher_id');
+        return $this->belongsTo(Teacher::class, 'teacher_id');
     }
 
     public function academicYear(): BelongsTo
     {
-        return $this->belongsTo(AcademicYear::class,'academic_year_id');
+        return $this->belongsTo(AcademicYear::class, 'academic_year_id');
     }
 
     public function level(): BelongsTo

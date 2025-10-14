@@ -2,36 +2,35 @@
 
 namespace App\Filament\Resources\Schedule;
 
-use UnitEnum;
-use BackedEnum;
-use App\Models\Schedule;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\Schedule\Pages\CreateSchedule;
 use App\Filament\Resources\Schedule\Pages\EditSchedule;
 use App\Filament\Resources\Schedule\Pages\ListSchedule;
 use App\Filament\Resources\Schedule\Pages\ViewSchedule;
-use App\Filament\Resources\Schedule\Pages\CreateSchedule;
 use App\Filament\Resources\Schedule\Schemas\SchedulesForm;
-use App\Filament\Resources\Schedule\Tables\SchedulesTable;
 use App\Filament\Resources\Schedule\Schemas\SchedulesInfolist;
+use App\Filament\Resources\Schedule\Tables\SchedulesTable;
+use App\Models\Schedule;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 class ScheduleResource extends Resource
 {
     protected static ?string $model = Schedule::class;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
+    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
 
     protected static ?int $navigationSort = 3;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentDuplicate;
 
     protected static ?string $recordTitleAttribute = 'id';
-
 
     public static function form(Schema $schema): Schema
     {
@@ -88,12 +87,12 @@ class ScheduleResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         $mapels = $record->scheduleSubjects
-            ->map(fn($detail) => $detail->subject?->name)
+            ->map(fn ($detail) => $detail->subject?->name)
             ->filter()
             ->join(', ');
 
         $gurus = $record->scheduleSubjects
-            ->map(fn($detail) => $detail->teacher?->full_name)
+            ->map(fn ($detail) => $detail->teacher?->full_name)
             ->filter()
             ->join(', ');
 
@@ -112,22 +111,16 @@ class ScheduleResource extends Resource
             ->with(['classRombel', 'scheduleSubjects.subject', 'scheduleSubjects.teacher'])
             ->when($search, function ($query) use ($search): void {
                 $query->where(function ($sub) use ($search): void {
-                    $sub->whereHas('classRombel', fn($q) =>
-                            $q->where('name', 'like', "%{$search}%"))
+                    $sub->whereHas('classRombel', fn ($q) => $q->where('name', 'like', "%{$search}%"))
 
-                        ->orWhereHas('scheduleSubjects.subject', fn($q) =>
-                            $q->where('name', 'like', "%{$search}%"))
+                        ->orWhereHas('scheduleSubjects.subject', fn ($q) => $q->where('name', 'like', "%{$search}%"))
 
-                        ->orWhereHas('scheduleSubjects.teacher', fn($q) =>
-                            $q->where('full_name', 'like', "%{$search}%"))
-                            
+                        ->orWhereHas('scheduleSubjects.teacher', fn ($q) => $q->where('full_name', 'like', "%{$search}%"))
+
                         ->orWhere('day', 'like', "%{$search}%");
                 });
             });
     }
-
-
-    
 
     public static function getPages(): array
     {

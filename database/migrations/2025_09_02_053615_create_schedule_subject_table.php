@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Subject;
 use App\Models\Schedule;
+use App\Models\Subject;
 use App\Models\Teacher;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {

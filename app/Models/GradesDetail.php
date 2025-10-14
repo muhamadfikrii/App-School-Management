@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class GradesDetail extends Model
 {
-    protected $table = "report_cards_detail";
+    protected $table = 'report_cards_detail';
 
     protected $guarded = [];
 
@@ -20,9 +20,9 @@ class GradesDetail extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
     public function groupSubject()
     {
-        return $this->belongsTo(GroupSubject::class);   
+        return $this->belongsTo(GroupSubject::class);
     }
-
 }

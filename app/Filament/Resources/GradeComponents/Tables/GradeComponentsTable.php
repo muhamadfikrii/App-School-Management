@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources\GradeComponents\Tables;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Grouping\Group;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class GradeComponentsTable
 {
@@ -16,7 +15,7 @@ class GradeComponentsTable
     {
         return $table
             ->columns([
-                TextColumn::make("name")
+                TextColumn::make('name')
                     ->label('Nilai')
                     ->searchable(),
                 TextColumn::make('weight')

@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\Teachers\Schemas;
 
-use Filament\Schemas\Schema;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\ImageEntry;
+use Filament\Schemas\Schema;
 
 class TeacherInfolist
 {
@@ -26,6 +26,7 @@ class TeacherInfolist
                                 TextEntry::make('phone')
                                     ->visible(function ($record) {
                                         $user = auth()->user();
+
                                         return $user->is_admin || ($user->is_teacher && $user->teacher->id === $record->id);
                                     })
                                     ->label('Nomor Telepon'),
@@ -34,12 +35,14 @@ class TeacherInfolist
                                     ->date()
                                     ->visible(function ($record) {
                                         $user = auth()->user();
+
                                         return $user->is_admin || ($user->is_teacher && $user->teacher->id === $record->id);
                                     }),
                                 TextEntry::make('status')->label('Status'),
                                 TextEntry::make('address')->label('Alamat Lengkap')
                                     ->visible(function ($record) {
                                         $user = auth()->user();
+
                                         return $user->is_admin || ($user->is_teacher && $user->teacher->id === $record->id);
                                     })
                                     ->columnSpanFull(),
@@ -58,6 +61,7 @@ class TeacherInfolist
                     ])
                     ->visible(function ($record) {
                         $user = auth()->user();
+
                         return $user->is_admin || ($user->is_teacher && $user->teacher->id === $record->id);
                     }),
             ]);

@@ -6,10 +6,8 @@ use App\Enums\Semester;
 use App\Enums\Status;
 use App\Models\AcademicYear;
 use App\Models\ClassRombel;
-use App\Models\Grade;
 use App\Models\Student;
 use App\Models\Subject;
-use App\Models\Teacher;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -32,7 +30,7 @@ class ReportForm
                             ->schema([
                                 Select::make('academic_year_id')
                                     ->label('Tahun Akademik')
-                                    ->options(AcademicYear::pluck('name','id')->toArray())
+                                    ->options(AcademicYear::pluck('name', 'id')->toArray())
                                     ->reactive()
                                     ->required()
                                     ->afterStateUpdated(fn ($state, Set $set, Get $get) => self::updateRepeaterScores($get, $set)),
@@ -84,12 +82,11 @@ class ReportForm
 
                                         $students = Student::where('class_rombel_id', $state)
                                             ->where('status', Status::ACTIVE->value)
-                                            ->pluck('full_name','id')
+                                            ->pluck('full_name', 'id')
                                             ->toArray();
 
                                         $set('student_options', $students);
                                     }),
-
 
                                 Select::make('student_id')
                                     ->label('Nama Siswa')
@@ -105,7 +102,7 @@ class ReportForm
                                         $classId = $get('class_rombel_id');
                                         if ($classId && empty($get('student_options'))) {
                                             $students = Student::where('class_rombel_id', $classId)
-                                                ->pluck('full_name','id')
+                                                ->pluck('full_name', 'id')
                                                 ->toArray();
                                             $set('student_options', $students);
                                         }
@@ -151,7 +148,7 @@ class ReportForm
                                 }
                             })
                             ->disabled(function (Get $get) {
-                                return !$get('../../student_id') || !$get('../../academic_year_id') || !$get('../../semester');
+                                return ! $get('../../student_id') || ! $get('../../academic_year_id') || ! $get('../../semester');
                             })
                             ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
 
@@ -176,28 +173,28 @@ class ReportForm
                                     ->disabled()
                                     ->dehydrated()
                                     ->label('Keterangan'),
-                            ])
+                            ]),
                     ])
                     ->columns(2),
 
-                        TextInput::make('avrg')
-                            ->label('Rata-Rata')
-                            ->disabled()
-                            ->reactive()
-                            ->dehydrated(false)
-                            ->afterStateHydrated(function ($state, Set $set, Get $get): void {
-                                $nilaiSiswa = $get('nilai-siswa') ?? [];
-                                $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
-                                $avg = $scores ? array_sum($scores) / count($scores) : null;
-                                $set('avrg', $avg ? round($avg, 2) : 0);
-                            })
-                            ->afterStateUpdated(function ($state, Set $set, Get $get): void {
-                                // kalau mau update otomatis setiap kali repeater berubah
-                                $nilaiSiswa = $get('nilai-siswa') ?? [];
-                                $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
-                                $avg = $scores ? array_sum($scores) / count($scores) : null;
-                                $set('avrg', $avg ? round($avg, 2) : 0);
-                            })
+                TextInput::make('avrg')
+                    ->label('Rata-Rata')
+                    ->disabled()
+                    ->reactive()
+                    ->dehydrated(false)
+                    ->afterStateHydrated(function ($state, Set $set, Get $get): void {
+                        $nilaiSiswa = $get('nilai-siswa') ?? [];
+                        $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
+                        $avg = $scores ? array_sum($scores) / count($scores) : null;
+                        $set('avrg', $avg ? round($avg, 2) : 0);
+                    })
+                    ->afterStateUpdated(function ($state, Set $set, Get $get): void {
+                        // kalau mau update otomatis setiap kali repeater berubah
+                        $nilaiSiswa = $get('nilai-siswa') ?? [];
+                        $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
+                        $avg = $scores ? array_sum($scores) / count($scores) : null;
+                        $set('avrg', $avg ? round($avg, 2) : 0);
+                    }),
             ]);
     }
 

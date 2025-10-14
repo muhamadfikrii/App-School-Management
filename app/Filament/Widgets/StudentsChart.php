@@ -2,16 +2,18 @@
 
 namespace App\Filament\Widgets;
 
-use Filament\Widgets\ChartWidget;
 use App\Models\Grade;
 use Carbon\Carbon;
+use Filament\Widgets\ChartWidget;
 
 class StudentsChart extends ChartWidget
 {
     protected ?string $heading = 'Rata-rata Nilai Siswa';
+
     protected static ?int $sort = 2;
 
     public ?string $startDate = null;
+
     public ?string $endDate = null;
 
     protected function getType(): string
@@ -59,4 +61,3 @@ class StudentsChart extends ChartWidget
         ];
     }
 }
-

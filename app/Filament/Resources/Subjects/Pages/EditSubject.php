@@ -19,7 +19,7 @@ class EditSubject extends EditRecord
         ];
     }
 
-    public function getRedirectUrl(): string 
+    public function getRedirectUrl(): string
     {
         return SubjectResource::getUrl();
     }

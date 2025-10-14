@@ -2,25 +2,24 @@
 
 namespace App\Filament\Resources\ClassRombel;
 
-use UnitEnum;
-use BackedEnum;
-use App\Enums\UserRole;
-use Filament\Tables\Table;
-use App\Models\ClassRombel;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Support\Htmlable;
+use App\Filament\Resources\ClassRombel\ClassRombelResource\RelationManagers\StudentsRelationManager;
+use App\Filament\Resources\ClassRombel\Pages\CreateClassRombel;
 use App\Filament\Resources\ClassRombel\Pages\EditClassRombel;
 use App\Filament\Resources\ClassRombel\Pages\ListClassRombel;
 use App\Filament\Resources\ClassRombel\Pages\ViewClassRombel;
-use App\Filament\Resources\ClassRombel\Pages\CreateClassRombel;
 use App\Filament\Resources\ClassRombel\Schemas\ClassRombelForm;
-use App\Filament\Resources\ClassRombel\Tables\ClassRombelTable;
 use App\Filament\Resources\ClassRombel\Schemas\ClassRombelInfolist;
-use App\Filament\Resources\ClassRombel\ClassRombelResource\RelationManagers\StudentsRelationManager;
+use App\Filament\Resources\ClassRombel\Tables\ClassRombelTable;
+use App\Models\ClassRombel;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 class ClassRombelResource extends Resource
 {
@@ -28,7 +27,8 @@ class ClassRombelResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingLibrary;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+
     protected static ?string $recordTitleAttribute = 'id';
 
     public static function canAccess(): bool
@@ -60,14 +60,14 @@ class ClassRombelResource extends Resource
     public static function table(Table $table): Table
     {
         return ClassRombelTable::configure($table)
-        ->paginated([10, 20, 25, 30]);
+            ->paginated([10, 20, 25, 30]);
 
     }
 
     public static function getRelations(): array
     {
         return [
-            StudentsRelationManager::class
+            StudentsRelationManager::class,
         ];
     }
 
@@ -86,7 +86,7 @@ class ClassRombelResource extends Resource
         return 'Rombel';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
         return $record->teacher->full_name;
     }
@@ -95,6 +95,7 @@ class ClassRombelResource extends Resource
     {
         return ['name', 'rombel', 'teacher.full_name'];
     }
+
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
@@ -107,8 +108,6 @@ class ClassRombelResource extends Resource
     {
         return parent::getGlobalSearchEloquentQuery()->with(['teacher']);
     }
-
-
 
     public static function getPages(): array
     {

@@ -7,6 +7,7 @@ use Filament\Widgets\ChartWidget;
 class ActiveStudentsChart extends ChartWidget
 {
     protected ?string $heading = 'Jumlah Siswa Aktif';
+
     protected static ?int $sort = 2;
 
     protected function getType(): string
@@ -34,18 +35,18 @@ class ActiveStudentsChart extends ChartWidget
 
         // Hardcode jumlah siswa aktif per bulan
         $data = [
-            200, 
-            130, 
-            125, 
-            300, 
-            175, 
-            145, 
-            230, 
-            250, 
-            265, 
-            179, 
-            189, 
-            200, 
+            200,
+            130,
+            125,
+            300,
+            175,
+            145,
+            230,
+            250,
+            265,
+            179,
+            189,
+            200,
         ];
 
         return [
@@ -55,8 +56,8 @@ class ActiveStudentsChart extends ChartWidget
                     'label' => 'Siswa Aktif',
                     'data' => $data,
                     'fill' => false,
-                    'borderColor' => 'rgba(54, 162, 235, 1)',    
-                    'backgroundColor' => 'rgba(54, 162, 235, 0.2)', 
+                    'borderColor' => 'rgba(54, 162, 235, 1)',
+                    'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
 
                     'tension' => 0.3,
                 ],

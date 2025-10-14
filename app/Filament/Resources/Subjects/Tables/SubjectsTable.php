@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\Subjects\Tables;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Grouping\Group;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Grouping\Group;
+use Filament\Tables\Table;
 
 class SubjectsTable
 {
@@ -44,9 +44,9 @@ class SubjectsTable
             ->groups([
                 Group::make('group.name')
                     ->label('Kategori')
-                     ->getTitleFromRecordUsing(
-            fn ($record) => $record->group?->name ? : 'Belum Dikategorikan'
-        ),
+                    ->getTitleFromRecordUsing(
+                        fn ($record) => $record->group?->name ?: 'Belum Dikategorikan'
+                    ),
             ])
             ->defaultGroup('group.name');
     }

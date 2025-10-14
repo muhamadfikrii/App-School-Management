@@ -2,23 +2,21 @@
 
 namespace App\Filament\Resources\Teachers;
 
-use BackedEnum;
-use App\Enums\UserRole;
-use App\Models\Teacher;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Support\Htmlable;
-use App\Filament\Resources\Teachers\Pages\EditTeacher;
-use App\Filament\Resources\Teachers\Pages\ViewTeacher;
-use App\Filament\Resources\Teachers\Pages\ListTeachers;
 use App\Filament\Resources\Teachers\Pages\CreateTeacher;
+use App\Filament\Resources\Teachers\Pages\EditTeacher;
+use App\Filament\Resources\Teachers\Pages\ListTeachers;
+use App\Filament\Resources\Teachers\Pages\ViewTeacher;
 use App\Filament\Resources\Teachers\Schemas\TeacherForm;
-use App\Filament\Resources\Teachers\Tables\TeachersTable;
 use App\Filament\Resources\Teachers\Schemas\TeacherInfolist;
+use App\Filament\Resources\Teachers\Tables\TeachersTable;
+use App\Models\Teacher;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class TeacherResource extends Resource
 {
@@ -49,6 +47,7 @@ class TeacherResource extends Resource
             //
         ];
     }
+
     public static function canCreate(): bool
     {
         return false;
@@ -69,7 +68,7 @@ class TeacherResource extends Resource
         return 'Guru';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
         return $record->full_name;
     }
@@ -78,12 +77,13 @@ class TeacherResource extends Resource
     {
         return ['full_name', 'nip', 'phone', 'classRombel.name'];
     }
+
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
             'NIP' => $record->nip,
             'No Telp' => $record->phone,
-            'Kelas' => $record->classRombel?->name
+            'Kelas' => $record->classRombel?->name,
         ];
     }
 
@@ -91,8 +91,6 @@ class TeacherResource extends Resource
     {
         return parent::getGlobalSearchEloquentQuery()->with(['classRombel']);
     }
-
-
 
     public static function getPages(): array
     {

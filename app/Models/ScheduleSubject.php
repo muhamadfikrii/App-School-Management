@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ScheduleSubject extends Model
 {
@@ -23,7 +22,7 @@ class ScheduleSubject extends Model
 
     protected $casts = [
         'time_start' => 'datetime:H:i',
-        'time_end'   => 'datetime:H:i',
+        'time_end' => 'datetime:H:i',
     ];
 
     public function schedule(): BelongsTo
@@ -52,13 +51,13 @@ class ScheduleSubject extends Model
             return '-';
         }
 
-        return $this->time_start->format('H:i') . ' - ' . $this->time_end->format('H:i');
+        return $this->time_start->format('H:i').' - '.$this->time_end->format('H:i');
     }
 
     public function getDisplayAttribute(): string
     {
-        return ($this->time_range ?? '-') . ' ' .
-            ($this->subject?->name ?? '-') .
-            ' (' . ($this->teacher?->full_name ?? '-') . ')';
+        return ($this->time_range ?? '-').' '.
+            ($this->subject?->name ?? '-').
+            ' ('.($this->teacher?->full_name ?? '-').')';
     }
 }

@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use App\Enums\UserRole;
-use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Schema;
 
 class UserForm
 {

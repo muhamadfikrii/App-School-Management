@@ -3,16 +3,16 @@
 namespace App\Filament\Resources\Students\Tables;
 
 use App\Enums\Status;
-use App\Models\Student;
-use Filament\Tables\Table;
+use App\Filament\Resources\Students\StudentsResource;
 use App\Models\ClassRombel;
+use App\Models\Student;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Grouping\Group as GroupingGroup;
-use App\Filament\Resources\Students\StudentsResource;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class StudentsTable
 {
@@ -113,6 +113,7 @@ class StudentsTable
                     $query->whereHas('classRombel', function ($q) use ($user): void {
                         $q->where('teacher_id', $user->teacher->id);
                     });
+
                     return $query;
                 }
             })

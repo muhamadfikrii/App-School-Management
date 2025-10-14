@@ -11,17 +11,17 @@ use App\Filament\Resources\GroupSubject\Schemas\GroupSubjectInfolist;
 use App\Filament\Resources\GroupSubject\Tables\GroupSubjectTable;
 use App\Models\GroupSubject;
 use BackedEnum;
-use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class GroupSubjectResource extends Resource
 {
     protected static ?string $model = GroupSubject::class;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
+    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentPlus;
 
@@ -63,8 +63,6 @@ class GroupSubjectResource extends Resource
     {
         return 'Kategori Mapel';
     }
-
-
 
     public static function getPages(): array
     {

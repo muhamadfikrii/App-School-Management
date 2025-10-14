@@ -4,16 +4,15 @@ namespace App\Filament\Resources\Students\Schemas;
 
 use App\Enums\Status;
 use App\Models\ClassRombel;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Forms\Components\Select;
-use Filament\Schemas\Components\Grid;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 
 class StudentsForm
 {
@@ -46,7 +45,7 @@ class StudentsForm
                                     ->nullable(),
                                 Select::make('class_rombel_id')
                                     ->label('Kelas')
-                                    ->options(ClassRombel::pluck('name','id'))
+                                    ->options(ClassRombel::pluck('name', 'id'))
                                     ->default(fn () => auth()->user()?->teacher?->classRombel?->id)
                                     ->disabled(fn () => auth()->user()->is_teacher)
                                     ->preload()
@@ -97,15 +96,15 @@ class StudentsForm
                                     ->placeholder('Masukkan alamat guru')
                                     ->columnSpanFull(),
                             ]),
-                        ]),
-                        Section::make('')
-                            ->schema([
-                                FileUpload::make('avatar_url')
-                                    ->label('Foto')
-                                    ->image()
-                                    ->nullable()
-                                    ->imageEditor()
-                            ]),
-                ]);
+                    ]),
+                Section::make('')
+                    ->schema([
+                        FileUpload::make('avatar_url')
+                            ->label('Foto')
+                            ->image()
+                            ->nullable()
+                            ->imageEditor(),
+                    ]),
+            ]);
     }
 }

@@ -3,12 +3,12 @@
 namespace App\Filament\Exports;
 
 use App\Models\Schedule;
-use Illuminate\Support\Number;
-use Filament\Actions\Exports\Exporter;
-use OpenSpout\Common\Entity\Style\Style;
 use Filament\Actions\Exports\ExportColumn;
+use Filament\Actions\Exports\Exporter;
 use Filament\Actions\Exports\Models\Export;
+use Illuminate\Support\Number;
 use OpenSpout\Common\Entity\Style\CellAlignment;
+use OpenSpout\Common\Entity\Style\Style;
 
 class SchedulesExporter extends Exporter
 {
@@ -30,44 +30,42 @@ class SchedulesExporter extends Exporter
 
             ExportColumn::make('subject')
                 ->label('Mata Pelajaran')
-                ->formatStateUsing(fn($record) =>
-                    $record->scheduleSubjects
-                ->map(fn($s) => $s->subject?->name)
-                ->filter()
-                ->join(', ') ?: '-'
+                ->formatStateUsing(fn ($record) => $record->scheduleSubjects
+                    ->map(fn ($s) => $s->subject?->name)
+                    ->filter()
+                    ->join(', ') ?: '-'
                 ),
             ExportColumn::make('teacher')
                 ->label('Guru')
-                ->formatStateUsing(fn($record) =>
-                    $record->scheduleSubjects
-                ->map(fn($s) => $s->teacher?->full_name)
-                ->filter()
-                ->join(', ') ?: '-'
+                ->formatStateUsing(fn ($record) => $record->scheduleSubjects
+                    ->map(fn ($s) => $s->teacher?->full_name)
+                    ->filter()
+                    ->join(', ') ?: '-'
                 ),
         ];
     }
 
     public static function getCompletedNotificationBody(Export $export): string
     {
-        $body = 'Export jadwal anda telah selesai ' 
-            . Number::format($export->successful_rows) . ' ' 
-            . str('row')->plural($export->successful_rows) 
-            . ' Mulai Export.';
+        $body = 'Export jadwal anda telah selesai '
+            .Number::format($export->successful_rows).' '
+            .str('row')->plural($export->successful_rows)
+            .' Mulai Export.';
         if ($failedRowsCount = $export->getFailedRowsCount()) {
-            $body .= ' ' . Number::format($failedRowsCount) . ' ' 
-            . str('row')->plural($failedRowsCount) 
-            . 'Gagal untuk export.';
+            $body .= ' '.Number::format($failedRowsCount).' '
+            .str('row')->plural($failedRowsCount)
+            .'Gagal untuk export.';
         }
+
         return $body;
     }
 
     public function getXlsxCellStyle(): ?Style
     {
-    return (new Style())
-        ->setFontSize(12)
-        ->setFontBold()
-        ->setCellAlignment(CellAlignment::CENTER)
-        ->setFontName('Times New Roman');
+        return (new Style)
+            ->setFontSize(12)
+            ->setFontBold()
+            ->setCellAlignment(CellAlignment::CENTER)
+            ->setFontName('Times New Roman');
     }
-
 }

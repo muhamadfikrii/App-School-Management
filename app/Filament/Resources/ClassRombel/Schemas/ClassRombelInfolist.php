@@ -3,10 +3,10 @@
 namespace App\Filament\Resources\ClassRombel\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Schema;
 
 class ClassRombelInfolist
 {
@@ -15,26 +15,26 @@ class ClassRombelInfolist
         return $schema
             ->columns(3)
             ->components([
-                Section::make("Kelas")
+                Section::make('Kelas')
                     ->columnSpan(2)
-                        ->schema([
-                            Grid::make(2)
-                                ->schema([
-                                    TextEntry::make("name")
-                                        ->label("Nama Kelas"),
-                                    TextEntry::make('teacher_id')
-                                        ->label('Wali Kelas')
-                                        ->formatStateUsing(fn($state, $record): string => $record->teacher ? $record->teacher->full_name : '-' ),
-                                    TextEntry::make('level.name')
-                                        ->label('Tingkat Kelas'),
-                                    TextEntry::make('major.name')
-                                        ->label('Jurusan'),
-                                ]),
-                        ]),
-                        Section::make()
+                    ->schema([
+                        Grid::make(2)
                             ->schema([
-                                ImageEntry::make('teacher.avatar_url')
-                            ])
-                    ]);
+                                TextEntry::make('name')
+                                    ->label('Nama Kelas'),
+                                TextEntry::make('teacher_id')
+                                    ->label('Wali Kelas')
+                                    ->formatStateUsing(fn ($state, $record): string => $record->teacher ? $record->teacher->full_name : '-'),
+                                TextEntry::make('level.name')
+                                    ->label('Tingkat Kelas'),
+                                TextEntry::make('major.name')
+                                    ->label('Jurusan'),
+                            ]),
+                    ]),
+                Section::make()
+                    ->schema([
+                        ImageEntry::make('teacher.avatar_url'),
+                    ]),
+            ]);
     }
 }

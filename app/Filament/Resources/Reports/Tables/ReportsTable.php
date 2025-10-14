@@ -2,12 +2,12 @@
 
 namespace App\Filament\Resources\Reports\Tables;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Illuminate\Contracts\Database\Query\Builder;
 
 class ReportsTable
@@ -42,6 +42,7 @@ class ReportsTable
                     $query->whereHas('classRombel', function ($q) use ($user): void {
                         $q->where('teacher_id', $user->teacher->id);
                     });
+
                     return $query;
                 }
             })

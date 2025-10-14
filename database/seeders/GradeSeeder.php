@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\AcademicYear;
 use App\Models\Grade;
+use App\Models\GradeComponent;
 use App\Models\Student;
 use App\Models\Subject;
-use App\Models\AcademicYear;
-use App\Models\GradeComponent;
 use Illuminate\Database\Seeder;
 
 class GradeSeeder extends Seeder
@@ -27,43 +27,43 @@ class GradeSeeder extends Seeder
             foreach ($subjects as $subject) {
                 // --- 1x nilai UTS ---
                 Grade::create([
-                    'student_id'         => $student->id,
-                    'subject_id'         => $subject->id,
-                    'class_rombel_id'    => $student->class_rombel_id,
-                    'semester'           => fake()->randomElement(['Ganjil', 'Genap']),
-                    'score'              => fake()->numberBetween(50, 100),
-                    'academic_year_id'   => $academicYear->id,
-                    'teacher_id'         => $subject->teachers()->inRandomOrder()->first()?->id,
+                    'student_id' => $student->id,
+                    'subject_id' => $subject->id,
+                    'class_rombel_id' => $student->class_rombel_id,
+                    'semester' => fake()->randomElement(['Ganjil', 'Genap']),
+                    'score' => fake()->numberBetween(50, 100),
+                    'academic_year_id' => $academicYear->id,
+                    'teacher_id' => $subject->teachers()->inRandomOrder()->first()?->id,
                     'grade_component_id' => $uts->id,
-                    'description'        => 'Nilai UTS',
+                    'description' => 'Nilai UTS',
                 ]);
 
                 // --- 1x nilai UAS ---
                 Grade::create([
-                    'student_id'         => $student->id,
-                    'subject_id'         => $subject->id,
-                    'class_rombel_id'    => $student->class_rombel_id,
-                    'semester'           => fake()->randomElement(['Ganjil', 'Genap']),
-                    'score'              => fake()->numberBetween(50, 100),
-                    'academic_year_id'   => $academicYear->id,
-                    'teacher_id'         => $subject->teachers()->inRandomOrder()->first()?->id,
+                    'student_id' => $student->id,
+                    'subject_id' => $subject->id,
+                    'class_rombel_id' => $student->class_rombel_id,
+                    'semester' => fake()->randomElement(['Ganjil', 'Genap']),
+                    'score' => fake()->numberBetween(50, 100),
+                    'academic_year_id' => $academicYear->id,
+                    'teacher_id' => $subject->teachers()->inRandomOrder()->first()?->id,
                     'grade_component_id' => $uas->id,
-                    'description'        => 'Nilai UAS',
+                    'description' => 'Nilai UAS',
                 ]);
 
                 // --- Banyak nilai Tugas/Harian/Praktikum
                 $jumlahTugas = rand(3, 15);
                 for ($i = 1; $i <= $jumlahTugas; $i++) {
                     Grade::create([
-                        'student_id'         => $student->id,
-                        'subject_id'         => $subject->id,
-                        'class_rombel_id'    => $student->class_rombel_id,
-                        'semester'           => fake()->randomElement(['Ganjil', 'Genap']),
-                        'score'              => fake()->numberBetween(50, 100),
-                        'academic_year_id'   => $academicYear->id,
-                        'teacher_id'         => $subject->teachers()->inRandomOrder()->first()?->id,
+                        'student_id' => $student->id,
+                        'subject_id' => $subject->id,
+                        'class_rombel_id' => $student->class_rombel_id,
+                        'semester' => fake()->randomElement(['Ganjil', 'Genap']),
+                        'score' => fake()->numberBetween(50, 100),
+                        'academic_year_id' => $academicYear->id,
+                        'teacher_id' => $subject->teachers()->inRandomOrder()->first()?->id,
                         'grade_component_id' => fake()->randomElement([$tugas->id, $kuis->id]),
-                        'description'        => 'Nilai ' . fake()->randomElement(['Tugas', 'Harian', 'Praktikum']),
+                        'description' => 'Nilai '.fake()->randomElement(['Tugas', 'Harian', 'Praktikum']),
                     ]);
                 }
             }

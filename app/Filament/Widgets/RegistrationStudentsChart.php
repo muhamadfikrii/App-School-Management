@@ -7,6 +7,7 @@ use Filament\Widgets\ChartWidget;
 class RegistrationStudentsChart extends ChartWidget
 {
     protected ?string $heading = 'Jumlah Pendaftar per Tahun Akademik';
+
     protected static ?int $sort = 2;
 
     protected function getType(): string
@@ -25,11 +26,11 @@ class RegistrationStudentsChart extends ChartWidget
         ];
 
         $data = [
-            700, 
-            600, 
-            650, 
-            750, 
-            768, 
+            700,
+            600,
+            650,
+            750,
+            768,
         ];
 
         return [

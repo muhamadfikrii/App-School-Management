@@ -2,27 +2,26 @@
 
 namespace App\Filament\Resources\Subjects;
 
-use UnitEnum;
-use BackedEnum;
-use App\Enums\UserRole;
-use App\Models\Subject;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use App\Filament\Resources\Subjects\Pages\EditSubject;
-use App\Filament\Resources\Subjects\Pages\ViewSubject;
-use App\Filament\Resources\Subjects\Pages\ListSubjects;
 use App\Filament\Resources\Subjects\Pages\CreateSubject;
+use App\Filament\Resources\Subjects\Pages\EditSubject;
+use App\Filament\Resources\Subjects\Pages\ListSubjects;
+use App\Filament\Resources\Subjects\Pages\ViewSubject;
 use App\Filament\Resources\Subjects\Schemas\SubjectForm;
-use App\Filament\Resources\Subjects\Tables\SubjectsTable;
 use App\Filament\Resources\Subjects\Schemas\SubjectInfolist;
+use App\Filament\Resources\Subjects\Tables\SubjectsTable;
+use App\Models\Subject;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use UnitEnum;
 
 class SubjectResource extends Resource
 {
     protected static ?string $model = Subject::class;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Kurikulum';
+    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
 
     protected static ?int $navigationSort = 1;
 

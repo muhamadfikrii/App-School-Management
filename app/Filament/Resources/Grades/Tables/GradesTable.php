@@ -2,15 +2,12 @@
 
 namespace App\Filament\Resources\Grades\Tables;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
-use Filament\Actions\ExportAction;
-use Illuminate\Support\Facades\Auth;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
-use App\Filament\Exports\SchedulesExporter;
+use Filament\Tables\Table;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class GradesTable
@@ -19,18 +16,18 @@ class GradesTable
     {
         return $table
             ->columns([
-                TextColumn::make("student.nisn")
-                    ->label("NISN"),
-                TextColumn::make("student.full_name")
-                    ->label("Nama Siswa"),
-                TextColumn::make("classRombel.name")
-                    ->label("Kelas"),
-                TextColumn::make("gradeComponent.name")
-                    ->label("Komponen Nilai"),
-                TextColumn::make("subject.name")
-                    ->label("Mata Pelajaran"),
-                TextColumn::make("score")
-                    ->label("Nilai"),
+                TextColumn::make('student.nisn')
+                    ->label('NISN'),
+                TextColumn::make('student.full_name')
+                    ->label('Nama Siswa'),
+                TextColumn::make('classRombel.name')
+                    ->label('Kelas'),
+                TextColumn::make('gradeComponent.name')
+                    ->label('Komponen Nilai'),
+                TextColumn::make('subject.name')
+                    ->label('Mata Pelajaran'),
+                TextColumn::make('score')
+                    ->label('Nilai'),
             ])
             ->filters([
                 //
@@ -43,8 +40,8 @@ class GradesTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make()
-                    ->visible(fn() => auth()->user()->is_admin),
-                ])
+                        ->visible(fn () => auth()->user()->is_admin),
+                ]),
             ])->modifyQueryUsing(function (Builder $query) {
                 $user = auth()->user();
                 if ($user->is_teacher && $user->teacher) {
@@ -58,6 +55,5 @@ class GradesTable
 
                 return $query;
             });
-        }
+    }
 }
-

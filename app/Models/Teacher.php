@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use App\Enums\TeacherStatus;
-use Database\Factories\TeacherFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Teacher extends Model
 {
     use HasFactory;
 
-    protected $table = "teachers";
+    protected $table = 'teachers';
 
     protected $guarded = [];
 
@@ -32,7 +31,8 @@ class Teacher extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function academicYear() {
+    public function academicYear()
+    {
         return $this->belongsTo(AcademicYear::class);
     }
 

@@ -2,14 +2,11 @@
 
 namespace App\Filament\Resources\Students\RelationManagers;
 
-use Filament\Tables\Table;
-use Filament\Actions\EditAction;
-use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
-use Filament\Tables\Columns\TextColumn;
 use App\Filament\Resources\Grades\GradeResource;
-use App\Filament\Resources\Reports\ReportResource;
+use Filament\Actions\CreateAction;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class GradeRelationManager extends RelationManager
 {
@@ -20,16 +17,16 @@ class GradeRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-                ->columns([
-                    TextColumn::make("teacher.full_name")
-                        ->label("Guru Pengajar"),
-                    TextColumn::make("subject.name")
-                        ->label("Mata Pelajaran"),
-                    TextColumn::make("gradeComponent.name")
-                        ->label("Kategori"),
-                    TextColumn::make("score")
-                        ->label("Nilai"),
-                ])
+            ->columns([
+                TextColumn::make('teacher.full_name')
+                    ->label('Guru Pengajar'),
+                TextColumn::make('subject.name')
+                    ->label('Mata Pelajaran'),
+                TextColumn::make('gradeComponent.name')
+                    ->label('Kategori'),
+                TextColumn::make('score')
+                    ->label('Nilai'),
+            ])
             ->headerActions([
                 CreateAction::make()
                     ->url(fn () => GradeResource::getUrl('create', [

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Filament\Resources\ClassRombel\Pages;
 
 use App\Filament\Resources\ClassRombel\ClassRombelResource;

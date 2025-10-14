@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\AcademicYear;
 use App\Models\Grade;
+use App\Models\GradeComponent;
 use App\Models\Student;
 use App\Models\Subject;
-use App\Models\AcademicYear;
-use App\Models\GradeComponent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GradeFactory extends Factory
@@ -44,7 +44,7 @@ class GradeFactory extends Factory
             if ($exists) {
                 // coba ambil komponen UTS/UAS lain (misal kita dapat UTS tapi UAS belum ada)
                 $otherName = strtolower($gradeComponent->name) === 'uts' ? 'uas' : 'uts';
-                $other = $components->first(fn($c) => strtolower($c->name) === $otherName);
+                $other = $components->first(fn ($c) => strtolower($c->name) === $otherName);
 
                 $otherExists = $other
                     ? Grade::where('student_id', $student->id)
@@ -57,22 +57,22 @@ class GradeFactory extends Factory
                 if ($other && ! $otherExists) {
                     $gradeComponent = $other;
                 } else {
-                    $fallback = $components->filter(fn($c) => in_array(strtolower($c->name), ['tugas', 'kuis']));
+                    $fallback = $components->filter(fn ($c) => in_array(strtolower($c->name), ['tugas', 'kuis']));
                     $gradeComponent = $fallback->isNotEmpty() ? $fallback->random() : $components->random();
                 }
             }
         }
 
         return [
-            'student_id'         => $student->id,
-            'subject_id'         => $subject->id,
-            'class_rombel_id'    => $classRombel->id,
-            'semester'           => $this->faker->randomElement(['Ganjil', 'Genap']),
-            'score'              => $this->faker->numberBetween(50, 100),
-            'academic_year_id'   => $academicYear->id,
-            'teacher_id'         => $teacher->id,
+            'student_id' => $student->id,
+            'subject_id' => $subject->id,
+            'class_rombel_id' => $classRombel->id,
+            'semester' => $this->faker->randomElement(['Ganjil', 'Genap']),
+            'score' => $this->faker->numberBetween(50, 100),
+            'academic_year_id' => $academicYear->id,
+            'teacher_id' => $teacher->id,
             'grade_component_id' => $gradeComponent->id,
-            'description'        => $this->faker->sentence(3),
+            'description' => $this->faker->sentence(3),
         ];
     }
 }

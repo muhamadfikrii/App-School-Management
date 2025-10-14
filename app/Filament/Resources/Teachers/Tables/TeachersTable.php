@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\Teachers\Tables;
 
+use App\Filament\Resources\Teachers\TeacherResource;
 use App\Models\Teacher;
-use Filament\Tables\Table;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
-use App\Filament\Resources\Teachers\TeacherResource;
+use Filament\Tables\Table;
 
 class TeachersTable
 {

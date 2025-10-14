@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\GroupSubject;
 use App\Models\Subject;
 use App\Models\Teacher;
-use App\Models\GroupSubject;
 use Illuminate\Database\Seeder;
 
 class SubjectSeeder extends Seeder
@@ -16,7 +16,7 @@ class SubjectSeeder extends Seeder
         // Ambil id dari tiap kategori kelompok
         $kelompokA = GroupSubject::where('name', 'Kelompok A')->first()?->id;
         $kelompokB = GroupSubject::where('name', 'Kelompok B')->first()?->id;
-        $kejuruan  = GroupSubject::where('name', 'Kejuruan')->first()?->id;
+        $kejuruan = GroupSubject::where('name', 'Kejuruan')->first()?->id;
 
         $subjects = [
             ['name' => 'Pendidikan Agama', 'code' => 'AGM01', 'group' => $kelompokA],

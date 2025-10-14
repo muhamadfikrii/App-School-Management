@@ -11,9 +11,9 @@ enum Status: string
     public function label(): string
     {
         return match ($this) {
-            static::ACTIVE => 'Aktif',
-            static::GRADUATED => 'Lulus',
-            static::RELOCATED => 'Pindah'
+            self::ACTIVE => 'Aktif',
+            self::GRADUATED => 'Lulus',
+            self::RELOCATED => 'Pindah'
         };
     }
 
@@ -22,8 +22,7 @@ enum Status: string
         return [
             self::ACTIVE->value => 'Aktif',
             self::GRADUATED->value => 'Lulus',
-            self::RELOCATED->value => 'Pindah'
+            self::RELOCATED->value => 'Pindah',
         ];
     }
-
 }

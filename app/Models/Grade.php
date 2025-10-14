@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Database\Factories\GradeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Grade extends Model
 {
     use HasFactory;
 
-    protected $table = "grades";
+    protected $table = 'grades';
 
     protected $guarded = [];
 
@@ -41,8 +40,9 @@ class Grade extends Model
 
     public function gradeComponent()
     {
-        return $this->belongsTo(GradeComponent::class,  'grade_component_id');
+        return $this->belongsTo(GradeComponent::class, 'grade_component_id');
     }
+
     public function groupSubject()
     {
         return $this->hasMany(GroupSubject::class);

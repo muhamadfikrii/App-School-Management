@@ -2,22 +2,22 @@
 
 namespace App\Filament\Resources\Reports;
 
-use BackedEnum;
+use App\Filament\Resources\Reports\Pages\CreateReport;
+use App\Filament\Resources\Reports\Pages\EditReport;
+use App\Filament\Resources\Reports\Pages\ListReports;
+use App\Filament\Resources\Reports\Pages\ViewReport;
+use App\Filament\Resources\Reports\Schemas\ReportForm;
+use App\Filament\Resources\Reports\Schemas\ReportInfolist;
+use App\Filament\Resources\Reports\Tables\ReportsTable;
 use App\Models\FinalGrade;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
-use Illuminate\Database\Eloquent\Model;
+use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\Reports\Pages\EditReport;
-use App\Filament\Resources\Reports\Pages\ViewReport;
-use App\Filament\Resources\Reports\Pages\ListReports;
-use App\Filament\Resources\Reports\Pages\CreateReport;
-use App\Filament\Resources\Reports\Schemas\ReportForm;
-use App\Filament\Resources\Reports\Tables\ReportsTable;
-use App\Filament\Resources\Reports\Schemas\ReportInfolist;
+use Illuminate\Database\Eloquent\Model;
 
 class ReportResource extends Resource
 {
@@ -64,9 +64,9 @@ class ReportResource extends Resource
         return 'Nilai Akhir';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
-    return $record->student->full_name;
+        return $record->student->full_name;
     }
 
     public static function getGloballySearchableAttributes(): array
@@ -77,19 +77,18 @@ class ReportResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         $finalScores = $record->gradesDetail
-            ->map(fn($detail) => $detail->final_score)
+            ->map(fn ($detail) => $detail->final_score)
             ->join(', ');
 
         $mapels = $record->gradesDetail
-            ->map(fn($detail) => $detail->subject->name)
+            ->map(fn ($detail) => $detail->subject->name)
             ->join(', ');
-
 
         return [
             'Kelas' => $record->classRombel->name,
             'Semester' => $record->semester,
             'Mapel' => $mapels,
-            'Nilai' => $finalScores
+            'Nilai' => $finalScores,
         ];
     }
 
@@ -97,7 +96,6 @@ class ReportResource extends Resource
     {
         return parent::getGlobalSearchEloquentQuery()->with(['student', 'classRombel', 'gradesDetail', 'gradesDetail.subject']);
     }
-
 
     public static function getPages(): array
     {

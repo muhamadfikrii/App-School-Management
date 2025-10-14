@@ -2,31 +2,30 @@
 
 namespace App\Filament\Resources\Students;
 
-use UnitEnum;
-use BackedEnum;
-use App\Models\Student;
-use Filament\Tables\Table;
-use Filament\Schemas\Schema;
-use Filament\Resources\Resource;
-use Filament\Support\Icons\Heroicon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Contracts\Support\Htmlable;
+use App\Filament\Resources\Students\Pages\CreateStudents;
 use App\Filament\Resources\Students\Pages\EditStudents;
 use App\Filament\Resources\Students\Pages\ListStudents;
-use App\Filament\Resources\Students\Pages\ViewStudents;
-use App\Filament\Resources\Students\Pages\CreateStudents;
-use App\Filament\Resources\Students\Schemas\StudentsForm;
-use App\Filament\Resources\Students\Tables\StudentsTable;
-use App\Filament\Resources\Students\Schemas\StudentsInfolist;
-use App\Filament\Resources\Students\RelationManagers\GradeRelationManager;
 use App\Filament\Resources\Students\RelationManagers\FinalGradeRelationManager;
+use App\Filament\Resources\Students\RelationManagers\GradeRelationManager;
+use App\Filament\Resources\Students\Schemas\StudentsForm;
+use App\Filament\Resources\Students\Schemas\StudentsInfolist;
+use App\Filament\Resources\Students\Tables\StudentsTable;
+use App\Models\Student;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use UnitEnum;
 
 class StudentsResource extends Resource
 {
     protected static ?string $model = Student::class;
 
-    protected static  string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
+    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
 
@@ -90,7 +89,7 @@ class StudentsResource extends Resource
         return false;
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
     {
         return $record->full_name;
     }
@@ -105,7 +104,7 @@ class StudentsResource extends Resource
         return [
             'NISN' => $record->nisn,
             'Kelas' => $record->classRombel?->name ?? 'Belum Punya Kelas',
-            'Status' => $record->status
+            'Status' => $record->status,
         ];
     }
 
