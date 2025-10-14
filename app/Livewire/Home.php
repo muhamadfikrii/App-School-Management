@@ -11,7 +11,6 @@ class Home extends Component
 
     public function mount()
     {
-        // Ambil 3 prestasi terbaru
         $this->achievements = Achievement::latest()->take(3)->get();
     }
 

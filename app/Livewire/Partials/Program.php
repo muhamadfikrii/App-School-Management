@@ -6,8 +6,7 @@ use Livewire\Component;
 
 class Program extends Component
 {
-<<<<<<< Updated upstream
-=======
+
     public $jurusans = [];
 
     public function mount()
@@ -28,31 +27,29 @@ class Program extends Component
             [
                 'nama' => 'AKL',
                 'slug' => 'akl',
-                'img' => 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+                'img'  => 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
                 'desc' => 'Menyiapkan tenaga profesional di bidang akuntansi dan keuangan dengan kemampuan mengelola laporan keuangan serta sistem keuangan digital.',
             ],
             [
                 'nama' => 'TKL',
                 'slug' => 'tkl',
-                'img' => 'https://images.pexels.com/photos/33962540/pexels-photo-33962540.jpeg?_gl=1*jm2kq4*_ga*MTQ1NzI2MjA0Ny4xNzYwNDI0MTQx*_ga_8JE65Q40S6*czE3NjA0MzcyNDIkbzMkZzEkdDE3NjA0Mzc1OTEkajYwJGwwJGgw',
+                'img'  => 'https://images.pexels.com/photos/33962540/pexels-photo-33962540.jpeg?_gl=1*jm2kq4*_ga*MTQ1NzI2MjA0Ny4xNzYwNDI0MTQx*_ga_8JE65Q40S6*czE3NjA0MzcyNDIkbzMkZzEkdDE3NjA0Mzc1OTEkajYwJGwwJGgw',
                 'desc' => 'Mengembangkan kompetensi dalam sistem tenaga listrik, instalasi, dan perawatan kelistrikan industri serta teknologi energi terbarukan.',
             ],
             [
                 'nama' => 'TKRO',
                 'slug' => 'tkro',
-                'img' => 'https://images.pexels.com/photos/4489732/pexels-photo-4489732.jpeg',
+                'img'  => 'https://images.pexels.com/photos/4489732/pexels-photo-4489732.jpeg',
                 'desc' => 'Berfokus pada teknologi kendaraan bermotor, sistem kelistrikan, dan perawatan mesin dengan standar otomotif modern.',
             ],
             [
                 'nama' => 'TBSM',
                 'slug' => 'tbsm',
-                'img' => 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg',
+                'img'  => 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg',
                 'desc' => 'Mempersiapkan peserta didik menjadi ahli di bidang perawatan dan perbaikan sepeda motor dengan kemampuan teknis serta kewirausahaan.',
             ],
         ];
     }
-
->>>>>>> Stashed changes
     public function render()
     {
         return view('livewire.partials.program');

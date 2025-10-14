@@ -1,5 +1,5 @@
 <div id="navbar"
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3"
     x-data="{ open: false, scrolled: false }"
     x-init="
         window.addEventListener('scroll', () => {
@@ -42,13 +42,13 @@
                             x-transition:leave-end="opacity-0 translate-y-2"
                             class="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 z-50">
                             
-                            <a href="#" class="flex items-center gap-2 rounded-tl-2xl rounded-tr-2xl px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">
+                            <a href="{{ route('jurusan') }}" class="flex items-center gap-2 rounded-tl-2xl rounded-tr-2xl px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Program Keahlian
                             </a>
-                            <a href="#" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">
+                            <a href="#" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Organisasi
                             </a>
-                            <a href="{{ route('achievement') }}" class="flex rounded-bl-2xl rounded-br-2xl items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">
+                            <a href="{{ route('achievement') }}" class="flex rounded-bl-2xl rounded-br-2xl items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Prestasi
                             </a>
                         </div>
@@ -121,7 +121,6 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>
-
                 <ul x-show="infoOpen"
                     x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0 -translate-y-2"
@@ -129,24 +128,24 @@
                     x-transition:leave="transition ease-in duration-200"
                     x-transition:leave-start="opacity-100 translate-y-0"
                     x-transition:leave-end="opacity-0 -translate-y-2"
-                    class="flex flex-col pl-4 mt-2 gap-2 bg-white rounded-lg shadow-md overflow-hidden">
-                    
+                    class="flex flex-col pl-4 mt-2 gap-2 bg-white rounded-lg shadow-md">
+
                     <li>
-                        <a href="#" 
-                        class="block px-4 py-2 cursor-pointer rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200">
-                            Program Keahlian
+                        <a href="{{ route('jurusan') }}" 
+                        class="block px-4 py-2 cursor-pointer rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 will-change-transform">
+                        Program Keahlian
                         </a>
                     </li>
                     <li>
                         <a href="#" 
-                        class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200">
-                            Organisasi
+                        class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 will-change-transform">
+                        Organisasi
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('achievement') }}" 
-                        class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200">
-                            Prestasi
+                        class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 will-change-transform">
+                        Prestasi
                         </a>
                     </li>
                 </ul>
