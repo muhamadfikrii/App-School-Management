@@ -1,5 +1,5 @@
 <div id="navbar"
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3"
     x-data="{ open: false, scrolled: false }"
     x-init="
         window.addEventListener('scroll', () => {
@@ -42,13 +42,13 @@
                             x-transition:leave-end="opacity-0 translate-y-2"
                             class="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 z-50">
                             
-                            <a href="#" class="flex items-center gap-2 rounded-tl-2xl rounded-tr-2xl px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">
+                            <a href="{{ route('jurusan') }}" class="flex items-center gap-2 rounded-tl-2xl rounded-tr-2xl px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Program Keahlian
                             </a>
-                            <a href="#" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">
+                            <a href="#" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Organisasi
                             </a>
-                            <a href="{{ route('achievement') }}" class="flex rounded-bl-2xl rounded-br-2xl items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition">
+                            <a href="{{ route('achievement') }}" class="flex rounded-bl-2xl rounded-br-2xl items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Prestasi
                             </a>
                         </div>
