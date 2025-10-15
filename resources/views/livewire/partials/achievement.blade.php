@@ -1,7 +1,8 @@
 <div>
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gray-50 mt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-blue-700 mb-12">Prestasi Siswa</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-blue-700">Prestasi Siswa</h2>
+            <p class="mb-12 font-extrabold">Prestasi yang telah di dapatkan oleh SMKN 4 KUNINGAN dari berbagai bidang.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($achievements as $achievement)
