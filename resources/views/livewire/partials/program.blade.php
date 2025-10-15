@@ -4,7 +4,7 @@
     <p class="text-gray-600">Eksplorasi enam jurusan unggulan di sekolah kami.</p>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 lg:px-20">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 px-6 lg:px-20">
     @foreach ($jurusans as $jurusan)
       <a href="{{ route('jurusan.detail', $jurusan['slug']) }}" 
          class="group relative h-[90vh] bg-cover bg-center overflow-hidden rounded-xl"

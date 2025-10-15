@@ -6,32 +6,47 @@
             scrolled = window.scrollY > 50
         })
     "
-    :class="scrolled ? 'shadow-lg bg-transparent backdrop-blur-md' : ''">
+    :class="scrolled ? 'shadow-lg bg-white/80 backdrop-blur-md' : 'bg-transparent backdrop-blur-sm'">
 
     <!-- Navbar Wrapper -->
     <nav>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 space-x-4">
+            <div class="flex justify-between items-center h-16 gap-y-3 md:gap-y-0 space-x-4">
 
                 <!-- Logo -->
-                <img src="{{ asset('img/logo.png') }}" alt="logo SMK" class="object-cover h-10 w-10">
-                <a href="{{ route('home') }}"
-                   class="text-xl font-bold text-zinc-600 whitespace-nowrap transition-colors duration-300">
-                    SMKN4KNG
-                </a>
+                <div class="flex items-center space-x-2">
+                    <img src="{{ asset('img/logo.png') }}" alt="logo SMK" class="object-cover h-10 w-10">
+                    <a href="{{ route('home') }}"
+                    class="text-xl font-bold text-zinc-600 whitespace-nowrap transition-colors duration-300">
+                        SMKN4KNG
+                    </a>
+                </div>
 
-                <div class="flex-1 h-px bg-zinc-700 hidden md:block"></div>
+                <!-- Garis tengah -->
+                <div class="hidden lg:block flex-1 h-[1px] bg-zinc-700 mx-4 opacity-60"></div>
 
-                <div class="hidden md:flex items-center space-x-6 bg-zinc-800 px-4 py-2 rounded-lg">
+
+                <!-- Menu utama (Tablet & Desktop) -->
+                <div class="hidden sm:flex md:flex items-center justify-center 
+                    space-x-2 md:space-x-3 lg:space-x-4 
+                    bg-zinc-800/80 md:px-3 lg:px-4 md:py-1 lg:py-2 
+                    rounded-xl backdrop-blur-md">
+
                     <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
+
+                    <!-- Dropdown -->
                     <div x-data="{ open: false }" class="relative">
-                        <button @mouseenter="open = true" @mouseleave="open = false"
-                                class="flex items-center px-4 py-2 text-gray-200 hover:text-blue-500 font-semibold transition">
+                        <button 
+                            @click="open = !open" 
+                            @mouseenter.window="if(window.innerWidth >= 1024) open = true"
+                            @mouseleave.window="if(window.innerWidth >= 1024) open = false"
+                            class="flex items-center px-3 py-2 text-gray-200 hover:text-blue-500 font-semibold transition">
                             Info Sekolah
                             <svg class="w-4 h-4 ml-1 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                             </svg>
                         </button>
+
 
                         <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
                             x-transition:enter="transition ease-out duration-200"
@@ -42,30 +57,37 @@
                             x-transition:leave-end="opacity-0 translate-y-2"
                             class="absolute left-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 z-50">
                             
-                            <a href="{{ route('jurusan') }}" class="flex items-center gap-2 rounded-tl-2xl rounded-tr-2xl px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
+                            <a href="{{ route('jurusan') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white rounded-t-2xl transition">
                                 Program Keahlian
                             </a>
-                            <a href="#" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
+                            <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Organisasi
                             </a>
-                            <a href="{{ route('achievement') }}" class="flex rounded-bl-2xl rounded-br-2xl items-center gap-2 px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
+                            <a href="{{ route('achievement') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white rounded-b-2xl transition">
                                 Prestasi
                             </a>
                         </div>
                     </div>
+
                     <x-nav-link href="{{ route('about') }}">Tentang SMK4</x-nav-link>
                     <x-nav-link href="{{ route('contact') }}">Contact</x-nav-link>
                 </div>
 
-                <div class="flex-1 h-px bg-zinc-700 hidden md:block"></div>
+                <!-- Garis kanan -->
+                <div class="hidden lg:block flex-1 h-[1px] bg-zinc-700 mx-4 opacity-60"></div>
 
+                <!-- Tombol Login -->
                 <a href="/admin"
-                   class="hidden md:flex px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition whitespace-nowrap">
+                class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-blue-600 text-white rounded-lg 
+                        hover:bg-blue-700 transition whitespace-nowrap shadow-sm 
+                        md:ml-4 lg:ml-0 md:mt-0 md:self-center">
                     Login
                 </a>
 
-                <div class="bg-black rounded-bl-2xl">
-                    <button class="md:hidden flex flex-col justify-between w-6 h-6 focus:outline-none bg-blue-400 p-1"
+
+                <!-- Tombol Mobile -->
+                <div class="bg-black rounded-bl-2xl md:hidden">
+                    <button class="flex flex-col justify-between w-6 h-6 focus:outline-none bg-blue-400 p-1"
                         @click="
                             if(!open){
                                 anim = true;
@@ -75,27 +97,20 @@
                                 setTimeout(() => { anim = false }, 150);
                             }">
                         <span 
-                            :class="{
-                                'rotate-[90deg] translate-y-1.5 origin-center': open
-                            }" 
-                            class="block h-0.5 w-full bg-white transition-all duration-300">
-                        </span>
+                            :class="{'rotate-[90deg] translate-y-1.5 origin-center': open}" 
+                            class="block h-0.5 w-full bg-white transition-all duration-300"></span>
                         <span 
                             :class="{'opacity-0': open, 'opacity-100': !open}" 
-                            class="block h-0.5 w-full bg-white transition-all duration-300">
-                        </span>
+                            class="block h-0.5 w-full bg-white transition-all duration-300"></span>
                         <span 
-                            :class="{
-                                '-translate-y-1.5': anim && !open,
-                                '-rotate-[30deg] -translate-y-1.5 origin-center': open
-                            }" 
-                            class="block h-0.5 w-full bg-white transition-all duration-300">
-                        </span>
+                            :class="{'-translate-y-1.5': anim && !open, '-rotate-[30deg] -translate-y-1.5 origin-center': open}" 
+                            class="block h-0.5 w-full bg-white transition-all duration-300"></span>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
+
 
     <!-- Mobile Menu -->
     <div class="md:hidden absolute top-full left-0 w-full bg-gradient-to-br from-white via-blue-50 to-zinc-50 shadow-md z-40 h-screen"
