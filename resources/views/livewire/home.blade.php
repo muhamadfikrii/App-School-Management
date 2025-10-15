@@ -16,28 +16,19 @@
             <h1 class="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-zinc-900">
                 Selamat Datang di 
                 <span class="relative inline-block text-blue-800">
-                SMKN 4 KUNINGAN
+                SMKN <span class="text-white"> 4 </span>
+                    KUNINGAN
 
                 <!-- SVG cincin miring -->
                 <svg 
-                    class="absolute inset-0 -z-10 w-[180%] h-[180%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80"
+                    class="absolute inset-0 -z-10 w-full h-screen left-1/2 top-1/2 bottom-1/4 -translate-x-1/2 -translate-y-1/2 opacity-40"
                     viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <defs>
                     <linearGradient id="ringGrad" x1="0" x2="1">
                         <stop offset="0%" stop-color="#60a5fa"/>
                         <stop offset="50%" stop-color="#7c3aed"/>
-                        <stop offset="100%" stop-color="#f59e0b"/>
+                        <stop offset="100%" stop-color="#2563eb"/>
                     </linearGradient>
-                    <style>
-                        .spin-slow {
-                        transform-origin: 100px 100px;
-                        animation: spin 14s linear infinite;
-                        }
-                        @keyframes spin {
-                        from { transform: rotate(0deg); }
-                        to { transform: rotate(360deg); }
-                        }
-                    </style>
                     </defs>
 
                     <!-- Cincin miring -->
@@ -66,7 +57,7 @@
             </h2>
 
             <!-- Paragraf -->
-            <p class="text-base sm:text-lg md:text-xl text-zinc-600 font-[Poppins] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p id="subtext" class="text-base sm:text-lg md:text-xl text-zinc-600 font-[Poppins] leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 SMKN 4 Kuningan membentuk generasi kreatif & siap industri lewat kurikulum modern serta fasilitas mutakhir.
             </p>
 
@@ -325,6 +316,18 @@
                         </div>
                     </a>
                 @endforeach
+            </div>
+            <div>
+                <a href="{{ route('achievement') }}"
+                    class="group flex items-center gap-2 mt-5 bg-white text-blue-700 px-6 py-3 rounded-full font-semibold 
+                            shadow-lg transition-all duration-300 hover:bg-blue-100 hover:shadow-xl hover:-translate-y-1">
+                        <span>Lihat Lebih Banyak</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" />
+                        </svg>
+                    </a>
             </div>
         </div>
     </section>

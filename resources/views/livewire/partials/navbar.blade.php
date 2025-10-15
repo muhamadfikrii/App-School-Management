@@ -6,7 +6,7 @@
             scrolled = window.scrollY > 50
         })
     "
-    :class="scrolled ? 'shadow-lg bg-white/80 backdrop-blur-md' : 'bg-transparent backdrop-blur-sm'">
+    :class="scrolled ? 'shadow-lg bg-white/80 backdrop-blur-md' : 'bg-transparent'">
 
     <!-- Navbar Wrapper -->
     <nav>
@@ -60,7 +60,7 @@
                             <a href="{{ route('jurusan') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white rounded-t-2xl transition">
                                 Program Keahlian
                             </a>
-                            <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
+                            <a href="{{ route('organisasi') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white transition">
                                 Organisasi
                             </a>
                             <a href="{{ route('achievement') }}" class="block px-4 py-3 text-gray-700 hover:bg-blue-400 hover:text-white rounded-b-2xl transition">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <x-nav-link href="{{ route('about') }}">Tentang SMK4</x-nav-link>
+                    <x-nav-link href="{{ route('about') }}">Profile</x-nav-link>
                     <x-nav-link href="{{ route('contact') }}">Contact</x-nav-link>
                 </div>
 
@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" 
+                        <a href="{{ route('organisasi') }}" 
                         class="block px-4 py-2 rounded hover:bg-blue-50 hover:text-blue-700 transition-colors duration-200 will-change-transform">
                         Organisasi
                         </a>
