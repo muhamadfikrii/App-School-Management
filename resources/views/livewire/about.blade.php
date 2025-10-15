@@ -1,21 +1,21 @@
-<div>
-<section class="relative min-h-[60vh] flex items-center">
-    <div class="absolute inset-0 bg-center bg-no-repeat bg-cover" 
-         style="background-image: url('{{ asset('img/profil-sekolah-smk.png') }}');">
-        <div class="absolute inset-0 bg-black/20"></div> <!-- overlay -->
-    </div>
+<div class="overflow-x-hidden" loading="lazy">
+    <section class="relative min-h-[60vh] flex items-center">
+        <div class="absolute inset-0 bg-center bg-no-repeat bg-cover" 
+            style="background-image: url('{{ asset('img/profil-sekolah-smk.png') }}');">
+            <div class="absolute inset-0 bg-black/20"></div> <!-- overlay -->
+        </div>
 
-    <div class="container mx-auto relative z-10 px-4 sm:px-6 md:px-4 py-10 md:py-14 max-w-3xl text-center border border-white/20 rounded-xl backdrop-blur-md bg-white/10">
-        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-[Poppins] text-white mb-2"
-            data-aos="fade-right" data-aos-duration="2000">
-            Tentang
-        </h1>
-        <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold font-[Poppins] text-white mt-1"
-            data-aos="fade-left" data-aos-duration="2000">
-            SMKN 4 KUNINGAN
-        </h2>
-    </div>
-</section>
+        <div class="container mx-auto relative z-10 px-4 sm:px-6 md:px-4 py-10 md:py-14 max-w-3xl text-center border border-white/20 rounded-xl backdrop-blur-md bg-white/10">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold font-[Poppins] text-white mb-2"
+                data-aos="fade-right" data-aos-duration="2000">
+                Tentang
+            </h1>
+            <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold font-[Poppins] text-white mt-1"
+                data-aos="fade-left" data-aos-duration="2000">
+                SMKN 4 KUNINGAN
+            </h2>
+        </div>
+    </section>
 
 
 
