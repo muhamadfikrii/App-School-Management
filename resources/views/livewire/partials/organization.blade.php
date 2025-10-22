@@ -2,7 +2,7 @@
   <!-- Hero Section -->
   <section class="relative w-full h-screen overflow-hidden">
     <img
-      src="https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg"
+      src="{{ asset('img/organization/organization.jpeg') }}"
       alt="Banner Organisasi dan Ekstrakurikuler"
       class="w-full h-full object-cover brightness-50"
     />
@@ -38,7 +38,7 @@
         @foreach ($organizations as $organization)            
         <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition overflow-hidden hover:-translate-y-1">
           <div class="relative">
-            <img src="{{ $organization['image'] }}" class="w-full h-48 object-cover transition group-hover:scale-105">
+            <img src="{{ asset($organization['image']) }}" class="w-full h-48 object-cover transition group-hover:scale-105">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             <h3 class="absolute bottom-3 left-4 text-white font-semibold text-lg">{{ $organization['name']}}</h3>
           </div>

@@ -2,7 +2,7 @@
     <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden">
         <!-- Header -->
         <div class="relative">
-            <img src="{{ $program['image'] }}" alt="{{ $program['name'] }}" class="w-full h-64 object-cover">
+            <img  src="{{ asset($program['image']) }}" alt="{{ $program['name'] }}" class="w-full h-64 object-cover">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-white tracking-wide">
                     {{ strtoupper($program['name']) }}

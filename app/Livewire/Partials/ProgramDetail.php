@@ -32,7 +32,7 @@ class ProgramDetail extends Component
                     'Software Engineer',
                     'UI/UX Designer'
                 ],
-                'image' => 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg' 
+                'image' => 'img/ProgramDetail/pplgDetail.jpeg'
             ],
 
             'akl' => [
@@ -52,7 +52,7 @@ class ProgramDetail extends Component
                     'Analis Keuangan',
                     'Pegawai Bank'
                 ],
-                'image' => 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg'
+                'image' => 'img/ProgramDetail/aklDetail.jpeg'
             ],
 
             'mplb' => [
@@ -72,7 +72,7 @@ class ProgramDetail extends Component
                     'Public Relations Staff',
                     'Business Support Officer'
                 ],
-                'image' => 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg'
+                'image' => 'img/ProgramDetail/mplbDetail.jpg'
             ],
 
             'tkl' => [
@@ -92,7 +92,7 @@ class ProgramDetail extends Component
                     'Quality Control Listrik',
                     'Operator PLTA/PLN'
                 ],
-                'image' => 'https://images.pexels.com/photos/33992840/pexels-photo-33992840.jpeg' 
+                'image' => 'img/ProgramDetail/tklDetail.jpeg'
             ],
 
             'tkro' => [
@@ -112,7 +112,7 @@ class ProgramDetail extends Component
                     'Quality Control Otomotif',
                     'Wirausahawan Bengkel'
                 ],
-                'image' => 'https://www.mwood.cc/wp-content/uploads/2018/10/Auto-Service-students-working-2.jpg'
+                'image' => 'img/ProgramDetail/tkroDetail.jpg'
             ],
 
             'tbsm' => [
@@ -132,7 +132,7 @@ class ProgramDetail extends Component
                     'Wirausaha Bengkel Motor',
                     'Instruktur Pelatihan Otomotif'
                 ],
-                'image' => 'https://images.pexels.com/photos/3822846/pexels-photo-3822846.jpeg' 
+                'image' => 'img/ProgramDetail/tbsmDetail.jpg'
             ],
         ];
 
