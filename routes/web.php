@@ -7,6 +7,7 @@ use App\Livewire\FromRegister;
 use App\Livewire\Home;
 use App\Livewire\Partials\Achievement;
 use App\Livewire\Partials\AchievementDetail;
+use App\Livewire\Partials\Achievements;
 use App\Livewire\Partials\Organization;
 use App\Livewire\Partials\Program;
 use App\Livewire\Partials\ProgramDetail;
@@ -21,7 +22,7 @@ Route::get('/', Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 
-Route::get('/achievement', Achievement::class)->name('achievement');
+Route::get('/achievement', Achievements::class)->name('achievement');
 Route::get('/achievement/{achievement}', AchievementDetail::class)->name('achievement.detail');
 
 Route::get('/jurusan', Program::class)->name('jurusan');
