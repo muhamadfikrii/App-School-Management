@@ -10,7 +10,7 @@
                        class="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 group">
                         
                         @if ($achievement->photo)
-                            <img src="{{ asset('storage/' . $achievement->photo) }}" 
+                            <img src="{{ $achievement->photo }}" 
                                  alt="{{ $achievement->title }}" 
                                  class="rounded-xl mb-4 w-full h-48 object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
                         @else

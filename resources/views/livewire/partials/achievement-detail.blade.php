@@ -3,13 +3,12 @@
         <div class="lg:flex">
 
             <!-- Gambar Prestasi -->
-            @if($achievement->photo)
                 <div class="lg:w-1/2">
-                    <img src="{{ $achievement->photo }}" 
-                         alt="{{ $achievement->title }}" 
-                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    <img   
+                        src="{{ asset('storage/' . $achievement->photo) }}"     
+                        alt="{{ $achievement->title }}" 
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"/>
                 </div>
-            @endif
 
             <!-- Konten -->
             <div class="lg:w-1/2 p-8 flex flex-col justify-between">
