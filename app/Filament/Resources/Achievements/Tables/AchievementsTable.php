@@ -12,6 +12,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class AchievementsTable
 {
@@ -77,6 +78,7 @@ class AchievementsTable
 
             ->filters([
                 SelectFilter::make('level')
+                    ->label('Tingkat')
                     ->options([
                         'Sekolah' => 'Sekolah',
                         'Kabupaten' => 'Kabupaten',
@@ -103,8 +105,6 @@ class AchievementsTable
                         ->label('Hapus Terpilih')
                         ->icon('heroicon-o-trash'),
                 ]),
-            ])
-
-            ->defaultSort('created_at', 'desc');
+            ]);
     }
 }
