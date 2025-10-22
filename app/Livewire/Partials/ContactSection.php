@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Partials;
 
 use Livewire\Component;
 
@@ -19,6 +19,6 @@ class ContactSection extends Component
 
     public function render()
     {
-        return view('livewire.contact-section');
+        return view('livewire.partials.contact-section');
     }
 }

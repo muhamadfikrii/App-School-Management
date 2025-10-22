@@ -23,16 +23,16 @@ class ProgramDetail extends Component
                     'Pemrograman Mobile (Android, Flutter)',
                     'Desain UI/UX Modern',
                     'Manajemen Proyek Perangkat Lunak (Scrum, Agile)',
-                    'Pembuatan Gim 2D dan 3D menggunakan Unity'
+                    'Pembuatan Gim 2D dan 3D menggunakan Unity',
                 ],
                 'careers' => [
                     'Web Developer',
                     'Mobile App Developer',
                     'Game Developer',
                     'Software Engineer',
-                    'UI/UX Designer'
+                    'UI/UX Designer',
                 ],
-                'image' => 'img/ProgramDetail/pplgDetail.jpeg'
+                'image' => 'img/ProgramDetail/pplgDetail.jpeg',
             ],
 
             'akl' => [
@@ -43,16 +43,16 @@ class ProgramDetail extends Component
                     'Perpajakan dan Akuntansi Pajak',
                     'Audit Internal dan Eksternal',
                     'Manajemen Keuangan dan Investasi',
-                    'Penggunaan Software Akuntansi (MYOB, Accurate)'
+                    'Penggunaan Software Akuntansi (MYOB, Accurate)',
                 ],
                 'careers' => [
                     'Akuntan',
                     'Staf Keuangan / Kasir',
                     'Auditor',
                     'Analis Keuangan',
-                    'Pegawai Bank'
+                    'Pegawai Bank',
                 ],
-                'image' => 'img/ProgramDetail/aklDetail.jpeg'
+                'image' => 'img/ProgramDetail/aklDetail.jpeg',
             ],
 
             'mplb' => [
@@ -63,16 +63,16 @@ class ProgramDetail extends Component
                     'Komunikasi Bisnis dan Layanan Pelanggan',
                     'Pengarsipan dan Dokumentasi Elektronik',
                     'Public Relations (PR) dan Tata Kelola Rapat',
-                    'Penggunaan Aplikasi Perkantoran (Microsoft Office, Google Workspace)'
+                    'Penggunaan Aplikasi Perkantoran (Microsoft Office, Google Workspace)',
                 ],
                 'careers' => [
                     'Sekretaris / Asisten Manajer',
                     'Staf Administrasi',
                     'Customer Service Officer',
                     'Public Relations Staff',
-                    'Business Support Officer'
+                    'Business Support Officer',
                 ],
-                'image' => 'img/ProgramDetail/mplbDetail.jpg'
+                'image' => 'img/ProgramDetail/mplbDetail.jpg',
             ],
 
             'tkl' => [
@@ -83,16 +83,16 @@ class ProgramDetail extends Component
                     'Pengoperasian Mesin dan Motor Listrik',
                     'Sistem Kontrol Otomatis dan PLC',
                     'Analisis Sistem Tenaga dan Distribusi',
-                    'Keselamatan dan Kesehatan Kerja (K3) Listrik'
+                    'Keselamatan dan Kesehatan Kerja (K3) Listrik',
                 ],
                 'careers' => [
                     'Teknisi Listrik',
                     'Electrical Engineer',
                     'Maintenance Engineer',
                     'Quality Control Listrik',
-                    'Operator PLTA/PLN'
+                    'Operator PLTA/PLN',
                 ],
-                'image' => 'img/ProgramDetail/tklDetail.jpeg'
+                'image' => 'img/ProgramDetail/tklDetail.jpeg',
             ],
 
             'tkro' => [
@@ -103,16 +103,16 @@ class ProgramDetail extends Component
                     'Sistem Kelistrikan Otomotif',
                     'Sistem Rem, Suspensi, dan Kemudi',
                     'Diagnosa dan Analisis Kerusakan Kendaraan',
-                    'Teknologi Otomotif Injeksi dan Hybrid'
+                    'Teknologi Otomotif Injeksi dan Hybrid',
                 ],
                 'careers' => [
                     'Teknisi Otomotif',
                     'Mekanik Mobil',
                     'Service Advisor',
                     'Quality Control Otomotif',
-                    'Wirausahawan Bengkel'
+                    'Wirausahawan Bengkel',
                 ],
-                'image' => 'img/ProgramDetail/tkroDetail.jpg'
+                'image' => 'img/ProgramDetail/tkroDetail.jpg',
             ],
 
             'tbsm' => [
@@ -123,16 +123,16 @@ class ProgramDetail extends Component
                     'Sistem Kelistrikan Sepeda Motor',
                     'Injeksi dan EFI (Electronic Fuel Injection)',
                     'Manajemen Bengkel dan Pelayanan Pelanggan',
-                    'Teknologi Sepeda Motor Listrik'
+                    'Teknologi Sepeda Motor Listrik',
                 ],
                 'careers' => [
                     'Mekanik Sepeda Motor',
                     'Teknisi Diagnosa EFI',
                     'Service Advisor',
                     'Wirausaha Bengkel Motor',
-                    'Instruktur Pelatihan Otomotif'
+                    'Instruktur Pelatihan Otomotif',
                 ],
-                'image' => 'img/ProgramDetail/tbsmDetail.jpg'
+                'image' => 'img/ProgramDetail/tbsmDetail.jpg',
             ],
         ];
 
@@ -141,7 +141,7 @@ class ProgramDetail extends Component
             'description' => 'Data jurusan tidak tersedia.',
             'skills' => [],
             'careers' => [],
-            'image' => 'https://source.unsplash.com/1600x900/?education'
+            'image' => 'https://source.unsplash.com/1600x900/?education',
         ];
     }
 
