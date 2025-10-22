@@ -26,7 +26,6 @@
                 <div class="hidden lg:block flex-1 h-[1px] bg-zinc-700 mx-4 opacity-60"></div>
 
 
-                <!-- Menu utama (Tablet & Desktop) -->
                 <div class="hidden sm:flex md:flex items-center justify-center 
                     space-x-2 md:space-x-3 lg:space-x-4 
                     bg-zinc-800/80 md:px-3 lg:px-4 md:py-1 lg:py-2 
@@ -35,11 +34,12 @@
                     <x-nav-link href="{{ route('home') }}">Home</x-nav-link>
 
                     <!-- Dropdown -->
-                    <div x-data="{ open: false }" class="relative">
+                    <div x-data="{ open: false }" class="relative"
+                        @mouseenter="if(window.innerWidth >= 1024) open = true"
+                        @mouseleave="if(window.innerWidth >= 1024) open = false">
+
                         <button 
-                            @click="open = !open" 
-                            @mouseenter.window="if(window.innerWidth >= 1024) open = true"
-                            @mouseleave.window="if(window.innerWidth >= 1024) open = false"
+                            @click="open = !open"
                             class="flex items-center px-3 py-2 text-gray-200 hover:text-blue-500 font-semibold transition">
                             Info Sekolah
                             <svg class="w-4 h-4 ml-1 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,8 @@
                         </button>
 
 
-                        <div x-show="open" @mouseenter="open = true" @mouseleave="open = false"
+
+                        <div x-show="open" @mouseenter="open = true" @click.outside="open = false"
                             x-transition:enter="transition ease-out duration-200"
                             x-transition:enter-start="opacity-0 translate-y-2"
                             x-transition:enter-end="opacity-100 translate-y-0"

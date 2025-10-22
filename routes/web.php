@@ -21,8 +21,8 @@ Route::get('/', Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');
 
-Route::get('/prestasi', Achievement::class)->name('achievement');
-Route::get('/prestasi/{achievement}', AchievementDetail::class)->name('achievement.detail');
+Route::get('/achievement', Achievement::class)->name('achievement');
+Route::get('/achievement/{achievement}', AchievementDetail::class)->name('achievement.detail');
 
 Route::get('/jurusan', Program::class)->name('jurusan');
 Route::get('/jurusan/{slug}', ProgramDetail::class)->name('jurusan.detail');
