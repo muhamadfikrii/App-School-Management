@@ -1,132 +1,145 @@
 <div class="overflow-x-hidden" loading="lazy">
-   <section class="relative min-h-screen w-full flex items-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
+    <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
 
         <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-8 left-8 w-40 h-40 md:w-64 md:h-64 bg-orange-300/30 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-16 right-16 w-[18rem] h-[18rem] md:w-[30rem] md:h-[30rem] bg-blue-400/20 rounded-full blur-3xl"></div>
-            <div class="absolute top-1/4 right-1/3 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-tr from-blue-300/20 to-cyan-200/10 rounded-full blur-2xl rotate-[25deg]"></div>
+          <div class="absolute top-10 left-10 w-32 h-32 md:w-56 md:h-56 bg-orange-300/30 rounded-full blur-3xl animate-pulse"></div>
+          <div class="absolute bottom-16 right-16 w-60 h-60 md:w-96 md:h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+          <div class="absolute top-1/3 right-1/4 w-40 h-40 md:w-64 md:h-64 bg-gradient-to-tr from-blue-300/20 to-cyan-200/10 rounded-full blur-2xl rotate-[25deg]"></div>
         </div>
 
-        <!-- Konten utama -->
-        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 px-6 sm:px-10 lg:px-24 py-24 w-full">
+        <!-- Konten Utama -->
+        <div class="relative z-10 container mx-auto px-5 sm:px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+          <div class="relative flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"  
+              data-aos="fade-right"
+              data-aos-duration="2000">
+            <svg class="absolute -top-12 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 w-[80%] sm:w-[70%] md:w-[65%] max-w-[500px] opacity-20 -z-10"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <defs>
+                <linearGradient id="ringGrad" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#1e3a8a" />
+                  <stop offset="50%" stop-color="#2563eb" />
+                  <stop offset="100%" stop-color="#f97316" />
+                </linearGradient>
+              </defs>
+              <g class="spin-slow">
+                <ellipse
+                  cx="100"
+                  cy="100"
+                  rx="70"
+                  ry="28"
+                  fill="none"
+                  stroke="url(#ringGrad)"
+                  stroke-width="18"
+                  stroke-linecap="round"
+                  transform="rotate(-25 100 100)"
+                  class="drop-shadow-[0_0_14px_rgba(37,99,235,0.6)]"/>
+              </g>
+              <circle cx="100" cy="100" r="38" fill="#2563eb" opacity="0.9" />
+              <ellipse cx="84" cy="84" rx="9" ry="5" fill="rgba(255,255,255,0.25)" />
+            </svg>
 
-            <!-- Kolom Kiri -->
-            <div data-aos="fade-right" class="space-y-6 text-center lg:text-left">
-            <!-- Heading utama -->
-            <h1 class="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-zinc-900">
-                Selamat Datang di 
-                <span class="relative inline-block text-blue-800">
-                SMKN <span class="text-white"> 4 </span>
-                    KUNINGAN
-
-                <!-- SVG cincin miring -->
-                <svg 
-                    class="absolute inset-0 -z-10 w-full h-screen left-1/2 top-1/2 bottom-1/4 -translate-x-1/2 -translate-y-1/2 opacity-40"
-                    viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <defs>
-                    <linearGradient id="ringGrad" x1="0" x2="1">
-                        <stop offset="0%" stop-color="#60a5fa"/>
-                        <stop offset="50%" stop-color="#7c3aed"/>
-                        <stop offset="100%" stop-color="#2563eb"/>
-                    </linearGradient>
-                    </defs>
-
-                    <!-- Cincin miring -->
-                    <g class="spin-slow">
-                    <ellipse cx="100" cy="100" rx="75" ry="30" fill="none"
-                        stroke="url(#ringGrad)" stroke-width="18"
-                        stroke-linecap="round" transform="rotate(-25 100 100)" />
-                    </g>
-
-                    <!-- Planet -->
-                    <circle cx="100" cy="100" r="44" fill="#2563eb" />
-                    <ellipse cx="82" cy="82" rx="10" ry="6" fill="rgba(255,255,255,0.2)" />
-                </svg>
+              <h1 class="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-zinc-900">
+                Selamat Datang Di
+                <span class="text-blue-800 block sm:inline md:block">
+                  SMKN <span class="bg-blue-800 text-white px-2 rounded-lg">4</span>
+                  KUNINGAN
                 </span>
-            </h1>
+              </h1>
 
-            <!-- Subheading -->
-            <div class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-800 font-medium text-sm shadow-sm">
+              <div class="inline-block bg-blue-100 text-blue-800 font-medium text-sm px-4 py-1 rounded-full shadow-sm">
                 Sekolah Vokasi Terdepan
-            </div>
+              </div>
 
-            <!-- Heading kedua -->
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 leading-tight">
-                Masa Depan <span class="text-blue-700">Terbaik</span>  
+              <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 leading-tight">
+                Masa Depan <span class="text-blue-700">Terbaik</span><br />
                 Dimulai dengan <span class="text-orange-500">Pendidikan</span>
-            </h2>
+              </h2>
 
-            <!-- Paragraf -->
-            <p id="subtext" class="text-base sm:text-lg md:text-xl text-zinc-600 font-[Poppins] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                SMKN 4 Kuningan membentuk generasi kreatif & siap industri lewat kurikulum modern serta fasilitas mutakhir.
-            </p>
+              <p class="text-base sm:text-lg md:text-xl text-zinc-600 font-[Poppins] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                SMKN 4 Kuningan membentuk generasi kreatif & siap industri lewat
+                kurikulum modern serta fasilitas mutakhir.
+              </p>
 
-            <!-- Tombol -->
-            <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+              <div class="flex justify-center lg:justify-start pt-4">
                 <a href="#jurusan"
-                class="px-8 py-3 rounded-xl font-semibold text-white bg-blue-700 shadow-lg transition transform hover:-translate-y-1 hover:bg-transparent hover:text-blue-600 border border-blue-700">
-                Jelajahi Jurusan
+                  class="px-8 py-3 rounded-xl font-semibold text-white bg-blue-700 shadow-lg transition transform hover:-translate-y-1 hover:bg-transparent hover:text-blue-600 border border-blue-700">
+                  Jelajahi Jurusan
                 </a>
-            </div>
-            </div>
+              </div>
+          </div>
 
-            <!-- Kolom Kanan: Gambar -->
-            <div data-aos="fade-left" class="relative flex justify-center lg:justify-end">
-            <div class="relative w-full max-w-[420px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[500px]">
-                <img 
-                src="https://images.pexels.com/photos/6684533/pexels-photo-6684533.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-                alt="Ilustrasi Sekolah / Siswa" 
-                class="rounded-[2rem] shadow-2xl w-full h-auto object-cover"
-                />
-                
-                <!-- Kartu Info -->
-                <div class="absolute -bottom-8 left-4 sm:-bottom-10 sm:-left-8 bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/30 w-[200px] sm:w-[220px]">
-                <h3 class="font-semibold text-blue-800 text-sm sm:text-base">Fasilitas Lengkap</h3>
-                <p class="text-xs sm:text-sm text-zinc-600 leading-snug">Lab teknologi, ruang kreatif, dan workshop modern.</p>
-                </div>
-            </div>
-            </div>
-        </div>
+          <div class="flex justify-center lg:justify-end mt-10 lg:mt-0"
+                data-aos="fade-left"
+                data-aos-duration="2000">
+              <div class="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[520px]">
+                <img
+                  src="https://images.pexels.com/photos/6684533/pexels-photo-6684533.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Ilustrasi Sekolah / Siswa"
+                  class="rounded-[2rem] shadow-2xl w-full h-auto object-cover"/>
+                  <div class="absolute -bottom-8 left-4 sm:-bottom-10 sm:-left-8 bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/30 w-[180px] sm:w-[220px]">
+                      <h3 class="font-semibold text-blue-800 text-sm sm:text-base">
+                        Fasilitas Lengkap
+                      </h3>
+                      <p class="text-xs sm:text-sm text-zinc-600 leading-snug">
+                        Lab teknologi, ruang kreatif, dan workshop modern.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
-
 
     <section id="contact" 
-        class="relative z-10 mx-6 lg:mx-20 -mt-10 rounded-full overflow-hidden bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white shadow-2xl">
+        class="relative z-10 mx-4 sm:mx-8 lg:mx-20 -mt-6 rounded-3xl overflow-hidden 
+              bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 text-white shadow-2xl">
 
-        <!-- Background Glassy Overlay -->
+        <!-- Efek Blur -->
         <div class="absolute inset-0 bg-white/10 backdrop-blur-md"></div>
 
-        <div class="relative flex flex-col md:flex-row items-center justify-between px-8 py-6 gap-6">
-            <!-- Left Content -->
-            <div class="flex items-center space-x-4">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo SMKN 4 Kuningan" class="w-14 h-14 rounded-xl shadow-md bg-white/30 p-2 backdrop-blur-md">
-                <div>
-                    <h2 class="text-xl md:text-2xl font-bold leading-tight">
-                        Hubungi Kami Untuk Info Lebih Lanjut
-                    </h2>
-                    <p class="text-sm text-blue-100">Kami siap membantu Anda mengenal SMKN 4 Kuningan lebih dekat.</p>
-                </div>
+        <div class="relative flex flex-col md:flex-row items-center justify-between 
+                text-center md:text-left px-6 sm:px-10 md:px-12 py-8 md:py-10 gap-6 md:gap-10">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 md:gap-6">
+              <img
+                src="{{ asset('img/logo.png') }}"
+                alt="Logo SMKN 4 Kuningan"
+                class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shadow-md bg-white/30 p-2 backdrop-blur-md"/>
+              <div>
+                <h2 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+                  Hubungi Kami Untuk Info Lebih Lanjut
+                </h2>
+                <p class="text-xs sm:text-sm text-blue-100">
+                  Kami siap membantu Anda mengenal SMKN 4 Kuningan lebih dekat.
+                </p>
+              </div>
             </div>
 
-            <!-- Right Content: Button -->
+            <!-- Tombol -->
             <a href="{{ route('contact') }}"
-            class="group flex items-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-semibold 
-                    shadow-lg transition-all duration-300 hover:bg-blue-100 hover:shadow-xl hover:-translate-y-1">
-                <span>Lihat Kontak</span>
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                    fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" />
-                </svg>
+              class="group flex items-center justify-center gap-2 bg-white text-blue-700 
+                    px-8 py-3 rounded-full font-semibold shadow-lg 
+                    transition-all duration-300 hover:bg-blue-100 hover:shadow-xl hover:-translate-y-1
+                    w-full sm:w-auto md:w-auto">
+              <span>Lihat Kontak</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" />
+              </svg>
             </a>
         </div>
-    </section>
+      </section>
+
 
 
     <!-- Livewire Components -->
     <livewire:partials.history/>
     <livewire:partials.statistics/>
-     <!-- Achievements Section -->
     <section id="jurusan" class="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]"></div>
 
@@ -137,7 +150,6 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             
-            <!-- PPLG -->
             <a href="{{ url('/jurusan/pplg') }}"
                 class="group relative bg-white rounded-2xl shadow-md border border-transparent 
                         p-8 block transform-gpu
@@ -146,7 +158,7 @@
 
                     <div class="flex justify-center mb-6">
                         <img src="{{ asset('img/jurusan-pplg.jpg') }}" alt="PPLG"
-                            class="w-32 h-32 object-contain rounded-xl
+                            class="w-32 h-30 object-contain rounded-xl
                                     transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] 
                                     group-hover:scale-105">
                     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Partials;
+namespace App\Livewire\Page;
 
 use Livewire\Component;
 
@@ -71,6 +71,6 @@ class Organization extends Component
 
     public function render()
     {
-        return view('livewire.partials.organization');
+        return view('livewire.Page.organization');
     }
 }

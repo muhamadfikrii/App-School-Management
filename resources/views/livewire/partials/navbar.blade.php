@@ -74,7 +74,6 @@
                     <x-nav-link href="{{ route('contact') }}">Contact</x-nav-link>
                 </div>
 
-                <!-- Garis kanan -->
                 <div class="hidden lg:block flex-1 h-[1px] bg-zinc-700 mx-4 opacity-60"></div>
 
                 <!-- Tombol Login -->
@@ -88,15 +87,7 @@
 
                 <!-- Tombol Mobile -->
                 <div class="bg-black rounded-bl-2xl md:hidden">
-                    <button class="flex flex-col justify-between w-6 h-6 focus:outline-none bg-blue-400 p-1"
-                        @click="
-                            if(!open){
-                                anim = true;
-                                setTimeout(() => { open = true }, 150);
-                            } else {
-                                open = false;
-                                setTimeout(() => { anim = false }, 150);
-                            }">
+                    <button class="flex flex-col justify-between w-6 h-6 focus:outline-none bg-blue-400 p-1" @click="open = !open">
                         <span 
                             :class="{'rotate-[90deg] translate-y-1.5 origin-center': open}" 
                             class="block h-0.5 w-full bg-white transition-all duration-300"></span>

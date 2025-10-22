@@ -19,7 +19,7 @@ class AchievementFactory extends Factory
     {
         $levels = ['Kabupaten', 'Provinsi', 'Nasional'];
 
-         return [
+        return [
             'title' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(5),
             'level' => $this->faker->randomElement($levels),
@@ -29,7 +29,7 @@ class AchievementFactory extends Factory
                 'img/ProgramDetail/pplgDetail.jpeg',
                 'img/ProgramDetail/tkroDetail.jpg',
                 'img/ProgramDetail/mplbDetail.jpg',
-            ])->random()
+            ])->random(),
         ];
     }
 }
