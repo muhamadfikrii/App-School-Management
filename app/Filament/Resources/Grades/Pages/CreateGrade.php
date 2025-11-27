@@ -4,7 +4,12 @@ namespace App\Filament\Resources\Grades\Pages;
 
 use App\Filament\Resources\Grades\GradeResource;
 use App\Models\Student;
+
+use function auth;
+
 use Filament\Resources\Pages\CreateRecord;
+
+use function request;
 
 class CreateGrade extends CreateRecord
 {

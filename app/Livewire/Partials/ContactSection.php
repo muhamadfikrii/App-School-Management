@@ -4,6 +4,8 @@ namespace App\Livewire\Partials;
 
 use Livewire\Component;
 
+use function view;
+
 class ContactSection extends Component
 {
     public $message;
@@ -12,7 +14,6 @@ class ContactSection extends Component
 
     public function submit()
     {
-
         $this->successMessage = 'Terima kasih, pesan Anda telah terkirim!';
         $this->reset(['name', 'email', 'message']);
     }

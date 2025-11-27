@@ -30,8 +30,8 @@ class ClassRombelForm
                                     ->live(onBlur: true)
                                     ->options(fn () => Level::all()->pluck('name', 'id'))
                                     ->afterStateUpdated(function ($state, $set, $get): void {
-                                        $level = Level::where('id', $state)->first()?->name;
-                                        $major = Major::where('id', $get('major_id'))->first()?->name;
+                                        $level  = Level::where('id', $state)->first()?->name;
+                                        $major  = Major::where('id', $get('major_id'))->first()?->name;
                                         $rombel = $get('rombel');
 
                                         if ($level && $major) {
@@ -47,8 +47,8 @@ class ClassRombelForm
                                     ->live(onBlur: true)
                                     ->options(fn () => Major::all()->pluck('name', 'id'))
                                     ->afterStateUpdated(function ($state, $set, $get): void {
-                                        $level = Level::where('id', $get('level_id'))->first()?->name;
-                                        $major = Major::where('id', $state)->first()?->name;
+                                        $level  = Level::where('id', $get('level_id'))->first()?->name;
+                                        $major  = Major::where('id', $state)->first()?->name;
                                         $rombel = $get('rombel');
 
                                         if ($level && $major) {

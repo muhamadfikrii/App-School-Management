@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Teachers\Schemas;
 
+use function auth;
+
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;

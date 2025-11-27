@@ -11,7 +11,8 @@ use Illuminate\Queue\SerializesModels;
 
 class InvitationMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     public Invitation $invitation;
 
@@ -42,8 +43,8 @@ class InvitationMail extends Mailable
             markdown: 'emails.invitation',
             with: [
                 'inviter_name' => $this->invitation->inviter->name,
-                'invite_name' => $this->invitation->name,
-                'accept_url' => $this->invitation->signedUrl(),
+                'invite_name'  => $this->invitation->name,
+                'accept_url'   => $this->invitation->signedUrl(),
             ]
         );
     }

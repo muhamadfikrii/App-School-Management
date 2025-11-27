@@ -10,6 +10,8 @@ use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
+use function now;
+
 class StudentsOverview extends StatsOverviewWidget
 {
     use InteractsWithPageFilters;
@@ -20,13 +22,12 @@ class StudentsOverview extends StatsOverviewWidget
     {
         return [
             'startDate' => now()->subMonth()->toDateString(),
-            'endDate' => now()->toDateString(),
+            'endDate'   => now()->toDateString(),
         ];
     }
 
     protected function getStats(): array
     {
-
         $start = isset($this->pageFilters['startDate'])
             ? Carbon::parse(time: $this->pageFilters['startDate'])->startOfDay()
             : now()->subMonth()->startOfDay();
@@ -50,18 +51,18 @@ class StudentsOverview extends StatsOverviewWidget
         return [
             Stat::make('Total Siswa', $studentsInRange)
                 ->color('success')
-                ->description('Dari '.$start->format('d M Y').' sampai '.$end->format('d M Y'))
+                ->description('Dari ' . $start->format('d M Y') . ' sampai ' . $end->format('d M Y'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17]),
 
             Stat::make('Total Guru', $teachersInRange)
                 ->color('info')
-                ->description('Dari '.$start->format('d M Y').' sampai '.$end->format('d M Y'))
+                ->description('Dari ' . $start->format('d M Y') . ' sampai ' . $end->format('d M Y'))
                 ->descriptionIcon('heroicon-m-arrow-trending-up')
                 ->chart([7, 2, 10, 3, 15, 4, 17]),
 
             Stat::make('Total Jurusan', $MajorsInRange)
-                ->description('Dari'.$start->format(' d M Y').' sampai '.$end->format('d M Y'))
+                ->description('Dari' . $start->format(' d M Y') . ' sampai ' . $end->format('d M Y'))
                 ->descriptionIcon('heroicon-o-chevron-double-right')
                 ->color('warning')
                 ->chart([7, 2, 10, 3, 15, 4, 17]),

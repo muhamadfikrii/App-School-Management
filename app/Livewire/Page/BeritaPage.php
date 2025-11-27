@@ -19,19 +19,6 @@ class BeritaPage extends Component
     protected $queryString = [
         'searchQuery' => ['except' => ''],
     ];
-
-    // public function showDetail($id)
-    // {
-    //     $this->currentNews = Berita::find($id);
-    //     $this->showDetail = true;
-    // }
-
-    // public function backToList()
-    // {
-    //     $this->showDetail = false;
-    //     $this->currentNews = null;
-    // }
-
     public function render()
     {
         if ($this->showDetail && $this->currentNews) {
@@ -40,9 +27,10 @@ class BeritaPage extends Component
 
         $beritas = Berita::query()
             ->when($this->searchQuery, function ($query): void {
-                $query->where('title', 'like', '%'.$this->searchQuery.'%')
-                    ->orWhere('excerpt', 'like', '%'.$this->searchQuery.'%')
-                    ->orWhere('content', 'like', '%'.$this->searchQuery.'%');
+                $query->where('title', 'like', '%' . $this->searchQuery . '%')
+                    ->orWhere('excerpt', 'like', '%' . $this->searchQuery . '%')
+                    ->orWhere('content', 'like', '%' . $this->searchQuery . '%');
+
             })
             ->orderBy('created_at', 'desc')
             ->paginate(6);

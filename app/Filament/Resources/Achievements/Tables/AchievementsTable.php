@@ -49,10 +49,10 @@ class AchievementsTable
                     ->badge()
                     ->colors([
                         'primary' => 'Sekolah',
-                        'info' => 'Kabupaten',
+                        'info'    => 'Kabupaten',
                         'success' => 'Provinsi',
                         'warning' => 'Nasional',
-                        'danger' => 'Internasional',
+                        'danger'  => 'Internasional',
                     ])
                     ->sortable(),
 
@@ -78,10 +78,10 @@ class AchievementsTable
                 SelectFilter::make('level')
                     ->label('Tingkat')
                     ->options([
-                        'Sekolah' => 'Sekolah',
+                        'Sekolah'   => 'Sekolah',
                         'Kabupaten' => 'Kabupaten',
-                        'Provinsi' => 'Provinsi',
-                        'Nasional' => 'Nasional',
+                        'Provinsi'  => 'Provinsi',
+                        'Nasional'  => 'Nasional',
                     ]),
             ])
 

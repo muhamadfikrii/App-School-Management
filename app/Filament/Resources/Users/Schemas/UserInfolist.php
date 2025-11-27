@@ -10,7 +10,7 @@ class UserInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

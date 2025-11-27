@@ -27,7 +27,6 @@ class SchedulePolicy
      */
     public function update(User $user): bool
     {
-
         return $user->is_admin;
     }
 

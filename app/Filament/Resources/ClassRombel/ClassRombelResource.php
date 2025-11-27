@@ -11,6 +11,9 @@ use App\Filament\Resources\ClassRombel\Schemas\ClassRombelForm;
 use App\Filament\Resources\ClassRombel\Schemas\ClassRombelInfolist;
 use App\Filament\Resources\ClassRombel\Tables\ClassRombelTable;
 use App\Models\ClassRombel;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -25,15 +28,15 @@ class ClassRombelResource extends Resource
 {
     protected static ?string $model = ClassRombel::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingLibrary;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::BuildingLibrary;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
 
     protected static ?string $recordTitleAttribute = 'id';
 
     public static function canAccess(): bool
     {
-        $user = auth('web')->user();
+        $user  = auth('web')->user();
         $model = static::getModel();
 
         if ($user->is_admin) {
@@ -61,7 +64,6 @@ class ClassRombelResource extends Resource
     {
         return ClassRombelTable::configure($table)
             ->paginated([10, 20, 25, 30]);
-
     }
 
     public static function getRelations(): array
@@ -86,7 +88,7 @@ class ClassRombelResource extends Resource
         return 'Rombel';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->teacher->full_name;
     }
@@ -100,7 +102,7 @@ class ClassRombelResource extends Resource
     {
         return [
             'Wali Kelas' => $record->name ?? 'Tidak Jadi Wali Kelas',
-            'Rombel' => $record->rombel,
+            'Rombel'     => $record->rombel,
         ];
     }
 
@@ -112,10 +114,10 @@ class ClassRombelResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListClassRombel::route('/'),
+            'index'  => ListClassRombel::route('/'),
             'create' => CreateClassRombel::route('/create'),
-            'view' => ViewClassRombel::route('/{record}'),
-            'edit' => EditClassRombel::route('/{record}/edit'),
+            'view'   => ViewClassRombel::route('/{record}'),
+            'edit'   => EditClassRombel::route('/{record}/edit'),
         ];
     }
 }

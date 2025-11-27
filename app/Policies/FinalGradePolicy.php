@@ -17,7 +17,6 @@ class FinalGradePolicy
         }
 
         if ($user->is_teacher && $user->teacher) {
-
             return ClassRombel::where('teacher_id', $user->teacher->id)->exists();
         }
 
@@ -34,7 +33,6 @@ class FinalGradePolicy
         }
 
         if ($user->is_teacher && $user->teacher) {
-
             return ClassRombel::where('teacher_id', $user->teacher->id)->exists();
         }
 
@@ -46,13 +44,11 @@ class FinalGradePolicy
      */
     public function update(User $user): bool
     {
-
         if ($user->is_admin) {
             return true;
         }
 
         if ($user->is_teacher && $user->teacher) {
-
             return ClassRombel::where('teacher_id', $user->teacher->id)->exists();
         }
 
@@ -69,7 +65,6 @@ class FinalGradePolicy
         }
 
         if ($user->is_teacher && $user->teacher) {
-
             return ClassRombel::where('teacher_id', $user->teacher->id)->exists();
         }
 

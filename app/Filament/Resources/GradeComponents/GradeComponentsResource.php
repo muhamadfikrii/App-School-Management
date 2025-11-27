@@ -10,6 +10,9 @@ use App\Filament\Resources\GradeComponents\Schemas\GradeComponentsForm;
 use App\Filament\Resources\GradeComponents\Schemas\GradeComponentsInfolist;
 use App\Filament\Resources\GradeComponents\Tables\GradeComponentsTable;
 use App\Models\GradeComponent;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -20,7 +23,7 @@ class GradeComponentsResource extends Resource
 {
     protected static ?string $model = GradeComponent::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPresentationChartBar;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedPresentationChartBar;
 
     // protected static ?string $recordTitleAttribute = 'yes';
 
@@ -47,7 +50,7 @@ class GradeComponentsResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -69,10 +72,10 @@ class GradeComponentsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGradeComponents::route('/'),
+            'index'  => ListGradeComponents::route('/'),
             'create' => CreateGradeComponents::route('/create'),
-            'view' => ViewGradeComponents::route('/{record}'),
-            'edit' => EditGradeComponents::route('/{record}/edit'),
+            'view'   => ViewGradeComponents::route('/{record}'),
+            'edit'   => EditGradeComponents::route('/{record}/edit'),
         ];
     }
 }

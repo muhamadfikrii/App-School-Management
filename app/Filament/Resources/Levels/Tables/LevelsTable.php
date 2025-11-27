@@ -23,7 +23,7 @@ class LevelsTable
                     ->label('Diubah'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 EditAction::make(),

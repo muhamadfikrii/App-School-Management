@@ -7,6 +7,8 @@ use App\Models\Major;
 use App\Models\Student;
 use Livewire\Component;
 
+use function view;
+
 class Home extends Component
 {
     public $achievements;

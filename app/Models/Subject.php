@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+use function round;
+
 class Subject extends Model
 {
     use HasFactory;
@@ -59,9 +61,10 @@ class Subject extends Model
     /**
      * Hitung nilai akhir siswa (standar Indonesia).
      *
-     * @param  int  $studentId
-     * @param  int  $academicYearId
-     * @param  int  $semester
+     * @param int $studentId
+     * @param int $academicYearId
+     * @param int $semester
+     *
      * @return array ['final_score' => float, 'predicate' => string, 'is_passed' => bool]
      */
     public function calculate($studentId, $academicYearId, $semester)
@@ -78,7 +81,7 @@ class Subject extends Model
 
         foreach ($grades as $componentGrades) {
             $component = $componentGrades->first()->gradeComponent ?? null;
-            if (! $component) {
+            if (!$component) {
                 continue;
             }
 
@@ -88,7 +91,7 @@ class Subject extends Model
             }
 
             $avgScore = $componentGrades->avg('score');
-            $score = $avgScore ?? 0;
+            $score    = $avgScore ?? 0;
 
             $sumWeighted += $score * $weight;
         }
@@ -99,16 +102,16 @@ class Subject extends Model
             $finalScore >= 90 => 'A',
             $finalScore >= 80 => 'B',
             $finalScore >= 70 => 'C',
-            default => 'D',
+            default           => 'D',
         };
 
-        $kkm = $this->kkm;
+        $kkm      = $this->kkm;
         $isPassed = $finalScore >= $kkm;
 
         return [
             'final_score' => $finalScore,
-            'predicate' => $predicate,
-            'is_passed' => $isPassed,
+            'predicate'   => $predicate,
+            'is_passed'   => $isPassed,
         ];
     }
 }

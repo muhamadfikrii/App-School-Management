@@ -21,7 +21,7 @@ class AcademicsTable
                 TextColumn::make('updated_at'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 // ViewAction::make(),

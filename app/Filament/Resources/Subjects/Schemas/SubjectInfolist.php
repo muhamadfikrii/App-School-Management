@@ -10,7 +10,7 @@ class SubjectInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

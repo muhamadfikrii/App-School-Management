@@ -2,7 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use function app;
+
 use App\Filament\Pages\EditProfile;
+
+use function app_path;
+use function asset;
+
 use Filament\Actions\Action;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -72,7 +78,7 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('img/logo.png'))
             ->brandLogoHeight('2rem')
             ->spa();
-        if (! app()->environment('production')) {
+        if (!app()->environment('production')) {
             $form->emailVerification()->emailChangeVerification();
         }
     }

@@ -4,6 +4,8 @@ namespace App\Livewire\Page;
 
 use Livewire\Component;
 
+use function view;
+
 class About extends Component
 {
     public function render()

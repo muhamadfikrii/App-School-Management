@@ -10,6 +10,8 @@ use Illuminate\Support\Number;
 use OpenSpout\Common\Entity\Style\CellAlignment;
 use OpenSpout\Common\Entity\Style\Style;
 
+use function str;
+
 class StudentExporter extends Exporter
 {
     protected static ?string $model = Student::class;
@@ -36,15 +38,15 @@ class StudentExporter extends Exporter
     public static function getCompletedNotificationBody(Export $export): string
     {
         $body = 'Ekspor data siswa selesai! '
-            .Number::format($export->successful_rows)
-            .' '.str('baris')->plural($export->successful_rows)
-            .' berhasil diekspor.';
+            . Number::format($export->successful_rows)
+            . ' ' . str('baris')->plural($export->successful_rows)
+            . ' berhasil diekspor.';
 
         if ($failedRowsCount = $export->getFailedRowsCount()) {
             $body .= ' '
-                .Number::format($failedRowsCount)
-                .' '.str('baris')->plural($failedRowsCount)
-                .' gagal diekspor.';
+                . Number::format($failedRowsCount)
+                . ' ' . str('baris')->plural($failedRowsCount)
+                . ' gagal diekspor.';
         }
 
         return $body;
@@ -52,7 +54,7 @@ class StudentExporter extends Exporter
 
     public function getXlsxCellStyle(): ?Style
     {
-        return (new Style)
+        return (new Style())
             ->setFontSize(12)
             ->setFontBold()
             ->setCellAlignment(CellAlignment::CENTER)

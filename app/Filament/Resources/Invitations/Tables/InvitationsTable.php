@@ -32,7 +32,7 @@ class InvitationsTable
                     ->badge(),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 ActionGroup::make([

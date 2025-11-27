@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Grades\Tables;
 
+use function auth;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -30,7 +32,7 @@ class GradesTable
                     ->label('Nilai'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 // ViewAction::make(),

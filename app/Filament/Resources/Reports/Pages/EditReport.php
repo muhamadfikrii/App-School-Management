@@ -7,6 +7,8 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ExportAction;
 use Filament\Resources\Pages\EditRecord;
 
+use function route;
+
 class EditReport extends EditRecord
 {
     protected static string $resource = ReportResource::class;

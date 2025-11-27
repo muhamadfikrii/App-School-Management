@@ -10,6 +10,9 @@ use App\Filament\Resources\Academics\Schemas\AcademicForm;
 use App\Filament\Resources\Academics\Schemas\AcademicInfolist;
 use App\Filament\Resources\Academics\Tables\AcademicsTable;
 use App\Models\AcademicYear;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -21,11 +24,11 @@ class AcademicResource extends Resource
 {
     protected static ?string $model = AcademicYear::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::CalendarDays;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::CalendarDays;
 
     // protected static ?string $recordTitleAttribute = 'yes';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
+    protected static string | UnitEnum | null $navigationGroup = 'Kurikulum';
 
     public static function canAccess(): bool
     {
@@ -50,7 +53,7 @@ class AcademicResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -72,10 +75,10 @@ class AcademicResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListAcademics::route('/'),
+            'index'  => ListAcademics::route('/'),
             'create' => CreateAcademic::route('/create'),
-            'view' => ViewAcademic::route('/{record}'),
-            'edit' => EditAcademic::route('/{record}/edit'),
+            'view'   => ViewAcademic::route('/{record}'),
+            'edit'   => EditAcademic::route('/{record}/edit'),
         ];
     }
 }

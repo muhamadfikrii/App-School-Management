@@ -4,6 +4,8 @@ namespace App\Livewire\Partials;
 
 use Livewire\Component;
 
+use function view;
+
 class ProgramDetail extends Component
 {
     public $slug;
@@ -16,9 +18,9 @@ class ProgramDetail extends Component
 
         $programs = [
             'pplg' => [
-                'name' => 'Pengembangan Perangkat Lunak dan Gim (PPLG)',
+                'name'        => 'Pengembangan Perangkat Lunak dan Gim (PPLG)',
                 'description' => 'Jurusan PPLG berfokus pada pembelajaran analisis, desain, implementasi, dan pengujian perangkat lunak serta pengembangan gim interaktif. Siswa dilatih menjadi programmer dan game developer yang kreatif, inovatif, serta mampu bersaing di dunia industri digital.',
-                'skills' => [
+                'skills'      => [
                     'Pemrograman Web (HTML, CSS, JavaScript, PHP, Laravel)',
                     'Pemrograman Mobile (Android, Flutter)',
                     'Desain UI/UX Modern',
@@ -36,9 +38,9 @@ class ProgramDetail extends Component
             ],
 
             'akl' => [
-                'name' => 'Akuntansi dan Keuangan Lembaga (AKL)',
+                'name'        => 'Akuntansi dan Keuangan Lembaga (AKL)',
                 'description' => 'Jurusan AKL mempersiapkan siswa dalam bidang akuntansi, keuangan, dan administrasi bisnis. Lulusan mampu mengelola laporan keuangan, analisis bisnis, serta memiliki kompetensi digital accounting.',
-                'skills' => [
+                'skills'      => [
                     'Penyusunan Laporan Keuangan',
                     'Perpajakan dan Akuntansi Pajak',
                     'Audit Internal dan Eksternal',
@@ -56,9 +58,9 @@ class ProgramDetail extends Component
             ],
 
             'mplb' => [
-                'name' => 'Manajemen Perkantoran dan Layanan Bisnis (MPLB)',
+                'name'        => 'Manajemen Perkantoran dan Layanan Bisnis (MPLB)',
                 'description' => 'Jurusan MPLB membekali siswa dalam bidang administrasi perkantoran modern, layanan bisnis, dan teknologi informasi untuk mendukung kegiatan manajerial dan pelayanan administrasi.',
-                'skills' => [
+                'skills'      => [
                     'Administrasi Perkantoran Digital',
                     'Komunikasi Bisnis dan Layanan Pelanggan',
                     'Pengarsipan dan Dokumentasi Elektronik',
@@ -76,9 +78,9 @@ class ProgramDetail extends Component
             ],
 
             'tkl' => [
-                'name' => 'Teknik Ketenagalistrikan (TKL)',
+                'name'        => 'Teknik Ketenagalistrikan (TKL)',
                 'description' => 'Jurusan TKL berfokus pada pembelajaran sistem tenaga listrik, instalasi, perawatan, dan pengendalian motor listrik. Lulusan siap bekerja di industri listrik dan energi terbarukan.',
-                'skills' => [
+                'skills'      => [
                     'Instalasi dan Pemeliharaan Listrik Rumah Tangga dan Industri',
                     'Pengoperasian Mesin dan Motor Listrik',
                     'Sistem Kontrol Otomatis dan PLC',
@@ -96,9 +98,9 @@ class ProgramDetail extends Component
             ],
 
             'tkro' => [
-                'name' => 'Teknik Kendaraan Ringan Otomotif (TKRO)',
+                'name'        => 'Teknik Kendaraan Ringan Otomotif (TKRO)',
                 'description' => 'Jurusan TKRO berfokus pada pembelajaran sistem kendaraan bermotor, perawatan mesin, dan teknologi otomotif modern. Siswa dilatih untuk menjadi mekanik yang profesional dan paham sistem kendaraan terkini.',
-                'skills' => [
+                'skills'      => [
                     'Perawatan dan Perbaikan Mesin Kendaraan',
                     'Sistem Kelistrikan Otomotif',
                     'Sistem Rem, Suspensi, dan Kemudi',
@@ -116,9 +118,9 @@ class ProgramDetail extends Component
             ],
 
             'tbsm' => [
-                'name' => 'Teknik dan Bisnis Sepeda Motor (TBSM)',
+                'name'        => 'Teknik dan Bisnis Sepeda Motor (TBSM)',
                 'description' => 'Jurusan TBSM menyiapkan peserta didik untuk memahami sistem sepeda motor, perawatan, perbaikan, serta manajemen bengkel. Lulusan memiliki kemampuan teknis dan jiwa wirausaha di bidang otomotif roda dua.',
-                'skills' => [
+                'skills'      => [
                     'Perawatan dan Perbaikan Sepeda Motor',
                     'Sistem Kelistrikan Sepeda Motor',
                     'Injeksi dan EFI (Electronic Fuel Injection)',
@@ -137,11 +139,11 @@ class ProgramDetail extends Component
         ];
 
         $this->program = $programs[$slug] ?? [
-            'name' => 'Jurusan Tidak Ditemukan',
+            'name'        => 'Jurusan Tidak Ditemukan',
             'description' => 'Data jurusan tidak tersedia.',
-            'skills' => [],
-            'careers' => [],
-            'image' => 'https://source.unsplash.com/1600x900/?education',
+            'skills'      => [],
+            'careers'     => [],
+            'image'       => 'https://source.unsplash.com/1600x900/?education',
         ];
     }
 

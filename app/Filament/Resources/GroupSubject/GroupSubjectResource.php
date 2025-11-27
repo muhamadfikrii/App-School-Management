@@ -21,9 +21,9 @@ class GroupSubjectResource extends Resource
 {
     protected static ?string $model = GroupSubject::class;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
+    protected static string | UnitEnum | null $navigationGroup = 'Kurikulum';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentPlus;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::DocumentPlus;
 
     // protected static ?string $recordTitleAttribute = 'GroupSubject';
 
@@ -45,7 +45,7 @@ class GroupSubjectResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -67,10 +67,10 @@ class GroupSubjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGroupSubject::route('/'),
+            'index'  => ListGroupSubject::route('/'),
             'create' => CreateGroupSubject::route('/create'),
-            'view' => ViewGroupSubject::route('/{record}'),
-            'edit' => EditGroupSubject::route('/{record}/edit'),
+            'view'   => ViewGroupSubject::route('/{record}'),
+            'edit'   => EditGroupSubject::route('/{record}/edit'),
         ];
     }
 }

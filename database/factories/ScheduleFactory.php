@@ -9,6 +9,9 @@ use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use function rand;
+use function sprintf;
+
 class ScheduleFactory extends Factory
 {
     protected $model = Schedule::class;
@@ -20,7 +23,7 @@ class ScheduleFactory extends Factory
         $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
 
         return [
-            'day' => $this->faker->randomElement($days),
+            'day'             => $this->faker->randomElement($days),
             'class_rombel_id' => $classRombel->id,
         ];
     }
@@ -38,14 +41,14 @@ class ScheduleFactory extends Factory
                     : Teacher::inRandomOrder()->first();
 
                 $startHour = $this->faker->numberBetween(7, 14);
-                $endHour = $startHour + 1;
+                $endHour   = $startHour + 1;
 
                 ScheduleSubject::create([
                     'schedule_id' => $schedule->id,
-                    'subject_id' => $subject->id,
-                    'teacher_id' => $teacher?->id,
-                    'time_start' => sprintf('%02d:00:00', $startHour),
-                    'time_end' => sprintf('%02d:00:00', $endHour),
+                    'subject_id'  => $subject->id,
+                    'teacher_id'  => $teacher?->id,
+                    'time_start'  => sprintf('%02d:00:00', $startHour),
+                    'time_end'    => sprintf('%02d:00:00', $endHour),
                 ]);
             }
         });

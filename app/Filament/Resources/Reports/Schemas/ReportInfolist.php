@@ -10,7 +10,7 @@ class ReportInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

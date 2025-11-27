@@ -4,6 +4,8 @@ namespace App\Livewire\Page;
 
 use Livewire\Component;
 
+use function view;
+
 class Contact extends Component
 {
     public string $tab = 'map';

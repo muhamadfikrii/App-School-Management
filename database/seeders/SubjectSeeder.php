@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\GroupSubject;
 use App\Models\Subject;
 use App\Models\Teacher;
+
+use function fake;
+
 use Illuminate\Database\Seeder;
 
 class SubjectSeeder extends Seeder
@@ -16,7 +19,7 @@ class SubjectSeeder extends Seeder
         // Ambil id dari tiap kategori kelompok
         $kelompokA = GroupSubject::where('name', 'Kelompok A')->first()?->id;
         $kelompokB = GroupSubject::where('name', 'Kelompok B')->first()?->id;
-        $kejuruan = GroupSubject::where('name', 'Kejuruan')->first()?->id;
+        $kejuruan  = GroupSubject::where('name', 'Kejuruan')->first()?->id;
 
         $subjects = [
             ['name' => 'Pendidikan Agama', 'code' => 'AGM01', 'group' => $kelompokA],
@@ -41,10 +44,10 @@ class SubjectSeeder extends Seeder
 
         foreach ($subjects as $subject) {
             $subjectModel = Subject::factory()->create([
-                'name' => $subject['name'],
-                'code' => $subject['code'],
+                'name'             => $subject['name'],
+                'code'             => $subject['code'],
                 'group_subject_id' => $subject['group'],
-                'kkm' => fake()->randomElement([65, 70, 75]),
+                'kkm'              => fake()->randomElement([65, 70, 75]),
             ]);
 
             $subjectModel->teachers()->attach($teachers->random()->id);

@@ -23,7 +23,7 @@ class AchievementResource extends Resource
 {
     protected static ?string $model = Achievement::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Star;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::Star;
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -45,7 +45,7 @@ class AchievementResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -64,7 +64,7 @@ class AchievementResource extends Resource
         return 'Prestasi';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->title;
     }
@@ -77,7 +77,7 @@ class AchievementResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'Siswa' => $record->student->full_name,
+            'Siswa'            => $record->student->full_name,
             'Tingkat Prestasi' => $record->level,
         ];
     }
@@ -90,10 +90,10 @@ class AchievementResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListAchievements::route('/'),
+            'index'  => ListAchievements::route('/'),
             'create' => CreateAchievement::route('/create'),
-            'view' => ViewAchievement::route('/{record}'),
-            'edit' => EditAchievement::route('/{record}/edit'),
+            'view'   => ViewAchievement::route('/{record}'),
+            'edit'   => EditAchievement::route('/{record}/edit'),
         ];
     }
 }

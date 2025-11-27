@@ -8,6 +8,9 @@ use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Schemas\UserInfolist;
 use App\Filament\Resources\Users\Tables\UsersTable;
 use App\Models\User;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -19,11 +22,11 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::UserGroup;
 
     // protected static ?string $recordTitleAttribute = 'yes';
 
-    protected static string|UnitEnum|null $navigationGroup = 'User Manajemen';
+    protected static string | UnitEnum | null $navigationGroup = 'User Manajemen';
 
     public static function canAccess(): bool
     {
@@ -48,7 +51,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -56,7 +59,7 @@ class UserResource extends Resource
     {
         return [
             'index' => ListUsers::route('/'),
-            'view' => ViewUser::route('/{record}'),
+            'view'  => ViewUser::route('/{record}'),
         ];
     }
 }

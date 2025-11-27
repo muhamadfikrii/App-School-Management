@@ -3,6 +3,9 @@
 namespace App\Filament\Resources\Students\Pages;
 
 use App\Filament\Resources\Students\StudentsResource;
+
+use function auth;
+
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateStudents extends CreateRecord

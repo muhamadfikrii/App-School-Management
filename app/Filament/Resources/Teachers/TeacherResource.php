@@ -22,7 +22,7 @@ class TeacherResource extends Resource
 {
     protected static ?string $model = Teacher::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-presentation-chart-line';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-presentation-chart-line';
 
     protected static ?string $recordTitleAttribute = 'full_name';
 
@@ -44,7 +44,7 @@ class TeacherResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -68,7 +68,7 @@ class TeacherResource extends Resource
         return 'Guru';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->full_name;
     }
@@ -81,9 +81,9 @@ class TeacherResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'NIP' => $record->nip,
+            'NIP'     => $record->nip,
             'No Telp' => $record->phone,
-            'Kelas' => $record->classRombel?->name,
+            'Kelas'   => $record->classRombel?->name,
         ];
     }
 

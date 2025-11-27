@@ -42,7 +42,7 @@
             "@php artisan package:discover --ansi",
             "@php artisan filament:upgrade"
         ],
-            "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "lint": "vendor/bin/php-cs-fixer fix --dry-run --diff",
             "lint-fix": "vendor/bin/php-cs-fixer fix",
             "refactor": "vendor/bin/rector process",
         "post-update-cmd": [
