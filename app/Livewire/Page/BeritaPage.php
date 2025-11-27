@@ -39,7 +39,7 @@ class BeritaPage extends Component
         }
 
         $beritas = Berita::query()
-            ->when($this->searchQuery, function ($query) {
+            ->when($this->searchQuery, function ($query): void {
                 $query->where('title', 'like', '%'.$this->searchQuery.'%')
                     ->orWhere('excerpt', 'like', '%'.$this->searchQuery.'%')
                     ->orWhere('content', 'like', '%'.$this->searchQuery.'%');
