@@ -75,7 +75,8 @@
             <!-- Image -->
             <img 
                 class="rounded-2xl shadow-2xl object-cover w-64 sm:w-72 md:w-90 h-64 sm:h-72 md:h-90 ml-10" 
-                src="{{ asset('img/kepsek.png') }}" 
+                src="{{ asset('img/kepsek.png') }}"
+                loading="lazy" 
                 alt="Kepala Sekolah SMKN 4 Kuningan"
             >
         </div>

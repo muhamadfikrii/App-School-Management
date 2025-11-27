@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             GradeComponentSeeder::class,
             RoleSeeder::class,
             AchievementSeeder::class,
+            BeritaSeeder::class,
             // GradeSeeder::class,
         ]);
     }
