@@ -1,141 +1,271 @@
 <div class="overflow-x-hidden" loading="lazy">
-    <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
-
-        <div class="absolute inset-0 pointer-events-none">
-          <div class="absolute top-10 left-10 w-32 h-32 md:w-56 md:h-56 bg-orange-300/30 rounded-full blur-3xl animate-pulse"></div>
-          <div class="absolute bottom-16 right-16 w-60 h-60 md:w-96 md:h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
-          <div class="absolute top-1/3 right-1/4 w-40 h-40 md:w-64 md:h-64 bg-gradient-to-tr from-blue-300/20 to-cyan-200/10 rounded-full blur-2xl rotate-[25deg]"></div>
+<section 
+    class="relative min-h-screen flex items-center overflow-hidden" 
+    x-data="heroSection()"
+    x-init="init()"
+>
+    <!-- Background yang Lebih Modern & Elegan -->
+    <div class="absolute inset-0 z-0">
+        <!-- Background utama: Slate Gelap -->
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
+        
+        <!-- Overlay Pattern untuk Tekstur Teknologi -->
+        <div class="absolute inset-0 opacity-[0.03]"
+             style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
         </div>
 
-        <!-- Konten Utama -->
-        <div class="relative z-10 container mx-auto px-5 sm:px-8 lg:px-16 py-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
-          <div class="relative flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"  
-              data-aos="fade-right"
-              data-aos-duration="2000">
-            <svg class="absolute -top-12 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 w-[80%] sm:w-[70%] md:w-[65%] max-w-[500px] opacity-20 -z-10"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <defs>
-                <linearGradient id="ringGrad" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#1e3a8a" />
-                  <stop offset="50%" stop-color="#2563eb" />
-                  <stop offset="100%" stop-color="#f97316" />
-                </linearGradient>
-              </defs>
-              <g class="spin-slow">
-                <ellipse
-                  cx="100"
-                  cy="100"
-                  rx="70"
-                  ry="28"
-                  fill="none"
-                  stroke="url(#ringGrad)"
-                  stroke-width="18"
-                  stroke-linecap="round"
-                  transform="rotate(-25 100 100)"
-                  class="drop-shadow-[0_0_14px_rgba(37,99,235,0.6)]"/>
-              </g>
-              <circle cx="100" cy="100" r="38" fill="#2563eb" opacity="0.9" />
-              <ellipse cx="84" cy="84" rx="9" ry="5" fill="rgba(255,255,255,0.25)" />
-            </svg>
+        <!-- Gradient Orb Animasi untuk Dinamika -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
 
-              <h1 class="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight text-zinc-900">
-                Selamat Datang Di
-                <span class="text-blue-800 block sm:inline md:block">
-                  SMKN <span class="bg-blue-800 text-white px-2 rounded-lg">4</span>
-                  KUNINGAN
-                </span>
-              </h1>
+    <!-- Content Container -->
+    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Kolom Kiri: Konten Utama -->
+            <div class="text-white space-y-8" x-data="{ isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 300)">
+                
+                <!-- Badge/Tagline -->
+                <div 
+                    class="inline-flex items-center space-x-2 bg-slate-800/50 backdrop-blur-sm border border-slate-700 text-cyan-400 text-sm font-semibold px-4 py-2 rounded-full"
+                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
+                    x-transition:enter="transition ease-out duration-700"
+                >
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Sekolah Berbasis Teknologi & Industri</span>
+                </div>
 
-              <div class="inline-block bg-blue-100 text-blue-800 font-medium text-sm px-4 py-1 rounded-full shadow-sm">
-                Sekolah Vokasi Terdepan
-              </div>
+                <!-- Headline Utama -->
+                <div class="space-y-2">
+                    <h1 
+                        class="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight"
+                        :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
+                        x-transition:enter="transition ease-out duration-700 delay-100"
+                    >
+                        Cetak Tenaga
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 block">
+                            Profesional Handal
+                        </span>
+                    </h1>
+                </div>
 
-              <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-900 leading-tight">
-                Masa Depan <span class="text-blue-700">Terbaik</span><br />
-                Dimulai dengan <span class="text-orange-500">Pendidikan</span>
-              </h2>
-
-              <p class="text-base sm:text-lg md:text-xl text-zinc-600 font-[Poppins] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                SMKN 4 Kuningan membentuk generasi kreatif & siap industri lewat
-                kurikulum modern serta fasilitas mutakhir.
-              </p>
-
-              <div class="flex justify-center lg:justify-start pt-4">
-                <a href="#jurusan"
-                  class="px-8 py-3 rounded-xl font-semibold text-white bg-blue-700 shadow-lg transition transform hover:-translate-y-1 hover:bg-transparent hover:text-blue-600 border border-blue-700">
-                  Jelajahi Jurusan
-                </a>
-              </div>
-          </div>
-
-          <div class="flex justify-center lg:justify-end mt-10 lg:mt-0"
-                data-aos="fade-left"
-                data-aos-duration="2000">
-              <div class="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[520px]">
-                <img
-                  src="https://images.pexels.com/photos/6684533/pexels-photo-6684533.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Ilustrasi Sekolah / Siswa"
-                  class="rounded-[2rem] shadow-2xl w-full h-auto object-cover"/>
-                  <div class="absolute -bottom-8 left-4 sm:-bottom-10 sm:-left-8 bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/30 w-[180px] sm:w-[220px]">
-                      <h3 class="font-semibold text-blue-800 text-sm sm:text-base">
-                        Fasilitas Lengkap
-                      </h3>
-                      <p class="text-xs sm:text-sm text-zinc-600 leading-snug">
-                        Lab teknologi, ruang kreatif, dan workshop modern.
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </section>
-
-    <section id="contact" 
-        class="relative z-10 mx-4 sm:mx-8 lg:mx-20 -mt-6 rounded-3xl overflow-hidden 
-              bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 text-white shadow-2xl">
-
-        <!-- Efek Blur -->
-        <div class="absolute inset-0 bg-white/10 backdrop-blur-md"></div>
-
-        <div class="relative flex flex-col md:flex-row items-center justify-between 
-                text-center md:text-left px-6 sm:px-10 md:px-12 py-8 md:py-10 gap-6 md:gap-10">
-            <div class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 md:gap-6">
-              <img
-                src="{{ asset('img/logo.png') }}"
-                alt="Logo SMKN 4 Kuningan"
-                class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl shadow-md bg-white/30 p-2 backdrop-blur-md"/>
-              <div>
-                <h2 class="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
-                  Hubungi Kami Untuk Info Lebih Lanjut
-                </h2>
-                <p class="text-xs sm:text-sm text-blue-100">
-                  Kami siap membantu Anda mengenal SMKN 4 Kuningan lebih dekat.
+                <!-- Paragraf Deskriptif -->
+                <p class="text-lg text-slate-300 leading-relaxed"
+                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
+                    x-transition:enter="transition ease-out duration-700 delay-200"
+                >
+                    SMKN 4 Kuningan tidak hanya mengajar, kami membekali. Dengan kurikulum yang selalu relevan industri, fasilitas praktik berteknologi tinggi, dan pembimbingan dari para ahli, kami memastikan setiap lulusan siap menjadi aset berharga di dunia kerja.
                 </p>
-              </div>
+
+                <!-- Poin-Poin Unggulan -->
+                <div class="space-y-3"
+                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
+                    x-transition:enter="transition ease-out duration-700 delay-300"
+                >
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-check text-cyan-400 text-sm"></i>
+                        </div>
+                        <span class="text-slate-300">Kurikulum Berbasis Industri & Link and Match</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-check text-cyan-400 text-sm"></i>
+                        </div>
+                        <span class="text-slate-300">Guru Praktisi & Instruktur Bersertifikasi</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-check text-cyan-400 text-sm"></i>
+                        </div>
+                        <span class="text-slate-300">Fasilitas Praktik Standar Nasional & Internasional</span>
+                    </div>
+                </div>
+
+                <!-- Tombol Aksi -->
+                <div 
+                    class="flex flex-col sm:flex-row gap-4"
+                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
+                    x-transition:enter="transition ease-out duration-700 delay-400"
+                >
+                    <a href="{{ route('jurusan') }}" 
+                       class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 text-center flex items-center justify-center space-x-2">
+                        <i class="fas fa-rocket"></i>
+                        <span>Temukan Jurusan Anda</span>
+                    </a>
+                    <a href="{{ route('contact') }}" 
+                       class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 text-white hover:bg-slate-700/50 font-bold py-4 px-8 rounded-xl transition-all text-center flex items-center justify-center space-x-2">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Konsultasi Kami</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- Tombol -->
-            <a href="{{ route('contact') }}"
-              class="group flex items-center justify-center gap-2 bg-white text-blue-700 
-                    px-8 py-3 rounded-full font-semibold shadow-lg 
-                    transition-all duration-300 hover:bg-blue-100 hover:shadow-xl hover:-translate-y-1
-                    w-full sm:w-auto md:w-auto">
-              <span>Lihat Kontak</span>
-              <svg
+            <!-- Kolom Kanan: Visual/Highlight Card -->
+            <div class="relative" x-data="{ isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 500)">
+                
+                <!-- Main Highlight Card -->
+                <div class="relative z-10"
+                    :class="isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
+                    x-transition:enter="transition ease-out duration-700 delay-300"
+                >
+                    <div class="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-2xl p-8 shadow-2xl">
+                        
+                        <!-- Header Card -->
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-cyan-500/25">
+                                <i class="fas fa-medal text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Program Unggulan</h3>
+                            <p class="text-slate-400 mt-1">Jurusan Paling Diminati</p>
+                        </div>
+
+                        <!-- Program List -->
+                        <div class="space-y-4">
+                            <a href="urusan/pplg" class="flex items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600 hover:border-cyan-500/50 transition-all group">
+                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-500/20 transition-colors">
+                                    <i class="fas fa-network-wired text-cyan-400 text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-semibold text-white">pemrograman Perangkat Lunak & Gim</div>
+                                    <div class="text-slate-400 text-sm">Ahli dalam mengmbangkan software</div>
+                                </div>
+                                <i class="fas fa-arrow-right text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                            </a>
+                            
+                            <a href="jurusan/mplb" class="flex items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600 hover:border-cyan-500/50 transition-all group">
+                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-500/20 transition-colors">
+                                    <i class="fas fa-building text-cyan-400 text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-semibold text-white">Manajamen Perkantoran & Layanan Bisnis</div>
+                                    <div class="text-slate-400 text-sm">Mahir dalam menggunakan Microsoft Office</div>
+                                </div>
+                                <i class="fas fa-arrow-right text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                            </a>
+
+                            <a href="jurusan/tkro" class="flex items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600 hover:border-cyan-500/50 transition-all group">
+                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-500/20 transition-colors">
+                                    <i class="fas fa-cogs text-cyan-400 text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-semibold text-white">Teknik Otomotif</div>
+                                    <div class="text-slate-400 text-sm">Spesialis dalam sebuah mesin kendaraan</div>
+                                </div>
+                                <i class="fas fa-arrow-right text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                            </a>
+                        </div>
+
+                        <!-- CTA Bottom -->
+                        <div class="mt-8 text-center">
+                            <a href="{{ route('jurusan') }}" 
+                               class="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
+                                <span>Lihat Semua Jurusan</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistik Section (Dipindah ke Bawah) -->
+        <div class="grid grid-cols-3 gap-6 pt-16 border-t border-slate-800"
+            x-data="{ isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 700)"
+            :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'"
+            x-transition:enter="transition ease-out duration-700"
+        >
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-cyan-400">{{ $majors }}</div>
+                <div class="text-sm text-slate-400 mt-1">Program Keahlian</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-cyan-400">{{ $students }}+</div>
+                <div class="text-sm text-slate-400 mt-1">Siswa Aktif</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl md:text-4xl font-bold text-cyan-400">97%</div>
+                <div class="text-sm text-slate-400 mt-1">Tingkat Penyerapan Kerja</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div class="animate-bounce">
+            <div class="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function heroSection() {
+    return {
+        isVisible: false,
+        init() {
+            this.isVisible = true;
+        },
+    }
+}
+</script>
+
+<style>
+/* Smooth transitions for all elements */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+</style>
+
+<!-- Contact Section yang Dirapikan -->
+<section id="contact" 
+    class="relative z-10 mx-4 sm:mx-6 lg:mx-16 -mt-4 rounded-2xl overflow-hidden 
+          bg-gradient-to-r from-slate-800 to-slate-900 text-white shadow-lg">
+
+    <div class="flex flex-col md:flex-row items-center justify-between 
+            text-center md:text-left px-5 sm:px-8 md:px-10 py-6 md:py-8 gap-5 md:gap-8">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start md:items-center gap-4 md:gap-5">
+            <div class="relative">
+                <div class="absolute inset-0 bg-white/10 rounded-lg transform rotate-3"></div>
+                <img
+                    src="{{ asset('img/logo.png') }}"
+                    alt="Logo SMKN 4 Kuningan"
+                    class="relative w-12 h-12 sm:w-14 sm:h-14 rounded-lg shadow-sm bg-white/5 p-2"/>
+            </div>
+            <div>
+                <h2 class="text-lg sm:text-xl font-bold leading-tight">Tertarik Bergabung?</h2>
+                <p class="text-sm text-slate-300 mt-1">Hubungi kami untuk informasi lebih lanjut tentang pendaftaran.</p>
+            </div>
+        </div>
+
+        <a href="{{ route('contact') }}"
+            class="bg-white text-slate-800 px-5 py-2.5 rounded-lg font-semibold 
+                transition-all duration-300 hover:bg-slate-100 hover:shadow-sm
+                w-full sm:w-auto md:w-auto flex items-center justify-center gap-2 text-sm">
+            <span>Kontak Kami</span>
+            <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+                class="w-4 h-4 transition-transform group-hover:translate-x-0.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="2"
                 stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6" />
-              </svg>
-            </a>
-        </div>
-      </section>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+        </a>
+    </div>
+</section>
 
-
+<style>
+@keyframes pulse-slow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+</style>
 
     <!-- Livewire Components -->
     <livewire:partials.history/>

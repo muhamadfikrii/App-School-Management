@@ -6,8 +6,6 @@ use App\Models\Berita;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-use function view;
-
 class BeritaPage extends Component
 {
     use WithPagination;
@@ -21,7 +19,6 @@ class BeritaPage extends Component
     protected $queryString = [
         'searchQuery' => ['except' => ''],
     ];
-
     public function render()
     {
         if ($this->showDetail && $this->currentNews) {
@@ -33,6 +30,7 @@ class BeritaPage extends Component
                 $query->where('title', 'like', '%' . $this->searchQuery . '%')
                     ->orWhere('excerpt', 'like', '%' . $this->searchQuery . '%')
                     ->orWhere('content', 'like', '%' . $this->searchQuery . '%');
+
             })
             ->orderBy('created_at', 'desc')
             ->paginate(6);

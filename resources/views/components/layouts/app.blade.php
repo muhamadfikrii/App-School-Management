@@ -11,6 +11,7 @@
     {{-- AOS --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <title>{{ ucfirst(Route::currentRouteName()) }} | SMKN4 KNG</title>
 
