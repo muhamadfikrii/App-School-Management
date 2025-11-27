@@ -6,6 +6,9 @@ use App\Enums\Status;
 use App\Filament\Resources\Students\StudentsResource;
 use App\Models\ClassRombel;
 use App\Models\Student;
+
+use function auth;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
@@ -68,7 +71,7 @@ class StudentsTable
                     ->searchable()
                     ->options(Student::pluck('full_name', 'id'))
                     ->query(function (Builder $query, array $data): void {
-                        if (! empty($data['values'])) {
+                        if (!empty($data['values'])) {
                             $query->whereIn('id', $data['values']);
                         }
                     }),
@@ -78,7 +81,7 @@ class StudentsTable
                     ->searchable()
                     ->options(Student::pluck('nisn', 'id'))
                     ->query(function (Builder $query, array $data): void {
-                        if (! empty($data['values'])) {
+                        if (!empty($data['values'])) {
                             $query->whereIn('id', $data['values']);
                         }
                     }),
@@ -88,7 +91,7 @@ class StudentsTable
                     ->searchable()
                     ->options(ClassRombel::pluck('name', 'id')->toArray())
                     ->query(function (Builder $query, array $data): void {
-                        if (! empty($data['values'])) {
+                        if (!empty($data['values'])) {
                             $query->whereIn('class_rombel_id', $data['values']);
                         }
                     }),
@@ -128,7 +131,8 @@ class StudentsTable
 
                 GroupingGroup::make('status')
                     ->label('Status')
-                    ->getTitleFromRecordUsing(fn (Student $record) => $record->status
+                    ->getTitleFromRecordUsing(
+                        fn (Student $record) => $record->status
                         ? Status::from($record->status)->label()
                         : '-'
                     )

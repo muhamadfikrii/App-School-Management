@@ -64,6 +64,5 @@ class TeacherForm
                             ->imageEditor(),
                     ]),
             ]);
-
     }
 }

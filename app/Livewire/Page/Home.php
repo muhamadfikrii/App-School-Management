@@ -5,6 +5,8 @@ namespace App\Livewire\Page;
 use App\Models\Achievement;
 use Livewire\Component;
 
+use function view;
+
 class Home extends Component
 {
     public $achievements;

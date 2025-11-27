@@ -10,7 +10,7 @@ class AcademicInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

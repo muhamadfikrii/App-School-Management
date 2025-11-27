@@ -6,6 +6,8 @@ use App\Models\FinalGrade;
 use Spatie\Browsershot\Browsershot;
 use Spatie\LaravelPdf\Facades\Pdf;
 
+use function storage_path;
+
 class ExportFinalGradeController extends Controller
 {
     public function __invoke(FinalGrade $finalGrade)

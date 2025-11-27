@@ -2,7 +2,17 @@
 
 namespace App\Filament\Pages;
 
+use function __;
+use function app;
+use function array_key_exists;
+use function blank;
+use function cache;
+use function collect;
+
 use Exception;
+
+use function filament;
+
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Auth\MultiFactor\Contracts\MultiFactorAuthenticationProvider;
@@ -25,6 +35,9 @@ use Filament\Schemas\Schema;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Exceptions\Halt;
 use Filament\Support\Facades\FilamentView;
+
+use function filled;
+
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
@@ -33,7 +46,16 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Js;
 use Illuminate\Validation\Rules\Password;
+
+use function is_string;
+
 use League\Uri\Components\Query;
+
+use function method_exists;
+use function now;
+use function request;
+
+use Throwable;
 
 /**
  * @property-read Schema $editProfileInformationForm
@@ -44,12 +66,12 @@ class EditProfile extends Page
     use CanUseDatabaseTransactions;
 
     /**
-     * @var array<string, mixed> | null
+     * @var null|array<string, mixed>
      */
     public ?array $profileState = [];
 
     /**
-     * @var array<string, mixed> | null
+     * @var null|array<string, mixed>
      */
     public ?array $passwordData = [];
 
@@ -85,7 +107,7 @@ class EditProfile extends Page
 
     protected function callHook(string $hook): void
     {
-        if (! method_exists($this, $hook)) {
+        if (!method_exists($this, $hook)) {
             return;
         }
 
@@ -93,7 +115,8 @@ class EditProfile extends Page
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
+     *
      * @return array<string, mixed>
      */
     protected function mutateFormDataBeforeFill(array $data): array
@@ -101,11 +124,11 @@ class EditProfile extends Page
         return $data;
     }
 
-    public function getUser(): Authenticatable&Model
+    public function getUser(): Authenticatable & Model
     {
         $user = Filament::auth()->user();
 
-        if (! $user instanceof Model) {
+        if (!$user instanceof Model) {
             throw new Exception('The authenticated user object must be an Eloquent model to allow the account page to update it.');
         }
 
@@ -212,7 +235,7 @@ class EditProfile extends Page
     }
 
     /**
-     * @deprecated Use `getCancelFormAction()` instead.
+     * @deprecated use `getCancelFormAction()` instead
      */
     public function backAction(): Action
     {
@@ -222,8 +245,8 @@ class EditProfile extends Page
             ->label(__('filament-panels::auth/pages/edit-profile.actions.cancel.label'))
             ->alpineClickHandler(
                 FilamentView::hasSpaMode($url)
-                    ? 'document.referrer ? window.history.back() : Livewire.navigate('.Js::from($url).')'
-                    : 'document.referrer ? window.history.back() : (window.location.href = '.Js::from($url).')',
+                    ? 'document.referrer ? window.history.back() : Livewire.navigate(' . Js::from($url) . ')'
+                    : 'document.referrer ? window.history.back() : (window.location.href = ' . Js::from($url) . ')',
             )
             ->color('gray');
     }
@@ -255,14 +278,14 @@ class EditProfile extends Page
         return false;
     }
 
-    public function getFormActionsAlignment(): string|Alignment
+    public function getFormActionsAlignment(): string | Alignment
     {
         return Alignment::End;
     }
 
     public function getMultiFactorAuthenticationContentComponent(): ?Component
     {
-        if (! Filament::hasMultiFactorAuthentication()) {
+        if (!Filament::hasMultiFactorAuthentication()) {
             return null;
         }
 
@@ -281,7 +304,8 @@ class EditProfile extends Page
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
+     *
      * @return array<string, mixed>
      */
     protected function mutateFormDataBeforeSave(array $data): array
@@ -290,15 +314,15 @@ class EditProfile extends Page
     }
 
     /**
-     * @param  array<string, mixed>  $data
+     * @param array<string, mixed> $data
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
-        if (! empty($data['profile_photo_path'])) {
+        if (!empty($data['profile_photo_path'])) {
             $image = $data['profile_photo_path'];
 
             if ($image instanceof UploadedFile) {
-                if (! empty($record->profile_photo_path) && is_string($record->profile_photo_path)) {
+                if (!empty($record->profile_photo_path) && is_string($record->profile_photo_path)) {
                     Storage::disk('public')->delete($record->profile_photo_path);
                 }
 
@@ -307,7 +331,6 @@ class EditProfile extends Page
         }
 
         if (Filament::hasEmailChangeVerification() && array_key_exists('email', $data)) {
-
             $newEmail = $data['email'];
             if (is_string($newEmail) && ($newEmail !== '' && $newEmail !== '0')) {
                 $this->sendEmailChangeVerification($record, $newEmail);
@@ -327,7 +350,7 @@ class EditProfile extends Page
             return;
         }
 
-        $notification = app(VerifyEmailChange::class);
+        $notification      = app(VerifyEmailChange::class);
         $notification->url = Filament::getVerifyEmailChangeUrl($record, $newEmail);
 
         $verificationSignature = Query::new($notification->url)->get('signature');
@@ -335,9 +358,9 @@ class EditProfile extends Page
         if ($verificationSignature !== null) {
             cache()->put($verificationSignature, true, ttl: now()->addHour());
 
-            $record->notify(app(NoticeOfEmailChangeRequest::class, [/** @phpstan-ignore-line */
+            $record->notify(app(NoticeOfEmailChangeRequest::class, [/* @phpstan-ignore-line */
                 'blockVerificationUrl' => Filament::getBlockEmailChangeVerificationUrl($record, $newEmail, $verificationSignature),
-                'newEmail' => $newEmail,
+                'newEmail'             => $newEmail,
             ]));
         }
 
@@ -356,7 +379,7 @@ class EditProfile extends Page
 
             $this->callHook('beforeValidate');
 
-            $profileData = $this->editProfileInformationForm->getState();
+            $profileData  = $this->editProfileInformationForm->getState();
             $passwordData = $this->updatePasswordForm->getState();
 
             $this->callHook('afterValidate');
@@ -367,14 +390,14 @@ class EditProfile extends Page
 
             $this->handleRecordUpdate($this->getUser(), $profileData);
 
-            if (! empty($passwordData['password'])) {
+            if (!empty($passwordData['password'])) {
                 $this->getUser()->update([
                     'password' => $passwordData['password'],
                 ]);
 
                 if (request()->hasSession()) {
                     request()->session()->put([
-                        'password_hash_'.Filament::getAuthGuard() => $this->getUser()->getAuthPassword(),
+                        'password_hash_' . Filament::getAuthGuard() => $this->getUser()->getAuthPassword(),
                     ]);
                 }
             }
@@ -386,8 +409,9 @@ class EditProfile extends Page
                 : $this->commitDatabaseTransaction();
 
             return;
-        } catch (\Throwable $exception) {
+        } catch (Throwable $exception) {
             $this->rollBackDatabaseTransaction();
+
             throw $exception;
         }
 

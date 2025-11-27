@@ -10,7 +10,7 @@ class MajorInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

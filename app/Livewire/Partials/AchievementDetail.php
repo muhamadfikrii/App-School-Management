@@ -5,6 +5,8 @@ namespace App\Livewire\Partials;
 use App\Models\Achievement;
 use Livewire\Component;
 
+use function view;
+
 class AchievementDetail extends Component
 {
     public Achievement $achievement;

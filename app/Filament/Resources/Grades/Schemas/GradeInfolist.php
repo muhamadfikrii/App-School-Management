@@ -10,7 +10,7 @@ class GradeInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

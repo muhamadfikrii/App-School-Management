@@ -4,6 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\UserRole;
+
+use function asset;
+
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -14,10 +17,14 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use function urlencode;
+
 class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerifyEmail
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -50,9 +57,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
     protected function casts(): array
     {
         return [
-            'role_name' => UserRole::class,
+            'role_name'         => UserRole::class,
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
     }
 
@@ -72,8 +79,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
     public function getFilamentAvatarUrl(): string
     {
         return $this->profile_photo_path
-            ? asset('storage/'.$this->profile_photo_path)
-            : 'https://ui-avatars.com/api/?name='.urlencode($this->name);
+            ? asset('storage/' . $this->profile_photo_path)
+            : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
     }
 
     public function canAccessPanel(Panel $panel): bool

@@ -24,7 +24,7 @@ class MajorsTable
                     ->label('Diubah'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 DeleteAction::make(),

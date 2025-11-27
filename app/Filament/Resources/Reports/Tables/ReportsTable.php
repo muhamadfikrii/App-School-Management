@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Reports\Tables;
 
+use function auth;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -48,7 +50,7 @@ class ReportsTable
             })
             ->defaultGroup('classRombel.name')
             ->filters([
-                //
+
             ])
             ->recordActions([
                 // ViewAction::make(),

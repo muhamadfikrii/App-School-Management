@@ -10,7 +10,7 @@ class GroupSubjectInfolist
     {
         return $schema
             ->components([
-                //
+
             ]);
     }
 }

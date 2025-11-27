@@ -50,13 +50,13 @@ class ActiveStudentsChart extends ChartWidget
         ];
 
         return [
-            'labels' => $labels,
+            'labels'   => $labels,
             'datasets' => [
                 [
-                    'label' => 'Siswa Aktif',
-                    'data' => $data,
-                    'fill' => false,
-                    'borderColor' => 'rgba(54, 162, 235, 1)',
+                    'label'           => 'Siswa Aktif',
+                    'data'            => $data,
+                    'fill'            => false,
+                    'borderColor'     => 'rgba(54, 162, 235, 1)',
                     'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
 
                     'tension' => 0.3,

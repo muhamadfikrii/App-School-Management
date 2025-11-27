@@ -8,6 +8,8 @@ use App\Models\Student;
 use App\Models\Teacher;
 use Livewire\Component;
 
+use function view;
+
 class Statistics extends Component
 {
     public $students;
@@ -20,9 +22,9 @@ class Statistics extends Component
 
     public function mount()
     {
-        $this->students = Student::count();
-        $this->teachers = Teacher::count();
-        $this->majors = Major::count();
+        $this->students     = Student::count();
+        $this->teachers     = Teacher::count();
+        $this->majors       = Major::count();
         $this->achievements = Achievement::count();
     }
 

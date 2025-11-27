@@ -19,7 +19,7 @@ class InvitationObserver
      */
     public function updated(Invitation $invitation): void
     {
-        //
+
     }
 
     /**
@@ -27,7 +27,7 @@ class InvitationObserver
      */
     public function deleted(Invitation $invitation): void
     {
-        //
+
     }
 
     /**
@@ -35,7 +35,7 @@ class InvitationObserver
      */
     public function restored(Invitation $invitation): void
     {
-        //
+
     }
 
     /**
@@ -43,6 +43,6 @@ class InvitationObserver
      */
     public function forceDeleted(Invitation $invitation): void
     {
-        //
+
     }
 }

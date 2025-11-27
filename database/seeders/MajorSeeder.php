@@ -18,6 +18,5 @@ class MajorSeeder extends Seeder
         Major::factory()->create(['name' => 'Teknik Kendaraan Ringan Otomotif']);
         Major::factory()->create(['name' => 'Teknik Bisnis Sepeda Motor']);
         Major::factory()->create(['name' => 'Teknik Ketengaan Listrik']);
-
     }
 }

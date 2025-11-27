@@ -20,10 +20,10 @@ class AcademicYearFactory extends Factory
     public function definition(): array
     {
         $startYear = $this->faker->numberBetween(2020, 2030);
-        $endYear = $startYear + 1;
+        $endYear   = $startYear + 1;
 
         return [
-            'name' => $startYear.'/'.$endYear,
+            'name' => $startYear . '/' . $endYear,
         ];
     }
 }

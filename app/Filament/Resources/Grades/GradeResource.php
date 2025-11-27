@@ -23,7 +23,7 @@ class GradeResource extends Resource
 {
     protected static ?string $model = Grade::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::TableCells;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::TableCells;
 
     protected static ?string $recordTitleAttribute = 'id';
 
@@ -45,7 +45,7 @@ class GradeResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -64,7 +64,7 @@ class GradeResource extends Resource
         return 'Nilai';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->student->full_name;
     }
@@ -91,7 +91,7 @@ class GradeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGrades::route('/'),
+            'index'  => ListGrades::route('/'),
             'create' => CreateGrade::route('/create/{student?}'),
             // 'view' => ViewGrade::route('/{record}'),
             'edit' => EditGrade::route('/{record}/edit'),

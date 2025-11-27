@@ -27,7 +27,7 @@ class GradeComponentsTable
                     ->label('Diubah'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 ViewAction::make(),

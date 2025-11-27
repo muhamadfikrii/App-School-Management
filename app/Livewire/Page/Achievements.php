@@ -6,6 +6,8 @@ use App\Models\Achievement;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use function view;
+
 class Achievements extends Component
 {
     use WithPagination;

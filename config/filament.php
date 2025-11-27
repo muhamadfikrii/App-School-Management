@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'default_filesystem_disk' => env('FILESYSTEM_DISK', 'local'),
+    'default_filesystem_disk' => \env('FILESYSTEM_DISK', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'cache_path' => base_path('bootstrap/cache/filament'),
+    'cache_path' => \base_path('bootstrap/cache/filament'),
 
     /*
     |--------------------------------------------------------------------------

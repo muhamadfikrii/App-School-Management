@@ -18,17 +18,20 @@ use Filament\Tables\Table;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+
+use function request;
+
 use UnitEnum;
 
 class ScheduleResource extends Resource
 {
     protected static ?string $model = Schedule::class;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
+    protected static string | UnitEnum | null $navigationGroup = 'Kurikulum';
 
     protected static ?int $navigationSort = 3;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentDuplicate;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::DocumentDuplicate;
 
     protected static ?string $recordTitleAttribute = 'id';
 
@@ -50,7 +53,7 @@ class ScheduleResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -69,7 +72,7 @@ class ScheduleResource extends Resource
         return 'Jadwal Pelajaran';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->classRombel->name ?? 'Kelas Tidak ada';
     }
@@ -97,9 +100,9 @@ class ScheduleResource extends Resource
             ->join(', ');
 
         return [
-            'Hari' => $record->day,
+            'Hari'           => $record->day,
             'Mata Pelajaran' => $mapels ?: 'Mapel belum ditambahkan',
-            'Guru' => $gurus ?: 'Belum ada guru',
+            'Guru'           => $gurus ?: 'Belum ada guru',
         ];
     }
 
@@ -125,9 +128,9 @@ class ScheduleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListSchedule::route('/'),
+            'index'  => ListSchedule::route('/'),
             'create' => CreateSchedule::route('/create'),
-            'view' => ViewSchedule::route('/{record}'),
+            'view'   => ViewSchedule::route('/{record}'),
             // 'edit' => EditSchedule::route('/{record}/edit'),
         ];
     }

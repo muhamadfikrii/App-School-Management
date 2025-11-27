@@ -27,7 +27,8 @@ class SchedulesTable
                         ->weight(FontWeight::Bold),
                     TextColumn::make('jadwal')
                         ->label('Jadwal')
-                        ->getStateUsing(fn ($record) => $record->scheduleSubjects->map->display->implode('<br>')
+                        ->getStateUsing(
+                            fn ($record) => $record->scheduleSubjects->map->display->implode('<br>')
                         )
                         ->html(),
                 ]),
@@ -44,7 +45,7 @@ class SchedulesTable
                     ->searchable()
                     ->options(ClassRombel::pluck('name', 'id')->toArray())
                     ->query(function (Builder $query, array $data): void {
-                        if (! empty($data['values'])) {
+                        if (!empty($data['values'])) {
                             $query->whereIn('class_rombel_id', $data['values']);
                         }
                     }),
@@ -53,7 +54,7 @@ class SchedulesTable
                     ->searchable()
                     ->options(fn () => Teacher::pluck('full_name', 'id')->toArray())
                     ->query(function (Builder $query, array $data): void {
-                        if (! empty($data['value'])) {
+                        if (!empty($data['value'])) {
                             $query->whereHas('scheduleSubjects', function ($q) use ($data): void {
                                 $q->where('teacher_id', $data['value']);
                             });
@@ -69,7 +70,7 @@ class SchedulesTable
                 EditAction::make(),
             ])
             ->headerActions([
-                //
+
             ])->modifyQueryUsing(function (Builder $query): void {
                 $query->with([
                     'classRombel',

@@ -11,6 +11,9 @@ use App\Filament\Resources\Students\Schemas\StudentsForm;
 use App\Filament\Resources\Students\Schemas\StudentsInfolist;
 use App\Filament\Resources\Students\Tables\StudentsTable;
 use App\Models\Student;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -25,9 +28,9 @@ class StudentsResource extends Resource
 {
     protected static ?string $model = Student::class;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUser;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedUser;
 
     protected static ?string $recordTitleAttribute = 'full_name';
 
@@ -89,7 +92,7 @@ class StudentsResource extends Resource
         return false;
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->full_name;
     }
@@ -102,8 +105,8 @@ class StudentsResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            'NISN' => $record->nisn,
-            'Kelas' => $record->classRombel?->name ?? 'Belum Punya Kelas',
+            'NISN'   => $record->nisn,
+            'Kelas'  => $record->classRombel?->name ?? 'Belum Punya Kelas',
             'Status' => $record->status,
         ];
     }
@@ -116,9 +119,9 @@ class StudentsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListStudents::route('/'),
+            'index'  => ListStudents::route('/'),
             'create' => CreateStudents::route('/create'),
-            'edit' => EditStudents::route('/{record}/edit'),
+            'edit'   => EditStudents::route('/{record}/edit'),
         ];
     }
 }
