@@ -1,0 +1,4 @@
+- [x] Buat BeritaFactory.php dengan data berita dari contoh yang diberikan
+- [x] Buat BeritaSeeder.php untuk seeding data berita
+- [x] Update DatabaseSeeder.php untuk memanggil BeritaSeeder
+- [x] Jalankan seeder untuk memverifikasi
