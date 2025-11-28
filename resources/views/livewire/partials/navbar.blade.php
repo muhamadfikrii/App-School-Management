@@ -24,50 +24,45 @@
 
     <!-- Main Navbar -->
     <nav>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-28 px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
 
                 <!-- Logo Section -->
                 <div class="flex items-center space-x-4">
-                    <!-- Logo Container -->
                     <a href="{{ route('home') }}" class="flex items-center space-x-3 group cursor-pointer">
-                        <div class="relative">
-                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-white/50">
-                                <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain"  alt="SMKN 4 Logo">
-                            </div>
-                            <div class="absolute -inset-2 bg-blue-100/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm"></div>
-                        </div>
                         <div class="flex flex-col">
-                            <span class="text-2xl font-black text-gray-900 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text">
-                                SMKN 4
+                            <span class="text-xl font-semibold text-gray-900 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text">
+                                SMKN 4 Kuningan
                             </span>
-                            <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Kuningan</span>
                         </div>
                     </a>
-
+                </div>
+                
+                <!-- Right Section -->
+                <div class="flex items-center space-x-4">
                     <!-- Desktop Menu -->
-                    <div class="hidden lg:flex items-center space-x-1 ml-8 font-semibold">
-                        <!-- ... Kode Desktop Menu Anda Tidak Berubah ... -->
-                        <x-nav-link href="{{ route('home') }}" class="px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-105">
-                            <i class="fas fa-home mr-2 text-sm opacity-70"></i>
+                    <div class="hidden lg:flex items-center space-x-10 ml-8 font-semibold px-5">
+                        <x-nav-link href="{{ route('home') }}">
                             Beranda
                         </x-nav-link>
                         
-                        <!-- Info Sekolah Dropdown -->
                         <div class="relative" x-data="{ open: false }">
                             <x-nav-link 
                                 href="#" 
-                                class="px-5 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-200 hover:scale-105"
+                                class="px-5 py-2.5 rounded-xl flex items-center space-x-2"
                                 @mouseenter="open = true"
                                 @mouseleave="open = false">
-                                <i class="fas fa-info-circle text-sm opacity-70"></i>
                                 <span>Info Sekolah</span>
-                                <svg class="w-3 h-3 transition-transform mt-0.5" :class="open ? 'rotate-180' : ''" 
-                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 transition-transform duration-200 mt-0.5" 
+                                    :class="open ? 'rotate-180' : ''" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                                 </svg>
                             </x-nav-link>
 
+                            <!-- Dropdown Menu -->
                             <div x-show="open" 
                                  x-transition:enter="transition ease-out duration-200"
                                  x-transition:enter-start="opacity-0 translate-y-2"
@@ -142,21 +137,16 @@
                                 </div>
                             </div>
                         </div>
-
-                        <x-nav-link href="{{ route('about') }}" class="px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-105">
-                            <i class="fas fa-school mr-2 text-sm opacity-70"></i>
+    
+                        <x-nav-link href="{{ route('about') }}">
                             Tentang Kami
                         </x-nav-link>
-
-                        <x-nav-link href="{{ route('contact') }}" class="px-5 py-2.5 rounded-xl transition-all duration-200 hover:scale-105">
-                            <i class="fas fa-envelope mr-2 text-sm opacity-70"></i>
+    
+                        <x-nav-link href="{{ route('contact') }}">
                             Kontak
                         </x-nav-link>
                     </div>
-                </div>
 
-                <!-- Right Section -->
-                <div class="flex items-center space-x-4">
                     <!-- Login Button Desktop -->
                     <a href="/admin"
                        class="hidden lg:flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl 
@@ -183,38 +173,39 @@
         </div>
     </nav>
 
+    <!-- Mobile Sidebar -->
     <template x-teleport="body">
         <div class="lg:hidden fixed inset-0 z-50" 
-            x-show="open"
-            x-cloak
-            style="display: none;"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0"
-            x-transition:enter-end="opacity-100"
-            x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="opacity-0">
+             x-show="open"
+             x-cloak
+             style="display: none;"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0">
             
             <!-- Backdrop -->
             <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" 
-                @click="open = false">
+                 @click="open = false">
             </div>
             
             <!-- Sidebar -->
             <div class="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white/98 backdrop-blur-md shadow-2xl transform"
-                x-show="open"
-                x-transition:enter="transform transition ease-out duration-300"
-                x-transition:enter-start="translate-x-full"
-                x-transition:enter-end="translate-x-0"
-                x-transition:leave="transform transition ease-in duration-200"
-                x-transition:leave-start="translate-x-0"
-                x-transition:leave-end="translate-x-full">
+                 x-show="open"
+                 x-transition:enter="transform transition ease-out duration-300"
+                 x-transition:enter-start="translate-x-full"
+                 x-transition:enter-end="translate-x-0"
+                 x-transition:leave="transform transition ease-in duration-200"
+                 x-transition:leave-start="translate-x-0"
+                 x-transition:leave-end="translate-x-full">
                 
                 <!-- Sidebar Header -->
                 <div class="flex items-center justify-between p-6 border-b border-gray-200/50 bg-gradient-to-r from-white to-gray-50/80">
                     <div class="flex items-center space-x-3">
-                       <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-white/   50">
-                            <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain"  alt="SMKN 4 Logo">
+                       <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-white/50">
+                            <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="SMKN 4 Logo">
                         </div>
                         <div class="flex flex-col">
                             <div class="font-black text-gray-900 text-lg">SMKN 4</div>
@@ -288,8 +279,8 @@
                         <!-- Divider -->
                         <div class="border-t border-gray-300/50 pt-4 mt-4">
                             <a href="/admin" @click="open = false"
-                            class="flex items-center justify-center w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl 
-                                   hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold shadow-md hover:shadow-lg">
+                               class="flex items-center justify-center w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl 
+                                      hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold shadow-md hover:shadow-lg">
                                 <i class="fas fa-sign-in-alt mr-2"></i>
                                 <span>Login Admin</span>
                             </a>
