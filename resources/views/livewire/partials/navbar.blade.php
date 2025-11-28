@@ -24,7 +24,7 @@
 
     <!-- Main Navbar -->
     <nav>
-        <div class="mx-28 px-4 sm:px-6 lg:px-8">
+        <div class="mx-28 px-4 sm:px-6 lg:mx-40">
             <div class="flex items-center justify-between">
 
                 <!-- Logo Section -->

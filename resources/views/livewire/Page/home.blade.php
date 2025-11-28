@@ -1,225 +1,77 @@
 <div class="overflow-x-hidden" loading="lazy">
-<section 
-    class="relative min-h-screen flex items-center overflow-hidden" 
-    x-data="heroSection()"
-    x-init="init()"
->
-    <!-- Background yang Lebih Modern & Elegan -->
-    <div class="absolute inset-0 z-0">
-        <!-- Background utama: Slate Gelap -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
-        
-        <!-- Overlay Pattern untuk Tekstur Teknologi -->
-        <div class="absolute inset-0 opacity-[0.03]"
-             style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
-        </div>
 
-        <!-- Gradient Orb Animasi untuk Dinamika -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+<!-- Hero Section -->
+<section class="relative overflow-hidden py-20 md:pt-32">
+    <!-- Background Abstract Shape -->
+    <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/2 transform">
+        <div class="aspect-square w-96 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 opacity-10 blur-3xl"></div>
     </div>
 
-    <!-- Content Container -->
-    <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
-            <!-- Kolom Kiri: Konten Utama -->
-            <div class="text-white space-y-8" x-data="{ isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 300)">
-                
-                <!-- Badge/Tagline -->
-                <div 
-                    class="inline-flex items-center space-x-2 bg-slate-800/50 backdrop-blur-sm border border-slate-700 text-cyan-400 text-sm font-semibold px-4 py-2 rounded-full"
-                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
-                    x-transition:enter="transition ease-out duration-700"
-                >
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Sekolah Berbasis Teknologi & Industri</span>
-                </div>
-
-                <!-- Headline Utama -->
-                <div class="space-y-2">
-                    <h1 
-                        class="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight"
-                        :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
-                        x-transition:enter="transition ease-out duration-700 delay-100"
-                    >
-                        Cetak Tenaga
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 block">
-                            Profesional Handal
-                        </span>
-                    </h1>
-                </div>
-
-                <!-- Paragraf Deskriptif -->
-                <p class="text-lg text-slate-300 leading-relaxed"
-                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
-                    x-transition:enter="transition ease-out duration-700 delay-200"
-                >
-                    SMKN 4 Kuningan tidak hanya mengajar, kami membekali. Dengan kurikulum yang selalu relevan industri, fasilitas praktik berteknologi tinggi, dan pembimbingan dari para ahli, kami memastikan setiap lulusan siap menjadi aset berharga di dunia kerja.
-                </p>
-
-                <!-- Poin-Poin Unggulan -->
-                <div class="space-y-3"
-                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
-                    x-transition:enter="transition ease-out duration-700 delay-300"
-                >
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-check text-cyan-400 text-sm"></i>
-                        </div>
-                        <span class="text-slate-300">Kurikulum Berbasis Industri & Link and Match</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-check text-cyan-400 text-sm"></i>
-                        </div>
-                        <span class="text-slate-300">Guru Praktisi & Instruktur Bersertifikasi</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-check text-cyan-400 text-sm"></i>
-                        </div>
-                        <span class="text-slate-300">Fasilitas Praktik Standar Nasional & Internasional</span>
-                    </div>
-                </div>
-
-                <!-- Tombol Aksi -->
-                <div 
-                    class="flex flex-col sm:flex-row gap-4"
-                    :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'"
-                    x-transition:enter="transition ease-out duration-700 delay-400"
-                >
-                    <a href="{{ route('jurusan') }}" 
-                       class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 text-center flex items-center justify-center space-x-2">
-                        <i class="fas fa-rocket"></i>
-                        <span>Temukan Jurusan Anda</span>
-                    </a>
-                    <a href="{{ route('contact') }}" 
-                       class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 text-white hover:bg-slate-700/50 font-bold py-4 px-8 rounded-xl transition-all text-center flex items-center justify-center space-x-2">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>Konsultasi Kami</span>
-                    </a>
-                </div>
+   <div class=" px-4 mb-16 mt-10 sm:px-6 lg:mx-40 relative font-[josefin-sans]">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            <!-- Left Column: Text Content -->
+            <div class="text-center lg:text-left">
+                <h1 class="text-4xl tracking-tight lg:leading-tight text-gray-900 sm:text-6xl">
+                    Selamat Datang di
+                    <span class="block text-blue-600 font-bold">SMKN 4 Kuningan</span>
+                </h1>
             </div>
 
-            <!-- Kolom Kanan: Visual/Highlight Card -->
-            <div class="relative" x-data="{ isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 500)">
-                
-                <!-- Main Highlight Card -->
-                <div class="relative z-10"
-                    :class="isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'"
-                    x-transition:enter="transition ease-out duration-700 delay-300"
-                >
-                    <div class="bg-slate-800/50 backdrop-blur-lg border border-slate-700 rounded-2xl p-8 shadow-2xl">
-                        
-                        <!-- Header Card -->
-                        <div class="text-center mb-8">
-                            <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-cyan-500/25">
-                                <i class="fas fa-medal text-white text-3xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white">Program Unggulan</h3>
-                            <p class="text-slate-400 mt-1">Jurusan Paling Diminati</p>
-                        </div>
-
-                        <!-- Program List -->
-                        <div class="space-y-4">
-                            <a href="urusan/pplg" class="flex items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600 hover:border-cyan-500/50 transition-all group">
-                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-500/20 transition-colors">
-                                    <i class="fas fa-network-wired text-cyan-400 text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="font-semibold text-white">pemrograman Perangkat Lunak & Gim</div>
-                                    <div class="text-slate-400 text-sm">Ahli dalam mengmbangkan software</div>
-                                </div>
-                                <i class="fas fa-arrow-right text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
-                            </a>
-                            
-                            <a href="jurusan/mplb" class="flex items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600 hover:border-cyan-500/50 transition-all group">
-                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-500/20 transition-colors">
-                                    <i class="fas fa-building text-cyan-400 text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="font-semibold text-white">Manajamen Perkantoran & Layanan Bisnis</div>
-                                    <div class="text-slate-400 text-sm">Mahir dalam menggunakan Microsoft Office</div>
-                                </div>
-                                <i class="fas fa-arrow-right text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
-                            </a>
-
-                            <a href="jurusan/tkro" class="flex items-center p-4 bg-slate-700/30 rounded-xl border border-slate-600 hover:border-cyan-500/50 transition-all group">
-                                <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mr-4 group-hover:bg-cyan-500/20 transition-colors">
-                                    <i class="fas fa-cogs text-cyan-400 text-lg"></i>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="font-semibold text-white">Teknik Otomotif</div>
-                                    <div class="text-slate-400 text-sm">Spesialis dalam sebuah mesin kendaraan</div>
-                                </div>
-                                <i class="fas fa-arrow-right text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
-                            </a>
-                        </div>
-
-                        <!-- CTA Bottom -->
-                        <div class="mt-8 text-center">
-                            <a href="{{ route('jurusan') }}" 
-                               class="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
-                                <span>Lihat Semua Jurusan</span>
-                                <i class="fas fa-arrow-right text-xs"></i>
-                            </a>
-                        </div>
-                    </div>
+            <!-- Right Column: Visual Content -->
+            <div class="relative">
+                <div class="teks-sm w-lg font-[Poppins]">
+                    <h3 class="lg:leading-snug">
+                        Membentuk generasi unggul, kreatif, dan berkompeten di era digital.
+                        Bergabunglah dengan kami untuk memulai perjalanan menuju masa depan yang cerah.
+                    </h3>
                 </div>
+                <button class="bg-black text-white text-lg font-semibold font-serif rounded-sm mt-6 py-2 px-5">
+                    Jelajahi Sekarang
+                </button>
             </div>
         </div>
+        <div class="absolute right-0 flex gap-4 opacity-70">
 
-        <!-- Statistik Section (Dipindah ke Bawah) -->
-        <div class="grid grid-cols-3 gap-6 pt-16 border-t border-slate-800"
-            x-data="{ isLoaded: false }" x-init="setTimeout(() => isLoaded = true, 700)"
-            :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'"
-            x-transition:enter="transition ease-out duration-700"
-        >
-            <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-cyan-400">{{ $majors }}</div>
-                <div class="text-sm text-slate-400 mt-1">Program Keahlian</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-cyan-400">{{ $students }}+</div>
-                <div class="text-sm text-slate-400 mt-1">Siswa Aktif</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl md:text-4xl font-bold text-cyan-400">97%</div>
-                <div class="text-sm text-slate-400 mt-1">Tingkat Penyerapan Kerja</div>
-            </div>
+            <svg viewBox="0 0 20 20" class="w-8 h-8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>instagram [#167]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-340.000000, -7439.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792" id="instagram-[#167]"> </path> </g> </g> </g> </g></svg>
+            <!-- Facebook -->
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000">
+                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 
+                52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.36 44.38-121.36 
+                124.72v70.62H22.89V288h81.11v224h100.17V288z"/>
+            </svg>
+
+            <!-- YouTube -->
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000">
+                <path d="M549.65 124.08c-6.28-23.65-24.79-42.16-48.44-48.44C458.64 
+                64 288 64 288 64S117.36 64 74.79 75.64c-23.65 6.28-42.16 24.79-48.44 
+                48.44C15.64 166.36 15.64 256 15.64 256s0 89.64 10.71 131.92c6.28 
+                23.65 24.79 42.16 48.44 48.44C117.36 448 288 448 288 448s170.64 
+                0 213.21-11.64c23.65-6.28 42.16-24.79 48.44-48.44C560.36 345.64 
+                560.36 256 560.36 256s0-89.64-10.71-131.92zM232 336V176l142 80-142 80z"/>
+            </svg>
+
+            <!-- Twitter (X) -->
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
+                <path d="M459.4 151.7c.3 4.5.3 9 .3 13.6 0 138.7-105.6 298.7-298.7 
+                298.7-59.5 0-114.7-17.2-161.1-47 8.4.9 16.8 1.4 25.6 
+                1.4 49.1 0 94.2-16.8 130.3-45-46.1-.9-84.8-31.2-98.1-72.8 
+                6.5.9 13 .9 19.8.9 9.4 0 18.7-1.2 27.6-3.6-48.1-9.4-84.3-51.8-84.3-103v-1.4c14 
+                7.8 30 12.6 47.1 13.2-28.4-19-47.1-51-47.1-87.4 0-19.5 5.2-37.4 
+                14.3-53 51.8 63.7 129.3 105.6 216 110-1.7-7.8-2.6-15.9-2.6-24 
+                0-57.8 46.9-104.7 104.7-104.7 30.1 0 57.3 12.6 76.4 33 23.7-4.5 
+                46.1-13.2 66.1-25-7.8 24.6-24.6 45-46.1 57.8 21.1-2.6 
+                41.4-8.1 60.2-16.2-14.3 20.8-32.2 39.2-52.6 54z"/>
+            </svg>
         </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div class="animate-bounce">
-            <div class="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-pulse"></div>
-            </div>
-        </div>
+    <div class="w-full h-[600px] overflow-hidden ">
+        <!-- Ganti dengan gambar siswa atau sekolah yang relevan -->
+        <img src="{{ asset('img/hero.jpg') }}"
+             alt="Students collaborating"
+             class="w-full bg-center object-cover">
     </div>
 </section>
-
-<script>
-function heroSection() {
-    return {
-        isVisible: false,
-        init() {
-            this.isVisible = true;
-        },
-    }
-}
-</script>
-
-<style>
-/* Smooth transitions for all elements */
-.transition-all {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-}
-</style>
 
 <!-- Contact Section yang Dirapikan -->
 <section id="contact" 
