@@ -10,8 +10,13 @@
 
     <!-- Navbar Wrapper -->
     <nav>
+<<<<<<< Updated upstream
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 gap-y-3 md:gap-y-0 space-x-4">
+=======
+        <div class="mx-28 px-4 sm:px-6 lg:mx-40">
+            <div class="flex items-center justify-between">
+>>>>>>> Stashed changes
 
                 <!-- Logo -->
                 <div class="flex items-center space-x-2">
