@@ -10,6 +10,9 @@ use App\Filament\Resources\Invitations\Schemas\InvitationForm;
 use App\Filament\Resources\Invitations\Schemas\InvitationInfolist;
 use App\Filament\Resources\Invitations\Tables\InvitationsTable;
 use App\Models\Invitation;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -20,11 +23,11 @@ class InvitationResource extends Resource
 {
     protected static ?string $model = Invitation::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-plus';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-plus';
 
     protected static ?string $navigationLabel = 'Invitation';
 
-    protected static string|UnitEnum|null $navigationGroup = 'User Manajemen';
+    protected static string | UnitEnum | null $navigationGroup = 'User Manajemen';
 
     public static function canAccess(): bool
     {
@@ -49,7 +52,7 @@ class InvitationResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 

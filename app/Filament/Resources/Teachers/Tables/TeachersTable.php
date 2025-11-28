@@ -4,6 +4,9 @@ namespace App\Filament\Resources\Teachers\Tables;
 
 use App\Filament\Resources\Teachers\TeacherResource;
 use App\Models\Teacher;
+
+use function auth;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
@@ -56,9 +59,9 @@ class TeachersTable
             ])
             ->paginated([10, 25, 50, 'all'])
             ->recordUrl(fn (Teacher $record): string => match (true) {
-                $user->is_admin => TeacherResource::getUrl('view', ['record' => $record]),
+                $user->is_admin                                                           => TeacherResource::getUrl('view', ['record' => $record]),
                 $user->is_teacher && $user->teacher && $user->teacher->id === $record->id => TeacherResource::getUrl('edit', ['record' => $record]),
-                default => TeacherResource::getUrl('view', ['record' => $record]),
+                default                                                                   => TeacherResource::getUrl('view', ['record' => $record]),
             })
             ->toolbarActions([
                 BulkActionGroup::make([

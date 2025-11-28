@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Livewire\Partials;
+namespace App\Livewire\Page;
 
-use App\Models\Achievement as ModelsAchievement;
+use App\Models\Achievement;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Achievement extends Component
+use function view;
+
+class Achievements extends Component
 {
     use WithPagination;
+
+    public Achievement $achievement;
 
     protected $paginationTheme = 'tailwind';
 
@@ -16,11 +20,12 @@ class Achievement extends Component
 
     public function render()
     {
-        $achievements = ModelsAchievement::with('student')
+        $achievements = Achievement::with('student')
             ->latest()
             ->paginate($this->perPage);
+        // dd($achievements);
 
-        return view('livewire.partials.achievement', [
+        return view('livewire.Page.achievement', [
             'achievements' => $achievements,
         ]);
     }

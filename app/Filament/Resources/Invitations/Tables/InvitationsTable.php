@@ -32,7 +32,7 @@ class InvitationsTable
                     ->badge(),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 ActionGroup::make([
@@ -58,7 +58,7 @@ class InvitationsTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                        DeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

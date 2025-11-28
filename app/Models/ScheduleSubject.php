@@ -22,7 +22,7 @@ class ScheduleSubject extends Model
 
     protected $casts = [
         'time_start' => 'datetime:H:i',
-        'time_end' => 'datetime:H:i',
+        'time_end'   => 'datetime:H:i',
     ];
 
     public function schedule(): BelongsTo
@@ -47,17 +47,17 @@ class ScheduleSubject extends Model
 
     public function getTimeRangeAttribute(): string
     {
-        if (! $this->time_start || ! $this->time_end) {
+        if (!$this->time_start || !$this->time_end) {
             return '-';
         }
 
-        return $this->time_start->format('H:i').' - '.$this->time_end->format('H:i');
+        return $this->time_start->format('H:i') . ' - ' . $this->time_end->format('H:i');
     }
 
     public function getDisplayAttribute(): string
     {
-        return ($this->time_range ?? '-').' '.
-            ($this->subject?->name ?? '-').
-            ' ('.($this->teacher?->full_name ?? '-').')';
+        return ($this->time_range ?? '-') . ' ' .
+            ($this->subject?->name ?? '-') .
+            ' (' . ($this->teacher?->full_name ?? '-') . ')';
     }
 }

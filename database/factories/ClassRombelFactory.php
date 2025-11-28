@@ -14,18 +14,18 @@ class ClassRombelFactory extends Factory
 
     public function definition(): array
     {
-        $level = Level::inRandomOrder()->first() ?? Level::factory()->create();
-        $major = Major::inRandomOrder()->first() ?? Major::factory()->create();
+        $level   = Level::inRandomOrder()->first() ?? Level::factory()->create();
+        $major   = Major::inRandomOrder()->first() ?? Major::factory()->create();
         $teacher = Teacher::inRandomOrder()->first();
 
         $rombelNumber = $this->faker->numberBetween(1, 3);
 
         return [
-            'level_id' => $level->id,
-            'major_id' => $major->id,
+            'level_id'   => $level->id,
+            'major_id'   => $major->id,
             'teacher_id' => $teacher?->id,
-            'rombel' => $rombelNumber,
-            'name' => $level->name.' '.$major->name.' '.$rombelNumber,
+            'rombel'     => $rombelNumber,
+            'name'       => $level->name . ' ' . $major->name . ' ' . $rombelNumber,
         ];
     }
 }

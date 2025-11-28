@@ -24,7 +24,7 @@ class UsersTable
                     ->label('Role'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 ViewAction::make(),

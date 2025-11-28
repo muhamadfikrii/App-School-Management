@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <livewire:contact-section />
+    <livewire:partials.contact-section />
 
     <div class="bg-white shadow-lg rounded-xl p-6 mt-10">
         {{-- Tabs --}}

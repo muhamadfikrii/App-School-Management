@@ -6,6 +6,9 @@ use App\Models\Grade;
 use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 
+use function now;
+use function round;
+
 class StudentsChart extends ChartWidget
 {
     protected ?string $heading = 'Rata-rata Nilai Siswa';
@@ -24,14 +27,14 @@ class StudentsChart extends ChartWidget
     protected function getData(): array
     {
         $start = $this->startDate ? Carbon::parse($this->startDate) : now()->startOfYear();
-        $end = $this->endDate ? Carbon::parse($this->endDate) : now()->endOfYear();
+        $end   = $this->endDate ? Carbon::parse($this->endDate) : now()->endOfYear();
 
         $monthsRange = [];
-        $labels = [];
-        $current = $start->copy();
+        $labels      = [];
+        $current     = $start->copy();
         while ($current <= $end) {
             $monthsRange[] = $current->month;
-            $labels[] = $current->format('M');
+            $labels[]      = $current->format('M');
             $current->addMonth();
         }
 
@@ -47,15 +50,15 @@ class StudentsChart extends ChartWidget
         }
 
         return [
-            'labels' => $labels,
+            'labels'   => $labels,
             'datasets' => [
                 [
-                    'label' => 'Nilai',
-                    'data' => $data,
-                    'fill' => 'start',
+                    'label'           => 'Nilai',
+                    'data'            => $data,
+                    'fill'            => 'start',
                     'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
-                    'borderColor' => 'rgba(54, 162, 235, 1)',
-                    'tension' => 0.4,
+                    'borderColor'     => 'rgba(54, 162, 235, 1)',
+                    'tension'         => 0.4,
                 ],
             ],
         ];

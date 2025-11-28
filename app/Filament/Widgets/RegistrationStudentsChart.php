@@ -34,15 +34,15 @@ class RegistrationStudentsChart extends ChartWidget
         ];
 
         return [
-            'labels' => $labels,
+            'labels'   => $labels,
             'datasets' => [
                 [
-                    'label' => 'Pendaftar',
-                    'data' => $data,
-                    'fill' => false,
-                    'borderColor' => 'rgba(255, 159, 64, 1)',
+                    'label'           => 'Pendaftar',
+                    'data'            => $data,
+                    'fill'            => false,
+                    'borderColor'     => 'rgba(255, 159, 64, 1)',
                     'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
-                    'tension' => 0.3,
+                    'tension'         => 0.3,
                 ],
             ],
         ];

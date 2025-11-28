@@ -3,6 +3,9 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use App\Enums\UserRole;
+
+use function bcrypt;
+
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;

@@ -7,6 +7,8 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
+use function view;
+
 final class PdfLayout extends Component
 {
     /**

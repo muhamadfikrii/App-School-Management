@@ -7,12 +7,19 @@ use App\Enums\UserRole;
 use App\Models\Invitation;
 use App\Models\Teacher;
 use App\Models\User;
+
+use function array_merge;
+
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+
+use function redirect;
+use function session;
+use function view;
 
 class FromRegister extends Component
 {
@@ -63,42 +70,42 @@ class FromRegister extends Component
     public function submit()
     {
         $rules = [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email',
             'password' => ['required', 'confirmed', 'min:5'],
         ];
 
         if ($this->isTeacher) {
             $rules = array_merge($rules, [
-                'nip' => 'required|string|max:50',
-                'phone' => 'nullable|string|max:20',
-                'gender' => 'required|in:laki-laki,perempuan',
+                'nip'           => 'required|string|max:50',
+                'phone'         => 'nullable|string|max:20',
+                'gender'        => 'required|in:laki-laki,perempuan',
                 'date_of_birth' => 'required|date',
-                'status' => 'required|string|max:50',
-                'address' => 'nullable|string|max:500',
+                'status'        => 'required|string|max:50',
+                'address'       => 'nullable|string|max:500',
             ]);
         }
         $validated = $this->validate($rules);
 
         DB::transaction(function () use ($validated): void {
             $user = User::create([
-                'name' => $this->name,
-                'email' => $this->email,
-                'username' => $this->username,
-                'password' => Hash::make($validated['password']),
+                'name'      => $this->name,
+                'email'     => $this->email,
+                'username'  => $this->username,
+                'password'  => Hash::make($validated['password']),
                 'role_name' => $this->isTeacher ? UserRole::TEACHER->value : UserRole::ADMINISTRATOR->value,
             ]);
 
             if ($this->isTeacher) {
                 Teacher::create([
-                    'full_name' => $this->name,
-                    'nip' => $validated['nip'] ?? null,
-                    'phone' => $validated['phone'] ?? null,
-                    'gender' => $validated['gender'],
+                    'full_name'     => $this->name,
+                    'nip'           => $validated['nip']   ?? null,
+                    'phone'         => $validated['phone'] ?? null,
+                    'gender'        => $validated['gender'],
                     'date_of_birth' => isset($validated['date_of_birth']) ? Carbon::parse($validated['date_of_birth']) : null,
-                    'status' => $validated['status'],
-                    'address' => $validated['address'] ?? null,
-                    'user_id' => $user->id,
+                    'status'        => $validated['status'],
+                    'address'       => $validated['address'] ?? null,
+                    'user_id'       => $user->id,
                 ]);
             }
         });
@@ -112,11 +119,11 @@ class FromRegister extends Component
     private function generateUsername(string $name): string
     {
         $baseUsername = Str::slug($name, '.');
-        $username = $baseUsername;
-        $counter = 1;
+        $username     = $baseUsername;
+        $counter      = 1;
 
         while (User::where('username', $username)->exists()) {
-            $username = $baseUsername.$counter;
+            $username = $baseUsername . $counter;
             $counter++;
         }
 

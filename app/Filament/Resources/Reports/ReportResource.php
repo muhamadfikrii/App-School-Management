@@ -23,7 +23,7 @@ class ReportResource extends Resource
 {
     protected static ?string $model = FinalGrade::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'id';
 
@@ -45,7 +45,7 @@ class ReportResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -64,7 +64,7 @@ class ReportResource extends Resource
         return 'Nilai Akhir';
     }
 
-    public static function getGlobalSearchResultTitle(Model $record): string|Htmlable
+    public static function getGlobalSearchResultTitle(Model $record): string | Htmlable
     {
         return $record->student->full_name;
     }
@@ -85,10 +85,10 @@ class ReportResource extends Resource
             ->join(', ');
 
         return [
-            'Kelas' => $record->classRombel->name,
+            'Kelas'    => $record->classRombel->name,
             'Semester' => $record->semester,
-            'Mapel' => $mapels,
-            'Nilai' => $finalScores,
+            'Mapel'    => $mapels,
+            'Nilai'    => $finalScores,
         ];
     }
 
@@ -100,7 +100,7 @@ class ReportResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListReports::route('/'),
+            'index'  => ListReports::route('/'),
             'create' => CreateReport::route('/create/{student?}'),
             // 'view' => ViewReport::route('/{record}'),
             'edit' => EditReport::route('/{record}/edit'),

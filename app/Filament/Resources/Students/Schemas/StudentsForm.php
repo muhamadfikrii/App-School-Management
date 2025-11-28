@@ -4,6 +4,10 @@ namespace App\Filament\Resources\Students\Schemas;
 
 use App\Enums\Status;
 use App\Models\ClassRombel;
+
+use function auth;
+use function collect;
+
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -13,6 +17,8 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+
+use function range;
 
 class StudentsForm
 {

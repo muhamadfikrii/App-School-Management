@@ -14,7 +14,7 @@ class GradeComponentFactory extends Factory
         $names = ['Harian', 'UTS', 'UAS', 'Praktikum', 'Tugas'];
 
         return [
-            'name' => $this->faker->unique()->randomElement($names),
+            'name'   => $this->faker->unique()->randomElement($names),
             'weight' => $this->faker->randomFloat(2, 10, 50),
         ];
     }

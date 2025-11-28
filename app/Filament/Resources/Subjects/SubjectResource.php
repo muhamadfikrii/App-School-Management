@@ -10,6 +10,9 @@ use App\Filament\Resources\Subjects\Schemas\SubjectForm;
 use App\Filament\Resources\Subjects\Schemas\SubjectInfolist;
 use App\Filament\Resources\Subjects\Tables\SubjectsTable;
 use App\Models\Subject;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -21,11 +24,11 @@ class SubjectResource extends Resource
 {
     protected static ?string $model = Subject::class;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kurikulum';
+    protected static string | UnitEnum | null $navigationGroup = 'Kurikulum';
 
     protected static ?int $navigationSort = 1;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::ClipboardDocument;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::ClipboardDocument;
 
     // protected static ?string $recordTitleAttribute = 'yes';
 
@@ -52,7 +55,7 @@ class SubjectResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -74,10 +77,10 @@ class SubjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListSubjects::route('/'),
+            'index'  => ListSubjects::route('/'),
             'create' => CreateSubject::route('/create'),
-            'view' => ViewSubject::route('/{record}'),
-            'edit' => EditSubject::route('/{record}/edit'),
+            'view'   => ViewSubject::route('/{record}'),
+            'edit'   => EditSubject::route('/{record}/edit'),
         ];
     }
 }

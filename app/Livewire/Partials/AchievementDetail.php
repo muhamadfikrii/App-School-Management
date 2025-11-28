@@ -5,17 +5,23 @@ namespace App\Livewire\Partials;
 use App\Models\Achievement;
 use Livewire\Component;
 
+use function view;
+
 class AchievementDetail extends Component
 {
     public Achievement $achievement;
 
-    public function mount(Achievement $achievement)
+    public function mount($id)
     {
-        $this->achievement = $achievement;
+        $this->achievement = Achievement::with('student')->findOrFail($id);
     }
 
     public function render()
     {
-        return view('livewire.partials.achievement-detail');
+        $achievements = Achievement::all();
+
+        return view('livewire.partials.achievement-detail', [
+            'achievements' => $achievements,
+        ]);
     }
 }

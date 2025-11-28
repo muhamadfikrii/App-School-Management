@@ -63,7 +63,7 @@ class SchedulesForm
                                     ->searchable()
                                     ->options(function (callable $get) {
                                         $subjectId = $get('subject_id');
-                                        if (! $subjectId) {
+                                        if (!$subjectId) {
                                             return [];
                                         }
 

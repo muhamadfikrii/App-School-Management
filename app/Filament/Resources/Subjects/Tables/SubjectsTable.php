@@ -30,7 +30,7 @@ class SubjectsTable
                     ->searchable(),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 // ViewAction::make(),

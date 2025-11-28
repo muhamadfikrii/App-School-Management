@@ -6,6 +6,8 @@ use App\Filament\Resources\Reports\ReportResource;
 use App\Models\Student;
 use Filament\Resources\Pages\CreateRecord;
 
+use function request;
+
 class CreateReport extends CreateRecord
 {
     public ?Student $student = null;

@@ -21,7 +21,7 @@ class GroupSubjectTable
                     ->label('Deksripsi'),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 // ViewAction::make(),

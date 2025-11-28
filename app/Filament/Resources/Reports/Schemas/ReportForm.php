@@ -8,6 +8,14 @@ use App\Models\AcademicYear;
 use App\Models\ClassRombel;
 use App\Models\Student;
 use App\Models\Subject;
+
+use function array_column;
+use function array_filter;
+use function array_sum;
+use function auth;
+use function collect;
+use function count;
+
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -16,6 +24,8 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+
+use function round;
 
 class ReportForm
 {
@@ -129,9 +139,9 @@ class ReportForm
                             })
                             ->reactive()
                             ->afterStateUpdated(function ($state, Set $set, Get $get): void {
-                                $studentId = $get('../../student_id');
+                                $studentId      = $get('../../student_id');
                                 $academicYearId = $get('../../academic_year_id');
-                                $semester = $get('../../semester');
+                                $semester       = $get('../../semester');
 
                                 if ($state && $studentId && $academicYearId && $semester) {
                                     $subject = Subject::find($state);
@@ -148,7 +158,7 @@ class ReportForm
                                 }
                             })
                             ->disabled(function (Get $get) {
-                                return ! $get('../../student_id') || ! $get('../../academic_year_id') || ! $get('../../semester');
+                                return !$get('../../student_id') || !$get('../../academic_year_id') || !$get('../../semester');
                             })
                             ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
 
@@ -184,15 +194,15 @@ class ReportForm
                     ->dehydrated(false)
                     ->afterStateHydrated(function ($state, Set $set, Get $get): void {
                         $nilaiSiswa = $get('nilai-siswa') ?? [];
-                        $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
-                        $avg = $scores ? array_sum($scores) / count($scores) : null;
+                        $scores     = array_filter(array_column($nilaiSiswa, 'final_score'));
+                        $avg        = $scores ? array_sum($scores) / count($scores) : null;
                         $set('avrg', $avg ? round($avg, 2) : 0);
                     })
                     ->afterStateUpdated(function ($state, Set $set, Get $get): void {
                         // kalau mau update otomatis setiap kali repeater berubah
                         $nilaiSiswa = $get('nilai-siswa') ?? [];
-                        $scores = array_filter(array_column($nilaiSiswa, 'final_score'));
-                        $avg = $scores ? array_sum($scores) / count($scores) : null;
+                        $scores     = array_filter(array_column($nilaiSiswa, 'final_score'));
+                        $avg        = $scores ? array_sum($scores) / count($scores) : null;
                         $set('avrg', $avg ? round($avg, 2) : 0);
                     }),
             ]);
@@ -200,16 +210,16 @@ class ReportForm
 
     protected static function updateRepeaterScores(Get $get, Set $set)
     {
-        $studentId = $get('student_id');
+        $studentId      = $get('student_id');
         $academicYearId = $get('academic_year_id');
-        $semester = $get('semester');
-        $nilaiSiswa = $get('nilai-siswa') ?? [];
+        $semester       = $get('semester');
+        $nilaiSiswa     = $get('nilai-siswa') ?? [];
 
         foreach ($nilaiSiswa as $index => $item) {
             $subjectId = $item['subject_id'] ?? null;
             if ($subjectId && $studentId && $academicYearId && $semester) {
                 $subject = Subject::find($subjectId);
-                $result = $subject->calculate($studentId, $academicYearId, $semester);
+                $result  = $subject->calculate($studentId, $academicYearId, $semester);
                 $set("nilai-siswa.$index.final_score", round($result['final_score']));
                 $set("nilai-siswa.$index.predicate", $result['predicate']);
                 $set("nilai-siswa.$index.is_passed", $result['is_passed'] ? 'Lulus' : 'Remedial');

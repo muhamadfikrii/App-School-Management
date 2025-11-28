@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 
+use function now;
+
 #[ObservedBy([InvitationObserver::class])]
 class Invitation extends Model
 {
@@ -19,7 +21,7 @@ class Invitation extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'status' => InvitationStatus::class,
+        'status'     => InvitationStatus::class,
         'is_teacher' => 'boolean',
     ];
 

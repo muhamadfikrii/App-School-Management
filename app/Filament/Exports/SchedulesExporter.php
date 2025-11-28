@@ -10,6 +10,8 @@ use Illuminate\Support\Number;
 use OpenSpout\Common\Entity\Style\CellAlignment;
 use OpenSpout\Common\Entity\Style\Style;
 
+use function str;
+
 class SchedulesExporter extends Exporter
 {
     protected static ?string $model = Schedule::class;
@@ -30,17 +32,19 @@ class SchedulesExporter extends Exporter
 
             ExportColumn::make('subject')
                 ->label('Mata Pelajaran')
-                ->formatStateUsing(fn ($record) => $record->scheduleSubjects
-                    ->map(fn ($s) => $s->subject?->name)
-                    ->filter()
-                    ->join(', ') ?: '-'
+                ->formatStateUsing(
+                    fn ($record) => $record->scheduleSubjects
+                        ->map(fn ($s) => $s->subject?->name)
+                        ->filter()
+                        ->join(', ') ?: '-'
                 ),
             ExportColumn::make('teacher')
                 ->label('Guru')
-                ->formatStateUsing(fn ($record) => $record->scheduleSubjects
-                    ->map(fn ($s) => $s->teacher?->full_name)
-                    ->filter()
-                    ->join(', ') ?: '-'
+                ->formatStateUsing(
+                    fn ($record) => $record->scheduleSubjects
+                        ->map(fn ($s) => $s->teacher?->full_name)
+                        ->filter()
+                        ->join(', ') ?: '-'
                 ),
         ];
     }
@@ -48,13 +52,13 @@ class SchedulesExporter extends Exporter
     public static function getCompletedNotificationBody(Export $export): string
     {
         $body = 'Export jadwal anda telah selesai '
-            .Number::format($export->successful_rows).' '
-            .str('row')->plural($export->successful_rows)
-            .' Mulai Export.';
+            . Number::format($export->successful_rows) . ' '
+            . str('row')->plural($export->successful_rows)
+            . ' Mulai Export.';
         if ($failedRowsCount = $export->getFailedRowsCount()) {
-            $body .= ' '.Number::format($failedRowsCount).' '
-            .str('row')->plural($failedRowsCount)
-            .'Gagal untuk export.';
+            $body .= ' ' . Number::format($failedRowsCount) . ' '
+            . str('row')->plural($failedRowsCount)
+            . 'Gagal untuk export.';
         }
 
         return $body;
@@ -62,7 +66,7 @@ class SchedulesExporter extends Exporter
 
     public function getXlsxCellStyle(): ?Style
     {
-        return (new Style)
+        return (new Style())
             ->setFontSize(12)
             ->setFontBold()
             ->setCellAlignment(CellAlignment::CENTER)

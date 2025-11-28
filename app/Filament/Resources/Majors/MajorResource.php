@@ -10,6 +10,9 @@ use App\Filament\Resources\Majors\Schemas\MajorForm;
 use App\Filament\Resources\Majors\Schemas\MajorInfolist;
 use App\Filament\Resources\Majors\Tables\MajorsTable;
 use App\Models\Major;
+
+use function auth;
+
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -21,11 +24,11 @@ class MajorResource extends Resource
 {
     protected static ?string $model = Major::class;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Manajemen Siswa';
+    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Siswa';
 
     protected static ?int $navigationSort = 2;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Briefcase;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::Briefcase;
 
     public static function canAccess(): bool
     {
@@ -50,7 +53,7 @@ class MajorResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
@@ -72,7 +75,7 @@ class MajorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListMajors::route('/'),
+            'index'  => ListMajors::route('/'),
             'create' => CreateMajor::route('/create'),
             // 'view' => ViewMajor::route('/{record}'),
             'edit' => EditMajor::route('/{record}/edit'),

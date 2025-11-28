@@ -23,6 +23,7 @@
 
         <!-- Form Kanan -->
         <form wire:submit.prevent="submit" class="p-8 sm:p-12 md:p-14 bg-white">
+            @csrf
             <!-- Judul -->
             <div class="mb-10 text-center md:text-left">
                 <h2 class="text-3xl font-bold text-gray-800">Registrasi Akun</h2>

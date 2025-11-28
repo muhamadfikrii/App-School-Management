@@ -43,19 +43,42 @@
     </div>
 
     <!-- Kepala Sekolah -->
-    <section class="container mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 py-12 md:py-20 max-w-5xl px-4 sm:px-6 md:px-12">
-        <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="2000" data-aos-offset="200" data-aos-easing="ease-in-sine">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-3">Kepala Sekolah</h1>
-            <div class="w-24 sm:w-32 h-1 bg-blue-700 mb-3"></div>
-            <h2 class="text-lg sm:text-xl md:text-2xl font-[Poppins] font-semibold mb-4">Yayan Supyan, M.Pd.I</h2>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                Bapak Yayan Sopyan menjabat sebagai Kepala SMK Negeri 4 Kuningan sejak Februari 2023...
+    <section class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16 py-16 px-6 md:px-12">
+        <!-- Text Content -->
+        <div class="md:w-1/2 space-y-5" 
+            data-aos="fade-right" 
+            data-aos-duration="1200" 
+            data-aos-easing="ease-in-sine"
+        >
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+                Kepala Sekolah
+            </h1>
+            <div class="w-24 h-1 bg-blue-700 rounded-full"></div>
+            <h2 class="text-xl sm:text-2xl font-semibold font-[Poppins] text-gray-800">
+                Yayan Sopyan, M.Pd.I
+            </h2>
+            <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                Bapak <strong>Yayan Sopyan</strong> menjabat sebagai Kepala SMK Negeri 4 Kuningan sejak 
+                Februari 2023. Beliau dikenal sebagai sosok pemimpin yang inspiratif, inovatif, dan 
+                memiliki komitmen tinggi terhadap kemajuan pendidikan serta pembentukan karakter siswa.
             </p>
         </div>
 
-        <div class="md:w-1/2 relative flex justify-center items-center" data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="2000" data-aos-offset="200">
-            <div class="absolute bg-gray-300 w-64 sm:w-72 md:w-80 h-64 sm:h-72 md:h-80 mt-6 ml-6 rounded-full -z-10"></div>
-            <img class="max-w-full rounded-lg shadow-lg object-cover" src="{{ asset('img/kepsek.png') }}" alt="Kepala Sekolah">
+        <div 
+            class="relative md:w-1/2 flex justify-center items-center" 
+            data-aos="flip-right" 
+            data-aos-easing="ease-out-cubic" 
+            data-aos-duration="1500"
+        >
+            <div class="absolute bg-blue-100 w-64 sm:w-72 md:w-80 h-64 sm:h-72 md:h-80 rounded-full translate-x-6 translate-y-6 -z-10"></div>
+
+            <!-- Image -->
+            <img 
+                class="rounded-2xl shadow-2xl object-cover w-64 sm:w-72 md:w-90 h-64 sm:h-72 md:h-90 ml-10" 
+                src="{{ asset('img/kepsek.png') }}"
+                loading="lazy" 
+                alt="Kepala Sekolah SMKN 4 Kuningan"
+            >
         </div>
     </section>
 

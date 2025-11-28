@@ -11,6 +11,7 @@
     {{-- AOS --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <title>{{ ucfirst(Route::currentRouteName()) }} | SMKN4 KNG</title>
 
@@ -36,21 +37,37 @@
         <div class="space-y-4 text-center md:text-left">
             <h2 class="text-2xl sm:text-3xl font-bold">SMKN 4 Kuningan</h2>
             <p class="text-gray-100 text-sm sm:text-base">Jl. Contoh No. 123, Kuningan, Jawa Barat</p>
-            <p class="text-gray-100 text-sm sm:text-base">
-                Email: 
-                <a href="mailto:info@smkn4kuningan.sch.id" class="underline hover:text-blue-200">info@smkn4kuningan.sch.id</a> | 
-                Telp: (0232) 123456
-            </p>
+                <span class="text-gray-100 text-sm sm:text-base">Email:
+                    <a href="mailto:info@smkn4kuningan.sch.id" class="underline hover:text-blue-200">info@smkn4kuningan.sch.id</a> 
+                </span>
+                <span class="text-gray-100 text-sm sm:text-base block mt-3">Telp:
+                    <a href="wa.me/+62123456" class="underline hover:text-blue-200">(0232) 123456</a>
+                </span>
             <p class="text-xs sm:text-sm text-gray-200 mt-4">© 2025 SMKN 4 Kuningan. All rights reserved.</p>
         </div>
 
         <!-- Quick Links -->
         <div class="text-center md:text-left space-y-2 mt-6 md:mt-0">
-            <h3 class="text-xl font-semibold mb-2">Quick Links</h3>
+            <h3 class="text-2xl font-semibold mb-2">Quick Links</h3>
             <ul class="space-y-1">
-                <li><a href="{{ route('home') }}" class="hover:text-gray-200 transition-colors">Home</a></li>
-                <li><a href="{{ route('about') }}" class="hover:text-gray-200 transition-colors">Tentang SMKN4</a></li>
-                <li><a href="{{ route('contact') }}" class="hover:text-gray-200 transition-colors">Kontak Kami</a></li>
+                <li>
+                    <a href="{{ route('home') }}" class="hover:text-gray-200 text-lg hover:underline transition-colors">Home</a>
+                </li>
+                <li>
+                    <a href="{{ route('jurusan') }}" class="hover:text-gray-200 text-lg hover:underline transition-colors">Program Keahlian</a>
+                </li>
+                <li>
+                    <a href="{{ route('organisasi') }}" class="hover:text-gray-200 text-lg hover:underline transition-colors">Organisasi</a>
+                </li>
+                <li>
+                    <a href="{{ route('achievement') }}" class="hover:text-gray-200 text-lg hover:underline transition-colors">Prestasi</a>
+                </li>
+                <li>
+                    <a href="{{ route('about') }}" class="hover:text-gray-200 text-lg hover:underline transition-colors">Tentang SMKN4</a>
+                </li>
+                <li>
+                    <a href="{{ route('contact') }}" class="hover:text-gray-200 text-lg hover:underline transition-colors">Kontak Kami</a>
+                </li>
             </ul>
         </div>
 

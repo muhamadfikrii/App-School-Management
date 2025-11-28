@@ -1,8 +1,24 @@
-<a {{ $attributes }}
-   class="relative px-3 py-2 text-sm font-semibold transition-all duration-300
-          {{ request()->fullUrlIs(url($href))
-              ? 'text-blue-400 after:w-full'
-              : 'text-white hover:text-blue-400 after:w-0 hover:after:w-full' }}
-          after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:bg-blue-400 after:transition-all after:duration-300 after:left-1/2 after:-translate-x-1/2">
+<!-- resources/views/components/nav-link.blade.php -->
+@props(['href'])
+
+@php
+    $isActive = request()->routeIs(
+        $href == '/' ? 'home' : 
+        (str_starts_with($href, 'http') ? false : 
+        str_replace('/', '', $href))
+    );
+@endphp
+
+<a {{ $attributes->merge(['href' => $href]) }}
+   class="relative group font-[Poppins] 
+          {{ $isActive 
+              ? 'text-blue-600 bg-blue-50/80 shadow-sm after:w-full' 
+              : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50/80  after:w-0 group-hover:after:w-full' }}
+          transition-colors duration-200"
+   >
     {{ $slot }}
+
+    <!-- Garis bawah -->
+    <span class="absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-width duration-300 ease-out 
+                 {{ $isActive ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
 </a>

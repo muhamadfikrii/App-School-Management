@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Page;
 
 use Livewire\Component;
+
+use function view;
 
 class About extends Component
 {
     public function render()
     {
-        return view('livewire.about');
+        return view('livewire.Page.about');
     }
 }

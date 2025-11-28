@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Partials;
 
 use Livewire\Component;
+
+use function view;
 
 class ContactSection extends Component
 {
@@ -12,13 +14,12 @@ class ContactSection extends Component
 
     public function submit()
     {
-
         $this->successMessage = 'Terima kasih, pesan Anda telah terkirim!';
         $this->reset(['name', 'email', 'message']);
     }
 
     public function render()
     {
-        return view('livewire.contact-section');
+        return view('livewire.partials.contact-section');
     }
 }

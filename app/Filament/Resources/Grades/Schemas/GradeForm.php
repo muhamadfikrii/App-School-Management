@@ -10,6 +10,9 @@ use App\Models\GradeComponent;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
+
+use function auth;
+
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
@@ -51,7 +54,7 @@ class GradeForm
                                     ->label('Nama Siswa')
                                     ->options(function (callable $get) {
                                         $classId = $get('class_rombel_id');
-                                        if (! $classId) {
+                                        if (!$classId) {
                                             return [];
                                         }
 

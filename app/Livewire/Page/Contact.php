@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Page;
 
 use Livewire\Component;
+
+use function view;
 
 class Contact extends Component
 {
@@ -15,6 +17,6 @@ class Contact extends Component
 
     public function render()
     {
-        return view('livewire.contact');
+        return view('livewire.Page.contact');
     }
 }

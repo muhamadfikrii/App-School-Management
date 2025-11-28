@@ -3,6 +3,10 @@
 namespace App\Filament\Resources\Invitations\Schemas;
 
 use App\Models\Invitation;
+
+use function auth;
+
+use Closure;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -23,7 +27,7 @@ class InvitationForm
                         TextInput::make('email')
                             ->required()
                             ->rule(function ($record) {
-                                return function ($attribute, $value, \Closure $fail) use ($record): void {
+                                return function ($attribute, $value, Closure $fail) use ($record): void {
                                     $exists = Invitation::where('email', $value)
                                         ->when($record, fn ($query) => $query->where('id', '!=', $record->id))
                                         ->exists();
@@ -41,6 +45,5 @@ class InvitationForm
                             ->default(true),
                     ]),
             ]);
-
     }
 }

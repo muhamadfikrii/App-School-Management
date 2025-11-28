@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\ClassRombel\Tables;
 
+use function auth;
+
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -41,7 +43,7 @@ class ClassRombelTable
                 }
             })
             ->filters([
-                //
+
             ])
             ->recordActions([
                 ViewAction::make(),

@@ -28,7 +28,6 @@ class ClassRombelPolicy
      */
     public function update(User $user): bool
     {
-
         return $user->is_admin;
     }
 
