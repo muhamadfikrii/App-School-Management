@@ -20,7 +20,7 @@ class Home extends Component
     public function mount()
     {
         $this->students = Student::count();
-        $this->majors = Major::count();
+        $this->majors   = Major::count();
 
         $this->achievements = Achievement::latest()->take(3)->get();
     }

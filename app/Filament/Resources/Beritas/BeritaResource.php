@@ -20,7 +20,7 @@ class BeritaResource extends Resource
 {
     protected static ?string $model = Berita::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'id';
 
@@ -42,17 +42,17 @@ class BeritaResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ListBeritas::route('/'),
+            'index'  => ListBeritas::route('/'),
             'create' => CreateBerita::route('/create'),
-            'view' => ViewBerita::route('/{record}'),
-            'edit' => EditBerita::route('/{record}/edit'),
+            'view'   => ViewBerita::route('/{record}'),
+            'edit'   => EditBerita::route('/{record}/edit'),
         ];
     }
 }
