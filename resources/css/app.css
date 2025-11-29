@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -10,6 +9,9 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
     --font-display: 'poppins', ui-sans-serif, system-ui, sans-serif; 
+    --font-merriweather: "Merriweather", serif;
+    --font-cardo: 'Cardo", sans-serif';
+    
 }
 
 @keyframes gradient-x {
@@ -122,4 +124,46 @@
 @keyframes floating {
     0%, 100% { transform: translateY(0) rotate(0); }
     50% { transform: translateY(-15px) rotate(2deg); }
-}   
+}
+   
+.font-primary { font-family: 'Inter', sans-serif; }
+        
+.program-item {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.program-item:hover {
+    background-color: #fafafa;
+}
+
+.program-item:last-child {
+    border-bottom: none;
+}
+
+.program-image {
+    transition: all 0.5s ease;
+    filter: grayscale(20%);
+}
+
+.program-item:hover .program-image {
+    filter: grayscale(0%);
+    transform: translateY(-4px);
+}
+
+.read-more {
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.program-item:hover .read-more {
+    opacity: 1;
+}
+
+.program-icon {
+    transition: all 0.3s ease;
+}
+
+.program-item:hover .program-icon {
+    transform: scale(1.1);
+}
