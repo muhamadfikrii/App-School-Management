@@ -5,6 +5,8 @@ namespace App\Livewire\Partials;
 use App\Models\Berita;
 use Livewire\Component;
 
+use function view;
+
 class BeritaDetail extends Component
 {
     public $berita;

@@ -38,7 +38,7 @@ class BeritasTable
                     ->sortable(),
             ])
             ->filters([
-                //
+
             ])
             ->recordActions([
                 ViewAction::make(),

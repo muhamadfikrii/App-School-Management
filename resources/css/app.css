@@ -82,3 +82,44 @@
 .overflow-y-auto::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
+
+.font-heading { font-family: 'Space Grotesk', sans-serif; }
+.font-body { font-family: 'Inter', sans-serif; }
+
+.accent-line {
+    position: relative;
+}
+
+.accent-line::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+}
+
+.floating-card {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s ease;
+}
+
+.floating-card:hover {
+    transform: perspective(1000px) rotateY(0) rotateX(0);
+}
+
+.organic-shape {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+}
+
+.dot-pattern {
+    background-image: radial-gradient(#3b82f6 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+}   
