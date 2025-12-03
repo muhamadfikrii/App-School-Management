@@ -14,6 +14,10 @@ class Achievement extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'date' => 'date',
+    ];
+
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);

@@ -23,16 +23,12 @@ class AchievementFactory extends Factory
         $levels = ['Kabupaten', 'Provinsi', 'Nasional'];
 
         return [
-            'title'       => $this->faker->sentence(3),
-            'description' => $this->faker->paragraph(5),
-            'level'       => $this->faker->randomElement($levels),
-            'date'        => $this->faker->dateTimeBetween('2020-01-01', 'now'),
-            'student_id'  => Student::inRandomOrder()->first()->id,
-            'photo'       => collect([
-                'img/ProgramDetail/pplgDetail.jpeg',
-                'img/ProgramDetail/tkroDetail.jpg',
-                'img/ProgramDetail/mplbDetail.jpg',
-            ])->random(),
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
+            'level' => 'Kabupaten',
+            'date' => $this->faker->date(),
+            'student_id' => null,
+            'photo' => null,
         ];
     }
 }

@@ -34,32 +34,32 @@
             <!-- News Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" wire:loading.remove>
                 @foreach ($beritas as $news)
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden news-card fade-in cursor-pointer" 
-                         wire:click="showDetail({{ $news->id }})">
+                    <a href="{{ route('berita.detail', ['slug' => $news->id]) }}" class="block bg-white rounded-xl shadow-md overflow-hidden news-card fade-in cursor-pointer hover:shadow-lg transition-shadow">
                         <div class="h-48 bg-gray-200 relative">
-                            <img 
-                                src="{{ $news->image_url 
+                            <img
+                                src="{{ $news->image_url
                                     ? (filter_var($news->image_url, FILTER_VALIDATE_URL) ? $news->image_url : asset('storage/' . $news->image_url))
                                     : 'https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1172&q=80' }}"
-                                alt="{{ $news->title }}" 
+                                alt="{{ $news->title }}"
                                 class="w-full h-full object-cover"
                                 onerror="this.src='https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1172&q=80'">
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                                 <span class="text-white text-sm">{{ $news->created_at->format('d F Y') }}</span>
                             </div>
                         </div>
-                        
+
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $news->title }}</h3>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-blue-600 transition-colors">{{ $news->title }}</h3>
                             <p class="text-gray-600 mb-4">{{ $news->excerpt ?: 'Tidak ada ringkasan tersedia.' }}</p>
-                            
+
                             <div class="flex justify-between items-center">
-                                <a href="{{ route('berita.detail', ['slug' => $news->id]) }}" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2">
+                                <span class="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2">
                                     Baca Selengkapnya
-                                </a>
+                                    <i class="fas fa-arrow-right text-sm"></i>
+                                </span>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
                 
                 <!-- Empty State -->
