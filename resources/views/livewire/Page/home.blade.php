@@ -5,8 +5,8 @@
             <div class="aspect-square w-96 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 opacity-10 blur-3xl"></div>
         </div>
 
-        <div class="px-4 mb-16 mt-10 sm:px-6 lg:px-8 lg:mx-40 relative font-[josefin-sans]" data-aos="fade-up">
-            <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+        <div class="px-4 mb-8 mt-4 md:px-6 md:mb-4 lg:px-8 lg:mx-40 lg:mb-16 relative font-[josefin-sans]" data-aos="fade-up">
+            <div class="grid grid-cols-1 gap-6 md:gap-8 lg:gap-12 lg:grid-cols-2 lg:items-center">
                 <!-- Left Column: Text Content -->
                 <div class="text-center lg:text-left" data-aos="fade-right" data-aos-delay="200">
                     <h1 class="text-3xl tracking-tight lg:leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
@@ -29,8 +29,8 @@
                 </div>
             </div>
 
-            <div class="absolute right-2 top-1/2 transform -translate-y-1/2 lg:right-0 lg:top-auto lg:translate-y-0 flex flex-col lg:flex-row gap-2 lg:gap-4 opacity-70" data-aos="fade-down" data-aos-delay="800">
-                <svg viewBox="0 0 20 20" class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <div class="absolute right-2 top-1/2 transform -translate-y-1/2 lg:right-0 lg:top-auto lg:translate-y-0 md:right-0 md:top-auto md:bottom-1 md:translate-y-0 flex flex-col lg:flex-row md:flex-row gap-2 lg:gap-4 md:gap-4 opacity-70" data-aos="fade-down" data-aos-delay="800">
+                <svg viewBox="0 0 20 20" class="w-6 h-6 lg:w-8 lg:h-8 md:w-8 md:h-8 lg:animate-bounce mx-auto lg:mx-0 md:mx-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
@@ -48,29 +48,29 @@
                 </svg>
 
                 <!-- Facebook -->
-                <svg class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000">
+                <svg class="w-6 h-6 md:w-8 md:h-8 lg:animate-bounce mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000">
                     <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.36 44.38-121.36 124.72v70.62H22.89V288h81.11v224h100.17V288z"/>
                 </svg>
 
                 <!-- YouTube -->
-                <svg class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000">
+                <svg class="w-6 h-6 md:w-8 md:h-8 lg:animate-bounce mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000">
                     <path d="M549.65 124.08c-6.28-23.65-24.79-42.16-48.44-48.44C458.64 64 288 64 288 64S117.36 64 74.79 75.64c-23.65 6.28-42.16 24.79-48.44 48.44C15.64 166.36 15.64 256 15.64 256s0 89.64 10.71 131.92c6.28 23.65 24.79 42.16 48.44 48.44C117.36 448 288 448 288 448s170.64 0 213.21-11.64c23.65-6.28 42.16-24.79 48.44-48.44C560.36 345.64 560.36 256 560.36 256s0-89.64-10.71-131.92zM232 336V176l142 80-142 80z"/>
                 </svg>
 
                 <!-- Twitter (X) -->
-                <svg class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
+                <svg class="w-6 h-6 md:w-8 md:h-8 lg:animate-bounce mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
                     <path d="M459.4 151.7c.3 4.5.3 9 .3 13.6 0 138.7-105.6 298.7-298.7 298.7-59.5 0-114.7-17.2-161.1-47 8.4.9 16.8 1.4 25.6 1.4 49.1 0 94.2-16.8 130.3-45-46.1-.9-84.8-31.2-98.1-72.8 6.5.9 13 .9 19.8.9 9.4 0 18.7-1.2 27.6-3.6-48.1-9.4-84.3-51.8-84.3-103v-1.4c14 7.8 30 12.6 47.1 13.2-28.4-19-47.1-51-47.1-87.4 0-19.5 5.2-37.4 14.3-53 51.8 63.7 129.3 105.6 216 110-1.7-7.8-2.6-15.9-2.6-24 0-57.8 46.9-104.7 104.7-104.7 30.1 0 57.3 12.6 76.4 33 23.7-4.5 46.1-13.2 66.1-25-7.8 24.6-24.6 45-46.1 57.8 21.1-2.6 41.4-8.1 60.2-16.2-14.3 20.8-32.2 39.2-52.6 54z"/>
                 </svg>
             </div>
         </div>
 
-        <div class="w-full h-[600px] overflow-hidden" data-aos="fade-up" data-aos-delay="1000">
-            <img src="{{ asset('img/hero.jpg') }}" alt="Students collaborating" class="w-full bg-center object-cover">
+        <div class="w-full h-[300px] md:h-[400px] lg:h-[600px] overflow-hidden" data-aos="fade-up" data-aos-delay="1000">
+            <img src="{{ asset('img/hero.jpg') }}" alt="Students collaborating" class="w-full h-full bg-center object-cover">
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="relative py-16 lg:py-24 bg-white overflow-hidden">
+    <section class="relative py-10 md:py-6 lg:py-24 bg-white overflow-hidden">
         <!-- Background Decorations -->
         <div class="absolute inset-0 pointer-events-none">
             <!-- Floating Circles -->
@@ -109,7 +109,7 @@
 
                         <div class="flex items-center mb-4 relative z-10">
                             <div class="w-2 h-8 bg-blue-400 rounded-full mr-3"></div>
-                            <h1 class="font-semibold font-sans tracking-[0.3em] text-blue-300 text-sm">A B O U T</h1>
+                            <h1 class="font-semibold font-sans tracking-[0.3em] text-blue-300 text-sm pl-3">A B O U T</h1>
                         </div>
 
                         <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold leading-tight mb-6 relative z-10">

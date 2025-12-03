@@ -24,7 +24,7 @@
 
     <!-- Main Navbar -->
     <nav>
-        <div class="mx-28 px-4 sm:px-6 lg:mx-40">
+        <div class="mx-4 sm:px-6 sm:mx-8 lg:mx-40">
             <div class="flex items-center justify-between">
 
                 <!-- Logo Section -->
@@ -148,7 +148,6 @@
                         </x-nav-link>
                     </div>
 
-                    <!-- Login Button Desktop -->
                     <a href="/admin"
                        class="hidden lg:flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl 
                               hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl 
@@ -158,15 +157,15 @@
                     </a>
 
                     <!-- Mobile Menu Button -->
-                    <button class="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 transition-all duration-200 shadow-lg hover:shadow-xl group"
+                    <button class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 hover:bg-gray-200 hover:from-gray-200 transition-all duration-200 shadow-md hover:shadow-lg group"
                             @click="open = true">
-                        <div class="flex flex-col space-y-1.5 transform group-hover:scale-110 transition-transform">
-                            <span class="w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300" 
-                                  :class="open ? 'rotate-45 translate-y-2' : ''"></span>
-                            <span class="w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300" 
+                        <div class="flex flex-col space-y-1 transform group-hover:scale-105 transition-transform">
+                            <span class="w-4 h-0.5 bg-gray-700 rounded-full transition-all duration-300"
+                                  :class="open ? 'rotate-45 translate-y-1.5' : ''"></span>
+                            <span class="w-4 h-0.5 bg-gray-700 rounded-full transition-all duration-300"
                                   :class="open ? 'opacity-0' : 'opacity-100'"></span>
-                            <span class="w-5 h-0.5 bg-gray-700 rounded-full transition-all duration-300" 
-                                  :class="open ? '-rotate-45 -translate-y-2' : ''"></span>
+                            <span class="w-4 h-0.5 bg-gray-700 rounded-full transition-all duration-300"
+                                  :class="open ? '-rotate-45 -translate-y-1.5' : ''"></span>
                         </div>
                     </button>
                 </div>
@@ -203,7 +202,7 @@
                  x-transition:leave-end="translate-x-full">
                 
                 <!-- Sidebar Header -->
-                <div class="flex items-center justify-between p-6 border-b border-gray-200/50 bg-gradient-to-r from-white to-gray-50/80">
+                <div class="flex items-center justify-between px-6 py-3 border-b border-gray-200/50 bg-gradient-to-r from-white to-gray-50/80">
                     <div class="flex items-center space-x-3">
                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-white/50">
                             <img src="{{ asset('img/logo.png') }}" class="w-8 h-8 object-contain" alt="SMKN 4 Logo">
