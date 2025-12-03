@@ -25,7 +25,6 @@ class BeritaDetail extends Component
     {
         $this->berita = Berita::findOrFail($this->beritaId);
 
-        // Load berita terkait (kecuali berita saat ini)
         $this->relatedNews = Berita::where('id', '!=', $this->berita->id)
             ->take(3)
             ->get();
@@ -37,7 +36,7 @@ class BeritaDetail extends Component
     {
         return view('livewire.partials.berita-detail', [
             'relatedNews' => $this->relatedNews,
-            'berita',
+            'berita' => $this->berita,
         ]);
     }
 }

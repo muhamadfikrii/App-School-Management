@@ -44,3 +44,20 @@ if (textEl) {
     });
 }
 });
+
+// Function to handle Instagram sharing
+function shareOnInstagram(url, title) {
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            url: url
+        }).catch(console.error);
+    } else {
+        // Fallback: copy link to clipboard
+        navigator.clipboard.writeText(url).then(() => {
+            alert('Link berhasil disalin ke clipboard! Bagikan melalui Instagram secara manual.');
+        }).catch(() => {
+            alert('Gagal menyalin link. Silakan salin secara manual: ' + url);
+        });
+    }
+}

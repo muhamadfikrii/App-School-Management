@@ -3,13 +3,15 @@
 namespace App\Livewire\Partials;
 
 use App\Models\Achievement;
-use Livewire\Component;
-
 use function view;
+
+use Illuminate\Support\Facades\Log;
+use Livewire\Component;
 
 class AchievementDetail extends Component
 {
     public Achievement $achievement;
+    public $achievements;
 
     public function mount($id)
     {
@@ -18,10 +20,14 @@ class AchievementDetail extends Component
 
     public function render()
     {
-        $achievements = Achievement::all();
+        // Temporarily get all achievements except current one
+        $this->achievements = Achievement::where('id', '!=', $this->achievement->id)
+            ->take(3)
+            ->get();
+
 
         return view('livewire.partials.achievement-detail', [
-            'achievements' => $achievements,
+            'achievements' => $this->achievements,
         ]);
     }
 }

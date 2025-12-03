@@ -32,7 +32,8 @@
                     <a href="{{ route('home') }}" class="flex items-center space-x-3 group cursor-pointer">
                         <div class="flex flex-col">
                             <span class="text-xl font-semibold text-gray-900 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text">
-                                SMKN 4 Kuningan
+                                SMKN 4 
+                                <span class="font-merriweather">Kuningan</span>
                             </span>
                         </div>
                     </a>

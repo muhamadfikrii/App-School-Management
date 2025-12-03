@@ -17,6 +17,7 @@ class Home extends Component
 
     public $students;
 
+
     public function mount()
     {
         $this->students = Student::count();
@@ -27,6 +28,9 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire.Page.home');
+        return view('livewire.Page.home', [
+            'achievements' => $this->achievements,
+            'majors'       => $this->majors,
+        ]);
     }
 }

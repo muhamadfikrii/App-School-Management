@@ -1,15 +1,15 @@
 <div class="overflow-x-hidden" loading="lazy">
-    <section class="relative overflow-hidden py-20 md:pt-32">
+    <section class="relative overflow-hidden pt-12 md:py-20 md:pt-32">
         <!-- Background Abstract Shape -->
         <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/2 transform">
             <div class="aspect-square w-96 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 opacity-10 blur-3xl"></div>
         </div>
 
-        <div class="px-4 mb-16 mt-10 sm:px-6 lg:mx-40 relative font-[josefin-sans]" data-aos="fade-up">
+        <div class="px-4 mb-16 mt-10 sm:px-6 lg:px-8 lg:mx-40 relative font-[josefin-sans]" data-aos="fade-up">
             <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
                 <!-- Left Column: Text Content -->
                 <div class="text-center lg:text-left" data-aos="fade-right" data-aos-delay="200">
-                    <h1 class="text-4xl tracking-tight lg:leading-tight text-gray-900 sm:text-6xl">
+                    <h1 class="text-3xl tracking-tight lg:leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
                         Selamat Datang di
                         <span class="block text-blue-600 font-bold">SMKN 4 Kuningan</span>
                     </h1>
@@ -17,20 +17,20 @@
 
                 <!-- Right Column: Visual Content -->
                 <div class="relative" data-aos="fade-left" data-aos-delay="400">
-                    <div class="teks-sm w-lg font-[Poppins]">
-                        <h3 class="lg:leading-snug">
+                    <div class="teks-sm w-full lg:w-lg font-[Poppins]">
+                        <h3 class="text-base sm:text-lg lg:leading-snug">
                             Membentuk generasi unggul, kreatif, dan berkompeten di era digital.
                             Bergabunglah dengan kami untuk memulai perjalanan menuju masa depan yang cerah.
                         </h3>
                     </div>
-                    <button class="bg-black text-white text-lg font-semibold font-serif rounded-sm mt-6 py-2 px-5" data-aos="zoom-in" data-aos-delay="600">
+                    <button class="bg-black text-white text-base sm:text-lg font-semibold font-serif rounded-sm mt-6 py-3 px-6 sm:py-2 sm:px-5 w-full sm:w-auto" data-aos="zoom-in" data-aos-delay="600">
                         Jelajahi Sekarang
                     </button>
                 </div>
             </div>
 
-            <div class="absolute right-0 flex gap-4 opacity-70" data-aos="fade-down" data-aos-delay="800">
-                <svg viewBox="0 0 20 20" class="w-8 h-8 animate-bounce" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <div class="absolute right-2 top-1/2 transform -translate-y-1/2 lg:right-0 lg:top-auto lg:translate-y-0 flex flex-col lg:flex-row gap-2 lg:gap-4 opacity-70" data-aos="fade-down" data-aos-delay="800">
+                <svg viewBox="0 0 20 20" class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
@@ -48,17 +48,17 @@
                 </svg>
 
                 <!-- Facebook -->
-                <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000">
+                <svg class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000">
                     <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.36 44.38-121.36 124.72v70.62H22.89V288h81.11v224h100.17V288z"/>
                 </svg>
 
                 <!-- YouTube -->
-                <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000">
+                <svg class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000">
                     <path d="M549.65 124.08c-6.28-23.65-24.79-42.16-48.44-48.44C458.64 64 288 64 288 64S117.36 64 74.79 75.64c-23.65 6.28-42.16 24.79-48.44 48.44C15.64 166.36 15.64 256 15.64 256s0 89.64 10.71 131.92c6.28 23.65 24.79 42.16 48.44 48.44C117.36 448 288 448 288 448s170.64 0 213.21-11.64c23.65-6.28 42.16-24.79 48.44-48.44C560.36 345.64 560.36 256 560.36 256s0-89.64-10.71-131.92zM232 336V176l142 80-142 80z"/>
                 </svg>
 
                 <!-- Twitter (X) -->
-                <svg class="w-8 h-8 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
+                <svg class="w-6 h-6 lg:w-8 lg:h-8 animate-bounce mx-auto lg:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
                     <path d="M459.4 151.7c.3 4.5.3 9 .3 13.6 0 138.7-105.6 298.7-298.7 298.7-59.5 0-114.7-17.2-161.1-47 8.4.9 16.8 1.4 25.6 1.4 49.1 0 94.2-16.8 130.3-45-46.1-.9-84.8-31.2-98.1-72.8 6.5.9 13 .9 19.8.9 9.4 0 18.7-1.2 27.6-3.6-48.1-9.4-84.3-51.8-84.3-103v-1.4c14 7.8 30 12.6 47.1 13.2-28.4-19-47.1-51-47.1-87.4 0-19.5 5.2-37.4 14.3-53 51.8 63.7 129.3 105.6 216 110-1.7-7.8-2.6-15.9-2.6-24 0-57.8 46.9-104.7 104.7-104.7 30.1 0 57.3 12.6 76.4 33 23.7-4.5 46.1-13.2 66.1-25-7.8 24.6-24.6 45-46.1 57.8 21.1-2.6 41.4-8.1 60.2-16.2-14.3 20.8-32.2 39.2-52.6 54z"/>
                 </svg>
             </div>
@@ -102,7 +102,7 @@
                     </div>
 
                     <!-- About Box with enhanced visual elements -->
-                    <div class="ml-16 lg:ml-20 bg-gradient-to-br from-[#161F34] to-[#1E2A4A] text-white p-8 lg:p-10 relative z-20 rounded-xl shadow-xl overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="ml-4 sm:ml-8 md:ml-12 lg:ml-20 bg-gradient-to-br from-[#161F34] to-[#1E2A4A] text-white p-4 sm:p-6 md:p-8 lg:p-10 relative z-20 rounded-xl shadow-xl overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
                         <!-- Decorative elements inside the box -->
                         <div class="absolute -top-4 -left-4 w-20 h-20 bg-blue-500/10 rounded-full"></div>
                         <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-indigo-500/10 rounded-full"></div>
@@ -258,7 +258,7 @@
                 <!-- Content Grid dengan proporsi yang disesuaikan -->
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     <!-- Left Column - Program List (lebih kecil) -->
-                    <div class="lg:w-2/5 space-y-1 relative">
+                    <div class="lg:w-2/5 space-y-1 relative order-2 lg:order-1">
                         <!-- SVG decoration for program list -->
                         <svg class="absolute -top-2 -right-2 w-8 h-8 text-blue-50 opacity-60 -z-10" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="40" fill="currentColor"/>
@@ -428,13 +428,13 @@
                     </div>
                     
                     <!-- Right Column - Image (lebih besar) -->
-                    <div class="lg:w-3/5 ml-[100px] flex items-center justify-center">
+                    <div class="lg:w-3/5 flex items-center justify-center order-1 lg:order-2">
                         <div class="w-full max-w-4xl">
                             <!-- Container Utama -->
                             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                                 <div class="flex flex-col lg:flex-row">
                                     <!-- Kolom Kiri: Gambar -->
-                                    <div class="lg:w-2/5 bg-gradient-to-br from-blue-50 to-indigo-100 p-8 flex items-center justify-center">
+                                    <div class="lg:w-2/5 bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 md:p-8 flex items-center justify-center">
                                         <div class="relative">
                                             <!-- Default Content -->
                                             <div class="program-content active text-center" id="default-content">
@@ -497,7 +497,7 @@
                                                 Kami memberikan pendidikan yang relevan dengan kebutuhan industri saat ini.
                                             </p>
                                             <div class="flex items-center text-blue-600 font-medium">
-                                                <span>Pilih Program</span>
+                                                <a href="{{ route('jurusan') }}">Pilih Program</a>
                                                 <i class="fas fa-arrow-right ml-2"></i>
                                             </div>
                                         </div>
@@ -695,46 +695,94 @@
     </div>
     <livewire:partials.cta/>
 
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold text-blue-700 mb-8">Prestasi Siswa</h2>
+   <!-- Section Prestasi - Unik & Editorial -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16">
+                <div class="lg:w-1/2">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider">Jejak Prestasi</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4 leading-tight">
+                        Lebih dari Sekadar Angka, <span class="text-blue-600">Ini Adalah Cerita Kami</span>
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        Setiap trofi adalah bukti dedikasi, setiap medali adalah langkah menuju keunggulan. Ini adalah beberapa bab dari perjalanan kami.
+                    </p>
+                </div>
+                <div class="mt-8 lg:mt-0 lg:w-1/3 lg:text-right">
+                    <div class="inline-flex items-baseline space-x-2">
+                        <span class="text-5xl font-bold text-gray-900">100+</span>
+                        <span class="text-lg text-gray-600">Prestasi & Penghargaan</span>
+                    </div>
+                </div>
+            </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($achievements as $achievement)
-                    <a href="{{ route('achievement.detail', $achievement->id) }}" class="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                        @if ($achievement->photo)
-                            <img src="{{ asset('storage/' . $achievement->photo) }}"
-                                alt="{{ $achievement->title }}"
-                                class="rounded-xl mb-4 w-full h-48 object-cover shadow-sm">
-                        @else
-                            <div class="rounded-xl mb-4 w-full h-48 bg-gray-200 flex items-center justify-center text-gray-400">
-                                <span class="text-4xl font-bold">🎖️</span>
+            <!-- Featured Achievement -->
+            <div class="mb-20">
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-10">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <pattern id="grid-featured" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+                            </pattern>
+                            <rect width="100" height="100" fill="url(#grid-featured)" />
+                        </svg>
+                    </div>
+                    <div class="relative z-10 lg:flex lg:items-center lg:justify-between">
+                        <div class="lg:w-2/3">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <i class="fas fa-crown text-yellow-400 text-2xl"></i>
+                                <span class="text-yellow-400 font-semibold tracking-wide">Prestasi Terbaru</span>
                             </div>
-                        @endif
-
-                        <h3 class="text-xl font-semibold text-blue-700 mb-2 truncate">{{ $achievement->title }}</h3>
-
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-4">{{ $achievement->description }}</p>
-
-                        <div class="flex items-center justify-between text-gray-400 text-xs">
-                            <span>{{ $achievement->student->full_name ?? 'Tim' }}</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-[10px] font-semibold">{{ $achievement->level }}</span>
-                            <span>{{ \Carbon\Carbon::parse($achievement->date)->format('d M Y') }}</span>
+                            <h3 class="text-3xl font-bold mb-3">SMK Negeri 4 Kuningan Berprestasi di Kompetisi Find IT! Future Innovation and Discovery Information and Technology 2024 </h3>
+                            <p class="text-gray-300 mb-6 text-lg">
+                                Jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) SMK Negeri 4 Kuningan kembali menorehkan prestasi membanggakan dengan berhasil memasuki 10 besar dalam ajang bergengsi Find IT! Future Innovation and Discovery Information and Technology yang diselenggarakan oleh Departemen Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada (DTETI FT UGM). Event tahunan ini merupakan platform prestisius yang dirancang untuk mengembangkan bakat dan minat di bidang teknologi informasi sekaligus memperkenalkan dunia TI kepada masyarakat luas, terutama dalam menghadapi era revolusi industri 5.0 yang semakin pesat.
+                            </p>
                         </div>
-                    </a>
+                        <div class="mt-8 lg:mt-0">
+                            <img src="{{ asset('img/prestasiterbaru.png') }}" alt="Prestasi" class="rounded-xl shadow-2xl w-full lg:w-[400px] h-80 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List of Other Achievements -->
+            <div class="space-y-6">
+                @foreach($achievements as $index => $achievement)
+                <a href="{{ route('achievement.detail', $achievement->id) }}" class="flex flex-col lg:flex-row lg:items-center group">
+                    <div class="lg:w-1/4 mb-4 lg:mb-0 text-center lg:text-left">
+                        <span class="text-2xl md:text-3xl font-bold {{ ['text-blue-600', 'text-purple-600', 'text-green-600'][$index % 3] }}">
+                            {{ $achievement->date ? $achievement->date->format('Y') : 'N/A' }}
+                        </span>
+                    </div>
+                    <div class="lg:w-3/4 bg-gray-100 rounded-2xl p-4 md:p-6 lg:p-8 group-hover:bg-slate-50 transition-all duration-300">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-1">{{ $achievement->title }}</h4>
+                                <p class="text-gray-600">{{ $achievement->description ?? 'Deskripsi tidak tersedia' }}</p>
+                                @if($achievement->level)
+                                <span class="inline-block mt-2 px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded-full">{{ $achievement->level }}</span>
+                                @endif
+                            </div>
+                            <div class="ml-4 w-12 h-12 {{ ['bg-blue-100', 'bg-purple-100', 'bg-green-100'][$index % 3] }} rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas {{ ['fa-globe', 'fa-lightbulb', 'fa-leaf'][$index % 3] }} {{ ['text-blue-600', 'text-purple-600', 'text-green-600'][$index % 3] }}"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
                 @endforeach
             </div>
-            <div>
-                <a href="{{ route('achievement') }}"
-                    class="group flex items-center gap-2 mt-5 bg-white text-blue-700 px-6 py-3 rounded-full font-semibold
-                            shadow-lg transition-all duration-300 hover:bg-blue-100 hover:shadow-xl hover:-translate-y-1">
-                        <span>Lihat Lebih Banyak</span>
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6-6m6 6l-6 6"/>
-                        </svg>
-                    </a>
+
+            <!-- Closing Statement -->
+            <div class="mt-20 text-center">
+                <p class="text-xl text-gray-600 italic">
+                    "Prestasi bukan tujuan akhir, tapi fondasi untuk terus melangkah lebih jauh."
+                </p>
+                <a href="{{ route('achievement') }}" class="mt-6 inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                    <span>Jelajahi Cerita Lengkapnya</span>
+                    <i class="fas fa-arrow-right ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
         </div>
     </section>
