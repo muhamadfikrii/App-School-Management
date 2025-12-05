@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"
-
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     {{-- AOS --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <title>{{ ucfirst(Route::currentRouteName()) }} | SMKN4 KNG</title>
@@ -34,7 +34,7 @@
         {{ $slot }}
     </main>
 
-<footer id="kontak" class="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-12 md:py-20">
+{{-- <footer id="kontak" class="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-12 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
         
         <!-- Info Sekolah -->
@@ -107,8 +107,8 @@
         </div>
 
     </div>
-</footer>
-
+</footer> --}}
+    @include('components.footer')
 
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

@@ -1,7 +1,7 @@
 <div class="overflow-x-hidden" loading="lazy">
     <section class="relative overflow-hidden pt-12 md:py-20 md:pt-32">
         <!-- Background Abstract Shape -->
-        <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/2 transform">
+        <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/2 transform" data-aos="fade-left" data-aos-delay="200">
             <div class="aspect-square w-96 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 opacity-10 blur-3xl"></div>
         </div>
 
@@ -17,7 +17,7 @@
 
                 <!-- Right Column: Visual Content -->
                 <div class="relative" data-aos="fade-left" data-aos-delay="400">
-                    <div class="teks-sm w-full lg:w-lg font-[Poppins]">
+                    <div class="teks-sm w-full lg:w-lg font-[Poppins]" data-aos="fade-up" data-aos-delay="500">
                         <h3 class="text-base sm:text-lg lg:leading-snug">
                             Membentuk generasi unggul, kreatif, dan berkompeten di era digital.
                             Bergabunglah dengan kami untuk memulai perjalanan menuju masa depan yang cerah.
@@ -29,8 +29,8 @@
                 </div>
             </div>
 
-            <div class="absolute right-2 top-1/2 transform -translate-y-1/2 lg:right-0 lg:top-auto lg:translate-y-0 md:right-0 md:top-auto md:bottom-1 md:translate-y-0 flex flex-col lg:flex-row md:flex-row gap-2 lg:gap-4 md:gap-4 opacity-70" data-aos="fade-down" data-aos-delay="800">
-                <svg viewBox="0 0 20 20" class="w-6 h-6 lg:w-8 lg:h-8 md:w-8 md:h-8 lg:animate-bounce mx-auto lg:mx-0 md:mx-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <div class="absolute right-2 top-1/2 transform -translate-y-1/2 lg:right-0 lg:translate-y-0 md:right-0 md:top-auto md:bottom-1 lg:bottom-auto md:translate-y-0 flex flex-col lg:flex-row md:flex-row gap-2 lg:gap-4 md:gap-4 opacity-70">
+                <svg viewBox="0 0 20 20" class="w-6 h-6 lg:w-8 lg:h-8 md:w-8 md:h-8 mx-auto lg:mx-0 md:mx-0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" data-aos="fade-down" data-aos-delay="800">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
@@ -48,43 +48,43 @@
                 </svg>
 
                 <!-- Facebook -->
-                <svg class="w-6 h-6 md:w-8 md:h-8 lg:animate-bounce mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000">
+                <svg class="w-6 h-6 md:w-8 md:h-8 mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" fill="#000" data-aos="fade-down" data-aos-delay="900">
                     <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121.36 44.38-121.36 124.72v70.62H22.89V288h81.11v224h100.17V288z"/>
                 </svg>
 
                 <!-- YouTube -->
-                <svg class="w-6 h-6 md:w-8 md:h-8 lg:animate-bounce mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000">
+                <svg class="w-6 h-6 md:w-8 md:h-8 mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#000" data-aos="fade-down" data-aos-delay="1000">
                     <path d="M549.65 124.08c-6.28-23.65-24.79-42.16-48.44-48.44C458.64 64 288 64 288 64S117.36 64 74.79 75.64c-23.65 6.28-42.16 24.79-48.44 48.44C15.64 166.36 15.64 256 15.64 256s0 89.64 10.71 131.92c6.28 23.65 24.79 42.16 48.44 48.44C117.36 448 288 448 288 448s170.64 0 213.21-11.64c23.65-6.28 42.16-24.79 48.44-48.44C560.36 345.64 560.36 256 560.36 256s0-89.64-10.71-131.92zM232 336V176l142 80-142 80z"/>
                 </svg>
 
                 <!-- Twitter (X) -->
-                <svg class="w-6 h-6 md:w-8 md:h-8 lg:animate-bounce mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000">
+                <svg class="w-6 h-6 md:w-8 md:h-8 mx-auto md:mx-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#000" data-aos="fade-down" data-aos-delay="1100">
                     <path d="M459.4 151.7c.3 4.5.3 9 .3 13.6 0 138.7-105.6 298.7-298.7 298.7-59.5 0-114.7-17.2-161.1-47 8.4.9 16.8 1.4 25.6 1.4 49.1 0 94.2-16.8 130.3-45-46.1-.9-84.8-31.2-98.1-72.8 6.5.9 13 .9 19.8.9 9.4 0 18.7-1.2 27.6-3.6-48.1-9.4-84.3-51.8-84.3-103v-1.4c14 7.8 30 12.6 47.1 13.2-28.4-19-47.1-51-47.1-87.4 0-19.5 5.2-37.4 14.3-53 51.8 63.7 129.3 105.6 216 110-1.7-7.8-2.6-15.9-2.6-24 0-57.8 46.9-104.7 104.7-104.7 30.1 0 57.3 12.6 76.4 33 23.7-4.5 46.1-13.2 66.1-25-7.8 24.6-24.6 45-46.1 57.8 21.1-2.6 41.4-8.1 60.2-16.2-14.3 20.8-32.2 39.2-52.6 54z"/>
                 </svg>
             </div>
         </div>
 
-        <div class="w-full h-[300px] md:h-[400px] lg:h-[600px] overflow-hidden" data-aos="fade-up" data-aos-delay="1000">
+        <div class="w-full h-[300px] md:h-[400px] lg:h-[610px] overflow-hidden" data-aos="fade-up" data-aos-delay="1000">
             <img src="{{ asset('img/hero.jpg') }}" alt="Students collaborating" class="w-full h-full bg-center object-cover">
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="relative py-10 md:py-6 lg:py-24 bg-white overflow-hidden">
+    <section class="relative py-10 md:py-6 lg:py-24 bg-white overflow-hidden" data-aos="fade-up">
         <!-- Background Decorations -->
         <div class="absolute inset-0 pointer-events-none">
             <!-- Floating Circles -->
-            <div class="absolute top-1/4 -left-8 w-16 h-16 bg-blue-100 rounded-full opacity-60"></div>
-            <div class="absolute bottom-1/3 -right-8 w-24 h-24 bg-indigo-100 rounded-full opacity-40"></div>
+            <div class="absolute top-1/4 -left-8 w-16 h-16 bg-blue-100 rounded-full opacity-60" data-aos="fade-right" data-aos-delay="200"></div>
+            <div class="absolute bottom-1/3 -right-8 w-24 h-24 bg-indigo-100 rounded-full opacity-40" data-aos="fade-left" data-aos-delay="300"></div>
 
             <!-- Abstract Shapes -->
-            <svg class="absolute top-10 right-1/4 w-20 h-20 text-blue-50" viewBox="0 0 100 100" fill="currentColor">
+            <svg class="absolute top-10 right-1/4 w-20 h-20 text-blue-50" viewBox="0 0 100 100" fill="currentColor" data-aos="zoom-in" data-aos-delay="400">
                 <polygon points="50,0 100,50 50,100 0,50"/>
             </svg>
 
             <!-- Additional decorative elements for left side -->
-            <div class="absolute top-1/3 left-1/4 w-12 h-12 bg-blue-50 rounded-lg transform rotate-12 opacity-40"></div>
-            <div class="absolute bottom-1/4 left-1/3 w-8 h-8 bg-indigo-50 rounded-full opacity-30"></div>
+            <div class="absolute top-1/3 left-1/4 w-12 h-12 bg-blue-50 rounded-lg transform rotate-12 opacity-40" data-aos="fade-up" data-aos-delay="500"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-8 h-8 bg-indigo-50 rounded-full opacity-30" data-aos="fade-up" data-aos-delay="600"></div>
         </div>
 
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
@@ -93,31 +93,31 @@
                 <div class="relative" data-aos="fade-right">
                     <!-- Decorative Line & Icon -->
                     <div class="absolute left-0 top-2 flex flex-col items-center space-y-4 z-30">
-                        <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-lg glow-effect">
+                        <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-lg glow-effect" data-aos="zoom-in" data-aos-delay="200">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                             </svg>
                         </div>
-                        <div class="w-[2px] h-40 bg-gradient-to-b from-blue-400 to-blue-200"></div>
+                        <div class="w-[2px] h-40 bg-gradient-to-b from-blue-400 to-blue-200" data-aos="fade-up" data-aos-delay="300"></div>
                     </div>
 
                     <!-- About Box with enhanced visual elements -->
                     <div class="ml-4 sm:ml-8 md:ml-12 lg:ml-20 bg-gradient-to-br from-[#161F34] to-[#1E2A4A] text-white p-4 sm:p-6 md:p-8 lg:p-10 relative z-20 rounded-xl shadow-xl overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
                         <!-- Decorative elements inside the box -->
-                        <div class="absolute -top-4 -left-4 w-20 h-20 bg-blue-500/10 rounded-full"></div>
-                        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-indigo-500/10 rounded-full"></div>
+                        <div class="absolute -top-4 -left-4 w-20 h-20 bg-blue-500/10 rounded-full" data-aos="fade-right" data-aos-delay="300"></div>
+                        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-indigo-500/10 rounded-full" data-aos="fade-left" data-aos-delay="400"></div>
 
-                        <div class="flex items-center mb-4 relative z-10">
+                        <div class="flex items-center mb-4 relative z-10" data-aos="fade-up" data-aos-delay="100">
                             <div class="w-2 h-8 bg-blue-400 rounded-full mr-3"></div>
                             <h1 class="font-semibold font-sans tracking-[0.3em] text-blue-300 text-sm pl-3">A B O U T</h1>
                         </div>
 
-                        <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold leading-tight mb-6 relative z-10">
+                        <h1 class="text-3xl lg:text-4xl xl:text-5xl font-heading font-bold leading-tight mb-6 relative z-10" data-aos="fade-up" data-aos-delay="200">
                             Bebaskan potensi <span class="text-blue-300">siswa</span> bersama kami
                         </h1>
 
                         <!-- Additional text content for left side -->
-                        <div class="mb-6 relative z-10">
+                        <div class="mb-6 relative z-10" data-aos="fade-up" data-aos-delay="300">
                             <p class="text-blue-100 leading-relaxed text-sm lg:text-base">
                                 Kami berkomitmen menciptakan lingkungan belajar yang inspiratif dan mendukung perkembangan setiap individu.
                             </p>
@@ -152,22 +152,22 @@
                         </div>
 
                         <!-- Decorative Corner -->
-                        <div class="absolute -bottom-2 -right-2 w-16 h-16 border-b-2 border-r-2 border-blue-400/30 rounded-br-lg"></div>
+                        <div class="absolute -bottom-2 -right-2 w-16 h-16 border-b-2 border-r-2 border-blue-400/30 rounded-br-lg" data-aos="fade-up" data-aos-delay="700"></div>
 
                         <!-- Additional decorative element -->
-                        <div class="absolute top-4 right-8 w-3 h-3 bg-blue-300 rounded-full"></div>
+                        <div class="absolute top-4 right-8 w-3 h-3 bg-blue-300 rounded-full" data-aos="zoom-in" data-aos-delay="800"></div>
                     </div>
 
                     <!-- Additional floating elements around the box -->
-                    <div class="absolute -bottom-6 left-10 w-10 h-10 bg-white/10 rounded-full float-animation" style="animation-delay: 1s;"></div>
-                    <div class="absolute top-1/2 -left-6 w-8 h-8 bg-blue-200/30 rounded-full float-animation" style="animation-delay: 2s;"></div>
+                    <div class="absolute -bottom-6 left-10 w-10 h-10 bg-white/10 rounded-full float-animation" style="animation-delay: 1s;" data-aos="fade-up" data-aos-delay="900"></div>
+                    <div class="absolute top-1/2 -left-6 w-8 h-8 bg-blue-200/30 rounded-full float-animation" style="animation-delay: 2s;" data-aos="fade-up" data-aos-delay="1000"></div>
                 </div>
 
                 <!-- RIGHT COLUMN -->
                 <div class="pt-8 lg:pt-12" data-aos="fade-left" data-aos-delay="300">
                     <!-- Image with decorative border -->
-                    <div class="mb-10 relative max-w-md mx-auto lg:mx-0 lg:max-w-full">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl transform rotate-1 opacity-70"></div>
+                    <div class="mb-10 relative max-w-md mx-auto lg:mx-0 lg:max-w-full" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl transform rotate-1 opacity-70" data-aos="fade-in" data-aos-delay="500"></div>
                         <div class="w-full h-64 lg:h-72 rounded-xl shadow-lg relative z-10 flex items-center justify-center overflow-hidden" data-aos="zoom-in" data-aos-delay="500">
                             <!-- Placeholder untuk gambar learning -->
                             <div class="w-full h-full bg-gradient-to-br from-blue-200 to-indigo-300 flex items-center justify-center">
@@ -182,13 +182,13 @@
                     <div class="max-w-lg mx-auto lg:mx-0 lg:max-w-full">
                         <div class="flex items-start mb-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="flex-shrink-0 mt-1">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-md" data-aos="zoom-in" data-aos-delay="500">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-700 leading-relaxed text-base lg:text-lg font-[Poppins] ml-4">
+                            <p class="text-gray-700 leading-relaxed text-base lg:text-lg font-[Poppins] ml-4" data-aos="fade-left" data-aos-delay="600">
                                 Membuka potensi setiap siswa melalui lingkungan belajar yang stimulatif dan penuh dukungan adalah komitmen kami.
                                 Dengan pendekatan pembelajaran yang inovatif, kami membantu siswa menemukan minat, mengembangkan kemampuan,
                                 dan membangun kepercayaan diri mereka.
@@ -197,13 +197,13 @@
 
                         <div class="flex items-start" data-aos="fade-up" data-aos-delay="600">
                             <div class="flex-shrink-0 mt-1">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-md">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-md" data-aos="zoom-in" data-aos-delay="700">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                     </svg>
                                 </div>
                             </div>
-                            <p class="text-gray-700 leading-relaxed text-base lg:text-lg ml-4">
+                            <p class="text-gray-700 leading-relaxed text-base lg:text-lg ml-4" data-aos="fade-left" data-aos-delay="800">
                                 Kami percaya bahwa proses belajar yang menyenangkan dan terarah akan
                                 mendorong setiap siswa untuk terus mengeksplorasi, beradaptasi, dan berkembang menjadi pribadi yang siap
                                 menghadapi masa depan.
@@ -212,11 +212,11 @@
 
                         <!-- Stats Section -->
                         <div class="mt-10 grid grid-cols-2 gap-6 border-t border-gray-200 pt-8" data-aos="fade-up" data-aos-delay="800">
-                            <div class="text-center">
+                            <div class="text-center" data-aos="flip-left" data-aos-delay="900">
                                 <div class="text-3xl font-bold text-blue-600">95%</div>
                                 <div class="text-sm text-gray-600 mt-1 font-medium">Siswa Puas</div>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center" data-aos="flip-right" data-aos-delay="1000">
                                 <div class="text-3xl font-bold text-blue-600">100+</div>
                                 <div class="text-sm text-gray-600 mt-1 font-medium">Program</div>
                             </div>
@@ -232,8 +232,8 @@
 
     <div class="font-primary bg-white">
         <!-- Program Keahlian Section -->
-        <section class="relative py-20 lg:py-28 overflow-hidden">
-            <svg class="absolute bottom-32 right-32 w-10 h-10 text-purple-100 opacity-40" viewBox="0 0 100 100">
+        <section class="relative py-20 lg:py-28 overflow-hidden" data-aos="fade-up">
+            <svg class="absolute bottom-32 right-32 w-10 h-10 text-purple-100 opacity-40" viewBox="0 0 100 100" data-aos="rotate" data-aos-delay="200">
                 <rect x="30" y="30" width="40" height="40" fill="currentColor">
                     <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="6s" repeatCount="indefinite"/>
                 </rect>
@@ -241,16 +241,16 @@
 
             <div class="container mx-auto px-4 sm:px-6">
                 <!-- Header -->
-                <div class="max-w-4xl mb-16 relative">
+                <div class="max-w-4xl mb-16 relative" data-aos="fade-up" data-aos-delay="100">
                     <!-- SVG decoration for header -->
-                    <svg class="absolute -top-4 -left-4 w-12 h-12 text-blue-50 opacity-70 -z-10" viewBox="0 0 100 100">
+                    <svg class="absolute -top-4 -left-4 w-12 h-12 text-blue-50 opacity-70 -z-10" viewBox="0 0 100 100" data-aos="zoom-in" data-aos-delay="200">
                         <circle cx="50" cy="50" r="40" fill="currentColor"/>
                     </svg>
 
-                    <div class="flex items-center mb-4">
+                    <div class="flex items-center mb-4" data-aos="fade-right" data-aos-delay="300">
                         <h1 class="font-semibold tracking-[0.3em] text-black text-sm">P R O G R A M</h1>
                     </div>
-                    <h1 class="text-4xl lg:text-5xl lg:w-4xl font-merriweather text-gray-900 leading-tight">
+                    <h1 class="text-4xl lg:text-5xl lg:w-4xl font-merriweather text-gray-900 leading-tight" data-aos="fade-up" data-aos-delay="400">
                         Pilihan program keahlian yang dapat Anda pertimbangkan tersedia di sini.
                     </h1>
                 </div>
@@ -258,32 +258,32 @@
                 <!-- Content Grid dengan proporsi yang disesuaikan -->
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     <!-- Left Column - Program List (lebih kecil) -->
-                    <div class="lg:w-2/5 space-y-1 relative order-2 lg:order-1">
+                    <div class="lg:w-2/5 space-y-1 relative order-2 lg:order-1" data-aos="fade-right" data-aos-delay="500">
                         <!-- SVG decoration for program list -->
-                        <svg class="absolute -top-2 -right-2 w-8 h-8 text-blue-50 opacity-60 -z-10" viewBox="0 0 100 100">
+                        <svg class="absolute -top-2 -right-2 w-8 h-8 text-blue-50 opacity-60 -z-10" viewBox="0 0 100 100" data-aos="zoom-in" data-aos-delay="600">
                             <circle cx="50" cy="50" r="40" fill="currentColor"/>
                         </svg>
 
                         <!-- Teknik Ketenaga Listrikan -->
-                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="tkl">
+                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="tkl" data-aos="fade-right" data-aos-delay="700">
                             <!-- SVG decoration for program item -->
                             <svg class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="currentColor"/>
                             </svg>
 
                             <div class="flex items-start">
-                                <div class="program-icon w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110">
+                                <div class="program-icon w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110" data-aos="zoom-in" data-aos-delay="800">
                                     <i class="fas fa-bolt text-blue-600"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-start">
                                         <div>
-                                            <h3 class="text-lg font-medium text-gray-900 mb-1">Teknik Ketenaga Listrikan</h3>
-                                            <p class="text-gray-600 text-sm mb-2">
+                                            <h3 class="text-lg font-medium text-gray-900 mb-1" data-aos="fade-left" data-aos-delay="900">Teknik Ketenaga Listrikan</h3>
+                                            <p class="text-gray-600 text-sm mb-2" data-aos="fade-left" data-aos-delay="1000">
                                                 Membangun dan mengelola sistem tenaga listrik dan distribusi energi.
                                             </p>
                                         </div>
-                                        <div class="read-more text-blue-600 ml-3 transition-all duration-300 group-hover:translate-x-1">
+                                        <div class="read-more text-blue-600 ml-3 transition-all duration-300 group-hover:translate-x-1" data-aos="fade-left" data-aos-delay="1100">
                                             <i class="fas fa-arrow-right text-sm"></i>
                                         </div>
                                     </div>
@@ -292,25 +292,25 @@
                         </div>
 
                         <!-- Pemrograman Perangkat Lunak & Gim -->
-                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="pplg">
+                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="pplg" data-aos="fade-right" data-aos-delay="800">
                             <!-- SVG decoration for program item -->
                             <svg class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="currentColor"/>
                             </svg>
 
                             <div class="flex items-start">
-                                <div class="program-icon w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110">
+                                <div class="program-icon w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110" data-aos="zoom-in" data-aos-delay="900">
                                     <i class="fas fa-code text-purple-600"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-start">
                                         <div>
-                                            <h3 class="text-lg font-medium text-gray-900 mb-1">Pemrograman Perangkat Lunak & Gim</h3>
-                                            <p class="text-gray-600 text-sm mb-2">
+                                            <h3 class="text-lg font-medium text-gray-900 mb-1" data-aos="fade-left" data-aos-delay="1000">Pemrograman Perangkat Lunak & Gim</h3>
+                                            <p class="text-gray-600 text-sm mb-2" data-aos="fade-left" data-aos-delay="1100">
                                                 Mengembangkan aplikasi, software, dan game inovatif.
                                             </p>
                                         </div>
-                                        <div class="read-more text-purple-600 ml-3 transition-all duration-300 group-hover:translate-x-1">
+                                        <div class="read-more text-purple-600 ml-3 transition-all duration-300 group-hover:translate-x-1" data-aos="fade-left" data-aos-delay="1200">
                                             <i class="fas fa-arrow-right text-sm"></i>
                                         </div>
                                     </div>
@@ -319,25 +319,25 @@
                         </div>
 
                         <!-- Teknik Kendaraan Ringan Otomotif -->
-                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="tkro">
+                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="tkro" data-aos="fade-right" data-aos-delay="900">
                             <!-- SVG decoration for program item -->
                             <svg class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-red-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="currentColor"/>
                             </svg>
 
                             <div class="flex items-start">
-                                <div class="program-icon w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110">
+                                <div class="program-icon w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110" data-aos="zoom-in" data-aos-delay="1000">
                                     <i class="fas fa-car text-red-600"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-start">
                                         <div>
-                                            <h3 class="text-lg font-medium text-gray-900 mb-1">Teknik Kendaraan Ringan Otomotif</h3>
-                                            <p class="text-gray-600 text-sm mb-2">
+                                            <h3 class="text-lg font-medium text-gray-900 mb-1" data-aos="fade-left" data-aos-delay="1100">Teknik Kendaraan Ringan Otomotif</h3>
+                                            <p class="text-gray-600 text-sm mb-2" data-aos="fade-left" data-aos-delay="1200">
                                                 Servis, perawatan, dan perbaikan kendaraan bermotor.
                                             </p>
                                         </div>
-                                        <div class="read-more text-red-600 ml-3 transition-all duration-300 group-hover:translate-x-1">
+                                        <div class="read-more text-red-600 ml-3 transition-all duration-300 group-hover:translate-x-1" data-aos="fade-left" data-aos-delay="1300">
                                             <i class="fas fa-arrow-right text-sm"></i>
                                         </div>
                                     </div>
@@ -346,25 +346,25 @@
                         </div>
 
                         <!-- Teknik Bisnis Sepeda Motor -->
-                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="tbsm">
+                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="tbsm" data-aos="fade-right" data-aos-delay="1000">
                             <!-- SVG decoration for program item -->
                             <svg class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-orange-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="currentColor"/>
                             </svg>
 
                             <div class="flex items-start">
-                                <div class="program-icon w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110">
+                                <div class="program-icon w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110" data-aos="zoom-in" data-aos-delay="1100">
                                     <i class="fas fa-motorcycle text-orange-600"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-start">
                                         <div>
-                                            <h3 class="text-lg font-medium text-gray-900 mb-1">Teknik Bisnis Sepeda Motor</h3>
-                                            <p class="text-gray-600 text-sm mb-2">
+                                            <h3 class="text-lg font-medium text-gray-900 mb-1" data-aos="fade-left" data-aos-delay="1200">Teknik Bisnis Sepeda Motor</h3>
+                                            <p class="text-gray-600 text-sm mb-2" data-aos="fade-left" data-aos-delay="1300">
                                                 Bisnis dan teknik perbaikan sepeda motor.
                                             </p>
                                         </div>
-                                        <div class="read-more text-orange-600 ml-3 transition-all duration-300 group-hover:translate-x-1">
+                                        <div class="read-more text-orange-600 ml-3 transition-all duration-300 group-hover:translate-x-1" data-aos="fade-left" data-aos-delay="1400">
                                             <i class="fas fa-arrow-right text-sm"></i>
                                         </div>
                                     </div>
@@ -373,25 +373,25 @@
                         </div>
 
                         <!-- Akuntansi dan Keuangan -->
-                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="akl">
+                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="akl" data-aos="fade-right" data-aos-delay="1100">
                             <!-- SVG decoration for program item -->
                             <svg class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-green-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="currentColor"/>
                             </svg>
 
                             <div class="flex items-start">
-                                <div class="program-icon w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110">
+                                <div class="program-icon w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110" data-aos="zoom-in" data-aos-delay="1200">
                                     <i class="fas fa-calculator text-green-600"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-start">
                                         <div>
-                                            <h3 class="text-lg font-medium text-gray-900 mb-1">Akuntansi dan Keuangan</h3>
-                                            <p class="text-gray-600 text-sm mb-2">
+                                            <h3 class="text-lg font-medium text-gray-900 mb-1" data-aos="fade-left" data-aos-delay="1300">Akuntansi dan Keuangan</h3>
+                                            <p class="text-gray-600 text-sm mb-2" data-aos="fade-left" data-aos-delay="1400">
                                                 Mengelola keuangan dan akuntansi bisnis.
                                             </p>
                                         </div>
-                                        <div class="read-more text-green-600 ml-3 transition-all duration-300 group-hover:translate-x-1">
+                                        <div class="read-more text-green-600 ml-3 transition-all duration-300 group-hover:translate-x-1" data-aos="fade-left" data-aos-delay="1500">
                                             <i class="fas fa-arrow-right text-sm"></i>
                                         </div>
                                     </div>
@@ -400,25 +400,25 @@
                         </div>
 
                         <!-- Manajemen Perkantoran & Layanan Bisnis -->
-                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="mplb">
+                        <div class="program-item p-5 rounded-lg cursor-pointer group relative" data-program="mplb" data-aos="fade-right" data-aos-delay="1200">
                             <!-- SVG decoration for program item -->
                             <svg class="absolute -left-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-cyan-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="40" fill="currentColor"/>
                             </svg>
 
                             <div class="flex items-start">
-                                <div class="program-icon w-10 h-10 rounded-lg bg-cyan-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110">
+                                <div class="program-icon w-10 h-10 rounded-lg bg-cyan-50 flex items-center justify-center mr-3 mt-1 transition-all duration-300 group-hover:scale-110" data-aos="zoom-in" data-aos-delay="1300">
                                     <i class="fas fa-briefcase text-cyan-600"></i>
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-start">
                                         <div>
-                                            <h3 class="text-lg font-medium text-gray-900 mb-1">Manajemen Perkantoran & Layanan Bisnis</h3>
-                                            <p class="text-gray-600 text-sm mb-2">
+                                            <h3 class="text-lg font-medium text-gray-900 mb-1" data-aos="fade-left" data-aos-delay="1400">Manajemen Perkantoran & Layanan Bisnis</h3>
+                                            <p class="text-gray-600 text-sm mb-2" data-aos="fade-left" data-aos-delay="1500">
                                                 Mengelola administrasi perkantoran dan layanan bisnis.
                                             </p>
                                         </div>
-                                        <div class="read-more text-cyan-600 ml-3 transition-all duration-300 group-hover:translate-x-1">
+                                        <div class="read-more text-cyan-600 ml-3 transition-all duration-300 group-hover:translate-x-1" data-aos="fade-left" data-aos-delay="1600">
                                             <i class="fas fa-arrow-right text-sm"></i>
                                         </div>
                                     </div>
@@ -428,58 +428,58 @@
                     </div>
                     
                     <!-- Right Column - Image (lebih besar) -->
-                    <div class="lg:w-3/5 flex items-center justify-center order-1 lg:order-2">
+                    <div class="lg:w-3/5 flex items-center justify-center order-1 lg:order-2" data-aos="fade-left" data-aos-delay="500">
                         <div class="w-full max-w-4xl">
                             <!-- Container Utama -->
-                            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                            <div class="bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="600">
                                 <div class="flex flex-col lg:flex-row">
                                     <!-- Kolom Kiri: Gambar -->
-                                    <div class="lg:w-2/5 bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 md:p-8 flex items-center justify-center">
+                                    <div class="lg:w-2/5 bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 md:p-8 flex items-center justify-center" data-aos="fade-right" data-aos-delay="700">
                                         <div class="relative">
                                             <!-- Default Content -->
-                                            <div class="program-content active text-center" id="default-content">
+                                            <div class="program-content active text-center" id="default-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full bg-white shadow-md flex items-center justify-center">
                                                     <i class="fas fa-graduation-cap text-blue-600 text-5xl"></i>
                                                 </div>
                                             </div>
 
                                             <!-- TKL Content -->
-                                            <div class="program-content hidden text-center" id="tkl-content">
+                                            <div class="program-content hidden text-center" id="tkl-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full overflow-hidden shadow-md">
                                                     <img src="{{ asset('img/ProgramDetail/tklDetail.jpeg') }}" class="w-full h-full object-cover" alt="Teknik Ketenaga Listrikan">
                                                 </div>
                                             </div>
 
                                             <!-- PPLG Content -->
-                                            <div class="program-content hidden text-center" id="pplg-content">
+                                            <div class="program-content hidden text-center" id="pplg-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full overflow-hidden shadow-md">
                                                     <img src="{{ asset('img/ProgramDetail/pplgDetail.jpeg') }}" class="w-full h-full object-cover" alt="Pemrograman Perangkat Lunak & Gim">
                                                 </div>
                                             </div>
 
                                             <!-- TKRO Content -->
-                                            <div class="program-content hidden text-center" id="tkro-content">
+                                            <div class="program-content hidden text-center" id="tkro-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full overflow-hidden shadow-md">
                                                     <img src="{{ asset('img/ProgramDetail/tkroDetail.jpg') }}" class="w-full h-full object-cover" alt="Teknik Kendaraan Ringan Otomotif">
                                                 </div>
                                             </div>
 
                                             <!-- TBSM Content -->
-                                            <div class="program-content hidden text-center" id="tbsm-content">
+                                            <div class="program-content hidden text-center" id="tbsm-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full overflow-hidden shadow-md">
                                                     <img src="{{ asset('img/ProgramDetail/tbsmDetail.jpg') }}" class="w-full h-full object-cover" alt="Teknik Bisnis Sepeda Motor">
                                                 </div>
                                             </div>
 
                                             <!-- AKL Content -->
-                                            <div class="program-content hidden text-center" id="akl-content">
+                                            <div class="program-content hidden text-center" id="akl-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full overflow-hidden shadow-md">
                                                     <img src="{{ asset('img/ProgramDetail/aklDetail.jpeg') }}" class="w-full h-full object-cover" alt="Akuntansi dan Keuangan">
                                                 </div>
                                             </div>
 
                                             <!-- MPLB Content -->
-                                            <div class="program-content hidden text-center" id="mplb-content">
+                                            <div class="program-content hidden text-center" id="mplb-content" data-aos="zoom-in" data-aos-delay="800">
                                                 <div class="w-48 h-48 rounded-full overflow-hidden shadow-md">
                                                     <img src="{{ asset('img/ProgramDetail/mplbDetail.jpg') }}" class="w-full h-full object-cover" alt="Manajemen Perkantoran & Layanan Bisnis">
                                                 </div>
@@ -490,99 +490,99 @@
                                     <!-- Kolom Kanan: Deskripsi -->
                                     <div class="lg:w-3/5 p-8 lg:p-12">
                                         <!-- Deskripsi Default -->
-                                        <div class="program-description active" id="default-description">
+                                        <div class="program-description active" id="default-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Pendidikan Berkualitas</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Setiap program dirancang untuk mempersiapkan siswa menghadapi tantangan dunia kerja dan pendidikan tinggi.
                                                 Kami memberikan pendidikan yang relevan dengan kebutuhan industri saat ini.
                                             </p>
-                                            <div class="flex items-center text-blue-600 font-medium">
+                                            <div class="flex items-center text-blue-600 font-medium" data-aos="fade-up" data-aos-delay="1000">
                                                 <a href="{{ route('jurusan') }}">Pilih Program</a>
                                                 <i class="fas fa-arrow-right ml-2"></i>
                                             </div>
                                         </div>
 
                                         <!-- Deskripsi TKL -->
-                                        <div class="program-description hidden" id="tkl-description">
+                                        <div class="program-description hidden" id="tkl-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Teknik Ketenaga Listrikan</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Pelajari sistem tenaga listrik, distribusi energi, dan instalasi listrik untuk menjadi ahli di bidang ketenagalistrikan.
                                                 Program ini memberikan pemahaman mendalam tentang pembangkitan, transmisi, dan distribusi tenaga listrik.
                                             </p>
                                             <div class="flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Tenaga Listrik</span>
-                                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Instalasi</span>
-                                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Distribusi</span>
+                                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1000">Tenaga Listrik</span>
+                                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1100">Instalasi</span>
+                                                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1200">Distribusi</span>
                                             </div>
                                         </div>
 
                                         <!-- Deskripsi PPLG -->
-                                        <div class="program-description hidden" id="pplg-description">
+                                        <div class="program-description hidden" id="pplg-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Pemrograman Perangkat Lunak & Gim</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Kembangkan aplikasi web, mobile, desktop, dan game dengan teknologi terkini untuk menjadi developer profesional.
                                                 Program ini mencakup pengembangan perangkat lunak menggunakan berbagai bahasa pemrograman.
                                             </p>
                                             <div class="flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Web Development</span>
-                                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Mobile App</span>
-                                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Game Dev</span>
+                                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1000">Web Development</span>
+                                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1100">Mobile App</span>
+                                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1200">Game Dev</span>
                                             </div>
                                         </div>
 
                                         <!-- Deskripsi TKRO -->
-                                        <div class="program-description hidden" id="tkro-description">
+                                        <div class="program-description hidden" id="tkro-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Teknik Kendaraan Ringan Otomotif</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Kuasai teknik perawatan, perbaikan, dan diagnosis kendaraan bermotor untuk menjadi mekanik otomotif profesional.
                                                 Program ini memberikan keterampilan praktis dalam sistem mesin, kelistrikan, dan chasis.
                                             </p>
                                             <div class="flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Mesin</span>
-                                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Kelistrikan</span>
-                                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">Diagnosis</span>
+                                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1000">Mesin</span>
+                                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1100">Kelistrikan</span>
+                                                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1200">Diagnosis</span>
                                             </div>
                                         </div>
 
                                         <!-- Deskripsi TBSM -->
-                                        <div class="program-description hidden" id="tbsm-description">
+                                        <div class="program-description hidden" id="tbsm-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Teknik Bisnis Sepeda Motor</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Pelajari teknik perbaikan sepeda motor dan kewirausahaan untuk membuka bengkel atau dealer motor yang sukses.
                                                 Program ini menggabungkan keterampilan teknis dengan pengetahuan bisnis.
                                             </p>
                                             <div class="flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Perbaikan</span>
-                                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Bisnis</span>
-                                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Dealer</span>
+                                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1000">Perbaikan</span>
+                                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1100">Bisnis</span>
+                                                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1200">Dealer</span>
                                             </div>
                                         </div>
 
                                         <!-- Deskripsi AKL -->
-                                        <div class="program-description hidden" id="akl-description">
+                                        <div class="program-description hidden" id="akl-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Akuntansi dan Keuangan</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Kuasai prinsip akuntansi, perpajakan, dan manajemen keuangan untuk menjadi akuntan profesional.
                                                 Program ini memberikan pemahaman mendalam tentang siklus akuntansi dan pelaporan keuangan.
                                             </p>
                                             <div class="flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Akuntansi</span>
-                                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Perpajakan</span>
-                                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Keuangan</span>
+                                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1000">Akuntansi</span>
+                                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1100">Perpajakan</span>
+                                                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1200">Keuangan</span>
                                             </div>
                                         </div>
 
                                         <!-- Deskripsi MPLB -->
-                                        <div class="program-description hidden" id="mplb-description">
+                                        <div class="program-description hidden" id="mplb-description" data-aos="fade-left" data-aos-delay="900">
                                             <h3 class="text-3xl font-bold text-gray-900 mb-4">Manajemen Perkantoran & Layanan Bisnis</h3>
                                             <p class="text-gray-600 leading-relaxed mb-6">
                                                 Pelajari administrasi perkantoran, manajemen dokumen, dan layanan bisnis untuk menjadi profesional di bidang administrasi.
                                                 Program ini mencakup keterampilan komunikasi bisnis dan teknologi perkantoran.
                                             </p>
                                             <div class="flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">Administrasi</span>
-                                                <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">Layanan Bisnis</span>
-                                                <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm">Komunikasi</span>
+                                                <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1000">Administrasi</span>
+                                                <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1100">Layanan Bisnis</span>
+                                                <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm" data-aos="fade-up" data-aos-delay="1200">Komunikasi</span>
                                             </div>
                                         </div>
                                     </div>
@@ -696,22 +696,22 @@
     <livewire:partials.cta/>
 
    <!-- Section Prestasi - Unik & Editorial -->
-    <section class="py-20 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+    <section class="py-20 bg-white relative overflow-hidden" data-aos="fade-up">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" data-aos="fade-left" data-aos-delay="200"></div>
         
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16">
-                <div class="lg:w-1/2">
-                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider">Jejak Prestasi</span>
-                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4 leading-tight">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16" data-aos="fade-up" data-aos-delay="300">
+                <div class="lg:w-1/2" data-aos="fade-right" data-aos-delay="400">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider" data-aos="fade-up" data-aos-delay="500">Jejak Prestasi</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4 leading-tight" data-aos="fade-up" data-aos-delay="600">
                         Lebih dari Sekadar Angka, <span class="text-blue-600">Ini Adalah Cerita Kami</span>
                     </h2>
-                    <p class="text-lg text-gray-600">
+                    <p class="text-lg text-gray-600" data-aos="fade-up" data-aos-delay="700">
                         Setiap trofi adalah bukti dedikasi, setiap medali adalah langkah menuju keunggulan. Ini adalah beberapa bab dari perjalanan kami.
                     </p>
                 </div>
-                <div class="mt-8 lg:mt-0 lg:w-1/3 lg:text-right">
-                    <div class="inline-flex items-baseline space-x-2">
+                <div class="mt-8 lg:mt-0 lg:w-1/3 lg:text-right" data-aos="fade-left" data-aos-delay="800">
+                    <div class="inline-flex items-baseline space-x-2" data-aos="zoom-in" data-aos-delay="900">
                         <span class="text-5xl font-bold text-gray-900">100+</span>
                         <span class="text-lg text-gray-600">Prestasi & Penghargaan</span>
                     </div>
@@ -719,8 +719,8 @@
             </div>
 
             <!-- Featured Achievement -->
-            <div class="mb-20">
-                <div class="bg-gradient-to-r from-slate-900 to-slate-700 rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden group">
+            <div class="mb-20" data-aos="fade-up" data-aos-delay="1000">
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden group" data-aos="zoom-in" data-aos-delay="1100">
                     <div class="absolute inset-0 opacity-10">
                         <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <pattern id="grid-featured" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -731,17 +731,17 @@
                     </div>
                     <div class="relative z-10 lg:flex lg:items-center lg:justify-between">
                         <div class="lg:w-2/3">
-                            <div class="flex items-center space-x-3 mb-4">
+                            <div class="flex items-center space-x-3 mb-4" data-aos="fade-right" data-aos-delay="1200">
                                 <i class="fas fa-crown text-yellow-400 text-2xl"></i>
                                 <span class="text-yellow-400 font-semibold tracking-wide">Prestasi Terbaru</span>
                             </div>
-                            <h3 class="text-3xl font-bold mb-3">SMK Negeri 4 Kuningan Berprestasi di Kompetisi Find IT! Future Innovation and Discovery Information and Technology 2024 </h3>
-                            <p class="text-gray-300 mb-6 text-lg">
+                            <h3 class="text-3xl font-bold mb-3" data-aos="fade-up" data-aos-delay="1300">SMK Negeri 4 Kuningan Berprestasi di Kompetisi Find IT! Future Innovation and Discovery Information and Technology 2024 </h3>
+                            <p class="text-gray-300 mb-6 text-lg" data-aos="fade-up" data-aos-delay="1400">
                                 Jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) SMK Negeri 4 Kuningan kembali menorehkan prestasi membanggakan dengan berhasil memasuki 10 besar dalam ajang bergengsi Find IT! Future Innovation and Discovery Information and Technology yang diselenggarakan oleh Departemen Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada (DTETI FT UGM). Event tahunan ini merupakan platform prestisius yang dirancang untuk mengembangkan bakat dan minat di bidang teknologi informasi sekaligus memperkenalkan dunia TI kepada masyarakat luas, terutama dalam menghadapi era revolusi industri 5.0 yang semakin pesat.
                             </p>
                         </div>
-                        <div class="mt-8 lg:mt-0">
-                            <img src="{{ asset('img/prestasiterbaru.png') }}" alt="Prestasi" class="rounded-xl shadow-2xl w-full lg:w-[400px] h-80 object-cover">
+                        <div class="mt-8 lg:mt-0" data-aos="fade-left" data-aos-delay="1500">
+                            <img src="{{ asset('img/prestasiterbaru.png') }}" alt="Prestasi" class="rounded-xl shadow-2xl w-full lg:w-[400px] h-80 object-cover" data-aos="zoom-in" data-aos-delay="1600">
                         </div>
                     </div>
                 </div>
@@ -750,22 +750,22 @@
             <!-- List of Other Achievements -->
             <div class="space-y-6">
                 @foreach($achievements as $index => $achievement)
-                <a href="{{ route('achievement.detail', $achievement->id) }}" class="flex flex-col lg:flex-row lg:items-center group">
-                    <div class="lg:w-1/4 mb-4 lg:mb-0 text-center lg:text-left">
+                <a href="{{ route('achievement.detail', $achievement->id) }}" class="flex flex-col lg:flex-row lg:items-center group" data-aos="fade-up" data-aos-delay="{{ 1700 + ($index * 100) }}">
+                    <div class="lg:w-1/4 mb-4 lg:mb-0 text-center lg:text-left" data-aos="fade-right" data-aos-delay="{{ 1800 + ($index * 100) }}">
                         <span class="text-2xl md:text-3xl font-bold {{ ['text-blue-600', 'text-purple-600', 'text-green-600'][$index % 3] }}">
                             {{ $achievement->date ? $achievement->date->format('Y') : 'N/A' }}
                         </span>
                     </div>
-                    <div class="lg:w-3/4 bg-gray-100 rounded-2xl p-4 md:p-6 lg:p-8 group-hover:bg-slate-50 transition-all duration-300">
+                    <div class="lg:w-3/4 bg-gray-100 rounded-2xl p-4 md:p-6 lg:p-8 group-hover:bg-slate-50 transition-all duration-300" data-aos="fade-left" data-aos-delay="{{ 1900 + ($index * 100) }}">
                         <div class="flex items-start justify-between">
                             <div>
-                                <h4 class="text-xl font-bold text-gray-900 mb-1">{{ $achievement->title }}</h4>
-                                <p class="text-gray-600">{{ $achievement->description ?? 'Deskripsi tidak tersedia' }}</p>
+                                <h4 class="text-xl font-bold text-gray-900 mb-1" data-aos="fade-up" data-aos-delay="{{ 2000 + ($index * 100) }}">{{ $achievement->title }}</h4>
+                                <p class="text-gray-600" data-aos="fade-up" data-aos-delay="{{ 2100 + ($index * 100) }}">{{ $achievement->description ?? 'Deskripsi tidak tersedia' }}</p>
                                 @if($achievement->level)
-                                <span class="inline-block mt-2 px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded-full">{{ $achievement->level }}</span>
+                                <span class="inline-block mt-2 px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded-full" data-aos="fade-up" data-aos-delay="{{ 2200 + ($index * 100) }}">{{ $achievement->level }}</span>
                                 @endif
                             </div>
-                            <div class="ml-4 w-12 h-12 {{ ['bg-blue-100', 'bg-purple-100', 'bg-green-100'][$index % 3] }} rounded-full flex items-center justify-center flex-shrink-0">
+                            <div class="ml-4 w-12 h-12 {{ ['bg-blue-100', 'bg-purple-100', 'bg-green-100'][$index % 3] }} rounded-full flex items-center justify-center flex-shrink-0" data-aos="zoom-in" data-aos-delay="{{ 2300 + ($index * 100) }}">
                                 <i class="fas {{ ['fa-globe', 'fa-lightbulb', 'fa-leaf'][$index % 3] }} {{ ['text-blue-600', 'text-purple-600', 'text-green-600'][$index % 3] }}"></i>
                             </div>
                         </div>
@@ -775,11 +775,11 @@
             </div>
 
             <!-- Closing Statement -->
-            <div class="mt-20 text-center">
-                <p class="text-xl text-gray-600 italic">
+            <div class="mt-20 text-center" data-aos="fade-up" data-aos-delay="2400">
+                <p class="text-xl text-gray-600 italic" data-aos="fade-up" data-aos-delay="2500">
                     "Prestasi bukan tujuan akhir, tapi fondasi untuk terus melangkah lebih jauh."
                 </p>
-                <a href="{{ route('achievement') }}" class="mt-6 inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                <a href="{{ route('achievement') }}" class="mt-6 inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors" data-aos="fade-up" data-aos-delay="2600">
                     <span>Jelajahi Cerita Lengkapnya</span>
                     <i class="fas fa-arrow-right ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform"></i>
                 </a>

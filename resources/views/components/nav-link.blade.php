@@ -1,24 +1,18 @@
-<!-- resources/views/components/nav-link.blade.php -->
-@props(['href'])
+@props(['active' => false])
 
 @php
-    $isActive = request()->routeIs(
-        $href == '/' ? 'home' : 
-        (str_starts_with($href, 'http') ? false : 
-        str_replace('/', '', $href))
-    );
+$classes = $active
+    ? 'text-blue-600 after:w-full'
+    : 'text-gray-700 hover:text-blue-600 after:w-0 hover:after:w-full';
 @endphp
 
-<a {{ $attributes->merge(['href' => $href]) }}
-   class="relative group font-[Poppins] 
-          {{ $isActive 
-              ? 'text-blue-600 bg-blue-50/80 shadow-sm after:w-full' 
-              : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50/80  after:w-0 group-hover:after:w-full' }}
-          transition-colors duration-200"
-   >
+<a {{ $attributes->merge([
+        'class' => "
+            relative inline-flex items-center pb-1
+            after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+            after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300
+            $classes
+        "
+    ]) }}>
     {{ $slot }}
-
-    <!-- Garis bawah -->
-    <span class="absolute left-0 -bottom-1 h-[2px] bg-blue-600 transition-width duration-300 ease-out 
-                 {{ $isActive ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
 </a>
