@@ -171,37 +171,12 @@
                 </iframe>
                 </div>
 
-                <!-- Garis Pemisah -->
-                <div class="divider my-8"></div>
-
                 <!-- Bagian Bawah Footer -->
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <!-- Copyright -->
-                    <div class="mb-4 md:mb-0">
+                <div class="text-center">
                         <p class="text-gray-400 text-sm">
                             &copy; <span id="currentYear"></span> SMKN 4 KUNINGAN
                             <span class="text-blue-300">Semua hak dilindungi undang-undang.</span>
                         </p>
-                    </div>
-
-                    <!-- Link Legal -->
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm link-transition">
-                            Kebijakan Privasi
-                        </a>
-                        <span class="text-gray-600 hidden md:inline">|</span>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm link-transition">
-                            Syarat & Ketentuan
-                        </a>
-                        <span class="text-gray-600 hidden md:inline">|</span>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm link-transition">
-                            Peta Situs
-                        </a>
-                        <span class="text-gray-600 hidden md:inline">|</span>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm link-transition">
-                            Aksesibilitas
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -218,4 +193,5 @@
             </div>
         </div>
     </footer>
+</div>
         

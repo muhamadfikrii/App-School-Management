@@ -1,4 +1,4 @@
-<section id="galeri" class="relative py-16 bg-gradient-to-b from-gray-50 to-white">
+<section class="py-16 bg-gradient-to-b from-gray-50 to-white">
   <div class="container mx-auto px-4 lg:px-10">
     <!-- Judul -->
     <h2
@@ -14,7 +14,7 @@
     >
       <!-- Item 1 -->
       <div
-        class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+        class="group overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
         data-aos="fade-up"
         data-aos-delay="100"
       >
@@ -35,7 +35,7 @@
 
       <!-- Item 2 -->
       <div
-        class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+        class="group overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -55,7 +55,7 @@
 
       <!-- Item 3 -->
       <div
-        class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+        class="group overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
         data-aos="fade-up"
         data-aos-delay="300"
       >
