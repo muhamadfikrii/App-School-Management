@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExportFinalGradeController;
-use App\Livewire\FromRegister;
+use App\Livewire\FormRegister;
 use App\Livewire\Page\About;
 use App\Livewire\Page\Achievements;
 use App\Livewire\Page\BeritaPage;
@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'], function (): void {
     Route::get('/export/final-grade/{finalGrade}', ExportFinalGradeController::class)->name('export.final-grade');
 });
 
-Route::get('/register/{invitation}', FromRegister::class)->name('register')->middleware('signed');
+Route::get('/register/{invitation}', FormRegister::class)->name('register')->middleware('signed');
 Route::get('/', Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
 Route::get('/contact', Contact::class)->name('contact');

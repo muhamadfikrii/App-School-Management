@@ -36,7 +36,7 @@ class BeritaDetail extends Component
     {
         return view('livewire.partials.berita-detail', [
             'relatedNews' => $this->relatedNews,
-            'berita' => $this->berita,
+            'berita'      => $this->berita,
         ]);
     }
 }
