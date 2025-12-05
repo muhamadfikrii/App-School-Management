@@ -3,10 +3,9 @@
 namespace App\Livewire\Partials;
 
 use App\Models\Achievement;
-use function view;
-
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+
+use function view;
 
 class AchievementDetail extends Component
 {
@@ -24,7 +23,6 @@ class AchievementDetail extends Component
         $this->achievements = Achievement::where('id', '!=', $this->achievement->id)
             ->take(3)
             ->get();
-
 
         return view('livewire.partials.achievement-detail', [
             'achievements' => $this->achievements,

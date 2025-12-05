@@ -11,18 +11,21 @@ use App\Models\User;
 use function array_merge;
 
 use Illuminate\Support\Carbon;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 use function redirect;
 use function session;
 use function view;
 
-class FromRegister extends Component
+class FormRegister extends Component
 {
+    use WithFileUploads;
     public string $name = '';
 
     public string $email = '';
@@ -48,6 +51,8 @@ class FromRegister extends Component
 
     public ?string $address = null;
 
+    public $photo;
+
     public Invitation $invitation;
 
     public function mount(Invitation $invitation): void
@@ -59,12 +64,14 @@ class FromRegister extends Component
         $this->name = $invitation->name;
 
         $this->email = $invitation->email;
+
+        $this->username = $this->generateUsername($this->name);
     }
 
     #[Layout('components.layouts.app')]
     public function render()
     {
-        return view('livewire.from-register');
+        return view('livewire.form-register');
     }
 
     public function submit()
@@ -97,6 +104,11 @@ class FromRegister extends Component
             ]);
 
             if ($this->isTeacher) {
+                $photoPath = null;
+                if ($this->photo) {
+                    $photoPath = $this->photo->store('avatars', 'public');
+                }
+
                 Teacher::create([
                     'full_name'     => $this->name,
                     'nip'           => $validated['nip']   ?? null,
@@ -105,6 +117,7 @@ class FromRegister extends Component
                     'date_of_birth' => isset($validated['date_of_birth']) ? Carbon::parse($validated['date_of_birth']) : null,
                     'status'        => $validated['status'],
                     'address'       => $validated['address'] ?? null,
+                    'avatar_url'    => $photoPath,
                     'user_id'       => $user->id,
                 ]);
             }

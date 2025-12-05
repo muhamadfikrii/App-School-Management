@@ -17,7 +17,6 @@ class Home extends Component
 
     public $students;
 
-
     public function mount()
     {
         $this->students = Student::count();

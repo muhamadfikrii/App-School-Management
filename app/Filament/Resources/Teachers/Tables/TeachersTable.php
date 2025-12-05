@@ -68,7 +68,7 @@ class TeachersTable
                     DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort('full_name', 'asc')
+            ->defaultSort('created_at', 'desc')
             ->striped();
     }
 }

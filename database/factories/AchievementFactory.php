@@ -2,10 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Student;
-
-use function collect;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,12 +19,12 @@ class AchievementFactory extends Factory
         $levels = ['Kabupaten', 'Provinsi', 'Nasional'];
 
         return [
-            'title' => $this->faker->sentence(),
+            'title'       => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
-            'level' => 'Kabupaten',
-            'date' => $this->faker->date(),
-            'student_id' => null,
-            'photo' => null,
+            'level'       => 'Kabupaten',
+            'date'        => $this->faker->date(),
+            'student_id'  => null,
+            'photo'       => null,
         ];
     }
 }

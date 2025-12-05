@@ -10,8 +10,8 @@ return new class() extends Migration {
      */
     public function up(): void
     {
-        Schema::table('teachers', function (Blueprint $table) {
-            $table->string('avatar_url')->after('date_of_birth')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->unique()->nullable()->after('name');
         });
     }
 
@@ -20,7 +20,8 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::table('teachers', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('username');
         });
     }
 };
