@@ -48,7 +48,6 @@
                             Beranda
                         </x-nav-link>
                         
-                        <!-- Dropdown Info Sekolah dengan logika active yang benar -->
                         <div class="relative group" x-data="{ open: false }">
                             @php
                                 $infoRoutes = ['jurusan', 'organisasi', 'profile-guru', 'berita', 'achievement', 'jurusan.detail', 'berita.detail', 'achievement.detail'];
@@ -124,7 +123,7 @@
                                             <i class="fas fa-chalkboard-teacher text-white text-xs"></i>
                                         </div>
                                         <div class="flex-1">
-                                            <div class="font-semibold text-sm">Profile Guru</div>
+                                            <div class="font-semibold text-sm">Profil Guru</div>
                                             <div class="text-xs text-gray-400 mt-0.5">Staf Pengajar Profesional</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-300 text-xs group-hover:text-purple-600 ml-2"></i>

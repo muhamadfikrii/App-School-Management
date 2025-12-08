@@ -44,4 +44,10 @@ class Student extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function achievements(): HasMany
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
 }
