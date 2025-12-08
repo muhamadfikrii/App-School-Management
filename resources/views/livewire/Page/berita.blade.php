@@ -74,7 +74,7 @@
 
             <!-- Pagination -->
             <div class="mt-12 flex justify-center">
-                {{ $beritas->links() }}
+                {{ $beritas->links('pagination::tailwind') }}
             </div>
         @else
             <!-- Detail View -->

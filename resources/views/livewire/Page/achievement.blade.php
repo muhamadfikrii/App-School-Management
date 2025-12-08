@@ -16,12 +16,12 @@
                 </div>
             </header>
 
-            <div class="lg:flex lg:gap-12">
+            <div class="flex flex-col lg:flex-row lg:gap-12">
                 <!-- Main Content Area -->
-                <main class="lg:w-2/3">
+                <main class="w-full lg:w-2/3">
                     @if ($achievements->count() > 0)
                         <!-- Featured Story - Asymmetric Layout -->
-                        <article class="mb-12 -mx-4 lg:mx-0">
+                        <article class="mb-12 px-4 lg:px-0">
                             <a href="{{ route('achievement.detail', $achievements->first()->id) }}" class="group block">
                                 <div class="relative">
                                     @if ($achievements->first()->photo)

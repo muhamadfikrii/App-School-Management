@@ -17,7 +17,6 @@ class AchievementForm
     {
         return $schema->components([
 
-            // 🏅 Informasi Prestasi
             Section::make('Informasi Prestasi')
                 ->description('Isi data detail prestasi yang diraih oleh siswa.')
                 ->schema([
@@ -31,8 +30,8 @@ class AchievementForm
                         Select::make('student_id')
                             ->label('Nama Siswa')
                             ->relationship('student', 'full_name')
-                            ->searchable()
-                            ->required(),
+                            ->nullable()
+                            ->searchable(),
                     ]),
 
                     Grid::make(2)->schema([
