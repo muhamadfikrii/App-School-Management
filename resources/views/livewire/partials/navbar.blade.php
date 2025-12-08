@@ -245,7 +245,6 @@
                            @click="open = false" 
                            class="flex items-center w-full px-4 py-3 rounded-xl transition-all duration-200
                                   {{ $currentRoute === 'home' ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600' : 'text-gray-700 hover:bg-gray-100' }}">
-                            <i class="fas fa-home mr-3 {{ $currentRoute === 'home' ? 'text-blue-600' : 'text-gray-500' }}"></i>
                             <span class="font-medium">Beranda</span>
                             @if($currentRoute === 'home')
                                 <span class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -263,7 +262,6 @@
                                     class="flex items-center justify-between w-full px-4 py-3 rounded-xl transition-all duration-200
                                            {{ $isInfoActive ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600' : 'text-gray-700 hover:bg-gray-100' }}">
                                 <div class="flex items-center">
-                                    <i class="fas fa-info-circle mr-3 {{ $isInfoActive ? 'text-blue-600' : 'text-gray-500' }}"></i>
                                     <span class="font-medium">Info Sekolah</span>
                                 </div>
                                 <div class="flex items-center">
@@ -298,7 +296,6 @@
                                    @click="open = false" 
                                    class="flex items-center px-4 py-2.5 text-sm rounded-lg transition-all
                                           {{ $checkActive('jurusan') || $checkActive('jurusan.detail') ? 'bg-white text-blue-600 border-l-2 border-blue-600' : 'text-gray-600 hover:bg-white hover:text-blue-600' }}">
-                                    <i class="fas fa-laptop-code mr-3 {{ $checkActive('jurusan') || $checkActive('jurusan.detail') ? 'text-blue-600' : 'text-blue-500' }}"></i> 
                                     Program Keahlian
                                     @if($checkActive('jurusan') || $checkActive('jurusan.detail'))
                                         <span class="ml-auto w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
@@ -309,7 +306,6 @@
                                    @click="open = false" 
                                    class="flex items-center px-4 py-2.5 text-sm rounded-lg transition-all
                                           {{ $checkActive('organisasi') ? 'bg-white text-green-600 border-l-2 border-green-600' : 'text-gray-600 hover:bg-white hover:text-green-600' }}">
-                                    <i class="fas fa-users mr-3 {{ $checkActive('organisasi') ? 'text-green-600' : 'text-green-500' }}"></i> 
                                     Organisasi
                                     @if($checkActive('organisasi'))
                                         <span class="ml-auto w-1.5 h-1.5 bg-green-600 rounded-full"></span>
@@ -320,7 +316,6 @@
                                    @click="open =false" 
                                    class="flex items-center px-4 py-2.5 text-sm rounded-lg transition-all
                                           {{ $checkActive('profile-guru') ? 'bg-white text-purple-600 border-l-2 border-purple-600' : 'text-gray-600 hover:bg-white hover:text-purple-600' }}">
-                                    <i class="fas fa-chalkboard-teacher mr-3 {{ $checkActive('profile-guru') ? 'text-purple-600' : 'text-purple-500' }}"></i> 
                                     Profile Guru
                                     @if($checkActive('profile-guru'))
                                         <span class="ml-auto w-1.5 h-1.5 bg-purple-600 rounded-full"></span>
@@ -331,7 +326,6 @@
                                    @click="open = false" 
                                    class="flex items-center px-4 py-2.5 text-sm rounded-lg transition-all
                                           {{ $checkActive('berita') || $checkActive('berita.detail') ? 'bg-white text-orange-600 border-l-2 border-orange-600' : 'text-gray-600 hover:bg-white hover:text-orange-600' }}">
-                                    <i class="fas fa-newspaper mr-3 {{ $checkActive('berita') || $checkActive('berita.detail') ? 'text-orange-600' : 'text-orange-500' }}"></i> 
                                     Berita
                                     @if($checkActive('berita') || $checkActive('berita.detail'))
                                         <span class="ml-auto w-1.5 h-1.5 bg-orange-600 rounded-full"></span>
@@ -342,7 +336,6 @@
                                    @click="open = false" 
                                    class="flex items-center px-4 py-2.5 text-sm rounded-lg transition-all
                                           {{ $checkActive('achievement') || $checkActive('achievement.detail') ? 'bg-white text-red-600 border-l-2 border-red-600' : 'text-gray-600 hover:bg-white hover:text-red-600' }}">
-                                    <i class="fas fa-trophy mr-3 {{ $checkActive('achievement') || $checkActive('achievement.detail') ? 'text-red-600' : 'text-red-500' }}"></i> 
                                     Prestasi
                                     @if($checkActive('achievement') || $checkActive('achievement.detail'))
                                         <span class="ml-auto w-1.5 h-1.5 bg-red-600 rounded-full"></span>
@@ -355,7 +348,6 @@
                            @click="open = false" 
                            class="flex items-center w-full px-4 py-3 rounded-xl transition-all duration-200
                                   {{ $currentRoute === 'about' ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600' : 'text-gray-700 hover:bg-gray-100' }}">
-                            <i class="fas fa-school mr-3 {{ $currentRoute === 'about' ? 'text-blue-600' : 'text-gray-500' }}"></i>
                             <span class="font-medium">Tentang Kami</span>
                             @if($currentRoute === 'about')
                                 <span class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -366,7 +358,6 @@
                            @click="open = false" 
                            class="flex items-center w-full px-4 py-3 rounded-xl transition-all duration-200
                                   {{ $currentRoute === 'contact' ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600' : 'text-gray-700 hover:bg-gray-100' }}">
-                            <i class="fas fa-envelope mr-3 {{ $currentRoute === 'contact' ? 'text-blue-600' : 'text-gray-500' }}"></i>
                             <span class="font-medium">Kontak</span>
                             @if($currentRoute === 'contact')
                                 <span class="ml-auto w-2 h-2 bg-blue-600 rounded-full"></span>
