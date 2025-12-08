@@ -45,9 +45,8 @@
             
             <!-- Form Area -->
             <div class="form-container p-6 sm:p-8 lg:p-10 lg:col-span-2">
-                <form wire:submit.prevent="submit" class="space-y-8">
+                <form wire:submit.prevent="submit" @if($isTeacher) enctype="multipart/form-data" @endif class="space-y-8">
                     @csrf
-                    
                     <!-- Header -->
                     <div>
                         <h2 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-2">Registrasi Akun</h2>
@@ -65,9 +64,12 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-user text-gray-400"></i>
                                 </div>
-                                <input type="text" wire:model.live.debounce.200ms="name" required placeholder="Masukkan nama lengkap"
+                                <input type="text" wire:model.live.debounce.200ms="name" placeholder="Masukkan nama lengkap"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
                             </div>
+                            @error('name')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <!-- Username -->
@@ -79,7 +81,7 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-at text-gray-400"></i>
                                 </div>
-                                <input type="text" wire:model="username" disabled placeholder="Username akan terisi otomatis"
+                                <input type="text" wire:model="username" readonly placeholder="Username akan terisi otomatis"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-300 bg-gray-50 rounded-xl cursor-not-allowed">
                             </div>
                         </div>
@@ -93,9 +95,12 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-envelope text-gray-400"></i>
                                 </div>
-                                <input type="email" wire:model="email" required placeholder="contoh@email.com"
+                                <input type="email" wire:model="email" placeholder="contoh@email.com"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
                             </div>
+                            @error('email')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
                         
                         <!-- Password -->
@@ -107,7 +112,7 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-lock text-gray-400"></i>
                                 </div>
-                                <input :type="show ? 'text' : 'password'" wire:model="password" required
+                                <input :type="show ? 'text' : 'password'" wire:model="password"
                                        placeholder="Minimal 8 karakter"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
                                 <button type="button" @click="show = !show"
@@ -115,6 +120,9 @@
                                     <i class="fas" :class="show ? 'fa-eye-slash' : 'fa-eye'"></i>
                                 </button>
                             </div>
+                            @error('password')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
                         
                         <!-- Konfirmasi Password -->
@@ -126,9 +134,12 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-lock text-gray-400"></i>
                                 </div>
-                                <input type="password" wire:model="password_confirmation" required 
+                                <input type="password" wire:model.live="password_confirmation" 
                                        placeholder="Ulangi password"
                                        class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
+                                       @error('password_confirmation')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
                             </div>
                         </div>
                     </div>
@@ -156,9 +167,12 @@
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i class="fas fa-id-card text-gray-400"></i>
                                     </div>
-                                    <input type="text" wire:model="nip" required placeholder="Nomor Induk Pegawai"
+                                    <input type="text" wire:model="nip" placeholder="Nomor Induk Pegawai"
                                            class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
                                 </div>
+                                @error('nip')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <!-- Nomor HP -->
@@ -168,9 +182,12 @@
                                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <i class="fas fa-phone text-gray-400"></i>
                                     </div>
-                                    <input type="text" wire:model="phone" required placeholder="0812xxxxxx"
+                                    <input type="text" wire:model="phone" placeholder="0812xxxxxx"
                                            class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
                                 </div>
+                                @error('phone')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <!-- Jenis Kelamin -->
@@ -184,6 +201,9 @@
                                         <option value="perempuan">Perempuan</option>
                                     </select>
                                 </div>
+                                @error('gender')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <!-- Tanggal Lahir -->
@@ -196,6 +216,9 @@
                                     <input type="date" wire:model="date_of_birth"
                                            class="w-full pl-10 pr-4 py-3 border border-gray-400 active:border-blue-500 rounded-xl">
                                 </div>
+                                @error('date_of_birth')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <!-- Status -->
@@ -210,6 +233,9 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @error('status')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <!-- Placeholder untuk alignment -->
@@ -225,6 +251,9 @@
                                     <textarea wire:model="address" rows="3" placeholder="Tuliskan alamat lengkap"
                                               class="border border-gray-400 active:border-blue-500 w-full pl-10 pr-4 py-3 rounded-xl resize-none"></textarea>
                                 </div>
+                                @error('address')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
                             
                             <!-- Photo Upload -->
@@ -280,7 +309,7 @@
                     
                     <!-- Submit Button -->
                     <div class="pt-6 border-t border-gray-200">
-                        <button type="submit"
+                        <button
                                 class="btn-primary w-full text-white font-semibold px-8 py-4 rounded-xl flex items-center justify-center">
                             <i class="fas fa-user-plus mr-3"></i>
                             Daftar Sekarang
@@ -299,9 +328,6 @@
     </div>
     
       <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
         
         h1, h2, h3, .font-poppins {
             font-family: 'Poppins', sans-serif;
