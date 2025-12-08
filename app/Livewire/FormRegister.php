@@ -123,9 +123,9 @@ class FormRegister extends Component
             }
         });
 
-        session()->flash('success', 'Teacher and User created successfully!');
         $this->invitation->update(['status' => InvitationStatus::SUCCESS]);
 
+        session()->flash('success', $this->isTeacher ? 'Teacher and User created successfully!' : 'Administrator account created successfully!');
         return redirect()->to('/admin');
     }
 
