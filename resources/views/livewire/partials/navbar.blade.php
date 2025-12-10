@@ -383,13 +383,11 @@
 <style>
     [x-cloak] { display: none !important; }
     
-    /* Custom scrollbar for sidebar */
     .overflow-y-auto::-webkit-scrollbar { width: 6px; }
     .overflow-y-auto::-webkit-scrollbar-track { background: rgba(241, 245, 249, 0.5); border-radius: 3px; }
     .overflow-y-auto::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.5); border-radius: 3px; }
     .overflow-y-auto::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.6); }
     
-    /* Garis bawah animation */
     .group:hover span {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }

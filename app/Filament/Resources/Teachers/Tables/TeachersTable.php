@@ -66,7 +66,7 @@ class TeachersTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
-                ]),
+                ])->visible(fn () => auth()->user()->is_admin),
             ])
             ->defaultSort('created_at', 'desc')
             ->striped();

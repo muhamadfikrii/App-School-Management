@@ -199,7 +199,6 @@ class ReportForm
                         $set('avrg', $avg ? round($avg, 2) : 0);
                     })
                     ->afterStateUpdated(function ($state, Set $set, Get $get): void {
-                        // kalau mau update otomatis setiap kali repeater berubah
                         $nilaiSiswa = $get('nilai-siswa') ?? [];
                         $scores     = array_filter(array_column($nilaiSiswa, 'final_score'));
                         $avg        = $scores ? array_sum($scores) / count($scores) : null;

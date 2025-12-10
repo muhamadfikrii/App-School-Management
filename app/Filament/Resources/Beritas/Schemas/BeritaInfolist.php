@@ -23,7 +23,7 @@ class BeritaInfolist
                             ->label('Gambar Berita')
                             ->disk('public')
                             ->imageHeight(200)
-                            ->imageWidth(300),
+                            ->imageWidth(250),
 
                         TextEntry::make('title')
                             ->label('Judul')
