@@ -2,22 +2,13 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Grade;
-use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
-
-use function now;
-use function round;
 
 class StudentsChart extends ChartWidget
 {
     protected ?string $heading = 'Rata-rata Nilai Siswa';
 
     protected static ?int $sort = 2;
-
-    public ?string $startDate = null;
-
-    public ?string $endDate = null;
 
     protected function getType(): string
     {
@@ -26,28 +17,37 @@ class StudentsChart extends ChartWidget
 
     protected function getData(): array
     {
-        $start = $this->startDate ? Carbon::parse($this->startDate) : now()->startOfYear();
-        $end   = $this->endDate ? Carbon::parse($this->endDate) : now()->endOfYear();
+        // Hardcode labels per bulan
+        $labels = [
+            'Jan 2025',
+            'Feb 2025',
+            'Mar 2025',
+            'Apr 2025',
+            'May 2025',
+            'Jun 2025',
+            'Jul 2025',
+            'Ags 2025',
+            'Sep 2025',
+            'Okt 2025',
+            'Nov 2025',
+            'Des 2025',
+        ];
 
-        $monthsRange = [];
-        $labels      = [];
-        $current     = $start->copy();
-        while ($current <= $end) {
-            $monthsRange[] = $current->month;
-            $labels[]      = $current->format('M');
-            $current->addMonth();
-        }
-
-        $monthlyAverage = Grade::query()
-            ->whereBetween('created_at', [$start, $end])
-            ->selectRaw('MONTH(created_at) as month, AVG(score) as avg_score')
-            ->groupBy('month')
-            ->pluck('avg_score', 'month');
-
-        $data = [];
-        foreach ($monthsRange as $month) {
-            $data[] = round($monthlyAverage[$month] ?? 0, 2);
-        }
+        // Hardcode rata-rata nilai siswa per bulan
+        $data = [
+            85.5,
+            78.2,
+            82.1,
+            88.7,
+            79.3,
+            84.6,
+            81.9,
+            87.4,
+            83.2,
+            86.1,
+            80.5,
+            89.0,
+        ];
 
         return [
             'labels'   => $labels,

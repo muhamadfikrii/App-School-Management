@@ -28,6 +28,7 @@ class StudentsTable
                     ->label('NISN'),
                 TextColumn::make('full_name')
                     ->searchable()
+                    ->sortable()
                     ->label('Nama Lengkap'),
                 TextColumn::make('date_of_birth')
                     ->date(' d M Y')
